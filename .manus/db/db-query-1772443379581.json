@@ -1,0 +1,70 @@
+{
+  "query": "SELECT id, name, displayOrder FROM attributes WHERE category = '材料管理' AND fieldName = '材料类型' ORDER BY displayOrder ASC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, name, displayOrder FROM attributes WHERE category = '材料管理' AND fieldName = '材料类型' ORDER BY displayOrder ASC;",
+  "rows": [
+    {
+      "id": "60001",
+      "name": "皮革",
+      "displayOrder": "0"
+    },
+    {
+      "id": "60002",
+      "name": "木腿",
+      "displayOrder": "0"
+    },
+    {
+      "id": "90001",
+      "name": "配件",
+      "displayOrder": "0"
+    },
+    {
+      "id": "90002",
+      "name": "布料",
+      "displayOrder": "0"
+    },
+    {
+      "id": "210001",
+      "name": "颜色",
+      "displayOrder": "0"
+    },
+    {
+      "id": "210002",
+      "name": "扶手",
+      "displayOrder": "0"
+    },
+    {
+      "id": "210003",
+      "name": "填充物",
+      "displayOrder": "0"
+    },
+    {
+      "id": "210004",
+      "name": "坐垫",
+      "displayOrder": "0"
+    },
+    {
+      "id": "210005",
+      "name": "靠背",
+      "displayOrder": "0"
+    },
+    {
+      "id": "210006",
+      "name": "框架",
+      "displayOrder": "0"
+    },
+    {
+      "id": "210007",
+      "name": "其他",
+      "displayOrder": "0"
+    },
+    {
+      "id": "210008",
+      "name": "测试材料",
+      "displayOrder": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tdisplayOrder\n60001\t皮革\t0\n60002\t木腿\t0\n90001\t配件\t0\n90002\t布料\t0\n210001\t颜色\t0\n210002\t扶手\t0\n210003\t填充物\t0\n210004\t坐垫\t0\n210005\t靠背\t0\n210006\t框架\t0\n210007\t其他\t0\n210008\t测试材料\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1491
+}

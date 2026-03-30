@@ -1,0 +1,29 @@
+{
+  "query": "SELECT pv.id, pv.variantCode, vp.* \nFROM product_variants pv\nLEFT JOIN variant_pricing vp ON pv.id = vp.variantId\nWHERE pv.variantCode = 'DC-001-GRY-V003';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT pv.id, pv.variantCode, vp.* \nFROM product_variants pv\nLEFT JOIN variant_pricing vp ON pv.id = vp.variantId\nWHERE pv.variantCode = 'DC-001-GRY-V003';",
+  "rows": [
+    {
+      "id": "120084",
+      "variantCode": "DC-001-GRY-V003",
+      "variantId": "120084",
+      "factoryCostRmbExTax": "NULL",
+      "factoryCostRmbIncTax": "NULL",
+      "factoryCostUsdFob": "NULL",
+      "myCostRmb": "NULL",
+      "myCostUsd": "NULL",
+      "fobFeeRmb": "NULL",
+      "sellingPriceRmbIncTax": "NULL",
+      "sellingPriceFobL1": "NULL",
+      "sellingPriceFobL2": "NULL",
+      "sellingPriceFobL3": "NULL",
+      "effectiveDate": "2026-02-16 05:49:40",
+      "isCurrent": "1",
+      "createdBy": "1",
+      "createdAt": "2026-02-16 05:49:39"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tid\tvariantId\tfactoryCostRmbExTax\tfactoryCostRmbIncTax\tfactoryCostUsdFob\tmyCostRmb\tmyCostUsd\tfobFeeRmb\tsellingPriceRmbIncTax\tsellingPriceFobL1\tsellingPriceFobL2\tsellingPriceFobL3\teffectiveDate\tisCurrent\tcreatedBy\tcreatedAt\n120084\tDC-001-GRY-V003\t120084\t120084\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\t2026-02-16 05:49:40\t1\t1\t2026-02-16 05:49:39\n",
+  "stderr": "",
+  "execution_time_ms": 1590
+}

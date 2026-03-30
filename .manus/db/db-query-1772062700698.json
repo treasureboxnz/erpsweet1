@@ -1,0 +1,94 @@
+{
+  "query": "SELECT sr.*, ec.companyName FROM sku_rules sr LEFT JOIN erp_companies ec ON sr.erpCompanyId = ec.id ORDER BY sr.erpCompanyId, sr.ruleType;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT sr.*, ec.companyName FROM sku_rules sr LEFT JOIN erp_companies ec ON sr.erpCompanyId = ec.id ORDER BY sr.erpCompanyId, sr.ruleType;",
+  "rows": [
+    {
+      "id": "4",
+      "erpCompanyId": "1",
+      "ruleType": "customer",
+      "prefix": "CUS",
+      "suffixLength": "4",
+      "currentCounter": "3",
+      "description": "客户编号规则",
+      "createdAt": "2026-02-24 04:07:19",
+      "updatedAt": "2026-02-24 18:40:11",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "6",
+      "erpCompanyId": "1",
+      "ruleType": "inspection",
+      "prefix": "INS",
+      "suffixLength": "4",
+      "currentCounter": "3",
+      "description": "报检单编号规则",
+      "createdAt": "2026-02-24 04:07:20",
+      "updatedAt": "2026-02-24 18:40:12",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "5",
+      "erpCompanyId": "1",
+      "ruleType": "order",
+      "prefix": "ORD",
+      "suffixLength": "5",
+      "currentCounter": "4",
+      "description": "订单编号规则",
+      "createdAt": "2026-02-24 04:07:19",
+      "updatedAt": "2026-02-24 18:40:11",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "2",
+      "erpCompanyId": "1",
+      "ruleType": "product",
+      "prefix": "PRD",
+      "suffixLength": "4",
+      "currentCounter": "8",
+      "description": "产品编号规则",
+      "createdAt": "2026-02-24 04:07:18",
+      "updatedAt": "2026-02-24 18:40:14",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "30001",
+      "erpCompanyId": "1",
+      "ruleType": "quotation",
+      "prefix": "QUO",
+      "suffixLength": "4",
+      "currentCounter": "2",
+      "description": "用于生成新报价单的编号，显示在报价单列表和详情页面",
+      "createdAt": "2026-02-24 10:45:27",
+      "updatedAt": "2026-02-24 18:40:12",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "1",
+      "erpCompanyId": "1",
+      "ruleType": "supplier",
+      "prefix": "SUP",
+      "suffixLength": "4",
+      "currentCounter": "13",
+      "description": "供应商编号规则",
+      "createdAt": "2026-02-24 04:07:18",
+      "updatedAt": "2026-02-24 18:40:14",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "3",
+      "erpCompanyId": "1",
+      "ruleType": "variant",
+      "prefix": "VAR",
+      "suffixLength": "4",
+      "currentCounter": "4",
+      "description": "批次编号规则",
+      "createdAt": "2026-02-24 04:07:18",
+      "updatedAt": "2026-02-24 18:40:10",
+      "companyName": "测试公司"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\truleType\tprefix\tsuffixLength\tcurrentCounter\tdescription\tcreatedAt\tupdatedAt\tcompanyName\n4\t1\tcustomer\tCUS\t4\t3\t客户编号规则\t2026-02-24 04:07:19\t2026-02-24 18:40:11\t测试公司\n6\t1\tinspection\tINS\t4\t3\t报检单编号规则\t2026-02-24 04:07:20\t2026-02-24 18:40:12\t测试公司\n5\t1\torder\tORD\t5\t4\t订单编号规则\t2026-02-24 04:07:19\t2026-02-24 18:40:11\t测试公司\n2\t1\tproduct\tPRD\t4\t8\t产品编号规则\t2026-02-24 04:07:18\t2026-02-24 18:40:14\t测试公司\n30001\t1\tquotation\tQUO\t4\t2\t用于生成新报价单的编号，显示在报价单列表和详情页面\t2026-02-24 10:45:27\t2026-02-24 18:40:12\t测试公司\n1\t1\tsupplier\tSUP\t4\t13\t供应商编号规则\t2026-02-24 04:07:18\t2026-02-24 18:40:14\t测试公司\n3\t1\tvariant\tVAR\t4\t4\t批次编号规则\t2026-02-24 04:07:18\t2026-02-24 18:40:10\t测试公司\n",
+  "stderr": "",
+  "execution_time_ms": 1658
+}

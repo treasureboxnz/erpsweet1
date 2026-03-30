@@ -1,0 +1,58 @@
+{
+  "query": "SELECT e.companyName, e.companyCode, u.email, u.name, u.role, (u.passwordHash IS NOT NULL) as hasPassword FROM erp_companies e LEFT JOIN users u ON u.erpCompanyId = e.id AND u.role IN ('admin', 'super_admin') ORDER BY e.id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT e.companyName, e.companyCode, u.email, u.name, u.role, (u.passwordHash IS NOT NULL) as hasPassword FROM erp_companies e LEFT JOIN users u ON u.erpCompanyId = e.id AND u.role IN ('admin', 'super_admin') ORDER BY e.id;",
+  "rows": [
+    {
+      "companyName": "测试公司",
+      "companyCode": "TEST",
+      "email": "admin@admin.com",
+      "name": "tester",
+      "role": "admin",
+      "hasPassword": "1"
+    },
+    {
+      "companyName": "测试公司",
+      "companyCode": "TEST",
+      "email": "admin@test.com",
+      "name": "管理员(已编辑)",
+      "role": "admin",
+      "hasPassword": "1"
+    },
+    {
+      "companyName": "测试公司",
+      "companyCode": "TEST",
+      "email": "nzchunzhou1@gmail.com",
+      "name": "Eric zhou",
+      "role": "super_admin",
+      "hasPassword": "0"
+    },
+    {
+      "companyName": "测试公司2",
+      "companyCode": "TEST2",
+      "email": "admin@test2.com",
+      "name": "测试公司2管理员",
+      "role": "admin",
+      "hasPassword": "1"
+    },
+    {
+      "companyName": "测试公司2",
+      "companyCode": "TEST2",
+      "email": "admin2@test.com",
+      "name": "管理员2",
+      "role": "admin",
+      "hasPassword": "1"
+    },
+    {
+      "companyName": "广州凯飒家具有限公司",
+      "companyCode": "CASAVIVA",
+      "email": "manager@casavivafurniture.com",
+      "name": "Iris",
+      "role": "super_admin",
+      "hasPassword": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "companyName\tcompanyCode\temail\tname\trole\thasPassword\n测试公司\tTEST\tadmin@admin.com\ttester\tadmin\t1\n测试公司\tTEST\tadmin@test.com\t管理员(已编辑)\tadmin\t1\n测试公司\tTEST\tnzchunzhou1@gmail.com\tEric zhou\tsuper_admin\t0\n测试公司2\tTEST2\tadmin@test2.com\t测试公司2管理员\tadmin\t1\n测试公司2\tTEST2\tadmin2@test.com\t管理员2\tadmin\t1\n广州凯飒家具有限公司\tCASAVIVA\tmanager@casavivafurniture.com\tIris\tsuper_admin\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1576
+}

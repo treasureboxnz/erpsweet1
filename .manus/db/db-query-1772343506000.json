@@ -1,0 +1,42 @@
+{
+  "query": "SELECT u.id, u.email, u.name, u.role, u.passwordHash, e.companyName \nFROM users u \nLEFT JOIN erp_companies e ON u.erpCompanyId = e.id \nWHERE e.companyName LIKE '%test%' OR e.companyName LIKE '%Test%' OR u.email LIKE '%test%'\nLIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT u.id, u.email, u.name, u.role, u.passwordHash, e.companyName \nFROM users u \nLEFT JOIN erp_companies e ON u.erpCompanyId = e.id \nWHERE e.companyName LIKE '%test%' OR e.companyName LIKE '%Test%' OR u.email LIKE '%test%'\nLIMIT 10;",
+  "rows": [
+    {
+      "id": "780093",
+      "email": "admin@test.com",
+      "name": "管理员(已编辑)",
+      "role": "admin",
+      "passwordHash": "$2b$10$DzIXdixWWzEdW.MflFCl2O56Z3IBIUW89.PamHuE1YDd66mcoJd2G",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "780121",
+      "email": "test3@test.com",
+      "name": "测试用户3",
+      "role": "operator",
+      "passwordHash": "$2b$10$JEtQmL6Gv8CkqD3zZx3Miu0PfOehXRbq8GesdWTEolo2Mwwv7PS1S",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "780152",
+      "email": "admin2@test.com",
+      "name": "管理员2",
+      "role": "admin",
+      "passwordHash": "$2b$10$4S4v65xuV7BBhtLGF3f3He7e48mT7CJw4uUmIf6o2uzCdtJ5gbhfG",
+      "companyName": "测试公司2"
+    },
+    {
+      "id": "840074",
+      "email": "admin@test2.com",
+      "name": "测试公司2管理员",
+      "role": "admin",
+      "passwordHash": "$2b$10$DzIXdixWWzEdW.MflFCl2O56Z3IBIUW89.PamHuE1YDd66mcoJd2G",
+      "companyName": "测试公司2"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\tname\trole\tpasswordHash\tcompanyName\n780093\tadmin@test.com\t管理员(已编辑)\tadmin\t$2b$10$DzIXdixWWzEdW.MflFCl2O56Z3IBIUW89.PamHuE1YDd66mcoJd2G\t测试公司\n780121\ttest3@test.com\t测试用户3\toperator\t$2b$10$JEtQmL6Gv8CkqD3zZx3Miu0PfOehXRbq8GesdWTEolo2Mwwv7PS1S\t测试公司\n780152\tadmin2@test.com\t管理员2\tadmin\t$2b$10$4S4v65xuV7BBhtLGF3f3He7e48mT7CJw4uUmIf6o2uzCdtJ5gbhfG\t测试公司2\n840074\tadmin@test2.com\t测试公司2管理员\tadmin\t$2b$10$DzIXdixWWzEdW.MflFCl2O56Z3IBIUW89.PamHuE1YDd66mcoJd2G\t测试公司2\n",
+  "stderr": "",
+  "execution_time_ms": 1561
+}

@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS quotation_approvals (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  quotationId INT NOT NULL,\n  approverId INT NOT NULL,\n  approverName VARCHAR(100) NOT NULL,\n  status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending' NOT NULL,\n  decision ENUM('approved', 'rejected'),\n  comments TEXT,\n  decidedAt TIMESTAMP NULL,\n  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\n  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,\n  INDEX quotation_approvals_quotation_idx (quotationId),\n  INDEX quotation_approvals_approver_idx (approverId),\n  INDEX quotation_approvals_status_idx (status),\n  FOREIGN KEY (quotationId) REFERENCES quotations(id) ON DELETE CASCADE,\n  FOREIGN KEY (approverId) REFERENCES users(id)\n)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute CREATE TABLE IF NOT EXISTS quotation_approvals (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  quotationId INT NOT NULL,\n  approverId INT NOT NULL,\n  approverName VARCHAR(100) NOT NULL,\n  status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending' NOT NULL,\n  decision ENUM('approved', 'rejected'),\n  comments TEXT,\n  decidedAt TIMESTAMP NULL,\n  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\n  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,\n  INDEX quotation_approvals_quotation_idx (quotationId),\n  INDEX quotation_approvals_approver_idx (approverId),\n  INDEX quotation_approvals_status_idx (status),\n  FOREIGN KEY (quotationId) REFERENCES quotations(id) ON DELETE CASCADE,\n  FOREIGN KEY (approverId) REFERENCES users(id)\n)",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1837
+}

@@ -1,0 +1,12 @@
+{
+  "query": "SELECT id, recipientId, senderId, senderName, type, title, content, relatedCustomerId, isRead, createdAt FROM in_app_notifications ORDER BY createdAt DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, recipientId, senderId, senderName, type, title, content, relatedCustomerId, isRead, createdAt FROM in_app_notifications ORDER BY createdAt DESC LIMIT 5;",
+  "rows": [],
+  "messages": [
+    "1\t1140093\t1\tEric zhou\tmention\tEric zhou 在跟进记录中@了你\t客户：Test SKU Auto-Init Company",
+    "内容：客户表示感兴趣，请 @tester \t240001\t0\t2026-03-08 15:20:06"
+  ],
+  "stdout": "id\trecipientId\tsenderId\tsenderName\ttype\ttitle\tcontent\trelatedCustomerId\tisRead\tcreatedAt\n1\t1140093\t1\tEric zhou\tmention\tEric zhou 在跟进记录中@了你\t客户：Test SKU Auto-Init Company\n内容：客户表示感兴趣，请 @tester \t240001\t0\t2026-03-08 15:20:06\n",
+  "stderr": "",
+  "execution_time_ms": 1565
+}

@@ -1,0 +1,266 @@
+{
+  "query": "SHOW COLUMNS FROM product_variants;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SHOW COLUMNS FROM product_variants;",
+  "rows": [
+    {
+      "Field": "id",
+      "Type": "int(11)",
+      "Null": "NO",
+      "Key": "PRI",
+      "Default": "NULL",
+      "Extra": "auto_increment"
+    },
+    {
+      "Field": "erpCompanyId",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "productId",
+      "Type": "int(11)",
+      "Null": "NO",
+      "Key": "MUL",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "variantCode",
+      "Type": "varchar(50)",
+      "Null": "NO",
+      "Key": "UNI",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "variantName",
+      "Type": "varchar(200)",
+      "Null": "NO",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "fabricChange",
+      "Type": "varchar(200)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "legTypeChange",
+      "Type": "varchar(200)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "heightChange",
+      "Type": "varchar(200)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "packagingChange",
+      "Type": "varchar(200)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "otherChanges",
+      "Type": "text",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "productLength",
+      "Type": "decimal(10,2)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "productWidth",
+      "Type": "decimal(10,2)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "productHeight",
+      "Type": "decimal(10,2)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "packageLength",
+      "Type": "decimal(10,2)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "packageWidth",
+      "Type": "decimal(10,2)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "packageHeight",
+      "Type": "decimal(10,2)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "cbm",
+      "Type": "decimal(10,6)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "variantType",
+      "Type": "enum('universal','exclusive')",
+      "Null": "NO",
+      "Key": "",
+      "Default": "universal",
+      "Extra": ""
+    },
+    {
+      "Field": "status",
+      "Type": "enum('active','inactive')",
+      "Null": "NO",
+      "Key": "",
+      "Default": "active",
+      "Extra": ""
+    },
+    {
+      "Field": "createdBy",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "MUL",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "createdAt",
+      "Type": "timestamp",
+      "Null": "NO",
+      "Key": "",
+      "Default": "CURRENT_TIMESTAMP",
+      "Extra": ""
+    },
+    {
+      "Field": "updatedAt",
+      "Type": "timestamp",
+      "Null": "NO",
+      "Key": "",
+      "Default": "CURRENT_TIMESTAMP",
+      "Extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP"
+    },
+    {
+      "Field": "productionStatus",
+      "Type": "enum('designing','sampling','production','completed')",
+      "Null": "NO",
+      "Key": "",
+      "Default": "designing",
+      "Extra": ""
+    },
+    {
+      "Field": "supplierId",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "MUL",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "supplierSku",
+      "Type": "varchar(100)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "sellingPriceRMB",
+      "Type": "decimal(10,2)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "sellingPriceFOB",
+      "Type": "decimal(10,2)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "costPriceRMB",
+      "Type": "decimal(10,2)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "customerId",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "MUL",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "customerSku",
+      "Type": "varchar(100)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "NULL",
+      "Extra": ""
+    },
+    {
+      "Field": "isDefault",
+      "Type": "tinyint(1)",
+      "Null": "NO",
+      "Key": "",
+      "Default": "0",
+      "Extra": ""
+    },
+    {
+      "Field": "materialColorId",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "MUL",
+      "Default": "NULL",
+      "Extra": ""
+    }
+  ],
+  "messages": [],
+  "stdout": "Field\tType\tNull\tKey\tDefault\tExtra\nid\tint(11)\tNO\tPRI\tNULL\tauto_increment\nerpCompanyId\tint(11)\tYES\t\tNULL\t\nproductId\tint(11)\tNO\tMUL\tNULL\t\nvariantCode\tvarchar(50)\tNO\tUNI\tNULL\t\nvariantName\tvarchar(200)\tNO\t\tNULL\t\nfabricChange\tvarchar(200)\tYES\t\tNULL\t\nlegTypeChange\tvarchar(200)\tYES\t\tNULL\t\nheightChange\tvarchar(200)\tYES\t\tNULL\t\npackagingChange\tvarchar(200)\tYES\t\tNULL\t\notherChanges\ttext\tYES\t\tNULL\t\nproductLength\tdecimal(10,2)\tYES\t\tNULL\t\nproductWidth\tdecimal(10,2)\tYES\t\tNULL\t\nproductHeight\tdecimal(10,2)\tYES\t\tNULL\t\npackageLength\tdecimal(10,2)\tYES\t\tNULL\t\npackageWidth\tdecimal(10,2)\tYES\t\tNULL\t\npackageHeight\tdecimal(10,2)\tYES\t\tNULL\t\ncbm\tdecimal(10,6)\tYES\t\tNULL\t\nvariantType\tenum('universal','exclusive')\tNO\t\tuniversal\t\nstatus\tenum('active','inactive')\tNO\t\tactive\t\ncreatedBy\tint(11)\tYES\tMUL\tNULL\t\ncreatedAt\ttimestamp\tNO\t\tCURRENT_TIMESTAMP\t\nupdatedAt\ttimestamp\tNO\t\tCURRENT_TIMESTAMP\tDEFAULT_GENERATED on update CURRENT_TIMESTAMP\nproductionStatus\tenum('designing','sampling','production','completed')\tNO\t\tdesigning\t\nsupplierId\tint(11)\tYES\tMUL\tNULL\t\nsupplierSku\tvarchar(100)\tYES\t\tNULL\t\nsellingPriceRMB\tdecimal(10,2)\tYES\t\tNULL\t\nsellingPriceFOB\tdecimal(10,2)\tYES\t\tNULL\t\ncostPriceRMB\tdecimal(10,2)\tYES\t\tNULL\t\ncustomerId\tint(11)\tYES\tMUL\tNULL\t\ncustomerSku\tvarchar(100)\tYES\t\tNULL\t\nisDefault\ttinyint(1)\tNO\t\t0\t\nmaterialColorId\tint(11)\tYES\tMUL\tNULL\t\n",
+  "stderr": "",
+  "execution_time_ms": 1536
+}

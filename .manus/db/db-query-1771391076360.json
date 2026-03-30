@@ -1,0 +1,26 @@
+{
+  "query": "SELECT id, boardId, colorCode, colorName, hexColor, createdAt \nFROM material_colors \nWHERE boardId = 32 \nORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, boardId, colorCode, colorName, hexColor, createdAt \nFROM material_colors \nWHERE boardId = 32 \nORDER BY id;",
+  "rows": [
+    {
+      "id": "61",
+      "boardId": "32",
+      "colorCode": "01",
+      "colorName": "测试蓝色",
+      "hexColor": "#000000",
+      "createdAt": "2026-02-18 04:57:13"
+    },
+    {
+      "id": "62",
+      "boardId": "32",
+      "colorCode": "01",
+      "colorName": "测试蓝色",
+      "hexColor": "#000000",
+      "createdAt": "2026-02-18 05:00:10"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tboardId\tcolorCode\tcolorName\thexColor\tcreatedAt\n61\t32\t01\t测试蓝色\t#000000\t2026-02-18 04:57:13\n62\t32\t01\t测试蓝色\t#000000\t2026-02-18 05:00:10\n",
+  "stderr": "",
+  "execution_time_ms": 1544
+}

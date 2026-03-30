@@ -1,0 +1,26 @@
+{
+  "query": "SELECT id, bankName, accountName, accountNumber, currency, isDefault FROM company_bank_accounts WHERE currency = 'CNY';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, bankName, accountName, accountNumber, currency, isDefault FROM company_bank_accounts WHERE currency = 'CNY';",
+  "rows": [
+    {
+      "id": "30001",
+      "bankName": "中国工商银行",
+      "accountName": "深圳创新科技有限公司",
+      "accountNumber": "6222 0202 1234 5678",
+      "currency": "CNY",
+      "isDefault": "0"
+    },
+    {
+      "id": "30002",
+      "bankName": "中国工商银行",
+      "accountName": "深圳创新科技有限公司",
+      "accountNumber": "6222 0202 1234 5678",
+      "currency": "CNY",
+      "isDefault": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tbankName\taccountName\taccountNumber\tcurrency\tisDefault\n30001\t中国工商银行\t深圳创新科技有限公司\t6222 0202 1234 5678\tCNY\t0\n30002\t中国工商银行\t深圳创新科技有限公司\t6222 0202 1234 5678\tCNY\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1537
+}

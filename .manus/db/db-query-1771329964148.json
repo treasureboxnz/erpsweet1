@@ -1,0 +1,20 @@
+{
+  "query": "SELECT id, companyName, defaultFobLevel FROM companies WHERE companyName LIKE '%ABC%' LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, companyName, defaultFobLevel FROM companies WHERE companyName LIKE '%ABC%' LIMIT 5;",
+  "rows": [
+    {
+      "id": "57",
+      "companyName": "测试公司ABC",
+      "defaultFobLevel": "level1"
+    },
+    {
+      "id": "30007",
+      "companyName": "ABC Furniture",
+      "defaultFobLevel": "level2"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcompanyName\tdefaultFobLevel\n57\t测试公司ABC\tlevel1\n30007\tABC Furniture\tlevel2\n",
+  "stderr": "",
+  "execution_time_ms": 1599
+}

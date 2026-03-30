@@ -1,0 +1,209 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1771930047819,
+      "tag": "0000_nosy_talon",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1771973901876,
+      "tag": "0001_faulty_exiles",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1771975375317,
+      "tag": "0002_even_maelstrom",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1771978075288,
+      "tag": "0003_ambiguous_magneto",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1771981419811,
+      "tag": "0004_vengeful_captain_stacy",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1771991815560,
+      "tag": "0005_strong_ink",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1772065178055,
+      "tag": "0006_volatile_overlord",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1772083113294,
+      "tag": "0007_flashy_typhoid_mary",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1772085407017,
+      "tag": "0008_clean_micromax",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1772085866896,
+      "tag": "0009_typical_amazoness",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1772443106238,
+      "tag": "0010_odd_roxanne_simpson",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "5",
+      "when": 1772447494580,
+      "tag": "0011_huge_meteorite",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "5",
+      "when": 1772448534434,
+      "tag": "0012_green_mandarin",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "5",
+      "when": 1772961193200,
+      "tag": "0013_wild_stingray",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "5",
+      "when": 1772962720507,
+      "tag": "0014_lazy_vargas",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "5",
+      "when": 1772964100728,
+      "tag": "0015_broken_nitro",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "5",
+      "when": 1772983014279,
+      "tag": "0016_flippant_anthem",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "5",
+      "when": 1773550748304,
+      "tag": "0017_flashy_lila_cheney",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "5",
+      "when": 1773562055336,
+      "tag": "0018_mushy_ultron",
+      "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "5",
+      "when": 1773617734864,
+      "tag": "0019_known_prowler",
+      "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "5",
+      "when": 1773621665860,
+      "tag": "0020_sudden_tigra",
+      "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "5",
+      "when": 1773623134099,
+      "tag": "0021_early_hammerhead",
+      "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "5",
+      "when": 1773626558667,
+      "tag": "0022_smooth_hardball",
+      "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "5",
+      "when": 1773636001686,
+      "tag": "0023_faithful_slyde",
+      "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "5",
+      "when": 1773636496624,
+      "tag": "0024_light_guardian",
+      "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "5",
+      "when": 1773641304969,
+      "tag": "0025_normal_eternity",
+      "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "5",
+      "when": 1773647944302,
+      "tag": "0026_young_metal_master",
+      "breakpoints": true
+    },
+    {
+      "idx": 27,
+      "version": "5",
+      "when": 1773650971578,
+      "tag": "0027_ambiguous_liz_osborn",
+      "breakpoints": true
+    },
+    {
+      "idx": 28,
+      "version": "5",
+      "when": 1773659276382,
+      "tag": "0028_pretty_swarm",
+      "breakpoints": true
+    }
+  ]
+}

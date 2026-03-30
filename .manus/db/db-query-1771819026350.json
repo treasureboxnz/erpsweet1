@@ -1,0 +1,35 @@
+{
+  "query": "SELECT id, sku, name FROM products WHERE status = 'active' LIMIT 5;\nSELECT id, companyName FROM customers WHERE status = 'active' LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, sku, name FROM products WHERE status = 'active' LIMIT 5;\nSELECT id, companyName FROM customers WHERE status = 'active' LIMIT 5;",
+  "rows": [
+    {
+      "id": "60001",
+      "sku": "SB-001-GRY",
+      "name": "Modern Convertible Sofa Bed - Gray"
+    },
+    {
+      "id": "60002",
+      "sku": "SB-002-NVY",
+      "name": "Luxury Velvet Sofa Bed - Navy Blue"
+    },
+    {
+      "id": "60003",
+      "sku": "SB-003-BGE",
+      "name": "Minimalist Linen Sofa Bed - Beige"
+    },
+    {
+      "id": "60004",
+      "sku": "SB-004-CHR",
+      "name": "L-Shaped Sofa Bed with Storage - Charcoal"
+    },
+    {
+      "id": "60005",
+      "sku": "SB-005-TEA",
+      "name": "Compact Two-Seater Sofa Bed - Teal"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tsku\tname\n60001\tSB-001-GRY\tModern Convertible Sofa Bed - Gray\n60002\tSB-002-NVY\tLuxury Velvet Sofa Bed - Navy Blue\n60003\tSB-003-BGE\tMinimalist Linen Sofa Bed - Beige\n60004\tSB-004-CHR\tL-Shaped Sofa Bed with Storage - Charcoal\n60005\tSB-005-TEA\tCompact Two-Seater Sofa Bed - Teal\n",
+  "stderr": "",
+  "execution_time_ms": 1734
+}

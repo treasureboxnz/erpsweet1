@@ -1,0 +1,15 @@
+{
+  "query": "SELECT id, quotationNumber, quotationMode FROM quotations WHERE quotationNumber = 'QUO-20260217-005' LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, quotationNumber, quotationMode FROM quotations WHERE quotationNumber = 'QUO-20260217-005' LIMIT 1;",
+  "rows": [
+    {
+      "id": "90001",
+      "quotationNumber": "QUO-20260217-005",
+      "quotationMode": "batch_selection"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tquotationNumber\tquotationMode\n90001\tQUO-20260217-005\tbatch_selection\n",
+  "stderr": "",
+  "execution_time_ms": 1578
+}

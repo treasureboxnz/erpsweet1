@@ -1,0 +1,9 @@
+{
+  "query": "ALTER TABLE company_settings \nADD COLUMN IF NOT EXISTS marketingCompanyName VARCHAR(255),\nADD COLUMN IF NOT EXISTS marketingEmail VARCHAR(255),\nADD COLUMN IF NOT EXISTS marketingAddress TEXT,\nADD COLUMN IF NOT EXISTS marketingPhone VARCHAR(50),\nADD COLUMN IF NOT EXISTS marketingWebsite VARCHAR(500);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute ALTER TABLE company_settings \nADD COLUMN IF NOT EXISTS marketingCompanyName VARCHAR(255),\nADD COLUMN IF NOT EXISTS marketingEmail VARCHAR(255),\nADD COLUMN IF NOT EXISTS marketingAddress TEXT,\nADD COLUMN IF NOT EXISTS marketingPhone VARCHAR(50),\nADD COLUMN IF NOT EXISTS marketingWebsite VARCHAR(500);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 5849
+}

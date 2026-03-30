@@ -1,0 +1,25 @@
+{
+  "query": "\nSELECT COUNT(*) as remaining_variants FROM product_variants;\nSELECT COUNT(*) as default_variants FROM product_variants WHERE isDefault = 1;\nSELECT COUNT(*) as non_default_variants FROM product_variants WHERE isDefault = 0;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT COUNT(*) as remaining_variants FROM product_variants;\nSELECT COUNT(*) as default_variants FROM product_variants WHERE isDefault = 1;\nSELECT COUNT(*) as non_default_variants FROM product_variants WHERE isDefault = 0;\n",
+  "rows": [
+    {
+      "remaining_variants": "25"
+    },
+    {
+      "remaining_variants": "default_variants"
+    },
+    {
+      "remaining_variants": "25"
+    },
+    {
+      "remaining_variants": "non_default_variants"
+    },
+    {
+      "remaining_variants": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "remaining_variants\n25\ndefault_variants\n25\nnon_default_variants\n0\n",
+  "stderr": "",
+  "execution_time_ms": 2003
+}

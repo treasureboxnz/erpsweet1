@@ -1,0 +1,8 @@
+{
+  "query": "ALTER TABLE orders \nADD COLUMN deletedAt TIMESTAMP NULL COMMENT '软删除标记，null表示未删除',\nADD COLUMN deletedBy INT NULL COMMENT '删除操作人',\nADD CONSTRAINT fk_orders_deletedBy FOREIGN KEY (deletedBy) REFERENCES users(id);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute ALTER TABLE orders \nADD COLUMN deletedAt TIMESTAMP NULL COMMENT '软删除标记，null表示未删除',\nADD COLUMN deletedBy INT NULL COMMENT '删除操作人',\nADD CONSTRAINT fk_orders_deletedBy FOREIGN KEY (deletedBy) REFERENCES users(id);",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1072 (42000) at line 1: Key column 'deletedBy' doesn't exist in table"
+  ]
+}

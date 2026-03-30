@@ -1,0 +1,8 @@
+{
+  "query": "-- 1. 创建材料类别（布料）\nINSERT INTO material_categories (name, code, description, sortOrder, createdAt, updatedAt)\nVALUES ('布料', 'fabric', '家具布料材料', 1, NOW(), NOW());\n\n-- 2. 创建供应商（戴维斯）\nINSERT INTO material_suppliers (name, code, category_id, contact_person, contact_phone, contact_email, address, notes, status, created_at, updated_at)\nSELECT '戴维斯', 'DAV', id, '张三', '13800138000', 'davis@example.com', '广东省佛山市', '优质布料供应商', 'active', NOW(), NOW()\nFROM material_categories WHERE code = 'fabric' LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute -- 1. 创建材料类别（布料）\nINSERT INTO material_categories (name, code, description, sortOrder, createdAt, updatedAt)\nVALUES ('布料', 'fabric', '家具布料材料', 1, NOW(), NOW());\n\n-- 2. 创建供应商（戴维斯）\nINSERT INTO material_suppliers (name, code, category_id, contact_person, contact_phone, contact_email, address, notes, status, created_at, updated_at)\nSELECT '戴维斯', 'DAV', id, '张三', '13800138000', 'davis@example.com', '广东省佛山市', '优质布料供应商', 'active', NOW(), NOW()\nFROM material_categories WHERE code = 'fabric' LIMIT 1;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 6: Unknown column 'category_id' in 'field list'"
+  ]
+}

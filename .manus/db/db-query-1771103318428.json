@@ -1,0 +1,49 @@
+{
+  "query": "SHOW CREATE TABLE orders;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SHOW CREATE TABLE orders;",
+  "rows": [
+    {
+      "Table": "orders",
+      "Create Table": "CREATE TABLE `orders` ("
+    }
+  ],
+  "messages": [
+    "  `id` int(11) NOT NULL AUTO_INCREMENT,",
+    "  `orderNumber` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,",
+    "  `customerId` int(11) NOT NULL,",
+    "  `totalAmount` decimal(12,2) NOT NULL,",
+    "  `status` enum('pending','confirmed','processing','shipped','delivered','cancelled') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',",
+    "  `orderDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,",
+    "  `shippingAddress` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `notes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `createdBy` int(11) DEFAULT NULL,",
+    "  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,",
+    "  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,",
+    "  `customerName` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `currency` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT 'USD',",
+    "  `exchangeRate` decimal(10,4) DEFAULT NULL,",
+    "  `paymentStatus` enum('unpaid','partial','paid','refunded') COLLATE utf8mb4_unicode_ci DEFAULT 'unpaid',",
+    "  `paymentMethod` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `paymentTerms` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `expectedDeliveryDate` timestamp NULL DEFAULT NULL,",
+    "  `actualDeliveryDate` timestamp NULL DEFAULT NULL,",
+    "  `shippingMethod` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `trackingNumber` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `billingAddress` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `contactPerson` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `contactPhone` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `contactEmail` varchar(320) COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `priority` enum('low','normal','high','urgent') COLLATE utf8mb4_unicode_ci DEFAULT 'normal',",
+    "  `source` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  PRIMARY KEY (`id`) /*T![clustered_index] CLUSTERED */,",
+    "  UNIQUE KEY `orders_orderNumber_unique` (`orderNumber`),",
+    "  KEY `orders_customerId_customers_id_fk` (`customerId`),",
+    "  KEY `orders_createdBy_users_id_fk` (`createdBy`),",
+    "  CONSTRAINT `orders_customerId_customers_id_fk` FOREIGN KEY (`customerId`) REFERENCES `5QtmwQJEy7EFv8QJHVh9i8`.`customers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,",
+    "  CONSTRAINT `orders_createdBy_users_id_fk` FOREIGN KEY (`createdBy`) REFERENCES `5QtmwQJEy7EFv8QJHVh9i8`.`users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION",
+    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=30001"
+  ],
+  "stdout": "Table\tCreate Table\norders\tCREATE TABLE `orders` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `orderNumber` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `customerId` int(11) NOT NULL,\n  `totalAmount` decimal(12,2) NOT NULL,\n  `status` enum('pending','confirmed','processing','shipped','delivered','cancelled') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',\n  `orderDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `shippingAddress` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `notes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `createdBy` int(11) DEFAULT NULL,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  `customerName` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `currency` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT 'USD',\n  `exchangeRate` decimal(10,4) DEFAULT NULL,\n  `paymentStatus` enum('unpaid','partial','paid','refunded') COLLATE utf8mb4_unicode_ci DEFAULT 'unpaid',\n  `paymentMethod` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `paymentTerms` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `expectedDeliveryDate` timestamp NULL DEFAULT NULL,\n  `actualDeliveryDate` timestamp NULL DEFAULT NULL,\n  `shippingMethod` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `trackingNumber` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `billingAddress` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `contactPerson` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `contactPhone` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `contactEmail` varchar(320) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `priority` enum('low','normal','high','urgent') COLLATE utf8mb4_unicode_ci DEFAULT 'normal',\n  `source` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  PRIMARY KEY (`id`) /*T![clustered_index] CLUSTERED */,\n  UNIQUE KEY `orders_orderNumber_unique` (`orderNumber`),\n  KEY `orders_customerId_customers_id_fk` (`customerId`),\n  KEY `orders_createdBy_users_id_fk` (`createdBy`),\n  CONSTRAINT `orders_customerId_customers_id_fk` FOREIGN KEY (`customerId`) REFERENCES `5QtmwQJEy7EFv8QJHVh9i8`.`customers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,\n  CONSTRAINT `orders_createdBy_users_id_fk` FOREIGN KEY (`createdBy`) REFERENCES `5QtmwQJEy7EFv8QJHVh9i8`.`users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=30001\n",
+  "stderr": "",
+  "execution_time_ms": 49
+}

@@ -1,0 +1,1 @@
+ALTER TABLE `quotation_items` ADD `piecesPerBox` int DEFAULT 1;

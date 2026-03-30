@@ -1,0 +1,18 @@
+{
+  "query": "SELECT id, name, sku, deletedAt, createdAt, updatedAt FROM products WHERE id = 60001;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, name, sku, deletedAt, createdAt, updatedAt FROM products WHERE id = 60001;",
+  "rows": [
+    {
+      "id": "60001",
+      "name": "Modern Convertible Sofa Bed - Gray",
+      "sku": "SB-001-GRY",
+      "deletedAt": "2026-02-23 22:26:51",
+      "createdAt": "2026-02-16 03:25:16",
+      "updatedAt": "2026-02-23 22:26:51"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tsku\tdeletedAt\tcreatedAt\tupdatedAt\n60001\tModern Convertible Sofa Bed - Gray\tSB-001-GRY\t2026-02-23 22:26:51\t2026-02-16 03:25:16\t2026-02-23 22:26:51\n",
+  "stderr": "",
+  "execution_time_ms": 1561
+}

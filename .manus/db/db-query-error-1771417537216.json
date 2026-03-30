@@ -1,0 +1,8 @@
+{
+  "query": "\nSELECT \n  mc.id as color_id,\n  mc.color_code,\n  mc.color_name,\n  mc.board_id,\n  mb.board_number,\n  mb.supplier_id,\n  ms.supplier_name\nFROM material_colors mc\nLEFT JOIN material_boards mb ON mc.board_id = mb.id\nLEFT JOIN material_suppliers ms ON mb.supplier_id = ms.id\nWHERE mb.board_number = 'C03'\nORDER BY mc.color_code\nLIMIT 20;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  mc.id as color_id,\n  mc.color_code,\n  mc.color_name,\n  mc.board_id,\n  mb.board_number,\n  mb.supplier_id,\n  ms.supplier_name\nFROM material_colors mc\nLEFT JOIN material_boards mb ON mc.board_id = mb.id\nLEFT JOIN material_suppliers ms ON mb.supplier_id = ms.id\nWHERE mb.board_number = 'C03'\nORDER BY mc.color_code\nLIMIT 20;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 2: Unknown column 'mc.board_id' in 'on clause'"
+  ]
+}

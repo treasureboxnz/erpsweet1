@@ -1,0 +1,23 @@
+{
+  "query": "\n-- 查看ABC Furniture的ID\nSELECT id, companyName FROM companies WHERE companyName = 'ABC Furniture';\n\n-- 查看当前所有与ABC Furniture关联的批次\nSELECT vcl.*, pv.variantCode \nFROM variant_customer_links vcl\nJOIN product_variants pv ON vcl.variantId = pv.id\nWHERE vcl.customerId = (SELECT id FROM companies WHERE companyName = 'ABC Furniture' LIMIT 1);\n\n-- 删除DC-001-B001/B002/B003/B004与ABC Furniture的关联\nDELETE FROM variant_customer_links \nWHERE customerId = (SELECT id FROM companies WHERE companyName = 'ABC Furniture' LIMIT 1)\nAND variantId IN (\n  SELECT id FROM product_variants \n  WHERE variantCode IN ('DC-001-B001', 'DC-001-B002', 'DC-001-B003', 'DC-001-B004')\n);\n\n-- 验证删除后的结果\nSELECT vcl.*, pv.variantCode \nFROM variant_customer_links vcl\nJOIN product_variants pv ON vcl.variantId = pv.id\nWHERE vcl.customerId = (SELECT id FROM companies WHERE companyName = 'ABC Furniture' LIMIT 1);\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- 查看ABC Furniture的ID\nSELECT id, companyName FROM companies WHERE companyName = 'ABC Furniture';\n\n-- 查看当前所有与ABC Furniture关联的批次\nSELECT vcl.*, pv.variantCode \nFROM variant_customer_links vcl\nJOIN product_variants pv ON vcl.variantId = pv.id\nWHERE vcl.customerId = (SELECT id FROM companies WHERE companyName = 'ABC Furniture' LIMIT 1);\n\n-- 删除DC-001-B001/B002/B003/B004与ABC Furniture的关联\nDELETE FROM variant_customer_links \nWHERE customerId = (SELECT id FROM companies WHERE companyName = 'ABC Furniture' LIMIT 1)\nAND variantId IN (\n  SELECT id FROM product_variants \n  WHERE variantCode IN ('DC-001-B001', 'DC-001-B002', 'DC-001-B003', 'DC-001-B004')\n);\n\n-- 验证删除后的结果\nSELECT vcl.*, pv.variantCode \nFROM variant_customer_links vcl\nJOIN product_variants pv ON vcl.variantId = pv.id\nWHERE vcl.customerId = (SELECT id FROM companies WHERE companyName = 'ABC Furniture' LIMIT 1);\n",
+  "rows": [
+    {
+      "id": "30007",
+      "companyName": "ABC Furniture"
+    }
+  ],
+  "messages": [
+    "id\tvariantId\tcustomerId\tcreatedAt\tvariantCode",
+    "1\t120006\t30007\t2026-02-16 04:11:23\tDC-001-B001",
+    "2\t120007\t30007\t2026-02-16 04:11:23\tDC-001-B002",
+    "3\t120008\t30007\t2026-02-16 04:11:23\tDC-001-B003",
+    "4\t120009\t30007\t2026-02-16 04:11:23\tDC-001-B004",
+    "5\t120082\t30007\t2026-02-16 05:08:41\tDC-001-GRY-V001",
+    "id\tvariantId\tcustomerId\tcreatedAt\tvariantCode",
+    "5\t120082\t30007\t2026-02-16 05:08:41\tDC-001-GRY-V001"
+  ],
+  "stdout": "id\tcompanyName\n30007\tABC Furniture\nid\tvariantId\tcustomerId\tcreatedAt\tvariantCode\n1\t120006\t30007\t2026-02-16 04:11:23\tDC-001-B001\n2\t120007\t30007\t2026-02-16 04:11:23\tDC-001-B002\n3\t120008\t30007\t2026-02-16 04:11:23\tDC-001-B003\n4\t120009\t30007\t2026-02-16 04:11:23\tDC-001-B004\n5\t120082\t30007\t2026-02-16 05:08:41\tDC-001-GRY-V001\nid\tvariantId\tcustomerId\tcreatedAt\tvariantCode\n5\t120082\t30007\t2026-02-16 05:08:41\tDC-001-GRY-V001\n",
+  "stderr": "",
+  "execution_time_ms": 2265
+}

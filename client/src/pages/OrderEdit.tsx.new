@@ -1,0 +1,845 @@
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
+import { trpc } from "@/lib/trpc";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { toast } from "sonner";
+import { ArrowLeft, Plus, Trash2, Pencil, Check, X } from "lucide-react";
+import { ProductSearchCombobox, ProductSearchItem } from "@/components/ProductSearchCombobox";
+import { CustomerSearchCombobox, CustomerSearchItem } from "@/components/CustomerSearchCombobox";
+import { VariantCreateDialog } from "@/components/VariantCreateDialog";
+
+// 订单项接口
+interface OrderItem {
+  id: string; // 临时ID用于前端列表管理
+  productId: number;
+  productName: string;
+  productSku: string;
+  mode: 'batch_selection' | 'fob_only';
+  // 批次模式字段
+  variantId?: number;
+  variantCode?: string;
+  batchQuantity?: number;
+  batchUnitPrice?: string;
+  batchSubtotal?: string;
+  // FOB模式字段
+  fobQuantity?: number;
+  fobUnitPrice?: string;
+  fobSubtotal?: string;
+}
+
+export default function OrderCreate() {
+  const [, navigate] = useLocation();
+  
+  // 基本信息
+  const [orderNumber, setOrderNumber] = useState(() => {
+    const date = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+    const random = Math.random().toString(36).substring(2, 5).toUpperCase();
+    return `ORD-${date}-${random}`;
+  });
+  const [customerId, setCustomerId] = useState<number | null>(null);
+  const [currency, setCurrency] = useState("USD");
+  const [contactPerson, setContactPerson] = useState("");
+  const [contactPhone, setContactPhone] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [shippingAddress, setShippingAddress] = useState("");
+  const [notes, setNotes] = useState("");
+
+  // 产品选择区域状态
+  const [selectedProductId, setSelectedProductId] = useState<number | null>(null);
+  const [selectedMode, setSelectedMode] = useState<'batch_selection' | 'fob_only'>('batch_selection');
+  
+  // 批次模式表单状态
+  const [selectedVariantId, setSelectedVariantId] = useState<number | null>(null);
+  const [batchQuantity, setBatchQuantity] = useState<number>(1);
+  const [batchUnitPrice, setBatchUnitPrice] = useState<string>("0");
+  
+  // FOB模式表单状态
+  const [fobQuantity, setFobQuantity] = useState<number>(1);
+  const [fobUnitPrice, setFobUnitPrice] = useState<string>("0");
+  
+  // 价格加载状态
+  const [priceLoaded, setPriceLoaded] = useState<boolean>(false);
+
+  // 订单项列表
+  const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
+  
+  // 编辑状态
+  const [editingItemId, setEditingItemId] = useState<string | null>(null);
+  const [editQuantity, setEditQuantity] = useState<number>(1);
+  const [editUnitPrice, setEditUnitPrice] = useState<string>("0");
+
+  // 批次创建对话框状态
+  const [isVariantDialogOpen, setIsVariantDialogOpen] = useState(false);
+
+  // 查询数据
+  const { data: customers } = trpc.customers.list.useQuery();
+  const { data: products } = trpc.products.list.useQuery();
+  const { data: variantsData } = trpc.productVariants.getAll.useQuery(
+    { productId: selectedProductId!, pageSize: 100 },
+    { enabled: !!selectedProductId && selectedMode === 'batch_selection' }
+  );
+  const variants = variantsData?.variants.map((item: any) => item.variant);
+
+  const createOrderMutation = trpc.orders.create.useMutation({
+    onSuccess: () => {
+      toast.success("订单创建成功");
+      navigate("/orders");
+    },
+    onError: (error) => {
+      toast.error(`创建订单失败: ${error.message}`);
+    },
+  });
+
+  // 获取FOB推荐价格
+  const { data: recommendedPriceData, refetch: refetchRecommendedPrice } = trpc.orders.getRecommendedPrice.useQuery(
+    {
+      customerId: customerId || 0,
+      productId: selectedProductId || 0,
+    },
+    {
+      enabled: false, // 手动触发
+    }
+  );
+
+  // 监听推荐价格数据变化
+  useEffect(() => {
+    if (recommendedPriceData?.price && recommendedPriceData.price !== '0') {
+      // 价格加载成功
+      setFobUnitPrice(recommendedPriceData.price.toString());
+    } else if (recommendedPriceData && (recommendedPriceData.price === '0' || !recommendedPriceData.price)) {
+      // FOB价格加载失败,显示错误提示
+      toast.error('无法加载FOB价格:该产品可能没有设置FOB价格或客户没有FOB等级');
+      setFobUnitPrice("0");
+    }
+  }, [recommendedPriceData]);
+
+  // 处理产品选择
+  const handleProductChange = (productId: string) => {
+    const id = parseInt(productId);
+    setSelectedProductId(id);
+    
+    // 重置表单和加载状态
+    setSelectedVariantId(null);
+    setBatchQuantity(1);
+    setBatchUnitPrice("0");
+    setFobQuantity(1);
+    setFobUnitPrice("0");
+    setPriceLoaded(false);
+  };
+
+  // 处理模式切换
+  const handleModeChange = (mode: 'batch_selection' | 'fob_only') => {
+    setSelectedMode(mode);
+    
+    // 重置表单和加载状态
+    setSelectedVariantId(null);
+    setBatchQuantity(1);
+    setBatchUnitPrice("0");
+    setFobQuantity(1);
+    setFobUnitPrice("0");
+    setPriceLoaded(false);
+  };
+  
+  // 处理加载价格按钮点击
+  const handleLoadPrice = () => {
+    if (selectedMode === 'batch_selection') {
+      // 批次模式:标记为已加载,显示批次选择框
+      setPriceLoaded(true);
+    } else if (selectedMode === 'fob_only') {
+      // FOB模式:调用API获取推荐价格
+      if (customerId && selectedProductId) {
+        refetchRecommendedPrice();
+        setPriceLoaded(true);
+      } else {
+        toast.error('请先选择客户和产品');
+      }
+    }
+  };
+
+  // 处理批次选择
+  const handleVariantChange = (variantId: string) => {
+    const id = parseInt(variantId);
+    setSelectedVariantId(id);
+    
+    // 自动填充价格 - 从 variant 对象读取价格
+    const variantData = variantsData?.variants.find((item: any) => item.variant.id === id);
+    
+    if (variantData && variantData.variant) {
+      const price = currency === "USD" 
+        ? variantData.variant.sellingPriceFOB?.toString() || "0"
+        : variantData.variant.sellingPriceRMB?.toString() || "0";
+      setBatchUnitPrice(price);
+    }
+  };
+
+  // 计算批次模式小计
+  const batchSubtotal = (batchQuantity * parseFloat(batchUnitPrice || "0")).toFixed(2);
+
+  // 计算FOB模式小计
+  const fobSubtotal = (fobQuantity * parseFloat(fobUnitPrice || "0")).toFixed(2);
+
+  // 添加到订单列表
+  const handleAddToOrder = () => {
+    if (!selectedProductId) {
+      toast.error("请选择产品");
+      return;
+    }
+
+    const productItem = products?.find(p => p.product.id === selectedProductId);
+    if (!productItem) return;
+    const product = productItem.product;
+
+    if (selectedMode === 'batch_selection') {
+      // 批次模式验证
+      if (!selectedVariantId) {
+        toast.error("请选择批次");
+        return;
+      }
+      
+      const variant = variants?.find(v => v.id === selectedVariantId);
+      if (!variant) return;
+
+      const newItem: OrderItem = {
+        id: `${Date.now()}-${Math.random()}`,
+        productId: product.id,
+        productName: product.title,
+        productSku: product.sku,
+        mode: 'batch_selection',
+        variantId: variant.id,
+        variantCode: variant.variantCode,
+        batchQuantity,
+        batchUnitPrice,
+        batchSubtotal,
+      };
+
+      setOrderItems([...orderItems, newItem]);
+      
+    } else {
+      // FOB模式
+      const newItem: OrderItem = {
+        id: `${Date.now()}-${Math.random()}`,
+        productId: product.id,
+        productName: product.title,
+        productSku: product.sku,
+        mode: 'fob_only',
+        fobQuantity,
+        fobUnitPrice,
+        fobSubtotal,
+      };
+
+      setOrderItems([...orderItems, newItem]);
+    }
+
+    // 重置表单
+    setSelectedProductId(null);
+    setSelectedVariantId(null);
+    setBatchQuantity(1);
+    setBatchUnitPrice("0");
+    setFobQuantity(1);
+    setFobUnitPrice("0");
+    
+    toast.success("已添加到订单");
+  };
+
+  // 从订单列表删除
+  const handleRemoveItem = (itemId: string) => {
+    setOrderItems(orderItems.filter(item => item.id !== itemId));
+    toast.success("已从订单中移除");
+  };
+  
+  // 开始编辑
+  const handleStartEdit = (item: OrderItem) => {
+    setEditingItemId(item.id);
+    if (item.mode === 'batch_selection') {
+      setEditQuantity(item.batchQuantity || 1);
+      setEditUnitPrice(item.batchUnitPrice || "0");
+    } else {
+      setEditQuantity(item.fobQuantity || 1);
+      setEditUnitPrice(item.fobUnitPrice || "0");
+    }
+  };
+  
+  // 保存编辑
+  const handleSaveEdit = (itemId: string) => {
+    setOrderItems(orderItems.map(item => {
+      if (item.id === itemId) {
+        const newSubtotal = (editQuantity * parseFloat(editUnitPrice || "0")).toFixed(2);
+        if (item.mode === 'batch_selection') {
+          return {
+            ...item,
+            batchQuantity: editQuantity,
+            batchUnitPrice: parseFloat(editUnitPrice).toFixed(2),
+            batchSubtotal: newSubtotal,
+          };
+        } else {
+          return {
+            ...item,
+            fobQuantity: editQuantity,
+            fobUnitPrice: parseFloat(editUnitPrice).toFixed(2),
+            fobSubtotal: newSubtotal,
+          };
+        }
+      }
+      return item;
+    }));
+    setEditingItemId(null);
+    toast.success("修改已保存");
+  };
+  
+  // 取消编辑
+  const handleCancelEdit = () => {
+    setEditingItemId(null);
+    setEditQuantity(1);
+    setEditUnitPrice("0");
+  };
+
+  // 计算订单总额
+  const totalAmount = orderItems.reduce((sum, item) => {
+    const subtotal = item.mode === 'batch_selection' 
+      ? parseFloat(item.batchSubtotal || "0")
+      : parseFloat(item.fobSubtotal || "0");
+    return sum + subtotal;
+  }, 0).toFixed(2);
+
+  // 提交订单
+  const handleSubmit = async () => {
+    if (!customerId) {
+      toast.error("请选择客户");
+      return;
+    }
+
+    if (orderItems.length === 0) {
+      toast.error("请至少添加一个产品");
+      return;
+    }
+
+    // 转换订单项数据格式
+    const items = orderItems.map(item => {
+      if (item.mode === 'batch_selection') {
+        return {
+          productId: item.productId,
+          variantId: item.variantId!,
+          orderMode: 'batch_selection' as const,
+          productSku: item.productSku,
+          quantity: item.batchQuantity!,
+          unitPrice: item.batchUnitPrice!,
+          subtotal: item.batchSubtotal!,
+          // FOB字段填充默认值以满足数据库要求
+          fobQuantity: 0,
+          fobUnitPrice: "0",
+          fobTotalPrice: "0",
+        };
+      } else {
+        // FOB模式
+        return {
+          productId: item.productId,
+          variantId: 0, // FOB模式使用默认批次
+          orderMode: 'fob_only' as const,
+          productSku: item.productSku,
+          quantity: item.fobQuantity!,
+          unitPrice: item.fobUnitPrice!,
+          subtotal: item.fobSubtotal!,
+          fobQuantity: item.fobQuantity!,
+          fobUnitPrice: item.fobUnitPrice!,
+          fobTotalPrice: item.fobSubtotal!,
+        };
+      }
+    });
+
+    createOrderMutation.mutate({
+      orderNumber,
+      customerId,
+      currency,
+      totalAmount,
+      contactPerson,
+      contactPhone,
+      contactEmail,
+      shippingAddress,
+      notes,
+      items,
+    });
+  };
+
+  return (
+    <div className="p-6 max-w-7xl mx-auto">
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-4">
+          <Link href="/orders">
+            <Button variant="ghost" size="icon">
+              <ArrowLeft className="h-5 w-5" />
+            </Button>
+          </Link>
+          <div>
+            <h1 className="text-2xl font-bold">创建订单</h1>
+            <p className="text-sm text-muted-foreground">填写订单信息并添加产品</p>
+          </div>
+        </div>
+        <Button onClick={handleSubmit} disabled={createOrderMutation.isPending}>
+          {createOrderMutation.isPending ? "保存中..." : "保存订单"}
+        </Button>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* 左侧：基本信息 */}
+        <div className="lg:col-span-1 space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>基本信息</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <Label>订单编号</Label>
+                <Input
+                  value={orderNumber}
+                  onChange={(e) => setOrderNumber(e.target.value)}
+                  placeholder="自动生成"
+                />
+              </div>
+
+              <div>
+                <Label>客户 *</Label>
+                <CustomerSearchCombobox
+                  customers={customers?.map((c): CustomerSearchItem => ({
+                    id: c.id,
+                    name: c.companyName,
+                    code: c.customerCode || undefined,
+                    country: c.country || undefined,
+                    contactPerson: c.contactPerson || undefined,
+                  })) || []}
+                  value={customerId || undefined}
+                  onSelect={(id) => setCustomerId(id)}
+                  placeholder="搜索客户..."
+                />
+              </div>
+
+              <div>
+                <Label>币种</Label>
+                <Select value={currency} onValueChange={setCurrency}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="USD">USD</SelectItem>
+                    <SelectItem value="RMB">RMB</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <Label>联系人</Label>
+                <Input
+                  value={contactPerson}
+                  onChange={(e) => setContactPerson(e.target.value)}
+                  placeholder="联系人姓名"
+                />
+              </div>
+
+              <div>
+                <Label>联系电话</Label>
+                <Input
+                  value={contactPhone}
+                  onChange={(e) => setContactPhone(e.target.value)}
+                  placeholder="联系电话"
+                />
+              </div>
+
+              <div>
+                <Label>联系邮箱</Label>
+                <Input
+                  type="email"
+                  value={contactEmail}
+                  onChange={(e) => setContactEmail(e.target.value)}
+                  placeholder="联系邮箱"
+                />
+              </div>
+
+              <div>
+                <Label>收货地址</Label>
+                <Textarea
+                  value={shippingAddress}
+                  onChange={(e) => setShippingAddress(e.target.value)}
+                  placeholder="详细收货地址"
+                  rows={3}
+                />
+              </div>
+
+              <div>
+                <Label>备注</Label>
+                <Textarea
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  placeholder="订单备注信息"
+                  rows={3}
+                />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* 右侧：产品选择和订单列表 */}
+        <div className="lg:col-span-2 space-y-6">
+          {/* 产品选择区域 */}
+          <Card>
+            <CardHeader>
+              <CardTitle>添加产品</CardTitle>
+              <CardDescription>选择产品、模式并填写信息后点击添加</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {/* 产品选择 */}
+              <div>
+                <Label>选择产品 *</Label>
+                <ProductSearchCombobox
+                  products={products?.map((item): ProductSearchItem => ({
+                    id: item.product.id,
+                    sku: item.product.sku,
+                    name: item.product.title,
+                    category: item.category?.name || undefined,
+                    status: item.product.status || undefined,
+                    price: item.product.sellingPriceFOB || undefined,
+                    currency: "USD",
+                    image: item.firstImage?.imageUrl || undefined,
+                  })) || []}
+                  value={selectedProductId || undefined}
+                  onSelect={(id) => handleProductChange(id.toString())}
+                  placeholder="搜索产品..."
+                />
+              </div>
+
+              {/* 模式选择 */}
+              {selectedProductId && (
+                <div>
+                  <Label>订单模式 *</Label>
+                  <RadioGroup
+                    value={selectedMode}
+                    onValueChange={(value) => handleModeChange(value as 'batch_selection' | 'fob_only')}
+                    className="flex gap-4 mt-2"
+                  >
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="batch_selection" id="batch" />
+                      <Label htmlFor="batch" className="font-normal cursor-pointer">
+                        批次模式
+                      </Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="fob_only" id="fob" />
+                      <Label htmlFor="fob" className="font-normal cursor-pointer">
+                        FOB模式
+                      </Label>
+                    </div>
+                  </RadioGroup>
+                </div>
+              )}
+
+              {/* 批次模式表单 */}
+              {selectedProductId && selectedMode === 'batch_selection' && (
+                <div className="space-y-4 p-4 border rounded-lg bg-muted/30">
+                  {!priceLoaded ? (
+                    <div className="text-center py-6">
+                      <p className="text-sm text-muted-foreground mb-4">
+                        请点击下方按钮加载批次信息和价格
+                      </p>
+                      <Button onClick={handleLoadPrice} variant="outline">
+                        加载价格
+                      </Button>
+                    </div>
+                  ) : (
+                    <>
+                      <div>
+                        <Label>选择批次 *</Label>
+                        <div className="flex gap-2">
+                          <Select
+                            value={selectedVariantId?.toString() || ""}
+                            onValueChange={handleVariantChange}
+                          >
+                            <SelectTrigger className="flex-1">
+                              <SelectValue placeholder="选择批次" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {variants?.map((variant) => (
+                                <SelectItem key={variant.id} value={variant.id.toString()}>
+                                  {variant.isDefault && "⭐ "}{variant.variantCode} - {variant.changeDescription || "无描述"}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <Button
+                            type="button"
+                            variant="outline"
+                            onClick={() => setIsVariantDialogOpen(true)}
+                            className="whitespace-nowrap"
+                          >
+                            创建批次
+                          </Button>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-4">
+                        <div>
+                          <Label>数量</Label>
+                          <Input
+                            type="number"
+                            min="1"
+                            value={batchQuantity}
+                            onChange={(e) => setBatchQuantity(parseInt(e.target.value) || 1)}
+                          />
+                        </div>
+                        <div>
+                          <Label>单价 ({currency})</Label>
+                          <Input
+                            type="number"
+                            step="0.01"
+                            value={batchUnitPrice}
+                            onChange={(e) => setBatchUnitPrice(e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <Label>小计 ({currency})</Label>
+                          <Input
+                            value={batchSubtotal}
+                            readOnly
+                            className="bg-muted"
+                          />
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
+
+              {/* FOB模式表单 */}
+              {selectedProductId && selectedMode === 'fob_only' && (
+                <div className="space-y-4 p-4 border rounded-lg bg-muted/30">
+                  {!priceLoaded ? (
+                    <div className="text-center py-6">
+                      <p className="text-sm text-muted-foreground mb-4">
+                        请点击下方按钮加载FOB推荐价格
+                      </p>
+                      <Button onClick={handleLoadPrice} variant="outline">
+                        加载价格
+                      </Button>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="grid grid-cols-3 gap-4">
+                        <div>
+                          <Label>数量</Label>
+                          <Input
+                            type="number"
+                            min="1"
+                            value={fobQuantity}
+                            onChange={(e) => setFobQuantity(parseInt(e.target.value) || 1)}
+                          />
+                        </div>
+                        <div>
+                          <Label>单价 ({currency})</Label>
+                          <Input
+                            type="number"
+                            step="0.01"
+                            value={fobUnitPrice}
+                            onChange={(e) => setFobUnitPrice(e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <Label>小计 ({currency})</Label>
+                          <Input
+                            value={fobSubtotal}
+                            readOnly
+                            className="bg-muted"
+                          />
+                        </div>
+                      </div>
+                      {customerId && (
+                        <p className="text-sm text-muted-foreground">
+                          💡 价格已根据客户FOB等级自动填充
+                        </p>
+                      )}
+                    </>
+                  )}
+                </div>
+              )}
+
+              {/* 添加按钮 */}
+              {selectedProductId && (
+                <Button
+                  onClick={handleAddToOrder}
+                  className="w-full"
+                  size="lg"
+                >
+                  <Plus className="h-4 w-4 mr-2" />
+                  添加到订单
+                </Button>
+              )}
+            </CardContent>
+          </Card>
+
+          {/* 订单列表 */}
+          <Card>
+            <CardHeader>
+              <CardTitle>订单明细</CardTitle>
+              <CardDescription>
+                已添加 {orderItems.length} 个产品，总额: {currency} {totalAmount}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              {orderItems.length === 0 ? (
+                <div className="text-center py-12 text-muted-foreground">
+                  <p>暂无产品，请在上方添加产品</p>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>产品名称</TableHead>
+                      <TableHead>模式</TableHead>
+                      <TableHead>批次/SKU</TableHead>
+                      <TableHead className="text-right">数量</TableHead>
+                      <TableHead className="text-right">单价</TableHead>
+                      <TableHead className="text-right">小计</TableHead>
+                      <TableHead className="text-right">操作</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {orderItems.map((item) => (
+                      <TableRow key={item.id}>
+                        <TableCell className="font-medium">{item.productName}</TableCell>
+                        <TableCell>
+                          <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+                            item.mode === 'batch_selection' 
+                              ? 'bg-blue-100 text-blue-700' 
+                              : 'bg-green-100 text-green-700'
+                          }`}>
+                            {item.mode === 'batch_selection' ? '批次' : 'FOB'}
+                          </span>
+                        </TableCell>
+                        <TableCell className="text-sm text-muted-foreground">
+                          {item.mode === 'batch_selection' ? item.variantCode : item.productSku}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          {editingItemId === item.id ? (
+                            <Input
+                              type="number"
+                              value={editQuantity}
+                              onChange={(e) => setEditQuantity(Number(e.target.value))}
+                              className="w-20 text-right"
+                              min="1"
+                            />
+                          ) : (
+                            item.mode === 'batch_selection' ? item.batchQuantity : item.fobQuantity
+                          )}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          {editingItemId === item.id ? (
+                            <Input
+                              type="number"
+                              value={editUnitPrice}
+                              onChange={(e) => setEditUnitPrice(e.target.value)}
+                              className="w-24 text-right"
+                              min="0"
+                              step="0.01"
+                            />
+                          ) : (
+                            `${currency} ${item.mode === 'batch_selection' ? item.batchUnitPrice : item.fobUnitPrice}`
+                          )}
+                        </TableCell>
+                        <TableCell className="text-right font-medium">
+                          {currency} {editingItemId === item.id 
+                            ? (editQuantity * parseFloat(editUnitPrice || "0")).toFixed(2)
+                            : (item.mode === 'batch_selection' ? item.batchSubtotal : item.fobSubtotal)
+                          }
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <div className="flex items-center justify-end gap-1">
+                            {editingItemId === item.id ? (
+                              <>
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  onClick={() => handleSaveEdit(item.id)}
+                                >
+                                  <Check className="h-4 w-4 text-green-600" />
+                                </Button>
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  onClick={() => handleCancelEdit()}
+                                >
+                                  <X className="h-4 w-4 text-muted-foreground" />
+                                </Button>
+                              </>
+                            ) : (
+                              <>
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  onClick={() => handleStartEdit(item)}
+                                >
+                                  <Pencil className="h-4 w-4" />
+                                </Button>
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  onClick={() => handleRemoveItem(item.id)}
+                                >
+                                  <Trash2 className="h-4 w-4 text-destructive" />
+                                </Button>
+                              </>
+                            )}
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      {/* 批次创建对话框 */}
+      {selectedProductId && (
+        <VariantCreateDialog
+          open={isVariantDialogOpen}
+          onOpenChange={setIsVariantDialogOpen}
+          productId={selectedProductId}
+          productSku={products?.find(p => p.product.id === selectedProductId)?.product.sku || ""}
+          defaultCustomerId={customerId || undefined}
+          onSuccess={(variantId) => {
+            // 批次创建成功后的回调
+            // 1. 自动选中新创建的批次
+            setSelectedVariantId(variantId);
+            // 2. 触发批次变更处理，加载价格
+            handleVariantChange(variantId.toString());
+            toast.success("批次已创建并自动选中");
+          }}
+        />
+      )}
+    </div>
+  );
+}

@@ -1,0 +1,26 @@
+{
+  "query": "\nSELECT \n  qb.id, \n  qb.variantId, \n  qb.variantCode, \n  qb.quantity, \n  qb.unitPrice,\n  vp.sellingPriceFobL1 as fobReferencePrice\nFROM quotation_batches qb\nLEFT JOIN variant_pricing vp ON qb.variantId = vp.variantId AND vp.isCurrent = 1\nWHERE qb.quotationItemId IN (\n  SELECT id FROM quotation_items WHERE quotationId = 90001\n)\nORDER BY qb.id;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  qb.id, \n  qb.variantId, \n  qb.variantCode, \n  qb.quantity, \n  qb.unitPrice,\n  vp.sellingPriceFobL1 as fobReferencePrice\nFROM quotation_batches qb\nLEFT JOIN variant_pricing vp ON qb.variantId = vp.variantId AND vp.isCurrent = 1\nWHERE qb.quotationItemId IN (\n  SELECT id FROM quotation_items WHERE quotationId = 90001\n)\nORDER BY qb.id;\n",
+  "rows": [
+    {
+      "id": "90001",
+      "variantId": "180001",
+      "variantCode": "DC-001-GRY-V008",
+      "quantity": "1",
+      "unitPrice": "100.00",
+      "fobReferencePrice": "NULL"
+    },
+    {
+      "id": "90002",
+      "variantId": "120017",
+      "variantCode": "DC-003-WHT-V004",
+      "quantity": "1",
+      "unitPrice": "100.00",
+      "fobReferencePrice": "562.50"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantId\tvariantCode\tquantity\tunitPrice\tfobReferencePrice\n90001\t180001\tDC-001-GRY-V008\t1\t100.00\tNULL\n90002\t120017\tDC-003-WHT-V004\t1\t100.00\t562.50\n",
+  "stderr": "",
+  "execution_time_ms": 1497
+}

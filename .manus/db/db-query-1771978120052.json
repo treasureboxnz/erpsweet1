@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO attributes (erpCompanyId, name, category, subcategory, fieldName, displayOrder) VALUES\n(1, '上海港', '订单管理', '订单跟进', '出货港口', 1),\n(1, '宁波港', '订单管理', '订单跟进', '出货港口', 2),\n(1, '深圳港', '订单管理', '订单跟进', '出货港口', 3),\n(1, '广州港', '订单管理', '订单跟进', '出货港口', 4),\n(1, '青岛港', '订单管理', '订单跟进', '出货港口', 5),\n(1, '天津港', '订单管理', '订单跟进', '出货港口', 6),\n(1, '厦门港', '订单管理', '订单跟进', '出货港口', 7),\n(1, '大连港', '订单管理', '订单跟进', '出货港口', 8);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute INSERT INTO attributes (erpCompanyId, name, category, subcategory, fieldName, displayOrder) VALUES\n(1, '上海港', '订单管理', '订单跟进', '出货港口', 1),\n(1, '宁波港', '订单管理', '订单跟进', '出货港口', 2),\n(1, '深圳港', '订单管理', '订单跟进', '出货港口', 3),\n(1, '广州港', '订单管理', '订单跟进', '出货港口', 4),\n(1, '青岛港', '订单管理', '订单跟进', '出货港口', 5),\n(1, '天津港', '订单管理', '订单跟进', '出货港口', 6),\n(1, '厦门港', '订单管理', '订单跟进', '出货港口', 7),\n(1, '大连港', '订单管理', '订单跟进', '出货港口', 8);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1558
+}

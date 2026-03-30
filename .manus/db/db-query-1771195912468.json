@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO attributes (name, category, fieldName, displayOrder, createdAt, updatedAt) VALUES \n('VIP客户', '客户管理', 'cooperationLevel', 1, NOW(), NOW()),\n('A级客户', '客户管理', 'cooperationLevel', 2, NOW(), NOW()),\n('B级客户', '客户管理', 'cooperationLevel', 3, NOW(), NOW()),\n('C级客户', '客户管理', 'cooperationLevel', 4, NOW(), NOW()),\n('潜力客户', '客户管理', 'cooperationLevel', 5, NOW(), NOW());",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute INSERT INTO attributes (name, category, fieldName, displayOrder, createdAt, updatedAt) VALUES \n('VIP客户', '客户管理', 'cooperationLevel', 1, NOW(), NOW()),\n('A级客户', '客户管理', 'cooperationLevel', 2, NOW(), NOW()),\n('B级客户', '客户管理', 'cooperationLevel', 3, NOW(), NOW()),\n('C级客户', '客户管理', 'cooperationLevel', 4, NOW(), NOW()),\n('潜力客户', '客户管理', 'cooperationLevel', 5, NOW(), NOW());",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1546
+}

@@ -1,0 +1,17 @@
+{
+  "query": "SELECT id, companyName, volumeLevel, source, customerCode FROM companies WHERE companyName = '测试5星客户' ORDER BY id DESC LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, companyName, volumeLevel, source, customerCode FROM companies WHERE companyName = '测试5星客户' ORDER BY id DESC LIMIT 1;",
+  "rows": [
+    {
+      "id": "30001",
+      "companyName": "测试5星客户",
+      "volumeLevel": "NULL",
+      "source": "NULL",
+      "customerCode": "CUS2602155012"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcompanyName\tvolumeLevel\tsource\tcustomerCode\n30001\t测试5星客户\tNULL\tNULL\tCUS2602155012\n",
+  "stderr": "",
+  "execution_time_ms": 1718
+}

@@ -1,0 +1,40 @@
+{
+  "query": "\n-- 检查SYS供应商\nSELECT id, name, code, materialTypeName FROM material_suppliers WHERE code = 'SYS' LIMIT 1;\n\n-- 检查COL材料分类\nSELECT id, boardNumber, boardName, supplierId FROM material_boards WHERE boardNumber = 'COL' LIMIT 1;\n\n-- 检查ORIG颜色\nSELECT id, colorCode, colorName, boardId FROM material_colors WHERE colorCode = 'ORIG' LIMIT 1;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- 检查SYS供应商\nSELECT id, name, code, materialTypeName FROM material_suppliers WHERE code = 'SYS' LIMIT 1;\n\n-- 检查COL材料分类\nSELECT id, boardNumber, boardName, supplierId FROM material_boards WHERE boardNumber = 'COL' LIMIT 1;\n\n-- 检查ORIG颜色\nSELECT id, colorCode, colorName, boardId FROM material_colors WHERE colorCode = 'ORIG' LIMIT 1;\n",
+  "rows": [
+    {
+      "id": "30002",
+      "name": "系统默认",
+      "code": "SYS",
+      "materialTypeName": "NULL"
+    },
+    {
+      "id": "id",
+      "name": "boardNumber",
+      "code": "boardName",
+      "materialTypeName": "supplierId"
+    },
+    {
+      "id": "30002",
+      "name": "COL",
+      "code": "默认布板",
+      "materialTypeName": "30002"
+    },
+    {
+      "id": "id",
+      "name": "colorCode",
+      "code": "colorName",
+      "materialTypeName": "boardId"
+    },
+    {
+      "id": "30008",
+      "name": "ORIG",
+      "code": "Original 默认",
+      "materialTypeName": "30002"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tcode\tmaterialTypeName\n30002\t系统默认\tSYS\tNULL\nid\tboardNumber\tboardName\tsupplierId\n30002\tCOL\t默认布板\t30002\nid\tcolorCode\tcolorName\tboardId\n30008\tORIG\tOriginal 默认\t30002\n",
+  "stderr": "",
+  "execution_time_ms": 1945
+}

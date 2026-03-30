@@ -1,0 +1,55 @@
+{
+  "query": "\nSELECT \n  mc.id as color_id,\n  mc.colorCode,\n  mc.colorName,\n  mc.boardId,\n  mb.boardNumber,\n  mb.supplierId,\n  ms.name as supplier_name\nFROM material_colors mc\nLEFT JOIN material_boards mb ON mc.boardId = mb.id\nLEFT JOIN material_suppliers ms ON mb.supplierId = ms.id\nWHERE mc.colorCode LIKE '%01%'\nLIMIT 5;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  mc.id as color_id,\n  mc.colorCode,\n  mc.colorName,\n  mc.boardId,\n  mb.boardNumber,\n  mb.supplierId,\n  ms.name as supplier_name\nFROM material_colors mc\nLEFT JOIN material_boards mb ON mc.boardId = mb.id\nLEFT JOIN material_suppliers ms ON mb.supplierId = ms.id\nWHERE mc.colorCode LIKE '%01%'\nLIMIT 5;\n",
+  "rows": [
+    {
+      "color_id": "2",
+      "colorCode": "01",
+      "colorName": "白色羊羔绒",
+      "boardId": "17",
+      "boardNumber": "A01",
+      "supplierId": "5",
+      "supplier_name": "华美纺织"
+    },
+    {
+      "color_id": "5",
+      "colorCode": "01",
+      "colorName": "深蓝色天鹅绒",
+      "boardId": "18",
+      "boardNumber": "M02",
+      "supplierId": "5",
+      "supplier_name": "华美纺织"
+    },
+    {
+      "color_id": "8",
+      "colorCode": "01",
+      "colorName": "奶油色结子呢",
+      "boardId": "19",
+      "boardNumber": "C03",
+      "supplierId": "5",
+      "supplier_name": "华美纺织"
+    },
+    {
+      "color_id": "12",
+      "colorCode": "01",
+      "colorName": "灰褐色麂皮",
+      "boardId": "20",
+      "boardNumber": "D04",
+      "supplierId": "5",
+      "supplier_name": "华美纺织"
+    },
+    {
+      "color_id": "15",
+      "colorCode": "01",
+      "colorName": "象牙白提花",
+      "boardId": "21",
+      "boardNumber": "E05",
+      "supplierId": "5",
+      "supplier_name": "华美纺织"
+    }
+  ],
+  "messages": [],
+  "stdout": "color_id\tcolorCode\tcolorName\tboardId\tboardNumber\tsupplierId\tsupplier_name\n2\t01\t白色羊羔绒\t17\tA01\t5\t华美纺织\n5\t01\t深蓝色天鹅绒\t18\tM02\t5\t华美纺织\n8\t01\t奶油色结子呢\t19\tC03\t5\t华美纺织\n12\t01\t灰褐色麂皮\t20\tD04\t5\t华美纺织\n15\t01\t象牙白提花\t21\tE05\t5\t华美纺织\n",
+  "stderr": "",
+  "execution_time_ms": 1509
+}

@@ -1,0 +1,20 @@
+{
+  "query": "SELECT id, sku, name FROM products WHERE id = 60016 OR sku = 'SB-001-GRY' OR sku = 'DC-001-GRY';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, sku, name FROM products WHERE id = 60016 OR sku = 'SB-001-GRY' OR sku = 'DC-001-GRY';",
+  "rows": [
+    {
+      "id": "60016",
+      "sku": "DC-001-GRY",
+      "name": "Modern Upholstered Dining Chair - Gray"
+    },
+    {
+      "id": "60001",
+      "sku": "SB-001-GRY",
+      "name": "Modern Convertible Sofa Bed - Gray"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tsku\tname\n60016\tDC-001-GRY\tModern Upholstered Dining Chair - Gray\n60001\tSB-001-GRY\tModern Convertible Sofa Bed - Gray\n",
+  "stderr": "",
+  "execution_time_ms": 1533
+}

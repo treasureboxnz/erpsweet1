@@ -1,0 +1,38 @@
+{
+  "query": "\nSELECT vp.id, pv.variantCode, vp.sellingPriceFobL1, vp.sellingPriceFobL2, vp.sellingPriceFobL3\nFROM variant_pricing vp\nJOIN product_variants pv ON vp.variantId = pv.id\nWHERE pv.variantCode IN ('DC-001-B004', 'DC-001-B003', 'DC-001-B002', 'DC-001-B001')\nORDER BY pv.variantCode;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT vp.id, pv.variantCode, vp.sellingPriceFobL1, vp.sellingPriceFobL2, vp.sellingPriceFobL3\nFROM variant_pricing vp\nJOIN product_variants pv ON vp.variantId = pv.id\nWHERE pv.variantCode IN ('DC-001-B004', 'DC-001-B003', 'DC-001-B002', 'DC-001-B001')\nORDER BY pv.variantCode;\n",
+  "rows": [
+    {
+      "id": "120081",
+      "variantCode": "DC-001-B001",
+      "sellingPriceFobL1": "145.00",
+      "sellingPriceFobL2": "155.00",
+      "sellingPriceFobL3": "165.00"
+    },
+    {
+      "id": "120080",
+      "variantCode": "DC-001-B002",
+      "sellingPriceFobL1": "155.00",
+      "sellingPriceFobL2": "173.00",
+      "sellingPriceFobL3": "191.00"
+    },
+    {
+      "id": "120079",
+      "variantCode": "DC-001-B003",
+      "sellingPriceFobL1": "140.00",
+      "sellingPriceFobL2": "152.00",
+      "sellingPriceFobL3": "164.00"
+    },
+    {
+      "id": "120078",
+      "variantCode": "DC-001-B004",
+      "sellingPriceFobL1": "150.00",
+      "sellingPriceFobL2": "165.00",
+      "sellingPriceFobL3": "180.00"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tsellingPriceFobL1\tsellingPriceFobL2\tsellingPriceFobL3\n120081\tDC-001-B001\t145.00\t155.00\t165.00\n120080\tDC-001-B002\t155.00\t173.00\t191.00\n120079\tDC-001-B003\t140.00\t152.00\t164.00\n120078\tDC-001-B004\t150.00\t165.00\t180.00\n",
+  "stderr": "",
+  "execution_time_ms": 1528
+}

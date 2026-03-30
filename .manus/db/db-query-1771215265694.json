@@ -1,0 +1,28 @@
+{
+  "query": "\n-- Get ABC Furniture ID\nSELECT id FROM companies WHERE companyName LIKE '%ABC%' LIMIT 1;\n\n-- Check batch-customer associations for DC-001-GRY\nSELECT v.id, v.variantCode, v.variantName, \n       GROUP_CONCAT(vcl.customerId) as customerIds,\n       GROUP_CONCAT(c.companyName) as customerNames\nFROM product_variants v\nINNER JOIN products p ON v.productId = p.id\nLEFT JOIN variant_customer_links vcl ON v.id = vcl.variantId\nLEFT JOIN companies c ON vcl.customerId = c.id\nWHERE p.sku = 'DC-001-GRY'\nGROUP BY v.id;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- Get ABC Furniture ID\nSELECT id FROM companies WHERE companyName LIKE '%ABC%' LIMIT 1;\n\n-- Check batch-customer associations for DC-001-GRY\nSELECT v.id, v.variantCode, v.variantName, \n       GROUP_CONCAT(vcl.customerId) as customerIds,\n       GROUP_CONCAT(c.companyName) as customerNames\nFROM product_variants v\nINNER JOIN products p ON v.productId = p.id\nLEFT JOIN variant_customer_links vcl ON v.id = vcl.variantId\nLEFT JOIN companies c ON vcl.customerId = c.id\nWHERE p.sku = 'DC-001-GRY'\nGROUP BY v.id;\n",
+  "rows": [
+    {
+      "id": "30007"
+    },
+    {
+      "id": "id\tvariantCode\tvariantName\tcustomerIds\tcustomerNames"
+    },
+    {
+      "id": "120006\tDC-001-B001\tGray upholstery darker shade\t30007\tABC Furniture"
+    },
+    {
+      "id": "120008\tDC-001-B003\tBulk order 100+ units\t30007\tABC Furniture"
+    },
+    {
+      "id": "120009\tDC-001-B004\tPremium fabric stain-resistant\t30007\tABC Furniture"
+    },
+    {
+      "id": "120007\tDC-001-B002\tCustom backrest height 90cm\t30007\tABC Furniture"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\n30007\nid\tvariantCode\tvariantName\tcustomerIds\tcustomerNames\n120006\tDC-001-B001\tGray upholstery darker shade\t30007\tABC Furniture\n120008\tDC-001-B003\tBulk order 100+ units\t30007\tABC Furniture\n120009\tDC-001-B004\tPremium fabric stain-resistant\t30007\tABC Furniture\n120007\tDC-001-B002\tCustom backrest height 90cm\t30007\tABC Furniture\n",
+  "stderr": "",
+  "execution_time_ms": 1737
+}

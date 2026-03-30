@@ -1,0 +1,15 @@
+{
+  "query": "SELECT id, name, description FROM products WHERE id = 21;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, name, description FROM products WHERE id = 21;",
+  "rows": [
+    {
+      "id": "21",
+      "name": "Accent Armchair",
+      "description": "<p>这是一款现代简约风格的休闲椅，采用优质材料制作，舒适耐用。</p>"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tdescription\n21\tAccent Armchair\t<p>这是一款现代简约风格的休闲椅，采用优质材料制作，舒适耐用。</p>\n",
+  "stderr": "",
+  "execution_time_ms": 118
+}

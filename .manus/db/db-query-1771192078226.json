@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO attributes (name, category, subcategory, fieldName, displayOrder, createdAt, updatedAt) \nVALUES \n('直接客户', '客户管理', NULL, '客户性质', 1, NOW(), NOW()),\n('分销商', '客户管理', NULL, '客户性质', 2, NOW(), NOW()),\n('代理商', '客户管理', NULL, '客户性质', 3, NOW(), NOW()),\n('OEM客户', '客户管理', NULL, '客户性质', 4, NOW(), NOW()),\n('ODM客户', '客户管理', NULL, '客户性质', 5, NOW(), NOW());",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute INSERT INTO attributes (name, category, subcategory, fieldName, displayOrder, createdAt, updatedAt) \nVALUES \n('直接客户', '客户管理', NULL, '客户性质', 1, NOW(), NOW()),\n('分销商', '客户管理', NULL, '客户性质', 2, NOW(), NOW()),\n('代理商', '客户管理', NULL, '客户性质', 3, NOW(), NOW()),\n('OEM客户', '客户管理', NULL, '客户性质', 4, NOW(), NOW()),\n('ODM客户', '客户管理', NULL, '客户性质', 5, NOW(), NOW());",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1498
+}

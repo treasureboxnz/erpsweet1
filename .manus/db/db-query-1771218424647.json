@@ -1,0 +1,46 @@
+{
+  "query": "SELECT vcl.*, pv.variantCode, pv.variantName, c.companyName \nFROM variant_customer_links vcl\nLEFT JOIN product_variants pv ON vcl.variantId = pv.id\nLEFT JOIN companies c ON vcl.customerId = c.id\nWHERE c.companyName = 'ABC Furniture';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT vcl.*, pv.variantCode, pv.variantName, c.companyName \nFROM variant_customer_links vcl\nLEFT JOIN product_variants pv ON vcl.variantId = pv.id\nLEFT JOIN companies c ON vcl.customerId = c.id\nWHERE c.companyName = 'ABC Furniture';",
+  "rows": [
+    {
+      "id": "1",
+      "variantId": "120006",
+      "customerId": "30007",
+      "createdAt": "2026-02-16 04:11:23",
+      "variantCode": "DC-001-B001",
+      "variantName": "Gray upholstery darker shade",
+      "companyName": "ABC Furniture"
+    },
+    {
+      "id": "2",
+      "variantId": "120007",
+      "customerId": "30007",
+      "createdAt": "2026-02-16 04:11:23",
+      "variantCode": "DC-001-B002",
+      "variantName": "Custom backrest height 90cm",
+      "companyName": "ABC Furniture"
+    },
+    {
+      "id": "3",
+      "variantId": "120008",
+      "customerId": "30007",
+      "createdAt": "2026-02-16 04:11:23",
+      "variantCode": "DC-001-B003",
+      "variantName": "Bulk order 100+ units",
+      "companyName": "ABC Furniture"
+    },
+    {
+      "id": "4",
+      "variantId": "120009",
+      "customerId": "30007",
+      "createdAt": "2026-02-16 04:11:23",
+      "variantCode": "DC-001-B004",
+      "variantName": "Premium fabric stain-resistant",
+      "companyName": "ABC Furniture"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantId\tcustomerId\tcreatedAt\tvariantCode\tvariantName\tcompanyName\n1\t120006\t30007\t2026-02-16 04:11:23\tDC-001-B001\tGray upholstery darker shade\tABC Furniture\n2\t120007\t30007\t2026-02-16 04:11:23\tDC-001-B002\tCustom backrest height 90cm\tABC Furniture\n3\t120008\t30007\t2026-02-16 04:11:23\tDC-001-B003\tBulk order 100+ units\tABC Furniture\n4\t120009\t30007\t2026-02-16 04:11:23\tDC-001-B004\tPremium fabric stain-resistant\tABC Furniture\n",
+  "stderr": "",
+  "execution_time_ms": 1593
+}

@@ -1,0 +1,9 @@
+{
+  "query": "-- 为TEST公司（erpCompanyId=1）插入默认材料类型\nINSERT INTO material_types (name, icon, sortOrder, erpCompanyId) VALUES\n('布料', '🧵', 1, 1),\n('木腿', '🪑', 2, 1),\n('扶手', '🛋️', 3, 1),\n('填充物', '🧶', 4, 1),\n('坐垫', '💺', 5, 1),\n('靠背', '🪑', 6, 1),\n('框架', '🔲', 7, 1),\n('配件', '🔧', 8, 1),\n('其他', '📦', 9, 1);\n\n-- 为TEST2公司（erpCompanyId=2）插入默认材料类型\nINSERT INTO material_types (name, icon, sortOrder, erpCompanyId) VALUES\n('布料', '🧵', 1, 2),\n('木腿', '🪑', 2, 2),\n('扶手', '🛋️', 3, 2),\n('填充物', '🧶', 4, 2),\n('坐垫', '💺', 5, 2),\n('靠背', '🪑', 6, 2),\n('框架', '🔲', 7, 2),\n('配件', '🔧', 8, 2),\n('其他', '📦', 9, 2);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute -- 为TEST公司（erpCompanyId=1）插入默认材料类型\nINSERT INTO material_types (name, icon, sortOrder, erpCompanyId) VALUES\n('布料', '🧵', 1, 1),\n('木腿', '🪑', 2, 1),\n('扶手', '🛋️', 3, 1),\n('填充物', '🧶', 4, 1),\n('坐垫', '💺', 5, 1),\n('靠背', '🪑', 6, 1),\n('框架', '🔲', 7, 1),\n('配件', '🔧', 8, 1),\n('其他', '📦', 9, 1);\n\n-- 为TEST2公司（erpCompanyId=2）插入默认材料类型\nINSERT INTO material_types (name, icon, sortOrder, erpCompanyId) VALUES\n('布料', '🧵', 1, 2),\n('木腿', '🪑', 2, 2),\n('扶手', '🛋️', 3, 2),\n('填充物', '🧶', 4, 2),\n('坐垫', '💺', 5, 2),\n('靠背', '🪑', 6, 2),\n('框架', '🔲', 7, 2),\n('配件', '🔧', 8, 2),\n('其他', '📦', 9, 2);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1875
+}

@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+"""
+更新布料颜色图片URL到数据库
+"""
+
+import os
+import sys
+import mysql.connector
+from urllib.parse import urlparse
+
+# 从环境变量获取数据库连接信息
+database_url = os.getenv('DATABASE_URL')
+if not database_url:
+    print("错误：未找到DATABASE_URL环境变量")
+    sys.exit(1)
+
+# 解析数据库URL
+parsed = urlparse(database_url)
+db_config = {
+    'host': parsed.hostname,
+    'port': parsed.port or 3306,
+    'user': parsed.username,
+    'password': parsed.password,
+    'database': parsed.path.lstrip('/'),
+}
+
+print(f"连接数据库: {db_config['host']}:{db_config['port']}/{db_config['database']}")
+
+# 连接数据库
+conn = mysql.connector.connect(**db_config)
+cursor = conn.cursor()
+
+# 布料颜色图片URL映射（使用压缩版本的URL）
+fabric_images = {
+    56: "https://private-us-east-1.manuscdn.com/sessionFile/IzPnj1BD4z9TT1t9ALEw2q/sandbox/ymjwHNoRueKTBzb7YJKarE-img-1_1771444791000_na1fn_ZmFicmljLWJsdXNoLXBpbmstc2lsay0wMQ.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSXpQbmoxQkQ0ejlUVDF0OUFMRXcycS9zYW5kYm94L3ltandITm9SdWVLVEJ6YjdZSkthckUtaW1nLTFfMTc3MTQ0NDc5MTAwMF9uYTFmbl9abUZpY21sakxXSnNkWE5vTFhCcGJtc3RjMmxzYXkwd01RLmpwZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=cZmR3~Zbh80-b7W~SlgYsBje1gszRI4xmJbxJ~kyxQNKXHd~cgwv-PMZeqxfE1-DtAudYABM6~tbd2J8UDmeVDCPgS1kQwCXrTGpYwEdYw8VmMuTLpJAyhVs0eDahBNqflBK8AUknlTXDPq0vY90JQMNJjiuFFQpIkGSYypCkWt1alp~YlUkq~kThZOppsQDRZDbHW3zAfTwz6eVPwwFHzP4cyov9a82BPZFLj~ABy-4DgWQOj7qbBoOUdqIUFkUGzE~s6GLqnb7ZhOZrECahnAeW-s6rMiZ~nDE3GfAmLicHVamacg~daoPVEpcajtkzM9H~XfUXAqMAo-alHOMew__",  # 腮红粉丝绸
+    30001: "https://private-us-east-1.manuscdn.com/sessionFile/IzPnj1BD4z9TT1t9ALEw2q/sandbox/ymjwHNoRueKTBzb7YJKarE-img-2_1771444788000_na1fn_ZmFicmljLXRlc3QtYmx1ZS1URVNULTAx.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSXpQbmoxQkQ0ejlUVDF0OUFMRXcycS9zYW5kYm94L3ltandITm9SdWVLVEJ6YjdZSkthckUtaW1nLTJfMTc3MTQ0NDc4ODAwMF9uYTFmbl9abUZpY21sakxYUmxjM1F0WW14MVpTMVVSVk5VTFRBeC5qcGc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=t65u0I7Y7BNnV7nrehT90DXFiytjWj8MqEM4uAAMOZzCyb2Yg2H2oeyP1vMj8THXm3M6vIBBW1ssiaKkgSlcdAY4apWz5zWQkGR~AtWByQ4bZWPUhbGLC94h2GfNUvQPp4kNfO~Z9-txk66Rez8Ln-8i4c4euENmQnWNiFH43PcwteuR-Nz759AmwB8fOXNQRYww9mTPXstJOoDNNV0uimkVt5cqroXiffsA903j8epfe0UOuS7M3FYGIRPr0ohuzJWB9weLyGoEofS~We0uJhQBlceTMXDiUwE7xZa~s6I8KxyaqMvyiRzIkIZ9QsB6-NUb2noXtOrP7cIgSIo27Q__",  # 测试蓝色
+    30002: "https://private-us-east-1.manuscdn.com/sessionFile/IzPnj1BD4z9TT1t9ALEw2q/sandbox/ymjwHNoRueKTBzb7YJKarE-img-3_1771444789000_na1fn_ZmFicmljLXllbGxvdy0zMg.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSXpQbmoxQkQ0ejlUVDF0OUFMRXcycS9zYW5kYm94L3ltandITm9SdWVLVEJ6YjdZSkthckUtaW1nLTNfMTc3MTQ0NDc4OTAwMF9uYTFmbl9abUZpY21sakxYbGxiR3h2ZHkwek1nLmpwZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=WrTaZF2WNMhJYo-KX1~A1RpMIALHu5t2dJgSqe6NpkkT8~f~4jiXX8qxmKP5xaq2oV-FhzOmidHBb0gvlbtrH1B~2KuoAytmG~-KuI-GAB6fUU~Ws654ldqJBGyiDXWlDtnfP~VEzxpc73W~S~mr7lbFLKHCzQAawCyCaCCQ4r-fcz2prpHHjFWk5f9xYM7jnVXjm6skMMJVIbK1XDGy4L5b~lb0DsXW1JwPddSvhjJc8Ovyd~i2bmYtLSUp0e0cijPQb2D~ck8B8ij-oMbLqohi~igNrEl80GSDpXtzLi68glCT036LzcGVe0XE3ygz~QXH1g~FXrXTRS--aD1Lcw__",  # 黄色
+    30003: "https://private-us-east-1.manuscdn.com/sessionFile/IzPnj1BD4z9TT1t9ALEw2q/sandbox/PcXF1OsvrAOTFmB1o3u9Pi-img-1_1771444857000_na1fn_ZmFicmljLWNvbG9yLTAz.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSXpQbmoxQkQ0ejlUVDF0OUFMRXcycS9zYW5kYm94L1BjWEYxT3N2ckFPVEZtQjFvM3U5UGktaW1nLTFfMTc3MTQ0NDg1NzAwMF9uYTFmbl9abUZpY21sakxXTnZiRzl5TFRBei5qcGc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=ifRXF~G-yo2oVA1FuUTquaV-vRGc4SxgykcyxDw4D~oYPhYScIlCiUahXH1KLOOSqHag8Cve~xLzQ1~X6ta0xrZ0BTROIPKUEF5W2BHES5b15rmNYEqwCpxx4vLtHwP1WeDIjb4Kof8j~2njC2ik5bjkJOD2KCuTwOeCJZTeLzX0UPoXsA2KvCTZFRgKOX~bfbCZCWW1Im8e5SktmQAR3vmPX~AtgAvcHytqQGr5E-2C0XXtTAusdE434L1cAKLyKzmsTQF3fxCqznLetz00qRwIsaD0DLcsHlG8FCcFNRrCoWuHEpUE8Qys5eW5Ywiufetius-BBZtIZkMN7-DtCA__",  # 编号03（鼠尾草绿）
+    30004: "https://private-us-east-1.manuscdn.com/sessionFile/IzPnj1BD4z9TT1t9ALEw2q/sandbox/PcXF1OsvrAOTFmB1o3u9Pi-img-2_1771444849000_na1fn_ZmFicmljLWNvbG9yLTA1.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSXpQbmoxQkQ0ejlUVDF0OUFMRXcycS9zYW5kYm94L1BjWEYxT3N2ckFPVEZtQjFvM3U5UGktaW1nLTJfMTc3MTQ0NDg0OTAwMF9uYTFmbl9abUZpY21sakxXTnZiRzl5TFRBMS5qcGc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=o94ujUBKrI4Q81gESKEWn3F4kYbnKetoraoSTRPw3rvEyNNMkk2fPKSEiiW8WwELDpE9Uv3tBS4HOiP~-2FP0r6HymQoYkxjqf1MwrnPoXIAnrM40TUPUibnvJny7r~gOEWR2XEJhXuiUg0FT-Od-cCuQUlrDr-EYeehNwd2n4wjaJ9zehjWExSDh37BFjtvQ-KJ~xsB02p-y6ATAnGx8G90Zbb4DUS9~3YBZVtdrEzys1CRLMwZRrwcSfzu94VZmgGDynu4OOHcrJi4HQy4safCNVJGBnHjyZd3i5mit5pS9aw1yHe4gtgtKANf94-ZrHf1smSiFj~cPQ0Xr9Ee3A__",  # 编号05（勃艮第红）
+    30005: "https://private-us-east-1.manuscdn.com/sessionFile/IzPnj1BD4z9TT1t9ALEw2q/sandbox/PcXF1OsvrAOTFmB1o3u9Pi-img-3_1771444849000_na1fn_ZmFicmljLWNvbG9yLTA0.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSXpQbmoxQkQ0ejlUVDF0OUFMRXcycS9zYW5kYm94L1BjWEYxT3N2ckFPVEZtQjFvM3U5UGktaW1nLTNfMTc3MTQ0NDg0OTAwMF9uYTFmbl9abUZpY21sakxXTnZiRzl5TFRBMC5qcGc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=KcXhb1yDsS0vUasvzlEfHrqR7WaiuCjNYQkOL7GIusTOSIvNUHXZWojueyU9qAENQWsQruIrNAPqKgSO8~Q7G5gdMFaduY0z-NWy7a6M-TSIyHjdXJcOtGNWBmIrfF3Kl8kh09eWiZX8tsD~s~RDe4jz5U5231FS6Qqx2DDu1hFBN2s31ZylEhTPFdCPFjAdv0AFtqUroj4Y1B3ErXoFZQb~oQShErAzl0bSiV949AVKQNvmAHWkH16u8eWRB1PPwS3FFPEQCsZFCx0HesJvStPxDpqa~2Sanu7tBjKTcFIeM7h9OjfgU6OCWBzTXr~mcrqA2j1TYWcVJKBTdm~KnA__",  # 编号04（炭灰色）
+    30006: "https://private-us-east-1.manuscdn.com/sessionFile/IzPnj1BD4z9TT1t9ALEw2q/sandbox/PcXF1OsvrAOTFmB1o3u9Pi-img-4_1771444845000_na1fn_ZmFicmljLWNvbG9yLTA2.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSXpQbmoxQkQ0ejlUVDF0OUFMRXcycS9zYW5kYm94L1BjWEYxT3N2ckFPVEZtQjFvM3U5UGktaW1nLTRfMTc3MTQ0NDg0NTAwMF9uYTFmbl9abUZpY21sakxXTnZiRzl5TFRBMi5qcGc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=dnEeR0-pRN8Pw3gUwIc6ZWlO9UTsnlMFQfqJmN-ItMBSQZQz8On7mSTkFZp36KtmvCYnlcJX1xOYhgNu4LQZFjP4BUDowsNMmdSun~yau1Qmjiyna1h1X9opnuIoOVOl13fblCQ~CQUC6Oi-Zr4ENF2FiIXbkNzsNhKbcx3EoezgKRpKIFDQNnFolv02IKk6qlfdk1QhHwwEw8wHXTAZD5y89ia8MNrs7Dtdp4OZ2hjbup00RihFEjXFZFDWZBqfmRJ1PU7USzKjIr7GiCxgqKYy9NEPubQAZvWlLjRTKgX6JpUMv~krIzs5kcwx3M5yNTTM8IqV3LuUuQsTvRXuRA__",  # 编号06（奶油米色）
+    30007: "https://private-us-east-1.manuscdn.com/sessionFile/IzPnj1BD4z9TT1t9ALEw2q/sandbox/PcXF1OsvrAOTFmB1o3u9Pi-img-5_1771444844000_na1fn_ZmFicmljLWNvbG9yLTA3.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSXpQbmoxQkQ0ejlUVDF0OUFMRXcycS9zYW5kYm94L1BjWEYxT3N2ckFPVEZtQjFvM3U5UGktaW1nLTVfMTc3MTQ0NDg0NDAwMF9uYTFmbl9abUZpY21sakxXTnZiRzl5TFRBMy5qcGc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=FrRqSlVnRfNciJ-7WzizlkCY0JhsGrFXt0aySPFU7ugkne51xKBdH2ZQT9vCPORNkr0ITV-QOfKv~pdiexKulxc4~MA26sPtEqdfuQXWCB02ksrE7k~CeprtWM~xLS-KrjjPNhPUWe~4ywEPBKD~1ctA9cD7O9zcQfO6vqaGazjDZGdf87mppqvWj7Rxkg3iKeGku4eYK6zSl0D313fd~nXbYLO2MwAiklRo1aj4MjxpbF8Hkz0YwhmDY7D6dnYA3ag6WnXf7~e8wYA1oT-51DH6lfAkITmrmmjz0V7PPxLugV~iodPMSbsjVRO5M4BSpi~GQ222w~mAZWX6DCn9lA__",  # 编号07（海军蓝）
+}
+
+print(f"\n开始更新 {len(fabric_images)} 个布料颜色的图片URL...")
+
+updated_count = 0
+for color_id, image_url in fabric_images.items():
+    try:
+        cursor.execute(
+            "UPDATE material_colors SET imageUrl = %s WHERE id = %s",
+            (image_url, color_id)
+        )
+        updated_count += 1
+        print(f"✓ 更新颜色ID {color_id} 的图片URL")
+    except Exception as e:
+        print(f"✗ 更新颜色ID {color_id} 失败: {e}")
+
+conn.commit()
+cursor.close()
+conn.close()
+
+print(f"\n=== 更新完成 ===")
+print(f"成功更新 {updated_count}/{len(fabric_images)} 个布料颜色的图片URL")

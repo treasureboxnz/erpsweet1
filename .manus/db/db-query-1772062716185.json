@@ -1,0 +1,25 @@
+{
+  "query": "\nSELECT \n  ec.id AS companyId,\n  ec.companyName,\n  GROUP_CONCAT(sr.ruleType ORDER BY sr.ruleType) AS existingRules\nFROM erp_companies ec\nLEFT JOIN sku_rules sr ON ec.id = sr.erpCompanyId\nGROUP BY ec.id, ec.companyName\nORDER BY ec.id;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  ec.id AS companyId,\n  ec.companyName,\n  GROUP_CONCAT(sr.ruleType ORDER BY sr.ruleType) AS existingRules\nFROM erp_companies ec\nLEFT JOIN sku_rules sr ON ec.id = sr.erpCompanyId\nGROUP BY ec.id, ec.companyName\nORDER BY ec.id;\n",
+  "rows": [
+    {
+      "companyId": "1",
+      "companyName": "测试公司",
+      "existingRules": "customer,inspection,order,product,quotation,supplier,variant"
+    },
+    {
+      "companyId": "2",
+      "companyName": "测试公司2",
+      "existingRules": "NULL"
+    },
+    {
+      "companyId": "60001",
+      "companyName": "广州凯飒家具有限公司",
+      "existingRules": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "companyId\tcompanyName\texistingRules\n1\t测试公司\tcustomer,inspection,order,product,quotation,supplier,variant\n2\t测试公司2\tNULL\n60001\t广州凯飒家具有限公司\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1654
+}

@@ -1,0 +1,130 @@
+{
+  "query": "SELECT DISTINCT o.id, o.orderNumber, o.erpCompanyId,\n  COUNT(DISTINCT oi.id) as itemCount,\n  SUM(CASE WHEN (p.imageUrl IS NOT NULL AND p.imageUrl != '') THEN 1 ELSE 0 END) as itemsWithImage,\n  SUM(CASE WHEN pv.supplierId IS NOT NULL THEN 1 ELSE 0 END) as itemsWithSupplier\nFROM orders o\nJOIN order_items oi ON oi.orderId = o.id\nJOIN products p ON p.id = oi.productId\nLEFT JOIN product_variants pv ON pv.id = oi.variantId\nGROUP BY o.id, o.orderNumber, o.erpCompanyId\nORDER BY o.id DESC\nLIMIT 15;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT DISTINCT o.id, o.orderNumber, o.erpCompanyId,\n  COUNT(DISTINCT oi.id) as itemCount,\n  SUM(CASE WHEN (p.imageUrl IS NOT NULL AND p.imageUrl != '') THEN 1 ELSE 0 END) as itemsWithImage,\n  SUM(CASE WHEN pv.supplierId IS NOT NULL THEN 1 ELSE 0 END) as itemsWithSupplier\nFROM orders o\nJOIN order_items oi ON oi.orderId = o.id\nJOIN products p ON p.id = oi.productId\nLEFT JOIN product_variants pv ON pv.id = oi.variantId\nGROUP BY o.id, o.orderNumber, o.erpCompanyId\nORDER BY o.id DESC\nLIMIT 15;",
+  "rows": [
+    {
+      "id": "510001",
+      "orderNumber": "ORD00001",
+      "erpCompanyId": "1",
+      "itemCount": "1",
+      "itemsWithImage": "1",
+      "itemsWithSupplier": "0"
+    },
+    {
+      "id": "480001",
+      "orderNumber": "ORD-20260223-RT2",
+      "erpCompanyId": "1",
+      "itemCount": "1",
+      "itemsWithImage": "1",
+      "itemsWithSupplier": "1"
+    },
+    {
+      "id": "450001",
+      "orderNumber": "ORD-20260222-Z1K",
+      "erpCompanyId": "1",
+      "itemCount": "2",
+      "itemsWithImage": "2",
+      "itemsWithSupplier": "1"
+    },
+    {
+      "id": "420002",
+      "orderNumber": "ORD-20260222-YPE",
+      "erpCompanyId": "1",
+      "itemCount": "1",
+      "itemsWithImage": "1",
+      "itemsWithSupplier": "1"
+    },
+    {
+      "id": "420001",
+      "orderNumber": "ORD-20260222-MQC",
+      "erpCompanyId": "1",
+      "itemCount": "1",
+      "itemsWithImage": "1",
+      "itemsWithSupplier": "1"
+    },
+    {
+      "id": "390003",
+      "orderNumber": "ORD-20260222-8XM",
+      "erpCompanyId": "1",
+      "itemCount": "1",
+      "itemsWithImage": "1",
+      "itemsWithSupplier": "1"
+    },
+    {
+      "id": "390002",
+      "orderNumber": "ORD-20260222-QYV",
+      "erpCompanyId": "1",
+      "itemCount": "1",
+      "itemsWithImage": "1",
+      "itemsWithSupplier": "1"
+    },
+    {
+      "id": "390001",
+      "orderNumber": "ORD-20260222-5NZ",
+      "erpCompanyId": "1",
+      "itemCount": "1",
+      "itemsWithImage": "1",
+      "itemsWithSupplier": "1"
+    },
+    {
+      "id": "360001",
+      "orderNumber": "ORD-20260222-38J",
+      "erpCompanyId": "1",
+      "itemCount": "1",
+      "itemsWithImage": "1",
+      "itemsWithSupplier": "1"
+    },
+    {
+      "id": "330003",
+      "orderNumber": "ORD-20260221-UEC",
+      "erpCompanyId": "1",
+      "itemCount": "1",
+      "itemsWithImage": "1",
+      "itemsWithSupplier": "1"
+    },
+    {
+      "id": "330002",
+      "orderNumber": "ORD-WEIGHT-TEST",
+      "erpCompanyId": "1",
+      "itemCount": "1",
+      "itemsWithImage": "1",
+      "itemsWithSupplier": "1"
+    },
+    {
+      "id": "300001",
+      "orderNumber": "ORD-20260221-KXA",
+      "erpCompanyId": "1",
+      "itemCount": "1",
+      "itemsWithImage": "1",
+      "itemsWithSupplier": "1"
+    },
+    {
+      "id": "270010",
+      "orderNumber": "ORD-TEST-4MAT",
+      "erpCompanyId": "1",
+      "itemCount": "2",
+      "itemsWithImage": "2",
+      "itemsWithSupplier": "2"
+    },
+    {
+      "id": "270009",
+      "orderNumber": "ORD-TEST-3MAT",
+      "erpCompanyId": "1",
+      "itemCount": "1",
+      "itemsWithImage": "1",
+      "itemsWithSupplier": "1"
+    },
+    {
+      "id": "270008",
+      "orderNumber": "ORD-TEST-2MAT",
+      "erpCompanyId": "1",
+      "itemCount": "1",
+      "itemsWithImage": "1",
+      "itemsWithSupplier": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\torderNumber\terpCompanyId\titemCount\titemsWithImage\titemsWithSupplier\n510001\tORD00001\t1\t1\t1\t0\n480001\tORD-20260223-RT2\t1\t1\t1\t1\n450001\tORD-20260222-Z1K\t1\t2\t2\t1\n420002\tORD-20260222-YPE\t1\t1\t1\t1\n420001\tORD-20260222-MQC\t1\t1\t1\t1\n390003\tORD-20260222-8XM\t1\t1\t1\t1\n390002\tORD-20260222-QYV\t1\t1\t1\t1\n390001\tORD-20260222-5NZ\t1\t1\t1\t1\n360001\tORD-20260222-38J\t1\t1\t1\t1\n330003\tORD-20260221-UEC\t1\t1\t1\t1\n330002\tORD-WEIGHT-TEST\t1\t1\t1\t1\n300001\tORD-20260221-KXA\t1\t1\t1\t1\n270010\tORD-TEST-4MAT\t1\t2\t2\t2\n270009\tORD-TEST-3MAT\t1\t1\t1\t1\n270008\tORD-TEST-2MAT\t1\t1\t1\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1525
+}

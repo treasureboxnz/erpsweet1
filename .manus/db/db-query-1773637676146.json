@@ -1,0 +1,37 @@
+{
+  "query": "SELECT id, name, sku, myCostUsd, fobLevel1, fobLevel2, fobLevel3 FROM products WHERE myCostUsd IS NOT NULL AND myCostUsd != '' AND deletedAt IS NULL",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, name, sku, myCostUsd, fobLevel1, fobLevel2, fobLevel3 FROM products WHERE myCostUsd IS NOT NULL AND myCostUsd != '' AND deletedAt IS NULL",
+  "rows": [
+    {
+      "id": "60016",
+      "name": "Modern Upholstered Dining Chair - Gray",
+      "sku": "DC-001-GRY",
+      "myCostUsd": "44.00",
+      "fobLevel1": "47.00",
+      "fobLevel2": "49.00",
+      "fobLevel3": "52.00"
+    },
+    {
+      "id": "60020",
+      "name": "Windsor-Style Dining Chair - Oak",
+      "sku": "DC-005-OAK",
+      "myCostUsd": "23.00",
+      "fobLevel1": "24.21",
+      "fobLevel2": "26.00",
+      "fobLevel3": "27.90"
+    },
+    {
+      "id": "390001",
+      "name": "Armchair",
+      "sku": "SSC1007",
+      "myCostUsd": "47.70",
+      "fobLevel1": "49.80",
+      "fobLevel2": "51.20",
+      "fobLevel3": "53.00"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tsku\tmyCostUsd\tfobLevel1\tfobLevel2\tfobLevel3\n60016\tModern Upholstered Dining Chair - Gray\tDC-001-GRY\t44.00\t47.00\t49.00\t52.00\n60020\tWindsor-Style Dining Chair - Oak\tDC-005-OAK\t23.00\t24.21\t26.00\t27.90\n390001\tArmchair\tSSC1007\t47.70\t49.80\t51.20\t53.00\n",
+  "stderr": "",
+  "execution_time_ms": 1564
+}

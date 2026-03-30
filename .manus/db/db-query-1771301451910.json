@@ -1,0 +1,24 @@
+{
+  "query": "\nSELECT \n  q.id, q.quotationNumber, q.quotationMode,\n  qi.id as itemId, qi.productId, qi.productName, qi.productSku,\n  qb.id as batchId, qb.variantId, qb.variantName, qb.quantity, qb.unitPrice\nFROM quotations q\nLEFT JOIN quotation_items qi ON q.id = qi.quotationId\nLEFT JOIN quotation_batches qb ON qi.id = qb.quotationItemId\nWHERE q.quotationNumber = 'QUO-20260216-005';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  q.id, q.quotationNumber, q.quotationMode,\n  qi.id as itemId, qi.productId, qi.productName, qi.productSku,\n  qb.id as batchId, qb.variantId, qb.variantName, qb.quantity, qb.unitPrice\nFROM quotations q\nLEFT JOIN quotation_items qi ON q.id = qi.quotationId\nLEFT JOIN quotation_batches qb ON qi.id = qb.quotationItemId\nWHERE q.quotationNumber = 'QUO-20260216-005';\n",
+  "rows": [
+    {
+      "id": "60003",
+      "quotationNumber": "QUO-20260216-005",
+      "quotationMode": "batch_selection",
+      "itemId": "60004",
+      "productId": "60016",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "productSku": "DC-001-GRY",
+      "batchId": "60004",
+      "variantId": "120083",
+      "variantName": "DC-001-GRY-V002",
+      "quantity": "50",
+      "unitPrice": "101.00"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tquotationNumber\tquotationMode\titemId\tproductId\tproductName\tproductSku\tbatchId\tvariantId\tvariantName\tquantity\tunitPrice\n60003\tQUO-20260216-005\tbatch_selection\t60004\t60016\tModern Upholstered Dining Chair - Gray\tDC-001-GRY\t60004\t120083\tDC-001-GRY-V002\t50\t101.00\n",
+  "stderr": "",
+  "execution_time_ms": 1635
+}

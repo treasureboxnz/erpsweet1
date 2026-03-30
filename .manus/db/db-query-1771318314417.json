@@ -1,0 +1,38 @@
+{
+  "query": "SELECT \n  pv.variantCode,\n  pv.sellingPriceRMB,\n  pv.sellingPriceFOB,\n  pv.costPriceRMB,\n  pv.isDefault\nFROM product_variants pv\nJOIN products p ON pv.productId = p.id\nWHERE p.sku = 'DC-005-OAK'\nORDER BY pv.isDefault DESC, pv.variantCode;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT \n  pv.variantCode,\n  pv.sellingPriceRMB,\n  pv.sellingPriceFOB,\n  pv.costPriceRMB,\n  pv.isDefault\nFROM product_variants pv\nJOIN products p ON pv.productId = p.id\nWHERE p.sku = 'DC-005-OAK'\nORDER BY pv.isDefault DESC, pv.variantCode;",
+  "rows": [
+    {
+      "variantCode": "DC-005-OAK-V001",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "100.00",
+      "costPriceRMB": "NULL",
+      "isDefault": "1"
+    },
+    {
+      "variantCode": "DC-005-OAK-V002",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "100.00",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-005-OAK-V003",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "100.00",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-005-OAK-V004",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "100.00",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "variantCode\tsellingPriceRMB\tsellingPriceFOB\tcostPriceRMB\tisDefault\nDC-005-OAK-V001\tNULL\t100.00\tNULL\t1\nDC-005-OAK-V002\tNULL\t100.00\tNULL\t0\nDC-005-OAK-V003\tNULL\t100.00\tNULL\t0\nDC-005-OAK-V004\tNULL\t100.00\tNULL\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1542
+}

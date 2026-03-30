@@ -1,0 +1,8 @@
+{
+  "query": "\nSELECT \n  COUNT(*) as total_products,\n  SUM(CASE WHEN v.product_id IS NOT NULL THEN 1 ELSE 0 END) as products_with_variants,\n  SUM(CASE WHEN v.product_id IS NULL THEN 1 ELSE 0 END) as products_without_variants\nFROM erp_products p\nLEFT JOIN (\n  SELECT DISTINCT product_id FROM erp_product_variants\n) v ON v.product_id = p.id;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  COUNT(*) as total_products,\n  SUM(CASE WHEN v.product_id IS NOT NULL THEN 1 ELSE 0 END) as products_with_variants,\n  SUM(CASE WHEN v.product_id IS NULL THEN 1 ELSE 0 END) as products_without_variants\nFROM erp_products p\nLEFT JOIN (\n  SELECT DISTINCT product_id FROM erp_product_variants\n) v ON v.product_id = p.id;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1146 (42S02) at line 2: Table '5qtmwqjey7efv8qjhvh9i8.erp_products' doesn't exist"
+  ]
+}

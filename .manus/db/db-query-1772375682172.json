@@ -1,0 +1,32 @@
+{
+  "query": "SELECT pb.id, pb.variantId, pb.boxNumber, pb.length, pb.width, pb.height, pb.cbm, pb.packagingType, pb.piecesPerBox FROM package_boxes pb ORDER BY pb.id DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT pb.id, pb.variantId, pb.boxNumber, pb.length, pb.width, pb.height, pb.cbm, pb.packagingType, pb.piecesPerBox FROM package_boxes pb ORDER BY pb.id DESC LIMIT 5;",
+  "rows": [
+    {
+      "id": "210001",
+      "variantId": "900001",
+      "boxNumber": "1",
+      "length": "0.50",
+      "width": "0.30",
+      "height": "0.20",
+      "cbm": "0.030000",
+      "packagingType": "single",
+      "piecesPerBox": "1"
+    },
+    {
+      "id": "180011",
+      "variantId": "870022",
+      "boxNumber": "1",
+      "length": "0.60",
+      "width": "0.50",
+      "height": "0.40",
+      "cbm": "0.120000",
+      "packagingType": "single",
+      "piecesPerBox": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantId\tboxNumber\tlength\twidth\theight\tcbm\tpackagingType\tpiecesPerBox\n210001\t900001\t1\t0.50\t0.30\t0.20\t0.030000\tsingle\t1\n180011\t870022\t1\t0.60\t0.50\t0.40\t0.120000\tsingle\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1570
+}

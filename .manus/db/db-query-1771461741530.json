@@ -1,0 +1,24 @@
+{
+  "query": "SELECT id, colorCode, colorName, imageUrl, thumbnailUrl FROM material_colors WHERE colorCode LIKE '%ORIG%' OR id IN (SELECT materialColorId FROM product_variants WHERE variantCode LIKE 'DC-001-GRY-V012%') LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, colorCode, colorName, imageUrl, thumbnailUrl FROM material_colors WHERE colorCode LIKE '%ORIG%' OR id IN (SELECT materialColorId FROM product_variants WHERE variantCode LIKE 'DC-001-GRY-V012%') LIMIT 10;",
+  "rows": [
+    {
+      "id": "20",
+      "colorCode": "01",
+      "colorName": "深蓝色天鹅绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ultfhOkuWWxVrEyr.jpg",
+      "thumbnailUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ultfhOkuWWxVrEyr.jpg"
+    },
+    {
+      "id": "30008",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/OjqPhcBgxLDYsVOk.png",
+      "thumbnailUrl": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcolorCode\tcolorName\timageUrl\tthumbnailUrl\n20\t01\t深蓝色天鹅绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ultfhOkuWWxVrEyr.jpg\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ultfhOkuWWxVrEyr.jpg\n30008\tORIGINAL-ORIG-01\tOriginal\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/OjqPhcBgxLDYsVOk.png\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1519
+}

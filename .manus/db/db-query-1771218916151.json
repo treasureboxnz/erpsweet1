@@ -1,0 +1,30 @@
+{
+  "query": "\n-- 查询DC-001-GRY-V001批次的价格数据\nSELECT vp.*, pv.variantCode, pv.variantName\nFROM variant_pricing vp\nJOIN product_variants pv ON vp.variantId = pv.id\nWHERE pv.variantCode = 'DC-001-GRY-V001';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- 查询DC-001-GRY-V001批次的价格数据\nSELECT vp.*, pv.variantCode, pv.variantName\nFROM variant_pricing vp\nJOIN product_variants pv ON vp.variantId = pv.id\nWHERE pv.variantCode = 'DC-001-GRY-V001';\n",
+  "rows": [
+    {
+      "id": "120082",
+      "variantId": "120082",
+      "factoryCostRmbExTax": "NULL",
+      "factoryCostRmbIncTax": "NULL",
+      "factoryCostUsdFob": "NULL",
+      "myCostRmb": "NULL",
+      "myCostUsd": "NULL",
+      "fobFeeRmb": "NULL",
+      "sellingPriceRmbIncTax": "NULL",
+      "sellingPriceFobL1": "NULL",
+      "sellingPriceFobL2": "NULL",
+      "sellingPriceFobL3": "NULL",
+      "effectiveDate": "2026-02-16 04:40:33",
+      "isCurrent": "1",
+      "createdBy": "1",
+      "createdAt": "2026-02-16 04:40:33",
+      "variantCode": "DC-001-GRY-V001",
+      "variantName": "30米布料"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantId\tfactoryCostRmbExTax\tfactoryCostRmbIncTax\tfactoryCostUsdFob\tmyCostRmb\tmyCostUsd\tfobFeeRmb\tsellingPriceRmbIncTax\tsellingPriceFobL1\tsellingPriceFobL2\tsellingPriceFobL3\teffectiveDate\tisCurrent\tcreatedBy\tcreatedAt\tvariantCode\tvariantName\n120082\t120082\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\t2026-02-16 04:40:33\t1\t1\t2026-02-16 04:40:33\tDC-001-GRY-V001\t30米布料\n",
+  "stderr": "",
+  "execution_time_ms": 1521
+}

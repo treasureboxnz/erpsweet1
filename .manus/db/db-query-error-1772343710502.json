@@ -1,0 +1,8 @@
+{
+  "query": "SELECT DISTINCT o.id, o.orderNumber, o.erpCompanyId,\n  COUNT(DISTINCT oi.id) as itemCount,\n  SUM(CASE WHEN (p.imageUrl IS NOT NULL AND p.imageUrl != '') THEN 1 ELSE 0 END) as itemsWithImage,\n  SUM(CASE WHEN oi.supplierId IS NOT NULL THEN 1 ELSE 0 END) as itemsWithSupplier\nFROM orders o\nJOIN order_items oi ON oi.orderId = o.id\nJOIN products p ON p.id = oi.productId\nGROUP BY o.id, o.orderNumber, o.erpCompanyId\nHAVING itemsWithImage > 0 AND itemsWithSupplier > 0\nORDER BY o.id DESC\nLIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT DISTINCT o.id, o.orderNumber, o.erpCompanyId,\n  COUNT(DISTINCT oi.id) as itemCount,\n  SUM(CASE WHEN (p.imageUrl IS NOT NULL AND p.imageUrl != '') THEN 1 ELSE 0 END) as itemsWithImage,\n  SUM(CASE WHEN oi.supplierId IS NOT NULL THEN 1 ELSE 0 END) as itemsWithSupplier\nFROM orders o\nJOIN order_items oi ON oi.orderId = o.id\nJOIN products p ON p.id = oi.productId\nGROUP BY o.id, o.orderNumber, o.erpCompanyId\nHAVING itemsWithImage > 0 AND itemsWithSupplier > 0\nORDER BY o.id DESC\nLIMIT 10;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'oi.supplierid' in 'group statement'"
+  ]
+}

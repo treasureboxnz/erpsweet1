@@ -1,0 +1,27 @@
+{
+  "query": "SELECT * FROM company_letterheads WHERE companyId = 30007;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM company_letterheads WHERE companyId = 30007;",
+  "rows": [
+    {
+      "id": "1",
+      "companyId": "30007",
+      "companyNameEn": "ABC Furniture Limited",
+      "tradeAs": "Best Furniture",
+      "contactPersonEn": "Eric",
+      "contactPhone": "+65 555554444",
+      "contactEmail": "",
+      "addressEn": "68 Major Street",
+      "cityEn": "New York",
+      "stateEn": "NA",
+      "postalCode": "10002",
+      "countryEn": "USA",
+      "notes": "",
+      "createdAt": "2026-02-17 23:25:30",
+      "updatedAt": "2026-02-19 04:01:33"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcompanyId\tcompanyNameEn\ttradeAs\tcontactPersonEn\tcontactPhone\tcontactEmail\taddressEn\tcityEn\tstateEn\tpostalCode\tcountryEn\tnotes\tcreatedAt\tupdatedAt\n1\t30007\tABC Furniture Limited\tBest Furniture\tEric\t+65 555554444\t\t68 Major Street\tNew York\tNA\t10002\tUSA\t\t2026-02-17 23:25:30\t2026-02-19 04:01:33\n",
+  "stderr": "",
+  "execution_time_ms": 1534
+}

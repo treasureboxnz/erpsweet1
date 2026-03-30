@@ -1,0 +1,25 @@
+{
+  "query": "\nSELECT COUNT(*) as total_quotations FROM quotations;\nSELECT COUNT(*) as total_items FROM quotation_items;\nSELECT COUNT(*) as total_batches FROM quotation_batches;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT COUNT(*) as total_quotations FROM quotations;\nSELECT COUNT(*) as total_items FROM quotation_items;\nSELECT COUNT(*) as total_batches FROM quotation_batches;\n",
+  "rows": [
+    {
+      "total_quotations": "9"
+    },
+    {
+      "total_quotations": "total_items"
+    },
+    {
+      "total_quotations": "15"
+    },
+    {
+      "total_quotations": "total_batches"
+    },
+    {
+      "total_quotations": "15"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_quotations\n9\ntotal_items\n15\ntotal_batches\n15\n",
+  "stderr": "",
+  "execution_time_ms": 1975
+}

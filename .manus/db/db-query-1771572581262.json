@@ -1,0 +1,70 @@
+{
+  "query": "SELECT \n  o.id,\n  o.orderNumber,\n  oi.productName,\n  COUNT(DISTINCT vm.id) as material_count\nFROM orders o\nJOIN order_items oi ON o.id = oi.orderId\nJOIN product_variants pv ON oi.variantId = pv.id\nLEFT JOIN variant_materials vm ON pv.id = vm.variantId\nWHERE o.deletedAt IS NULL\nGROUP BY o.id, oi.id\nORDER BY material_count DESC, o.id DESC\nLIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT \n  o.id,\n  o.orderNumber,\n  oi.productName,\n  COUNT(DISTINCT vm.id) as material_count\nFROM orders o\nJOIN order_items oi ON o.id = oi.orderId\nJOIN product_variants pv ON oi.variantId = pv.id\nLEFT JOIN variant_materials vm ON pv.id = vm.variantId\nWHERE o.deletedAt IS NULL\nGROUP BY o.id, oi.id\nORDER BY material_count DESC, o.id DESC\nLIMIT 10;",
+  "rows": [
+    {
+      "id": "270010",
+      "orderNumber": "ORD-TEST-4MAT",
+      "productName": "NULL",
+      "material_count": "9"
+    },
+    {
+      "id": "270009",
+      "orderNumber": "ORD-TEST-3MAT",
+      "productName": "NULL",
+      "material_count": "7"
+    },
+    {
+      "id": "270008",
+      "orderNumber": "ORD-TEST-2MAT",
+      "productName": "NULL",
+      "material_count": "5"
+    },
+    {
+      "id": "270007",
+      "orderNumber": "ORD-TEST-1MAT",
+      "productName": "NULL",
+      "material_count": "3"
+    },
+    {
+      "id": "270004",
+      "orderNumber": "ORD-20260220-LJE",
+      "productName": "NULL",
+      "material_count": "2"
+    },
+    {
+      "id": "270001",
+      "orderNumber": "ORD-20260220-OMD",
+      "productName": "NULL",
+      "material_count": "2"
+    },
+    {
+      "id": "240002",
+      "orderNumber": "ORD-20260219-HMK",
+      "productName": "NULL",
+      "material_count": "2"
+    },
+    {
+      "id": "240001",
+      "orderNumber": "ORD-20260219-GWZ",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "material_count": "2"
+    },
+    {
+      "id": "210001",
+      "orderNumber": "ORD-20260218-Q1O",
+      "productName": "NULL",
+      "material_count": "2"
+    },
+    {
+      "id": "180002",
+      "orderNumber": "ORD-20260217-62R",
+      "productName": "NULL",
+      "material_count": "2"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\torderNumber\tproductName\tmaterial_count\n270010\tORD-TEST-4MAT\tNULL\t9\n270009\tORD-TEST-3MAT\tNULL\t7\n270008\tORD-TEST-2MAT\tNULL\t5\n270007\tORD-TEST-1MAT\tNULL\t3\n270004\tORD-20260220-LJE\tNULL\t2\n270001\tORD-20260220-OMD\tNULL\t2\n240002\tORD-20260219-HMK\tNULL\t2\n240001\tORD-20260219-GWZ\tModern Upholstered Dining Chair - Gray\t2\n210001\tORD-20260218-Q1O\tNULL\t2\n180002\tORD-20260217-62R\tNULL\t2\n",
+  "stderr": "",
+  "execution_time_ms": 1566
+}

@@ -1,0 +1,70 @@
+{
+  "query": "\nSELECT \n  pv.id,\n  pv.variantCode,\n  pv.variantType,\n  pv.isDefault,\n  pv.customerId,\n  c1.companyName as directCustomer,\n  GROUP_CONCAT(c2.companyName ORDER BY c2.companyName SEPARATOR ', ') as linkedCustomers,\n  COUNT(vcl.id) as linkCount\nFROM product_variants pv\nLEFT JOIN companies c1 ON pv.customerId = c1.id\nLEFT JOIN variant_customer_links vcl ON pv.id = vcl.variantId\nLEFT JOIN companies c2 ON vcl.customerId = c2.id\nWHERE pv.productId = 60016\nGROUP BY pv.id, pv.variantCode, pv.variantType, pv.isDefault, pv.customerId, c1.companyName\nORDER BY pv.createdAt DESC\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  pv.id,\n  pv.variantCode,\n  pv.variantType,\n  pv.isDefault,\n  pv.customerId,\n  c1.companyName as directCustomer,\n  GROUP_CONCAT(c2.companyName ORDER BY c2.companyName SEPARATOR ', ') as linkedCustomers,\n  COUNT(vcl.id) as linkCount\nFROM product_variants pv\nLEFT JOIN companies c1 ON pv.customerId = c1.id\nLEFT JOIN variant_customer_links vcl ON pv.id = vcl.variantId\nLEFT JOIN companies c2 ON vcl.customerId = c2.id\nWHERE pv.productId = 60016\nGROUP BY pv.id, pv.variantCode, pv.variantType, pv.isDefault, pv.customerId, c1.companyName\nORDER BY pv.createdAt DESC\n",
+  "rows": [
+    {
+      "id": "1020003",
+      "variantCode": "DC-001-GRY-V032",
+      "variantType": "universal",
+      "isDefault": "0",
+      "customerId": "30007",
+      "directCustomer": "ABC Furniture",
+      "linkedCustomers": "acc living",
+      "linkCount": "1"
+    },
+    {
+      "id": "1020002",
+      "variantCode": "DC-001-GRY-V031",
+      "variantType": "universal",
+      "isDefault": "0",
+      "customerId": "120001",
+      "directCustomer": "acc living",
+      "linkedCustomers": "acc living",
+      "linkCount": "1"
+    },
+    {
+      "id": "1020001",
+      "variantCode": "VAR0019",
+      "variantType": "universal",
+      "isDefault": "0",
+      "customerId": "120001",
+      "directCustomer": "acc living",
+      "linkedCustomers": "acc living",
+      "linkCount": "1"
+    },
+    {
+      "id": "960001",
+      "variantCode": "VAR0017",
+      "variantType": "exclusive",
+      "isDefault": "0",
+      "customerId": "30007",
+      "directCustomer": "ABC Furniture",
+      "linkedCustomers": "ABC Furniture",
+      "linkCount": "1"
+    },
+    {
+      "id": "900001",
+      "variantCode": "VAR0011",
+      "variantType": "exclusive",
+      "isDefault": "0",
+      "customerId": "30007",
+      "directCustomer": "ABC Furniture",
+      "linkedCustomers": "NULL",
+      "linkCount": "0"
+    },
+    {
+      "id": "420002",
+      "variantCode": "DC-001-GRY-V030",
+      "variantType": "universal",
+      "isDefault": "1",
+      "customerId": "30007",
+      "directCustomer": "ABC Furniture",
+      "linkedCustomers": "ABC Furniture",
+      "linkCount": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantType\tisDefault\tcustomerId\tdirectCustomer\tlinkedCustomers\tlinkCount\n1020003\tDC-001-GRY-V032\tuniversal\t0\t30007\tABC Furniture\tacc living\t1\n1020002\tDC-001-GRY-V031\tuniversal\t0\t120001\tacc living\tacc living\t1\n1020001\tVAR0019\tuniversal\t0\t120001\tacc living\tacc living\t1\n960001\tVAR0017\texclusive\t0\t30007\tABC Furniture\tABC Furniture\t1\n900001\tVAR0011\texclusive\t0\t30007\tABC Furniture\tNULL\t0\n420002\tDC-001-GRY-V030\tuniversal\t1\t30007\tABC Furniture\tABC Furniture\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1507
+}

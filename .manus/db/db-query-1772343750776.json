@@ -1,0 +1,170 @@
+{
+  "query": "SELECT o.id, o.orderNumber, p.name as productName, SUBSTRING(p.imageUrl, 1, 50) as imageUrl, pv.id as variantId, pv.supplierId\nFROM orders o\nJOIN order_items oi ON oi.orderId = o.id\nJOIN products p ON p.id = oi.productId\nLEFT JOIN product_variants pv ON pv.id = oi.variantId\nWHERE p.imageUrl IS NOT NULL AND p.imageUrl != ''\nORDER BY o.id DESC\nLIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT o.id, o.orderNumber, p.name as productName, SUBSTRING(p.imageUrl, 1, 50) as imageUrl, pv.id as variantId, pv.supplierId\nFROM orders o\nJOIN order_items oi ON oi.orderId = o.id\nJOIN products p ON p.id = oi.productId\nLEFT JOIN product_variants pv ON pv.id = oi.variantId\nWHERE p.imageUrl IS NOT NULL AND p.imageUrl != ''\nORDER BY o.id DESC\nLIMIT 20;",
+  "rows": [
+    {
+      "id": "510001",
+      "orderNumber": "ORD00001",
+      "productName": "测试产品-SKU规则",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "720001",
+      "supplierId": "NULL"
+    },
+    {
+      "id": "480001",
+      "orderNumber": "ORD-20260223-RT2",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "480001",
+      "supplierId": "30004"
+    },
+    {
+      "id": "450001",
+      "orderNumber": "ORD-20260222-Z1K",
+      "productName": "Windsor-Style Dining Chair - Oak",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "570003",
+      "supplierId": "NULL"
+    },
+    {
+      "id": "450001",
+      "orderNumber": "ORD-20260222-Z1K",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "480001",
+      "supplierId": "30004"
+    },
+    {
+      "id": "420002",
+      "orderNumber": "ORD-20260222-YPE",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "600019",
+      "supplierId": "30004"
+    },
+    {
+      "id": "420001",
+      "orderNumber": "ORD-20260222-MQC",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "480002",
+      "supplierId": "30004"
+    },
+    {
+      "id": "390003",
+      "orderNumber": "ORD-20260222-8XM",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "480002",
+      "supplierId": "30004"
+    },
+    {
+      "id": "390002",
+      "orderNumber": "ORD-20260222-QYV",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "480002",
+      "supplierId": "30004"
+    },
+    {
+      "id": "390001",
+      "orderNumber": "ORD-20260222-5NZ",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "480002",
+      "supplierId": "30004"
+    },
+    {
+      "id": "360001",
+      "orderNumber": "ORD-20260222-38J",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "480002",
+      "supplierId": "30004"
+    },
+    {
+      "id": "330003",
+      "orderNumber": "ORD-20260221-UEC",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "480002",
+      "supplierId": "30004"
+    },
+    {
+      "id": "330002",
+      "orderNumber": "ORD-WEIGHT-TEST",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "600021",
+      "supplierId": "30004"
+    },
+    {
+      "id": "300001",
+      "orderNumber": "ORD-20260221-KXA",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "390002",
+      "supplierId": "30004"
+    },
+    {
+      "id": "270010",
+      "orderNumber": "ORD-TEST-4MAT",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "300007",
+      "supplierId": "30004"
+    },
+    {
+      "id": "270010",
+      "orderNumber": "ORD-TEST-4MAT",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "330001",
+      "supplierId": "30004"
+    },
+    {
+      "id": "270009",
+      "orderNumber": "ORD-TEST-3MAT",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "300006",
+      "supplierId": "30004"
+    },
+    {
+      "id": "270008",
+      "orderNumber": "ORD-TEST-2MAT",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "300005",
+      "supplierId": "30004"
+    },
+    {
+      "id": "270007",
+      "orderNumber": "ORD-TEST-1MAT",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "300004",
+      "supplierId": "30004"
+    },
+    {
+      "id": "270004",
+      "orderNumber": "ORD-20260220-LJE",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "120084",
+      "supplierId": "30002"
+    },
+    {
+      "id": "270003",
+      "orderNumber": "ORD-20260220-TOC",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334",
+      "variantId": "300001",
+      "supplierId": "30004"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\torderNumber\tproductName\timageUrl\tvariantId\tsupplierId\n510001\tORD00001\t测试产品-SKU规则\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t720001\tNULL\n480001\tORD-20260223-RT2\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t480001\t30004\n450001\tORD-20260222-Z1K\tWindsor-Style Dining Chair - Oak\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t570003\tNULL\n450001\tORD-20260222-Z1K\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t480001\t30004\n420002\tORD-20260222-YPE\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t600019\t30004\n420001\tORD-20260222-MQC\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t480002\t30004\n390003\tORD-20260222-8XM\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t480002\t30004\n390002\tORD-20260222-QYV\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t480002\t30004\n390001\tORD-20260222-5NZ\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t480002\t30004\n360001\tORD-20260222-38J\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t480002\t30004\n330003\tORD-20260221-UEC\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t480002\t30004\n330002\tORD-WEIGHT-TEST\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t600021\t30004\n300001\tORD-20260221-KXA\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t390002\t30004\n270010\tORD-TEST-4MAT\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t300007\t30004\n270010\tORD-TEST-4MAT\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t330001\t30004\n270009\tORD-TEST-3MAT\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t300006\t30004\n270008\tORD-TEST-2MAT\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t300005\t30004\n270007\tORD-TEST-1MAT\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t300004\t30004\n270004\tORD-20260220-LJE\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t120084\t30002\n270003\tORD-20260220-TOC\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334\t300001\t30004\n",
+  "stderr": "",
+  "execution_time_ms": 1557
+}

@@ -1,0 +1,8 @@
+{
+  "query": "SELECT id, quotation_number, quotation_mode, pricing_mode FROM quotations WHERE quotation_number = 'QUO-20260216-002';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, quotation_number, quotation_mode, pricing_mode FROM quotations WHERE quotation_number = 'QUO-20260216-002';",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'quotation_number' in 'where clause'"
+  ]
+}

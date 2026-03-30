@@ -1,0 +1,8 @@
+{
+  "query": "\n-- 检查SYS供应商\nSELECT id, name, code, material_type_name FROM material_suppliers WHERE code = 'SYS' LIMIT 1;\n\n-- 检查COL材料分类\nSELECT id, board_number, board_name, supplier_id FROM material_boards WHERE board_number = 'COL' LIMIT 1;\n\n-- 检查ORIG颜色\nSELECT id, color_code, color_name, board_id FROM material_colors WHERE color_code = 'ORIG' LIMIT 1;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- 检查SYS供应商\nSELECT id, name, code, material_type_name FROM material_suppliers WHERE code = 'SYS' LIMIT 1;\n\n-- 检查COL材料分类\nSELECT id, board_number, board_name, supplier_id FROM material_boards WHERE board_number = 'COL' LIMIT 1;\n\n-- 检查ORIG颜色\nSELECT id, color_code, color_name, board_id FROM material_colors WHERE color_code = 'ORIG' LIMIT 1;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 3: Unknown column 'material_type_name' in 'field list'"
+  ]
+}

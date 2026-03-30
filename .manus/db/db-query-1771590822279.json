@@ -1,0 +1,20 @@
+{
+  "query": "\nSELECT id, companyCode, companyName FROM erp_companies WHERE status = 'active' LIMIT 5;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT id, companyCode, companyName FROM erp_companies WHERE status = 'active' LIMIT 5;\n",
+  "rows": [
+    {
+      "id": "1",
+      "companyCode": "TEST",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "2",
+      "companyCode": "TEST2",
+      "companyName": "测试公司2"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcompanyCode\tcompanyName\n1\tTEST\t测试公司\n2\tTEST2\t测试公司2\n",
+  "stderr": "",
+  "execution_time_ms": 1522
+}

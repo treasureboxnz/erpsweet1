@@ -1,0 +1,131 @@
+{
+  "query": "SELECT * FROM product_categories LIMIT 20",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM product_categories LIMIT 20",
+  "rows": [
+    {
+      "id": "1",
+      "erpCompanyId": "1",
+      "name": "Living Room",
+      "description": "Living Room furniture products",
+      "createdAt": "2026-02-12 02:50:34",
+      "updatedAt": "2026-02-19 11:26:14",
+      "parentId": "NULL",
+      "sortOrder": "1",
+      "isEnabled": "1"
+    },
+    {
+      "id": "2",
+      "erpCompanyId": "1",
+      "name": "Office Furniture",
+      "description": "Office Furniture furniture products",
+      "createdAt": "2026-02-12 02:50:34",
+      "updatedAt": "2026-02-19 11:26:14",
+      "parentId": "NULL",
+      "sortOrder": "2",
+      "isEnabled": "1"
+    },
+    {
+      "id": "3",
+      "erpCompanyId": "1",
+      "name": "Dining Room",
+      "description": "Dining Room furniture products",
+      "createdAt": "2026-02-12 02:50:34",
+      "updatedAt": "2026-02-19 11:26:14",
+      "parentId": "NULL",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "4",
+      "erpCompanyId": "1",
+      "name": "Bedroom",
+      "description": "Bedroom furniture products",
+      "createdAt": "2026-02-12 02:50:34",
+      "updatedAt": "2026-02-19 11:26:14",
+      "parentId": "NULL",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "30001",
+      "erpCompanyId": "1",
+      "name": "armchairs",
+      "description": "",
+      "createdAt": "2026-02-12 14:48:09",
+      "updatedAt": "2026-02-19 11:26:14",
+      "parentId": "1",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "30002",
+      "erpCompanyId": "1",
+      "name": "Office Chairs",
+      "description": "",
+      "createdAt": "2026-02-12 14:49:08",
+      "updatedAt": "2026-02-19 11:26:14",
+      "parentId": "2",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "30003",
+      "erpCompanyId": "1",
+      "name": "Dining Chairs餐椅",
+      "description": "",
+      "createdAt": "2026-02-12 14:49:28",
+      "updatedAt": "2026-02-19 11:26:14",
+      "parentId": "3",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "30004",
+      "erpCompanyId": "1",
+      "name": "Dining Tables",
+      "description": "",
+      "createdAt": "2026-02-12 14:49:38",
+      "updatedAt": "2026-02-19 11:26:14",
+      "parentId": "3",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "60001",
+      "erpCompanyId": "1",
+      "name": "布艺餐椅",
+      "description": "",
+      "createdAt": "2026-02-15 02:03:01",
+      "updatedAt": "2026-02-19 11:26:14",
+      "parentId": "30003",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "90001",
+      "erpCompanyId": "60001",
+      "name": "armchair",
+      "description": "",
+      "createdAt": "2026-02-25 05:08:09",
+      "updatedAt": "2026-02-25 05:08:09",
+      "parentId": "NULL",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "90002",
+      "erpCompanyId": "60001",
+      "name": "rocking armchair",
+      "description": "",
+      "createdAt": "2026-02-25 05:08:23",
+      "updatedAt": "2026-02-25 05:08:23",
+      "parentId": "90001",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tname\tdescription\tcreatedAt\tupdatedAt\tparentId\tsortOrder\tisEnabled\n1\t1\tLiving Room\tLiving Room furniture products\t2026-02-12 02:50:34\t2026-02-19 11:26:14\tNULL\t1\t1\n2\t1\tOffice Furniture\tOffice Furniture furniture products\t2026-02-12 02:50:34\t2026-02-19 11:26:14\tNULL\t2\t1\n3\t1\tDining Room\tDining Room furniture products\t2026-02-12 02:50:34\t2026-02-19 11:26:14\tNULL\t0\t1\n4\t1\tBedroom\tBedroom furniture products\t2026-02-12 02:50:34\t2026-02-19 11:26:14\tNULL\t0\t1\n30001\t1\tarmchairs\t\t2026-02-12 14:48:09\t2026-02-19 11:26:14\t1\t0\t1\n30002\t1\tOffice Chairs\t\t2026-02-12 14:49:08\t2026-02-19 11:26:14\t2\t0\t1\n30003\t1\tDining Chairs餐椅\t\t2026-02-12 14:49:28\t2026-02-19 11:26:14\t3\t0\t1\n30004\t1\tDining Tables\t\t2026-02-12 14:49:38\t2026-02-19 11:26:14\t3\t0\t1\n60001\t1\t布艺餐椅\t\t2026-02-15 02:03:01\t2026-02-19 11:26:14\t30003\t0\t1\n90001\t60001\tarmchair\t\t2026-02-25 05:08:09\t2026-02-25 05:08:09\tNULL\t0\t1\n90002\t60001\trocking armchair\t\t2026-02-25 05:08:23\t2026-02-25 05:08:23\t90001\t0\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1592
+}

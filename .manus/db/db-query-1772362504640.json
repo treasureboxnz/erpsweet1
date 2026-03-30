@@ -1,0 +1,74 @@
+{
+  "query": "SELECT id, name, email, role, status, erpCompanyId FROM users WHERE status = 'active' LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, name, email, role, status, erpCompanyId FROM users WHERE status = 'active' LIMIT 10;",
+  "rows": [
+    {
+      "id": "1",
+      "name": "Eric zhou",
+      "email": "nzchunzhou1@gmail.com",
+      "role": "super_admin",
+      "status": "active",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "780093",
+      "name": "管理员(已编辑)",
+      "email": "admin@test.com",
+      "role": "admin",
+      "status": "active",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "780121",
+      "name": "测试用户3",
+      "email": "test3@test.com",
+      "role": "operator",
+      "status": "active",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "780152",
+      "name": "管理员2",
+      "email": "admin2@test.com",
+      "role": "admin",
+      "status": "active",
+      "erpCompanyId": "2"
+    },
+    {
+      "id": "840074",
+      "name": "测试公司2管理员",
+      "email": "admin@test2.com",
+      "role": "admin",
+      "status": "active",
+      "erpCompanyId": "2"
+    },
+    {
+      "id": "1140093",
+      "name": "tester",
+      "email": "admin@admin.com",
+      "role": "admin",
+      "status": "active",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "1650166",
+      "name": "Iris",
+      "email": "manager@casavivafurniture.com",
+      "role": "super_admin",
+      "status": "active",
+      "erpCompanyId": "60001"
+    },
+    {
+      "id": "2010015",
+      "name": "eric",
+      "email": "eric@treasurebox.co.nz",
+      "role": "super_admin",
+      "status": "active",
+      "erpCompanyId": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\temail\trole\tstatus\terpCompanyId\n1\tEric zhou\tnzchunzhou1@gmail.com\tsuper_admin\tactive\t1\n780093\t管理员(已编辑)\tadmin@test.com\tadmin\tactive\t1\n780121\t测试用户3\ttest3@test.com\toperator\tactive\t1\n780152\t管理员2\tadmin2@test.com\tadmin\tactive\t2\n840074\t测试公司2管理员\tadmin@test2.com\tadmin\tactive\t2\n1140093\ttester\tadmin@admin.com\tadmin\tactive\t1\n1650166\tIris\tmanager@casavivafurniture.com\tsuper_admin\tactive\t60001\n2010015\teric\teric@treasurebox.co.nz\tsuper_admin\tactive\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1548
+}

@@ -1,0 +1,9 @@
+{
+  "query": "ALTER TABLE `company_settings` ADD CONSTRAINT `company_settings_erpCompanyId_erp_companies_id_fk` FOREIGN KEY (`erpCompanyId`) REFERENCES `erp_companies`(`id`) ON DELETE cascade ON UPDATE no action;\n\nCREATE INDEX `company_settings_erp_company_idx` ON `company_settings` (`erpCompanyId`);\n\nALTER TABLE `company_bank_accounts` ADD CONSTRAINT `company_bank_accounts_erpCompanyId_erp_companies_id_fk` FOREIGN KEY (`erpCompanyId`) REFERENCES `erp_companies`(`id`) ON DELETE cascade ON UPDATE no action;\n\nCREATE INDEX `company_bank_accounts_erp_company_idx` ON `company_bank_accounts` (`erpCompanyId`);\nCREATE INDEX `company_bank_accounts_currency_idx` ON `company_bank_accounts` (`currency`);\nCREATE INDEX `company_bank_accounts_sort_idx` ON `company_bank_accounts` (`erpCompanyId`,`sortOrder`);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute ALTER TABLE `company_settings` ADD CONSTRAINT `company_settings_erpCompanyId_erp_companies_id_fk` FOREIGN KEY (`erpCompanyId`) REFERENCES `erp_companies`(`id`) ON DELETE cascade ON UPDATE no action;\n\nCREATE INDEX `company_settings_erp_company_idx` ON `company_settings` (`erpCompanyId`);\n\nALTER TABLE `company_bank_accounts` ADD CONSTRAINT `company_bank_accounts_erpCompanyId_erp_companies_id_fk` FOREIGN KEY (`erpCompanyId`) REFERENCES `erp_companies`(`id`) ON DELETE cascade ON UPDATE no action;\n\nCREATE INDEX `company_bank_accounts_erp_company_idx` ON `company_bank_accounts` (`erpCompanyId`);\nCREATE INDEX `company_bank_accounts_currency_idx` ON `company_bank_accounts` (`currency`);\nCREATE INDEX `company_bank_accounts_sort_idx` ON `company_bank_accounts` (`erpCompanyId`,`sortOrder`);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 8184
+}

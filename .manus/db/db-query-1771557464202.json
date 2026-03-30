@@ -1,0 +1,16 @@
+{
+  "query": "\n-- 查询批次ID\nSELECT id, variantCode, variantName, erpCompanyId \nFROM product_variants \nWHERE variantCode = 'DC-001-GRY-V017';\n\n-- 查询该批次的材料（假设ID是60033，根据上面的结果调整）\nSELECT vm.*, mc.colorCode, mc.colorName \nFROM variant_materials vm\nLEFT JOIN material_colors mc ON vm.materialColorId = mc.id\nWHERE vm.variantId = (SELECT id FROM product_variants WHERE variantCode = 'DC-001-GRY-V017' LIMIT 1);\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- 查询批次ID\nSELECT id, variantCode, variantName, erpCompanyId \nFROM product_variants \nWHERE variantCode = 'DC-001-GRY-V017';\n\n-- 查询该批次的材料（假设ID是60033，根据上面的结果调整）\nSELECT vm.*, mc.colorCode, mc.colorName \nFROM variant_materials vm\nLEFT JOIN material_colors mc ON vm.materialColorId = mc.id\nWHERE vm.variantId = (SELECT id FROM product_variants WHERE variantCode = 'DC-001-GRY-V017' LIMIT 1);\n",
+  "rows": [
+    {
+      "id": "300001",
+      "variantCode": "DC-001-GRY-V017",
+      "variantName": "标准灰色版",
+      "erpCompanyId": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantName\terpCompanyId\n300001\tDC-001-GRY-V017\t标准灰色版\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1783
+}

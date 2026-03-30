@@ -1,0 +1,25 @@
+{
+  "query": "\nSELECT \n  vm.*,\n  mc.colorCode,\n  mc.colorName\nFROM variant_materials vm\nLEFT JOIN material_colors mc ON vm.materialColorId = mc.id\nWHERE vm.variantId = 390001\nORDER BY vm.sortOrder;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  vm.*,\n  mc.colorCode,\n  mc.colorName\nFROM variant_materials vm\nLEFT JOIN material_colors mc ON vm.materialColorId = mc.id\nWHERE vm.variantId = 390001\nORDER BY vm.sortOrder;\n",
+  "rows": [
+    {
+      "id": "90001",
+      "erpCompanyId": "NULL",
+      "variantId": "390001",
+      "materialColorId": "60001",
+      "quantityUsed": "NULL",
+      "notes": "NULL",
+      "createdAt": "2026-02-20 22:32:49",
+      "updatedAt": "2026-02-20 22:32:49",
+      "sortOrder": "0",
+      "materialType": "布料",
+      "materialTypeId": "NULL",
+      "colorCode": "RED-01",
+      "colorName": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tvariantId\tmaterialColorId\tquantityUsed\tnotes\tcreatedAt\tupdatedAt\tsortOrder\tmaterialType\tmaterialTypeId\tcolorCode\tcolorName\n90001\tNULL\t390001\t60001\tNULL\tNULL\t2026-02-20 22:32:49\t2026-02-20 22:32:49\t0\t布料\tNULL\tRED-01\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1519
+}

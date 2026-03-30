@@ -1,0 +1,80 @@
+{
+  "query": "SELECT \n  mc.id,\n  mc.colorCode,\n  mc.colorName,\n  mb.boardNumber,\n  ms.name as supplierName\nFROM material_colors mc\nLEFT JOIN material_boards mb ON mc.boardId = mb.id\nLEFT JOIN material_suppliers ms ON mb.supplierId = ms.id\nLIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT \n  mc.id,\n  mc.colorCode,\n  mc.colorName,\n  mb.boardNumber,\n  ms.name as supplierName\nFROM material_colors mc\nLEFT JOIN material_boards mb ON mc.boardId = mb.id\nLEFT JOIN material_suppliers ms ON mb.supplierId = ms.id\nLIMIT 10;",
+  "rows": [
+    {
+      "id": "4",
+      "colorCode": "03",
+      "colorName": "米色亚麻布",
+      "boardNumber": "A01",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "3",
+      "colorCode": "02",
+      "colorName": "灰色天鹅绒",
+      "boardNumber": "A01",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "2",
+      "colorCode": "01",
+      "colorName": "白色羊羔绒",
+      "boardNumber": "A01",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "7",
+      "colorCode": "03",
+      "colorName": "炭灰色羊毛",
+      "boardNumber": "M02",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "6",
+      "colorCode": "02",
+      "colorName": "浅绿色棉布",
+      "boardNumber": "M02",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "5",
+      "colorCode": "01",
+      "colorName": "深蓝色天鹅绒",
+      "boardNumber": "M02",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "11",
+      "colorCode": "04",
+      "colorName": "腮红粉丝绸",
+      "boardNumber": "C03",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "10",
+      "colorCode": "03",
+      "colorName": "橄榄绿帆布",
+      "boardNumber": "C03",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "9",
+      "colorCode": "02",
+      "colorName": "酒红色雪尼尔",
+      "boardNumber": "C03",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "8",
+      "colorCode": "01",
+      "colorName": "奶油色结子呢",
+      "boardNumber": "C03",
+      "supplierName": "华美纺织"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcolorCode\tcolorName\tboardNumber\tsupplierName\n4\t03\t米色亚麻布\tA01\t华美纺织\n3\t02\t灰色天鹅绒\tA01\t华美纺织\n2\t01\t白色羊羔绒\tA01\t华美纺织\n7\t03\t炭灰色羊毛\tM02\t华美纺织\n6\t02\t浅绿色棉布\tM02\t华美纺织\n5\t01\t深蓝色天鹅绒\tM02\t华美纺织\n11\t04\t腮红粉丝绸\tC03\t华美纺织\n10\t03\t橄榄绿帆布\tC03\t华美纺织\n9\t02\t酒红色雪尼尔\tC03\t华美纺织\n8\t01\t奶油色结子呢\tC03\t华美纺织\n",
+  "stderr": "",
+  "execution_time_ms": 1537
+}

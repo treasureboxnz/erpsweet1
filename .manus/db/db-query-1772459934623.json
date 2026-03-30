@@ -1,0 +1,34 @@
+{
+  "query": "\nSELECT \n  pv.id, \n  pv.variantCode, \n  pv.variantName,\n  pv.variantType,\n  pv.customerId,\n  c.companyName as direct_customer_name\nFROM product_variants pv\nLEFT JOIN companies c ON pv.customerId = c.id\nWHERE pv.variantCode LIKE 'DC-001-GRY%'\nORDER BY pv.id\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  pv.id, \n  pv.variantCode, \n  pv.variantName,\n  pv.variantType,\n  pv.customerId,\n  c.companyName as direct_customer_name\nFROM product_variants pv\nLEFT JOIN companies c ON pv.customerId = c.id\nWHERE pv.variantCode LIKE 'DC-001-GRY%'\nORDER BY pv.id\n",
+  "rows": [
+    {
+      "id": "420002",
+      "variantCode": "DC-001-GRY-V030",
+      "variantName": "10块麻布黑色",
+      "variantType": "universal",
+      "customerId": "30007",
+      "direct_customer_name": "ABC Furniture"
+    },
+    {
+      "id": "1020002",
+      "variantCode": "DC-001-GRY-V031",
+      "variantName": "12块麻布 - 邮购包",
+      "variantType": "universal",
+      "customerId": "120001",
+      "direct_customer_name": "acc living"
+    },
+    {
+      "id": "1020003",
+      "variantCode": "DC-001-GRY-V032",
+      "variantName": "12块麻布邮购包加厚",
+      "variantType": "universal",
+      "customerId": "30007",
+      "direct_customer_name": "ABC Furniture"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantName\tvariantType\tcustomerId\tdirect_customer_name\n420002\tDC-001-GRY-V030\t10块麻布黑色\tuniversal\t30007\tABC Furniture\n1020002\tDC-001-GRY-V031\t12块麻布 - 邮购包\tuniversal\t120001\tacc living\n1020003\tDC-001-GRY-V032\t12块麻布邮购包加厚\tuniversal\t30007\tABC Furniture\n",
+  "stderr": "",
+  "execution_time_ms": 1592
+}

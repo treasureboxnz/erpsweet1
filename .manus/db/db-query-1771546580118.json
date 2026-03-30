@@ -1,0 +1,45 @@
+{
+  "query": "SELECT id, orderNumber, erpCompanyId, deletedAt, createdAt FROM orders ORDER BY id DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, orderNumber, erpCompanyId, deletedAt, createdAt FROM orders ORDER BY id DESC LIMIT 5;",
+  "rows": [
+    {
+      "id": "270001",
+      "orderNumber": "ORD-20260220-OMD",
+      "erpCompanyId": "NULL",
+      "deletedAt": "NULL",
+      "createdAt": "2026-02-20 00:12:05"
+    },
+    {
+      "id": "240003",
+      "orderNumber": "ORD-20260219-CQV",
+      "erpCompanyId": "1",
+      "deletedAt": "NULL",
+      "createdAt": "2026-02-19 05:39:05"
+    },
+    {
+      "id": "240002",
+      "orderNumber": "ORD-20260219-HMK",
+      "erpCompanyId": "1",
+      "deletedAt": "NULL",
+      "createdAt": "2026-02-19 02:08:41"
+    },
+    {
+      "id": "240001",
+      "orderNumber": "ORD-20260219-GWZ",
+      "erpCompanyId": "1",
+      "deletedAt": "NULL",
+      "createdAt": "2026-02-19 01:44:03"
+    },
+    {
+      "id": "210001",
+      "orderNumber": "ORD-20260218-Q1O",
+      "erpCompanyId": "1",
+      "deletedAt": "NULL",
+      "createdAt": "2026-02-18 03:33:21"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\torderNumber\terpCompanyId\tdeletedAt\tcreatedAt\n270001\tORD-20260220-OMD\tNULL\tNULL\t2026-02-20 00:12:05\n240003\tORD-20260219-CQV\t1\tNULL\t2026-02-19 05:39:05\n240002\tORD-20260219-HMK\t1\tNULL\t2026-02-19 02:08:41\n240001\tORD-20260219-GWZ\t1\tNULL\t2026-02-19 01:44:03\n210001\tORD-20260218-Q1O\t1\tNULL\t2026-02-18 03:33:21\n",
+  "stderr": "",
+  "execution_time_ms": 1581
+}

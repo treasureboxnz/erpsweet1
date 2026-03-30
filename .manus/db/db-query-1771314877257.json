@@ -1,0 +1,9 @@
+{
+  "query": "\n-- 为每个产品的第一个批次设置为默认批次\nUPDATE product_variants pv\nSET isDefault = 1\nWHERE pv.id IN (\n  SELECT MIN(pv2.id)\n  FROM product_variants pv2\n  WHERE pv2.productId NOT IN (\n    SELECT DISTINCT productId \n    FROM product_variants \n    WHERE isDefault = 1\n  )\n  GROUP BY pv2.productId\n);\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- 为每个产品的第一个批次设置为默认批次\nUPDATE product_variants pv\nSET isDefault = 1\nWHERE pv.id IN (\n  SELECT MIN(pv2.id)\n  FROM product_variants pv2\n  WHERE pv2.productId NOT IN (\n    SELECT DISTINCT productId \n    FROM product_variants \n    WHERE isDefault = 1\n  )\n  GROUP BY pv2.productId\n);\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1649
+}

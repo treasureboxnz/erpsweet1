@@ -1,0 +1,37 @@
+{
+  "query": "\nSELECT pv.id, pv.variantCode, pv.variantType, pv.customerId, pv.isDefault,\n       vcl.customerId as linkedCustomerId, comp.companyName as customerName\nFROM product_variants pv\nLEFT JOIN variant_customer_links vcl ON pv.id = vcl.variantId\nLEFT JOIN companies comp ON vcl.customerId = comp.id\nWHERE pv.variantCode IN ('VAR0017', 'VAR0011', 'DC-001-GRY-V030')\nORDER BY pv.variantCode;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT pv.id, pv.variantCode, pv.variantType, pv.customerId, pv.isDefault,\n       vcl.customerId as linkedCustomerId, comp.companyName as customerName\nFROM product_variants pv\nLEFT JOIN variant_customer_links vcl ON pv.id = vcl.variantId\nLEFT JOIN companies comp ON vcl.customerId = comp.id\nWHERE pv.variantCode IN ('VAR0017', 'VAR0011', 'DC-001-GRY-V030')\nORDER BY pv.variantCode;\n",
+  "rows": [
+    {
+      "id": "420002",
+      "variantCode": "DC-001-GRY-V030",
+      "variantType": "universal",
+      "customerId": "30007",
+      "isDefault": "1",
+      "linkedCustomerId": "30007",
+      "customerName": "ABC Furniture"
+    },
+    {
+      "id": "900001",
+      "variantCode": "VAR0011",
+      "variantType": "exclusive",
+      "customerId": "30007",
+      "isDefault": "0",
+      "linkedCustomerId": "NULL",
+      "customerName": "NULL"
+    },
+    {
+      "id": "960001",
+      "variantCode": "VAR0017",
+      "variantType": "exclusive",
+      "customerId": "30007",
+      "isDefault": "0",
+      "linkedCustomerId": "30007",
+      "customerName": "ABC Furniture"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantType\tcustomerId\tisDefault\tlinkedCustomerId\tcustomerName\n420002\tDC-001-GRY-V030\tuniversal\t30007\t1\t30007\tABC Furniture\n900001\tVAR0011\texclusive\t30007\t0\tNULL\tNULL\n960001\tVAR0017\texclusive\t30007\t0\t30007\tABC Furniture\n",
+  "stderr": "",
+  "execution_time_ms": 1523
+}

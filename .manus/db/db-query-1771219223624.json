@@ -1,0 +1,17 @@
+{
+  "query": "\nSELECT \n  variantCode,\n  variantName,\n  sellingPriceRMB,\n  sellingPriceFOB,\n  costPriceRMB\nFROM product_variants\nWHERE variantCode = 'DC-001-GRY-V001';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  variantCode,\n  variantName,\n  sellingPriceRMB,\n  sellingPriceFOB,\n  costPriceRMB\nFROM product_variants\nWHERE variantCode = 'DC-001-GRY-V001';\n",
+  "rows": [
+    {
+      "variantCode": "DC-001-GRY-V001",
+      "variantName": "30米布料",
+      "sellingPriceRMB": "985.00",
+      "sellingPriceFOB": "109.00",
+      "costPriceRMB": "780.00"
+    }
+  ],
+  "messages": [],
+  "stdout": "variantCode\tvariantName\tsellingPriceRMB\tsellingPriceFOB\tcostPriceRMB\nDC-001-GRY-V001\t30米布料\t985.00\t109.00\t780.00\n",
+  "stderr": "",
+  "execution_time_ms": 1494
+}

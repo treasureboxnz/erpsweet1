@@ -1,0 +1,38 @@
+{
+  "query": "\nSELECT pv.id, pv.variantCode, pv.isDefault, p.sku, p.name\nFROM product_variants pv\nJOIN products p ON pv.productId = p.id\nWHERE p.sku = 'DC-005-OAK'\nLIMIT 5;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT pv.id, pv.variantCode, pv.isDefault, p.sku, p.name\nFROM product_variants pv\nJOIN products p ON pv.productId = p.id\nWHERE p.sku = 'DC-005-OAK'\nLIMIT 5;\n",
+  "rows": [
+    {
+      "id": "120022",
+      "variantCode": "DC-005-OAK-V001",
+      "isDefault": "0",
+      "sku": "DC-005-OAK",
+      "name": "Windsor-Style Dining Chair - Oak"
+    },
+    {
+      "id": "120023",
+      "variantCode": "DC-005-OAK-V002",
+      "isDefault": "0",
+      "sku": "DC-005-OAK",
+      "name": "Windsor-Style Dining Chair - Oak"
+    },
+    {
+      "id": "120024",
+      "variantCode": "DC-005-OAK-V003",
+      "isDefault": "0",
+      "sku": "DC-005-OAK",
+      "name": "Windsor-Style Dining Chair - Oak"
+    },
+    {
+      "id": "120025",
+      "variantCode": "DC-005-OAK-V004",
+      "isDefault": "0",
+      "sku": "DC-005-OAK",
+      "name": "Windsor-Style Dining Chair - Oak"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tisDefault\tsku\tname\n120022\tDC-005-OAK-V001\t0\tDC-005-OAK\tWindsor-Style Dining Chair - Oak\n120023\tDC-005-OAK-V002\t0\tDC-005-OAK\tWindsor-Style Dining Chair - Oak\n120024\tDC-005-OAK-V003\t0\tDC-005-OAK\tWindsor-Style Dining Chair - Oak\n120025\tDC-005-OAK-V004\t0\tDC-005-OAK\tWindsor-Style Dining Chair - Oak\n",
+  "stderr": "",
+  "execution_time_ms": 1571
+}

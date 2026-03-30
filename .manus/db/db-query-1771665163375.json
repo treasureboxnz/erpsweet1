@@ -1,0 +1,26 @@
+{
+  "query": "SELECT variantCode, variantName, status, isDefault, variantType, customerId\nFROM product_variants\nWHERE variantCode IN ('DC-001-GRY-V034', 'DC-001-GRY-V035');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT variantCode, variantName, status, isDefault, variantType, customerId\nFROM product_variants\nWHERE variantCode IN ('DC-001-GRY-V034', 'DC-001-GRY-V035');",
+  "rows": [
+    {
+      "variantCode": "DC-001-GRY-V034",
+      "variantName": "按钮修复测试批次",
+      "status": "active",
+      "isDefault": "0",
+      "variantType": "universal",
+      "customerId": "NULL"
+    },
+    {
+      "variantCode": "DC-001-GRY-V035",
+      "variantName": "Loading状态测试批次",
+      "status": "active",
+      "isDefault": "0",
+      "variantType": "universal",
+      "customerId": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "variantCode\tvariantName\tstatus\tisDefault\tvariantType\tcustomerId\nDC-001-GRY-V034\t按钮修复测试批次\tactive\t0\tuniversal\tNULL\nDC-001-GRY-V035\tLoading状态测试批次\tactive\t0\tuniversal\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1548
+}

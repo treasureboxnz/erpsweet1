@@ -1,0 +1,45 @@
+{
+  "query": "SELECT id, name, category, fieldName, displayOrder FROM attributes WHERE category = '客户管理' AND fieldName = '客户性质' ORDER BY displayOrder;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, name, category, fieldName, displayOrder FROM attributes WHERE category = '客户管理' AND fieldName = '客户性质' ORDER BY displayOrder;",
+  "rows": [
+    {
+      "id": "15",
+      "name": "线上线下零售",
+      "category": "客户管理",
+      "fieldName": "客户性质",
+      "displayOrder": "1"
+    },
+    {
+      "id": "16",
+      "name": "线下零售",
+      "category": "客户管理",
+      "fieldName": "客户性质",
+      "displayOrder": "2"
+    },
+    {
+      "id": "17",
+      "name": "线上零售",
+      "category": "客户管理",
+      "fieldName": "客户性质",
+      "displayOrder": "3"
+    },
+    {
+      "id": "18",
+      "name": "项目工程",
+      "category": "客户管理",
+      "fieldName": "客户性质",
+      "displayOrder": "4"
+    },
+    {
+      "id": "19",
+      "name": "分销商",
+      "category": "客户管理",
+      "fieldName": "客户性质",
+      "displayOrder": "5"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tcategory\tfieldName\tdisplayOrder\n15\t线上线下零售\t客户管理\t客户性质\t1\n16\t线下零售\t客户管理\t客户性质\t2\n17\t线上零售\t客户管理\t客户性质\t3\n18\t项目工程\t客户管理\t客户性质\t4\n19\t分销商\t客户管理\t客户性质\t5\n",
+  "stderr": "",
+  "execution_time_ms": 1497
+}

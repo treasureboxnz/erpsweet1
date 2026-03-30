@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE erp_companies \nSET \n  marketingEmail = 'sales@testcompany.com',\n  marketingAddress = '123 Business Street, Shanghai, China 200000',\n  marketingPhone = '+86 21 1234 5678',\n  marketingWebsite = 'https://www.testcompany.com'\nWHERE companyName = '测试公司';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute UPDATE erp_companies \nSET \n  marketingEmail = 'sales@testcompany.com',\n  marketingAddress = '123 Business Street, Shanghai, China 200000',\n  marketingPhone = '+86 21 1234 5678',\n  marketingWebsite = 'https://www.testcompany.com'\nWHERE companyName = '测试公司';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1649
+}

@@ -1,0 +1,22 @@
+{
+  "query": "SELECT name FROM attributes WHERE fieldName = '每箱件数' ORDER BY displayOrder;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT name FROM attributes WHERE fieldName = '每箱件数' ORDER BY displayOrder;",
+  "rows": [
+    {
+      "name": "2"
+    },
+    {
+      "name": "4"
+    },
+    {
+      "name": "6"
+    },
+    {
+      "name": "8"
+    }
+  ],
+  "messages": [],
+  "stdout": "name\n2\n4\n6\n8\n",
+  "stderr": "",
+  "execution_time_ms": 1550
+}

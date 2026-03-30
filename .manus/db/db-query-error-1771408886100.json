@@ -1,0 +1,8 @@
+{
+  "query": "-- 查询默认颜色ID\nSELECT mc.id as colorId, mc.colorName, mc.imageUrl, \n       mb.id as boardId, mb.boardNumber,\n       ms.id as supplierId, ms.name as supplierName\nFROM material_colors mc\nJOIN material_boards mb ON mc.boardId = mb.id\nJOIN material_suppliers ms ON mb.supplierId = ms.id\nWHERE mc.colorNumber = 'DEFAULT-001' AND ms.code = 'SYS-DEFAULT'\nLIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute -- 查询默认颜色ID\nSELECT mc.id as colorId, mc.colorName, mc.imageUrl, \n       mb.id as boardId, mb.boardNumber,\n       ms.id as supplierId, ms.name as supplierName\nFROM material_colors mc\nJOIN material_boards mb ON mc.boardId = mb.id\nJOIN material_suppliers ms ON mb.supplierId = ms.id\nWHERE mc.colorNumber = 'DEFAULT-001' AND ms.code = 'SYS-DEFAULT'\nLIMIT 1;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 2: Unknown column 'mc.colornumber' in 'where clause'"
+  ]
+}

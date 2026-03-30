@@ -1,0 +1,8 @@
+{
+  "query": "SELECT pv.id, pv.variant_code, pv.variant_name, pv.created_at,\n       pb.id as box_id, pb.length, pb.width, pb.height, pb.cbm, pb.gross_weight, pb.net_weight\nFROM product_variants pv\nLEFT JOIN package_boxes pb ON pb.variant_id = pv.id\nWHERE pv.variant_name LIKE '%完整功能测试%'\nORDER BY pv.created_at DESC\nLIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT pv.id, pv.variant_code, pv.variant_name, pv.created_at,\n       pb.id as box_id, pb.length, pb.width, pb.height, pb.cbm, pb.gross_weight, pb.net_weight\nFROM product_variants pv\nLEFT JOIN package_boxes pb ON pb.variant_id = pv.id\nWHERE pv.variant_name LIKE '%完整功能测试%'\nORDER BY pv.created_at DESC\nLIMIT 5;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'pb.variant_id' in 'on clause'"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "query": "SELECT id, recipientId, senderName, title, content, createdAt FROM in_app_notifications ORDER BY createdAt DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, recipientId, senderName, title, content, createdAt FROM in_app_notifications ORDER BY createdAt DESC LIMIT 5;",
+  "rows": [],
+  "messages": [
+    "2\t780093\tEric zhou\tEric zhou 在跟进记录中@了你（编辑）\t客户：Test SKU Auto-Init Company",
+    "内容：客户表示感兴趣，请 @tester 跟进，同时通知 @管理员(已编辑) \t2026-03-08 15:30:31",
+    "1\t1140093\tEric zhou\tEric zhou 在跟进记录中@了你\t客户：Test SKU Auto-Init Company",
+    "内容：客户表示感兴趣，请 @tester \t2026-03-08 15:20:06"
+  ],
+  "stdout": "id\trecipientId\tsenderName\ttitle\tcontent\tcreatedAt\n2\t780093\tEric zhou\tEric zhou 在跟进记录中@了你（编辑）\t客户：Test SKU Auto-Init Company\n内容：客户表示感兴趣，请 @tester 跟进，同时通知 @管理员(已编辑) \t2026-03-08 15:30:31\n1\t1140093\tEric zhou\tEric zhou 在跟进记录中@了你\t客户：Test SKU Auto-Init Company\n内容：客户表示感兴趣，请 @tester \t2026-03-08 15:20:06\n",
+  "stderr": "",
+  "execution_time_ms": 1540
+}

@@ -1,0 +1,9 @@
+{
+  "query": "-- 2. 创建供应商（戴维斯）\nINSERT INTO material_suppliers (name, code, categoryId, contactPerson, contactPhone, contactEmail, address, notes, status, createdAt, updatedAt)\nSELECT '戴维斯', 'DAV', id, '张三', '13800138000', 'davis@example.com', '广东省佛山市', '优质布料供应商', 'active', NOW(), NOW()\nFROM material_categories WHERE code = 'fabric' LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute -- 2. 创建供应商（戴维斯）\nINSERT INTO material_suppliers (name, code, categoryId, contactPerson, contactPhone, contactEmail, address, notes, status, createdAt, updatedAt)\nSELECT '戴维斯', 'DAV', id, '张三', '13800138000', 'davis@example.com', '广东省佛山市', '优质布料供应商', 'active', NOW(), NOW()\nFROM material_categories WHERE code = 'fabric' LIMIT 1;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1655
+}

@@ -1,0 +1,22 @@
+{
+  "query": "SHOW TABLES LIKE 'material_%';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SHOW TABLES LIKE 'material_%';",
+  "rows": [
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8 (material_%)": "material_boards"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8 (material_%)": "material_categories"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8 (material_%)": "material_colors"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8 (material_%)": "material_suppliers"
+    }
+  ],
+  "messages": [],
+  "stdout": "Tables_in_5QtmwQJEy7EFv8QJHVh9i8 (material_%)\nmaterial_boards\nmaterial_categories\nmaterial_colors\nmaterial_suppliers\n",
+  "stderr": "",
+  "execution_time_ms": 1667
+}

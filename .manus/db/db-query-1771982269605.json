@@ -1,0 +1,70 @@
+{
+  "query": "SELECT * FROM attributes WHERE fieldName IN ('order_status', 'inspection_method');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM attributes WHERE fieldName IN ('order_status', 'inspection_method');",
+  "rows": [
+    {
+      "id": "150013",
+      "erpCompanyId": "NULL",
+      "name": "三方",
+      "category": "inspection_method",
+      "subcategory": "NULL",
+      "fieldName": "inspection_method",
+      "displayOrder": "1",
+      "createdBy": "NULL",
+      "createdAt": "2026-02-25 01:04:15",
+      "updatedAt": "2026-02-25 01:04:15"
+    },
+    {
+      "id": "150014",
+      "erpCompanyId": "NULL",
+      "name": "自己质检",
+      "category": "inspection_method",
+      "subcategory": "NULL",
+      "fieldName": "inspection_method",
+      "displayOrder": "2",
+      "createdBy": "NULL",
+      "createdAt": "2026-02-25 01:04:15",
+      "updatedAt": "2026-02-25 01:04:15"
+    },
+    {
+      "id": "150015",
+      "erpCompanyId": "NULL",
+      "name": "工厂质检",
+      "category": "inspection_method",
+      "subcategory": "NULL",
+      "fieldName": "inspection_method",
+      "displayOrder": "3",
+      "createdBy": "NULL",
+      "createdAt": "2026-02-25 01:04:15",
+      "updatedAt": "2026-02-25 01:04:15"
+    },
+    {
+      "id": "150016",
+      "erpCompanyId": "NULL",
+      "name": "跟单中",
+      "category": "order_status",
+      "subcategory": "NULL",
+      "fieldName": "order_status",
+      "displayOrder": "1",
+      "createdBy": "NULL",
+      "createdAt": "2026-02-25 01:04:15",
+      "updatedAt": "2026-02-25 01:04:15"
+    },
+    {
+      "id": "150017",
+      "erpCompanyId": "NULL",
+      "name": "订单完结",
+      "category": "order_status",
+      "subcategory": "NULL",
+      "fieldName": "order_status",
+      "displayOrder": "2",
+      "createdBy": "NULL",
+      "createdAt": "2026-02-25 01:04:15",
+      "updatedAt": "2026-02-25 01:04:15"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tname\tcategory\tsubcategory\tfieldName\tdisplayOrder\tcreatedBy\tcreatedAt\tupdatedAt\n150013\tNULL\t三方\tinspection_method\tNULL\tinspection_method\t1\tNULL\t2026-02-25 01:04:15\t2026-02-25 01:04:15\n150014\tNULL\t自己质检\tinspection_method\tNULL\tinspection_method\t2\tNULL\t2026-02-25 01:04:15\t2026-02-25 01:04:15\n150015\tNULL\t工厂质检\tinspection_method\tNULL\tinspection_method\t3\tNULL\t2026-02-25 01:04:15\t2026-02-25 01:04:15\n150016\tNULL\t跟单中\torder_status\tNULL\torder_status\t1\tNULL\t2026-02-25 01:04:15\t2026-02-25 01:04:15\n150017\tNULL\t订单完结\torder_status\tNULL\torder_status\t2\tNULL\t2026-02-25 01:04:15\t2026-02-25 01:04:15\n",
+  "stderr": "",
+  "execution_time_ms": 1592
+}

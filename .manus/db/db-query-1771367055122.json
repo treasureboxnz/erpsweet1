@@ -1,0 +1,38 @@
+{
+  "query": "\nSELECT \n  oi.id, \n  oi.productId, \n  p.name as productName, \n  p.imageUrl,\n  pv.variantCode\nFROM order_items oi\nLEFT JOIN product_variants pv ON oi.variantId = pv.id\nLEFT JOIN products p ON pv.productId = p.id\nWHERE oi.orderId = 180003\nLIMIT 5;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  oi.id, \n  oi.productId, \n  p.name as productName, \n  p.imageUrl,\n  pv.variantCode\nFROM order_items oi\nLEFT JOIN product_variants pv ON oi.variantId = pv.id\nLEFT JOIN products p ON pv.productId = p.id\nWHERE oi.orderId = 180003\nLIMIT 5;\n",
+  "rows": [
+    {
+      "id": "180020",
+      "productId": "60016",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/HOHqwtwokCYCgOWA.png",
+      "variantCode": "DC-001-GRY-V002"
+    },
+    {
+      "id": "180021",
+      "productId": "60019",
+      "productName": "Tufted Velvet Dining Chair - Navy Blue",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/uMsReZrltVdpkyAM.png",
+      "variantCode": "DC-004-NVY-V002"
+    },
+    {
+      "id": "180023",
+      "productId": "60019",
+      "productName": "Tufted Velvet Dining Chair - Navy Blue",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/uMsReZrltVdpkyAM.png",
+      "variantCode": "DC-004-NVY-V001"
+    },
+    {
+      "id": "180022",
+      "productId": "60020",
+      "productName": "Windsor-Style Dining Chair - Oak",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/HvUXcbiBFMPKNECS.png",
+      "variantCode": "DC-005-OAK-V001"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tproductId\tproductName\timageUrl\tvariantCode\n180020\t60016\tModern Upholstered Dining Chair - Gray\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/HOHqwtwokCYCgOWA.png\tDC-001-GRY-V002\n180021\t60019\tTufted Velvet Dining Chair - Navy Blue\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/uMsReZrltVdpkyAM.png\tDC-004-NVY-V002\n180023\t60019\tTufted Velvet Dining Chair - Navy Blue\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/uMsReZrltVdpkyAM.png\tDC-004-NVY-V001\n180022\t60020\tWindsor-Style Dining Chair - Oak\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/HvUXcbiBFMPKNECS.png\tDC-005-OAK-V001\n",
+  "stderr": "",
+  "execution_time_ms": 1583
+}

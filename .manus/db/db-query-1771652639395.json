@@ -1,0 +1,25 @@
+{
+  "query": "SELECT DISTINCT productId FROM product_variants LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT DISTINCT productId FROM product_variants LIMIT 5;",
+  "rows": [
+    {
+      "productId": "60001"
+    },
+    {
+      "productId": "60006"
+    },
+    {
+      "productId": "60011"
+    },
+    {
+      "productId": "60012"
+    },
+    {
+      "productId": "60016"
+    }
+  ],
+  "messages": [],
+  "stdout": "productId\n60001\n60006\n60011\n60012\n60016\n",
+  "stderr": "",
+  "execution_time_ms": 1513
+}

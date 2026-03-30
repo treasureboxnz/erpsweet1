@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO users (erpCompanyId, email, passwordHash, name, role, status, mustChangePassword, loginMethod) \nVALUES (1, 'manager@casavivafurniture.com', '$2b$10$AByw.UjOjwnw2KCsZk755uo.mVTrmd51/R7iLWuD6zw7IO1BQNDJG', 'Iris', 'super_admin', 'active', false, 'password');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute INSERT INTO users (erpCompanyId, email, passwordHash, name, role, status, mustChangePassword, loginMethod) \nVALUES (1, 'manager@casavivafurniture.com', '$2b$10$AByw.UjOjwnw2KCsZk755uo.mVTrmd51/R7iLWuD6zw7IO1BQNDJG', 'Iris', 'super_admin', 'active', false, 'password');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1523
+}

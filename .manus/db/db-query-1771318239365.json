@@ -1,0 +1,199 @@
+{
+  "query": "SELECT \n  pv.variantCode,\n  pv.sellingPriceRMB,\n  pv.sellingPriceFOB,\n  pv.costPriceRMB,\n  pv.isDefault\nFROM product_variants pv\nORDER BY pv.isDefault DESC, pv.variantCode\nLIMIT 30;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT \n  pv.variantCode,\n  pv.sellingPriceRMB,\n  pv.sellingPriceFOB,\n  pv.costPriceRMB,\n  pv.isDefault\nFROM product_variants pv\nORDER BY pv.isDefault DESC, pv.variantCode\nLIMIT 30;",
+  "rows": [
+    {
+      "variantCode": "DC-001-GRY-V003",
+      "sellingPriceRMB": "877.00",
+      "sellingPriceFOB": "119.00",
+      "costPriceRMB": "800.00",
+      "isDefault": "1"
+    },
+    {
+      "variantCode": "DC-001-GRY-V004",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "72.00",
+      "costPriceRMB": "NULL",
+      "isDefault": "1"
+    },
+    {
+      "variantCode": "DC-002-WAL-V001",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "1"
+    },
+    {
+      "variantCode": "DC-003-WHT-V001",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "1"
+    },
+    {
+      "variantCode": "DC-004-NVY-V001",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "1"
+    },
+    {
+      "variantCode": "DC-005-OAK-V001",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "1"
+    },
+    {
+      "variantCode": "SB-001-GRY-V001",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "1"
+    },
+    {
+      "variantCode": "DC-001-GRY-V001",
+      "sellingPriceRMB": "985.00",
+      "sellingPriceFOB": "109.00",
+      "costPriceRMB": "780.00",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-001-GRY-V002",
+      "sellingPriceRMB": "799.00",
+      "sellingPriceFOB": "101.00",
+      "costPriceRMB": "690.00",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-001-GRY-V005",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "75.00",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-001-GRY-V006",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "58.00",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-001-GRY-V007",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "78.00",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-002-WAL-V002",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-002-WAL-V003",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-002-WAL-V004",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-003-WHT-V002",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-003-WHT-V003",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-003-WHT-V004",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-004-NVY-V002",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-004-NVY-V003",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-004-NVY-V004",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-005-OAK-V002",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-005-OAK-V003",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "DC-005-OAK-V004",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "SB-001-GRY-V002",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "SB-001-GRY-V003",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    },
+    {
+      "variantCode": "SB-001-GRY-V004",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "variantCode\tsellingPriceRMB\tsellingPriceFOB\tcostPriceRMB\tisDefault\nDC-001-GRY-V003\t877.00\t119.00\t800.00\t1\nDC-001-GRY-V004\tNULL\t72.00\tNULL\t1\nDC-002-WAL-V001\tNULL\tNULL\tNULL\t1\nDC-003-WHT-V001\tNULL\tNULL\tNULL\t1\nDC-004-NVY-V001\tNULL\tNULL\tNULL\t1\nDC-005-OAK-V001\tNULL\tNULL\tNULL\t1\nSB-001-GRY-V001\tNULL\tNULL\tNULL\t1\nDC-001-GRY-V001\t985.00\t109.00\t780.00\t0\nDC-001-GRY-V002\t799.00\t101.00\t690.00\t0\nDC-001-GRY-V005\tNULL\t75.00\tNULL\t0\nDC-001-GRY-V006\tNULL\t58.00\tNULL\t0\nDC-001-GRY-V007\tNULL\t78.00\tNULL\t0\nDC-002-WAL-V002\tNULL\tNULL\tNULL\t0\nDC-002-WAL-V003\tNULL\tNULL\tNULL\t0\nDC-002-WAL-V004\tNULL\tNULL\tNULL\t0\nDC-003-WHT-V002\tNULL\tNULL\tNULL\t0\nDC-003-WHT-V003\tNULL\tNULL\tNULL\t0\nDC-003-WHT-V004\tNULL\tNULL\tNULL\t0\nDC-004-NVY-V002\tNULL\tNULL\tNULL\t0\nDC-004-NVY-V003\tNULL\tNULL\tNULL\t0\nDC-004-NVY-V004\tNULL\tNULL\tNULL\t0\nDC-005-OAK-V002\tNULL\tNULL\tNULL\t0\nDC-005-OAK-V003\tNULL\tNULL\tNULL\t0\nDC-005-OAK-V004\tNULL\tNULL\tNULL\t0\nSB-001-GRY-V002\tNULL\tNULL\tNULL\t0\nSB-001-GRY-V003\tNULL\tNULL\tNULL\t0\nSB-001-GRY-V004\tNULL\tNULL\tNULL\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1588
+}

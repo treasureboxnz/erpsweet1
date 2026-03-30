@@ -1,0 +1,8 @@
+{
+  "query": "\nSELECT \n  q.id, q.quotationNumber, q.quotationMode,\n  qi.id as itemId, qi.productId, qi.productName, qi.productSku,\n  qib.id as batchId, qib.variantId, qib.variantCode, qib.variantName, qib.quantity, qib.unitPrice\nFROM quotations q\nLEFT JOIN quotationItems qi ON q.id = qi.quotationId\nLEFT JOIN quotationItemBatches qib ON qi.id = qib.quotationItemId\nWHERE q.quotationNumber = 'QUO-20260216-005';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  q.id, q.quotationNumber, q.quotationMode,\n  qi.id as itemId, qi.productId, qi.productName, qi.productSku,\n  qib.id as batchId, qib.variantId, qib.variantCode, qib.variantName, qib.quantity, qib.unitPrice\nFROM quotations q\nLEFT JOIN quotationItems qi ON q.id = qi.quotationId\nLEFT JOIN quotationItemBatches qib ON qi.id = qib.quotationItemId\nWHERE q.quotationNumber = 'QUO-20260216-005';\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1146 (42S02) at line 2: Table '5qtmwqjey7efv8qjhvh9i8.quotationItems' doesn't exist"
+  ]
+}

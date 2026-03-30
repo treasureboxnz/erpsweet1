@@ -1,0 +1,8 @@
+{
+  "query": "\nINSERT INTO variant_customers (variantId, customerId, createdAt)\nSELECT id, 10001, NOW()\nFROM product_variants\nWHERE variantName = 'UI测试批次-双材料';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nINSERT INTO variant_customers (variantId, customerId, createdAt)\nSELECT id, 10001, NOW()\nFROM product_variants\nWHERE variantName = 'UI测试批次-双材料';\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1146 (42S02) at line 2: Table '5qtmwqjey7efv8qjhvh9i8.variant_customers' doesn't exist"
+  ]
+}

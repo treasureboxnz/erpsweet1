@@ -1,0 +1,70 @@
+{
+  "query": "SELECT id, name, sku, imageUrl FROM products WHERE imageUrl IS NOT NULL LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, name, sku, imageUrl FROM products WHERE imageUrl IS NOT NULL LIMIT 10;",
+  "rows": [
+    {
+      "id": "60001",
+      "name": "Modern Convertible Sofa Bed - Gray",
+      "sku": "SB-001-GRY",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/kNwVLJCEjOGRRefW.png"
+    },
+    {
+      "id": "60002",
+      "name": "Luxury Velvet Sofa Bed - Navy Blue",
+      "sku": "SB-002-NVY",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/yjMhZYgSdmmUhicA.png"
+    },
+    {
+      "id": "60003",
+      "name": "Minimalist Linen Sofa Bed - Beige",
+      "sku": "SB-003-BGE",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ibqWBMbwTbFJwFzN.png"
+    },
+    {
+      "id": "60004",
+      "name": "L-Shaped Sofa Bed with Storage - Charcoal",
+      "sku": "SB-004-CHR",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/bpyZMVRQbDLAwcbk.png"
+    },
+    {
+      "id": "60005",
+      "name": "Compact Two-Seater Sofa Bed - Teal",
+      "sku": "SB-005-TEA",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/DVRaAVhrHMZqBDGP.png"
+    },
+    {
+      "id": "60006",
+      "name": "Classic Wingback Armchair - Charcoal",
+      "sku": "AC-001-CHR",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/VHcLHnSaqieNVPny.png"
+    },
+    {
+      "id": "60007",
+      "name": "Mid-Century Modern Armchair - Mustard Yellow",
+      "sku": "AC-002-YEL",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/bdvJZNmUhABGJEmx.png"
+    },
+    {
+      "id": "60008",
+      "name": "Contemporary Lounge Armchair - Cream Boucle",
+      "sku": "AC-003-CRM",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/qzHGmscaOCRthmXG.png"
+    },
+    {
+      "id": "60009",
+      "name": "Scandinavian Rattan Armchair - Oak & Beige",
+      "sku": "AC-004-OAK",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/fHilgaCADNPkjlaT.png"
+    },
+    {
+      "id": "60010",
+      "name": "Modern Accent Armchair - Emerald Green",
+      "sku": "AC-005-EMR",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/cCGKQasLaJhCkbqt.png"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tsku\timageUrl\n60001\tModern Convertible Sofa Bed - Gray\tSB-001-GRY\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/kNwVLJCEjOGRRefW.png\n60002\tLuxury Velvet Sofa Bed - Navy Blue\tSB-002-NVY\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/yjMhZYgSdmmUhicA.png\n60003\tMinimalist Linen Sofa Bed - Beige\tSB-003-BGE\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ibqWBMbwTbFJwFzN.png\n60004\tL-Shaped Sofa Bed with Storage - Charcoal\tSB-004-CHR\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/bpyZMVRQbDLAwcbk.png\n60005\tCompact Two-Seater Sofa Bed - Teal\tSB-005-TEA\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/DVRaAVhrHMZqBDGP.png\n60006\tClassic Wingback Armchair - Charcoal\tAC-001-CHR\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/VHcLHnSaqieNVPny.png\n60007\tMid-Century Modern Armchair - Mustard Yellow\tAC-002-YEL\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/bdvJZNmUhABGJEmx.png\n60008\tContemporary Lounge Armchair - Cream Boucle\tAC-003-CRM\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/qzHGmscaOCRthmXG.png\n60009\tScandinavian Rattan Armchair - Oak & Beige\tAC-004-OAK\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/fHilgaCADNPkjlaT.png\n60010\tModern Accent Armchair - Emerald Green\tAC-005-EMR\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/cCGKQasLaJhCkbqt.png\n",
+  "stderr": "",
+  "execution_time_ms": 1683
+}

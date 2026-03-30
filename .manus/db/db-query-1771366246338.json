@@ -1,0 +1,18 @@
+{
+  "query": "SELECT id, variantCode, variantName, sellingPriceRMB, sellingPriceFOB, costPriceRMB FROM product_variants WHERE variantCode = 'DC-001-GRY-V008';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, variantCode, variantName, sellingPriceRMB, sellingPriceFOB, costPriceRMB FROM product_variants WHERE variantCode = 'DC-001-GRY-V008';",
+  "rows": [
+    {
+      "id": "180001",
+      "variantCode": "DC-001-GRY-V008",
+      "variantName": "订单页面测试批次V2",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantName\tsellingPriceRMB\tsellingPriceFOB\tcostPriceRMB\n180001\tDC-001-GRY-V008\t订单页面测试批次V2\tNULL\tNULL\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1606
+}

@@ -1,0 +1,24 @@
+{
+  "query": "SELECT pv.id, pv.variantCode, pb.grossWeight, pb.netWeight, pb.cbm \nFROM product_variants pv \nLEFT JOIN package_boxes pb ON pv.id = pb.variantId \nWHERE pv.variantCode IN ('DC-001-GRY-V034', 'DC-001-GRY-V035');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT pv.id, pv.variantCode, pb.grossWeight, pb.netWeight, pb.cbm \nFROM product_variants pv \nLEFT JOIN package_boxes pb ON pv.id = pb.variantId \nWHERE pv.variantCode IN ('DC-001-GRY-V034', 'DC-001-GRY-V035');",
+  "rows": [
+    {
+      "id": "480002",
+      "variantCode": "DC-001-GRY-V034",
+      "grossWeight": "30.00",
+      "netWeight": "27.00",
+      "cbm": "0.315000"
+    },
+    {
+      "id": "480003",
+      "variantCode": "DC-001-GRY-V035",
+      "grossWeight": "20.00",
+      "netWeight": "18.00",
+      "cbm": "0.216000"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tgrossWeight\tnetWeight\tcbm\n480002\tDC-001-GRY-V034\t30.00\t27.00\t0.315000\n480003\tDC-001-GRY-V035\t20.00\t18.00\t0.216000\n",
+  "stderr": "",
+  "execution_time_ms": 1515
+}

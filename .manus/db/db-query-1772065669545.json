@@ -1,0 +1,19 @@
+{
+  "query": "SELECT id, companyName, marketingCompanyName, marketingEmail, marketingAddress, marketingPhone, marketingWebsite FROM erp_companies WHERE companyName = '测试公司';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, companyName, marketingCompanyName, marketingEmail, marketingAddress, marketingPhone, marketingWebsite FROM erp_companies WHERE companyName = '测试公司';",
+  "rows": [
+    {
+      "id": "1",
+      "companyName": "测试公司",
+      "marketingCompanyName": "NULL",
+      "marketingEmail": "sales@testcompany.com",
+      "marketingAddress": "123 Business Street, Shanghai, China 200000",
+      "marketingPhone": "+86 21 1234 5678",
+      "marketingWebsite": "https://www.testcompany.com"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcompanyName\tmarketingCompanyName\tmarketingEmail\tmarketingAddress\tmarketingPhone\tmarketingWebsite\n1\t测试公司\tNULL\tsales@testcompany.com\t123 Business Street, Shanghai, China 200000\t+86 21 1234 5678\thttps://www.testcompany.com\n",
+  "stderr": "",
+  "execution_time_ms": 1648
+}

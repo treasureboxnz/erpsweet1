@@ -1,0 +1,26 @@
+{
+  "query": "SELECT * FROM material_boards WHERE boardNumber = 'A01';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM material_boards WHERE boardNumber = 'A01';",
+  "rows": [
+    {
+      "id": "1",
+      "supplierId": "1",
+      "boardNumber": "A01",
+      "boardName": "NULL",
+      "pricePerMeter": "15.00",
+      "currency": "RMB",
+      "minOrderQuantity": "NULL",
+      "leadTime": "NULL",
+      "description": "白色羊羔绒布板",
+      "notes": "NULL",
+      "status": "active",
+      "createdAt": "2026-02-18 02:26:16",
+      "updatedAt": "2026-02-18 02:26:16",
+      "materialType": "羊羔绒"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tsupplierId\tboardNumber\tboardName\tpricePerMeter\tcurrency\tminOrderQuantity\tleadTime\tdescription\tnotes\tstatus\tcreatedAt\tupdatedAt\tmaterialType\n1\t1\tA01\tNULL\t15.00\tRMB\tNULL\tNULL\t白色羊羔绒布板\tNULL\tactive\t2026-02-18 02:26:16\t2026-02-18 02:26:16\t羊羔绒\n",
+  "stderr": "",
+  "execution_time_ms": 1499
+}

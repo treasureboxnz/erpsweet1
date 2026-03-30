@@ -1,0 +1,17 @@
+{
+  "query": "SELECT id, variantCode, customerSku, supplierSku, customerId FROM product_variants WHERE variantCode = 'DC-001-GRY-V045' LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, variantCode, customerSku, supplierSku, customerId FROM product_variants WHERE variantCode = 'DC-001-GRY-V045' LIMIT 1;",
+  "rows": [
+    {
+      "id": "630005",
+      "variantCode": "DC-001-GRY-V045",
+      "customerSku": "CLIENT-SKU-ABC-001",
+      "supplierSku": "FACTORY-SKU-SEARCH-TEST-001",
+      "customerId": "30007"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tcustomerSku\tsupplierSku\tcustomerId\n630005\tDC-001-GRY-V045\tCLIENT-SKU-ABC-001\tFACTORY-SKU-SEARCH-TEST-001\t30007\n",
+  "stderr": "",
+  "execution_time_ms": 1558
+}

@@ -1,0 +1,18 @@
+{
+  "query": "SELECT * FROM system_settings WHERE settingKey = 'quotationMode';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM system_settings WHERE settingKey = 'quotationMode';",
+  "rows": [
+    {
+      "id": "1",
+      "settingKey": "quotationMode",
+      "settingValue": "batch_enabled",
+      "description": "报价模式：fob_only=仅FOB报价，batch_enabled=允许批次报价",
+      "createdAt": "2026-02-16 02:01:45",
+      "updatedAt": "2026-02-16 02:09:53"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tsettingKey\tsettingValue\tdescription\tcreatedAt\tupdatedAt\n1\tquotationMode\tbatch_enabled\t报价模式：fob_only=仅FOB报价，batch_enabled=允许批次报价\t2026-02-16 02:01:45\t2026-02-16 02:09:53\n",
+  "stderr": "",
+  "execution_time_ms": 1558
+}

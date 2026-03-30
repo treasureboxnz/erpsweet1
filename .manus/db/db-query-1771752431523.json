@@ -1,0 +1,27 @@
+{
+  "query": "SELECT pb.* FROM package_boxes pb JOIN product_variants pv ON pb.variantId = pv.id WHERE pv.variantCode = 'DC-001-GRY-V037';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT pb.* FROM package_boxes pb JOIN product_variants pv ON pb.variantId = pv.id WHERE pv.variantCode = 'DC-001-GRY-V037';",
+  "rows": [
+    {
+      "id": "90001",
+      "erpCompanyId": "1",
+      "variantId": "600001",
+      "boxNumber": "1",
+      "length": "50.00",
+      "width": "40.00",
+      "height": "30.00",
+      "cbm": "0.060000",
+      "sortOrder": "0",
+      "createdAt": "2026-02-22 09:26:48",
+      "updatedAt": "2026-02-22 09:26:48",
+      "grossWeight": "25.00",
+      "netWeight": "22.00",
+      "packagingType": "single",
+      "piecesPerBox": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tvariantId\tboxNumber\tlength\twidth\theight\tcbm\tsortOrder\tcreatedAt\tupdatedAt\tgrossWeight\tnetWeight\tpackagingType\tpiecesPerBox\n90001\t1\t600001\t1\t50.00\t40.00\t30.00\t0.060000\t0\t2026-02-22 09:26:48\t2026-02-22 09:26:48\t25.00\t22.00\tsingle\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1542
+}

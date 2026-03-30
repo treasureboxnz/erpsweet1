@@ -1,0 +1,28 @@
+{
+  "query": "\nSELECT \n  vm.id,\n  vm.variantId,\n  vm.materialColorId,\n  vm.materialType,\n  vm.sortOrder,\n  mc.colorName,\n  mc.colorCode\nFROM variant_materials vm\nLEFT JOIN material_colors mc ON vm.materialColorId = mc.id\nWHERE vm.variantId = 390002\nORDER BY vm.sortOrder;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  vm.id,\n  vm.variantId,\n  vm.materialColorId,\n  vm.materialType,\n  vm.sortOrder,\n  mc.colorName,\n  mc.colorCode\nFROM variant_materials vm\nLEFT JOIN material_colors mc ON vm.materialColorId = mc.id\nWHERE vm.variantId = 390002\nORDER BY vm.sortOrder;\n",
+  "rows": [
+    {
+      "id": "90003",
+      "variantId": "390002",
+      "materialColorId": "30008",
+      "materialType": "布料",
+      "sortOrder": "0",
+      "colorName": "Original 默认",
+      "colorCode": "ORIG"
+    },
+    {
+      "id": "90004",
+      "variantId": "390002",
+      "materialColorId": "60001",
+      "materialType": "布料",
+      "sortOrder": "1",
+      "colorName": "NULL",
+      "colorCode": "RED-01"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantId\tmaterialColorId\tmaterialType\tsortOrder\tcolorName\tcolorCode\n90003\t390002\t30008\t布料\t0\tOriginal 默认\tORIG\n90004\t390002\t60001\t布料\t1\tNULL\tRED-01\n",
+  "stderr": "",
+  "execution_time_ms": 1601
+}

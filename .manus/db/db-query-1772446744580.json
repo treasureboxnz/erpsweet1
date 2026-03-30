@@ -1,0 +1,34 @@
+{
+  "query": "\nSELECT pv.id as variantId, pv.variantCode, pv.variantType, pv.isDefault,\n       vcl.id as linkId, vcl.customerId as linkedCustomerId\nFROM product_variants pv\nLEFT JOIN variant_customer_links vcl ON pv.id = vcl.variantId\nWHERE pv.variantCode IN ('VAR0017', 'VAR0011', 'DC-001-GRY-V030')\nORDER BY pv.variantCode, vcl.customerId;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT pv.id as variantId, pv.variantCode, pv.variantType, pv.isDefault,\n       vcl.id as linkId, vcl.customerId as linkedCustomerId\nFROM product_variants pv\nLEFT JOIN variant_customer_links vcl ON pv.id = vcl.variantId\nWHERE pv.variantCode IN ('VAR0017', 'VAR0011', 'DC-001-GRY-V030')\nORDER BY pv.variantCode, vcl.customerId;\n",
+  "rows": [
+    {
+      "variantId": "420002",
+      "variantCode": "DC-001-GRY-V030",
+      "variantType": "universal",
+      "isDefault": "1",
+      "linkId": "150003",
+      "linkedCustomerId": "30007"
+    },
+    {
+      "variantId": "900001",
+      "variantCode": "VAR0011",
+      "variantType": "exclusive",
+      "isDefault": "0",
+      "linkId": "NULL",
+      "linkedCustomerId": "NULL"
+    },
+    {
+      "variantId": "960001",
+      "variantCode": "VAR0017",
+      "variantType": "exclusive",
+      "isDefault": "0",
+      "linkId": "300001",
+      "linkedCustomerId": "30007"
+    }
+  ],
+  "messages": [],
+  "stdout": "variantId\tvariantCode\tvariantType\tisDefault\tlinkId\tlinkedCustomerId\n420002\tDC-001-GRY-V030\tuniversal\t1\t150003\t30007\n900001\tVAR0011\texclusive\t0\tNULL\tNULL\n960001\tVAR0017\texclusive\t0\t300001\t30007\n",
+  "stderr": "",
+  "execution_time_ms": 1532
+}

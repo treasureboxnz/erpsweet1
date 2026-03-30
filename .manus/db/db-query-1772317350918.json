@@ -1,0 +1,91 @@
+{
+  "query": "SELECT id, erpCompanyId, bankName, accountName, accountNumber, currency, isDefault FROM company_bank_accounts LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, erpCompanyId, bankName, accountName, accountNumber, currency, isDefault FROM company_bank_accounts LIMIT 10;",
+  "rows": [
+    {
+      "id": "1",
+      "erpCompanyId": "1",
+      "bankName": "Bank of China",
+      "accountName": "Shenzhen Innovatech Co., Ltd.",
+      "accountNumber": "6222 8888 8888 8888",
+      "currency": "USD",
+      "isDefault": "0"
+    },
+    {
+      "id": "2",
+      "erpCompanyId": "1",
+      "bankName": "Bank of China",
+      "accountName": "Shenzhen Innovatech Co., Ltd.",
+      "accountNumber": "6222 8888 8888 8888",
+      "currency": "USD",
+      "isDefault": "0"
+    },
+    {
+      "id": "3",
+      "erpCompanyId": "1",
+      "bankName": "Bank of China",
+      "accountName": "Shenzhen Innovatech Co., Ltd.",
+      "accountNumber": "6222 8888 8888 8888",
+      "currency": "USD",
+      "isDefault": "0"
+    },
+    {
+      "id": "4",
+      "erpCompanyId": "1",
+      "bankName": "Bank of China",
+      "accountName": "Shenzhen Innovatech Co., Ltd.",
+      "accountNumber": "6222888888888888",
+      "currency": "USD",
+      "isDefault": "0"
+    },
+    {
+      "id": "5",
+      "erpCompanyId": "1",
+      "bankName": "Bank of China",
+      "accountName": "Shenzhen Innovatech Co., Ltd.",
+      "accountNumber": "6222888888888888",
+      "currency": "USD",
+      "isDefault": "0"
+    },
+    {
+      "id": "6",
+      "erpCompanyId": "1",
+      "bankName": "Bank of China",
+      "accountName": "Shenzhen Innovatech Co., Ltd.",
+      "accountNumber": "6222888888888888",
+      "currency": "USD",
+      "isDefault": "0"
+    },
+    {
+      "id": "7",
+      "erpCompanyId": "1",
+      "bankName": "Test Bank",
+      "accountName": "Test Company",
+      "accountNumber": "123456789",
+      "currency": "USD",
+      "isDefault": "0"
+    },
+    {
+      "id": "8",
+      "erpCompanyId": "1",
+      "bankName": "ABC Bank",
+      "accountName": "Test Corp",
+      "accountNumber": "999888777",
+      "currency": "USD",
+      "isDefault": "0"
+    },
+    {
+      "id": "9",
+      "erpCompanyId": "1",
+      "bankName": "Bank of China",
+      "accountName": "Test Company Ltd",
+      "accountNumber": "1234567890",
+      "currency": "USD",
+      "isDefault": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tbankName\taccountName\taccountNumber\tcurrency\tisDefault\n1\t1\tBank of China\tShenzhen Innovatech Co., Ltd.\t6222 8888 8888 8888\tUSD\t0\n2\t1\tBank of China\tShenzhen Innovatech Co., Ltd.\t6222 8888 8888 8888\tUSD\t0\n3\t1\tBank of China\tShenzhen Innovatech Co., Ltd.\t6222 8888 8888 8888\tUSD\t0\n4\t1\tBank of China\tShenzhen Innovatech Co., Ltd.\t6222888888888888\tUSD\t0\n5\t1\tBank of China\tShenzhen Innovatech Co., Ltd.\t6222888888888888\tUSD\t0\n6\t1\tBank of China\tShenzhen Innovatech Co., Ltd.\t6222888888888888\tUSD\t0\n7\t1\tTest Bank\tTest Company\t123456789\tUSD\t0\n8\t1\tABC Bank\tTest Corp\t999888777\tUSD\t0\n9\t1\tBank of China\tTest Company Ltd\t1234567890\tUSD\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1547
+}

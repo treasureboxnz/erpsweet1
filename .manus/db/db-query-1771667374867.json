@@ -1,0 +1,298 @@
+{
+  "query": "SELECT \n  id,\n  variantCode,\n  productId,\n  isDefault,\n  status,\n  createdAt\nFROM product_variants\nWHERE productId = 60016\nORDER BY isDefault DESC, createdAt DESC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT \n  id,\n  variantCode,\n  productId,\n  isDefault,\n  status,\n  createdAt\nFROM product_variants\nWHERE productId = 60016\nORDER BY isDefault DESC, createdAt DESC;",
+  "rows": [
+    {
+      "id": "480002",
+      "variantCode": "DC-001-GRY-V034",
+      "productId": "60016",
+      "isDefault": "1",
+      "status": "active",
+      "createdAt": "2026-02-21 08:19:44"
+    },
+    {
+      "id": "390002",
+      "variantCode": "CHAIR-GREY-V002",
+      "productId": "60016",
+      "isDefault": "1",
+      "status": "active",
+      "createdAt": "2026-02-20 23:05:09"
+    },
+    {
+      "id": "360002",
+      "variantCode": "DC-001-GRY-V026",
+      "productId": "60016",
+      "isDefault": "1",
+      "status": "active",
+      "createdAt": "2026-02-20 20:48:42"
+    },
+    {
+      "id": "480003",
+      "variantCode": "DC-001-GRY-V035",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-21 08:30:45"
+    },
+    {
+      "id": "480001",
+      "variantCode": "DC-001-GRY-V033",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-21 07:34:07"
+    },
+    {
+      "id": "450003",
+      "variantCode": "DC-001-GRY-V032",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-21 06:19:02"
+    },
+    {
+      "id": "450002",
+      "variantCode": "DC-001-GRY-V031",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-21 06:15:50"
+    },
+    {
+      "id": "420002",
+      "variantCode": "DC-001-GRY-V030",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-21 02:13:17"
+    },
+    {
+      "id": "420001",
+      "variantCode": "DC-001-GRY-V029",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-21 00:05:06"
+    },
+    {
+      "id": "390001",
+      "variantCode": "DC-001-GRY-V028",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-20 22:32:47"
+    },
+    {
+      "id": "360003",
+      "variantCode": "DC-001-GRY-V027",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-20 21:23:54"
+    },
+    {
+      "id": "360001",
+      "variantCode": "DC-001-GRY-V025",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-20 20:12:40"
+    },
+    {
+      "id": "330001",
+      "variantCode": "DC-001-GRY-V024",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-20 10:36:41"
+    },
+    {
+      "id": "300007",
+      "variantCode": "DC-001-GRY-V023",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-20 05:37:14"
+    },
+    {
+      "id": "300006",
+      "variantCode": "DC-001-GRY-V022",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-20 05:36:34"
+    },
+    {
+      "id": "300005",
+      "variantCode": "DC-001-GRY-V021",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-20 05:35:46"
+    },
+    {
+      "id": "300004",
+      "variantCode": "DC-001-GRY-V020",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-20 05:29:42"
+    },
+    {
+      "id": "300003",
+      "variantCode": "DC-001-GRY-V019",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-20 04:39:26"
+    },
+    {
+      "id": "300002",
+      "variantCode": "DC-001-GRY-V018",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-20 03:58:12"
+    },
+    {
+      "id": "300001",
+      "variantCode": "DC-001-GRY-V017",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-20 00:04:13"
+    },
+    {
+      "id": "270004",
+      "variantCode": "DC-001-GRY-V016",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-19 05:40:34"
+    },
+    {
+      "id": "270003",
+      "variantCode": "DC-001-GRY-V015",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-19 05:17:13"
+    },
+    {
+      "id": "270002",
+      "variantCode": "DC-001-GRY-V014",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-19 04:20:15"
+    },
+    {
+      "id": "270001",
+      "variantCode": "DC-001-GRY-V013",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-19 00:58:39"
+    },
+    {
+      "id": "240001",
+      "variantCode": "DC-001-GRY-V012",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-18 11:34:37"
+    },
+    {
+      "id": "210003",
+      "variantCode": "DC-001-GRY-V011",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-18 01:09:36"
+    },
+    {
+      "id": "210002",
+      "variantCode": "DC-001-GRY-V010",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-18 01:04:21"
+    },
+    {
+      "id": "210001",
+      "variantCode": "DC-001-GRY-V009",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-18 01:03:13"
+    },
+    {
+      "id": "180001",
+      "variantCode": "DC-001-GRY-V008",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-17 09:58:00"
+    },
+    {
+      "id": "120084",
+      "variantCode": "DC-001-GRY-V003",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-16 05:49:39"
+    },
+    {
+      "id": "120083",
+      "variantCode": "DC-001-GRY-V002",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-16 04:41:25"
+    },
+    {
+      "id": "120082",
+      "variantCode": "DC-001-GRY-V001",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-16 04:40:33"
+    },
+    {
+      "id": "120006",
+      "variantCode": "DC-001-GRY-V004",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-16 03:43:42"
+    },
+    {
+      "id": "120009",
+      "variantCode": "DC-001-GRY-V007",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-16 03:43:42"
+    },
+    {
+      "id": "120008",
+      "variantCode": "DC-001-GRY-V006",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-16 03:43:42"
+    },
+    {
+      "id": "120007",
+      "variantCode": "DC-001-GRY-V005",
+      "productId": "60016",
+      "isDefault": "0",
+      "status": "active",
+      "createdAt": "2026-02-16 03:43:42"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tproductId\tisDefault\tstatus\tcreatedAt\n480002\tDC-001-GRY-V034\t60016\t1\tactive\t2026-02-21 08:19:44\n390002\tCHAIR-GREY-V002\t60016\t1\tactive\t2026-02-20 23:05:09\n360002\tDC-001-GRY-V026\t60016\t1\tactive\t2026-02-20 20:48:42\n480003\tDC-001-GRY-V035\t60016\t0\tactive\t2026-02-21 08:30:45\n480001\tDC-001-GRY-V033\t60016\t0\tactive\t2026-02-21 07:34:07\n450003\tDC-001-GRY-V032\t60016\t0\tactive\t2026-02-21 06:19:02\n450002\tDC-001-GRY-V031\t60016\t0\tactive\t2026-02-21 06:15:50\n420002\tDC-001-GRY-V030\t60016\t0\tactive\t2026-02-21 02:13:17\n420001\tDC-001-GRY-V029\t60016\t0\tactive\t2026-02-21 00:05:06\n390001\tDC-001-GRY-V028\t60016\t0\tactive\t2026-02-20 22:32:47\n360003\tDC-001-GRY-V027\t60016\t0\tactive\t2026-02-20 21:23:54\n360001\tDC-001-GRY-V025\t60016\t0\tactive\t2026-02-20 20:12:40\n330001\tDC-001-GRY-V024\t60016\t0\tactive\t2026-02-20 10:36:41\n300007\tDC-001-GRY-V023\t60016\t0\tactive\t2026-02-20 05:37:14\n300006\tDC-001-GRY-V022\t60016\t0\tactive\t2026-02-20 05:36:34\n300005\tDC-001-GRY-V021\t60016\t0\tactive\t2026-02-20 05:35:46\n300004\tDC-001-GRY-V020\t60016\t0\tactive\t2026-02-20 05:29:42\n300003\tDC-001-GRY-V019\t60016\t0\tactive\t2026-02-20 04:39:26\n300002\tDC-001-GRY-V018\t60016\t0\tactive\t2026-02-20 03:58:12\n300001\tDC-001-GRY-V017\t60016\t0\tactive\t2026-02-20 00:04:13\n270004\tDC-001-GRY-V016\t60016\t0\tactive\t2026-02-19 05:40:34\n270003\tDC-001-GRY-V015\t60016\t0\tactive\t2026-02-19 05:17:13\n270002\tDC-001-GRY-V014\t60016\t0\tactive\t2026-02-19 04:20:15\n270001\tDC-001-GRY-V013\t60016\t0\tactive\t2026-02-19 00:58:39\n240001\tDC-001-GRY-V012\t60016\t0\tactive\t2026-02-18 11:34:37\n210003\tDC-001-GRY-V011\t60016\t0\tactive\t2026-02-18 01:09:36\n210002\tDC-001-GRY-V010\t60016\t0\tactive\t2026-02-18 01:04:21\n210001\tDC-001-GRY-V009\t60016\t0\tactive\t2026-02-18 01:03:13\n180001\tDC-001-GRY-V008\t60016\t0\tactive\t2026-02-17 09:58:00\n120084\tDC-001-GRY-V003\t60016\t0\tactive\t2026-02-16 05:49:39\n120083\tDC-001-GRY-V002\t60016\t0\tactive\t2026-02-16 04:41:25\n120082\tDC-001-GRY-V001\t60016\t0\tactive\t2026-02-16 04:40:33\n120006\tDC-001-GRY-V004\t60016\t0\tactive\t2026-02-16 03:43:42\n120009\tDC-001-GRY-V007\t60016\t0\tactive\t2026-02-16 03:43:42\n120008\tDC-001-GRY-V006\t60016\t0\tactive\t2026-02-16 03:43:42\n120007\tDC-001-GRY-V005\t60016\t0\tactive\t2026-02-16 03:43:42\n",
+  "stderr": "",
+  "execution_time_ms": 1527
+}

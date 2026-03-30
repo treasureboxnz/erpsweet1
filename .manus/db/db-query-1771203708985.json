@@ -1,0 +1,121 @@
+{
+  "query": "SHOW TABLES;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SHOW TABLES;",
+  "rows": [
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "__drizzle_migrations"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "attributes"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "categories"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "companies"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "company_assignees"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "company_attachment_categories"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "company_attachments"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "company_contacts"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "contacts"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "customer_follow_ups"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "customers"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "follow_up_records"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "media_library"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "operation_logs"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "order_items"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "order_status_history"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "orders"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "permissions"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "positions"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "price_history"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "product_categories"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "product_category_links"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "product_images"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "product_suppliers"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "product_tag_links"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "product_variants"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "products"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "supplier_categories"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "suppliers"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "tags"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "user_invitations"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "users"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "variant_customer_links"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "variant_images"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "variant_pricing"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "variant_pricing_history"
+    },
+    {
+      "Tables_in_5QtmwQJEy7EFv8QJHVh9i8": "variant_suppliers"
+    }
+  ],
+  "messages": [],
+  "stdout": "Tables_in_5QtmwQJEy7EFv8QJHVh9i8\n__drizzle_migrations\nattributes\ncategories\ncompanies\ncompany_assignees\ncompany_attachment_categories\ncompany_attachments\ncompany_contacts\ncontacts\ncustomer_follow_ups\ncustomers\nfollow_up_records\nmedia_library\noperation_logs\norder_items\norder_status_history\norders\npermissions\npositions\nprice_history\nproduct_categories\nproduct_category_links\nproduct_images\nproduct_suppliers\nproduct_tag_links\nproduct_variants\nproducts\nsupplier_categories\nsuppliers\ntags\nuser_invitations\nusers\nvariant_customer_links\nvariant_images\nvariant_pricing\nvariant_pricing_history\nvariant_suppliers\n",
+  "stderr": "",
+  "execution_time_ms": 1645
+}

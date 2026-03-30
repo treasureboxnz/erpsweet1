@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS `invoice_terms_templates` (\n  `id` int AUTO_INCREMENT NOT NULL,\n  `erpCompanyId` int NOT NULL,\n  `termNumber` int NOT NULL,\n  `titleCn` varchar(200) NOT NULL,\n  `titleEn` varchar(200) NOT NULL,\n  `contentCn` text,\n  `contentEn` text,\n  `isEnabled` boolean NOT NULL DEFAULT true,\n  `sortOrder` int NOT NULL DEFAULT 0,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  CONSTRAINT `invoice_terms_templates_id` PRIMARY KEY(`id`),\n  UNIQUE KEY `invoice_terms_templates_unique` (`erpCompanyId`, `termNumber`),\n  INDEX `invoice_terms_templates_erp_company_idx` (`erpCompanyId`),\n  INDEX `invoice_terms_templates_sort_idx` (`erpCompanyId`, `sortOrder`)\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute CREATE TABLE IF NOT EXISTS `invoice_terms_templates` (\n  `id` int AUTO_INCREMENT NOT NULL,\n  `erpCompanyId` int NOT NULL,\n  `termNumber` int NOT NULL,\n  `titleCn` varchar(200) NOT NULL,\n  `titleEn` varchar(200) NOT NULL,\n  `contentCn` text,\n  `contentEn` text,\n  `isEnabled` boolean NOT NULL DEFAULT true,\n  `sortOrder` int NOT NULL DEFAULT 0,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  CONSTRAINT `invoice_terms_templates_id` PRIMARY KEY(`id`),\n  UNIQUE KEY `invoice_terms_templates_unique` (`erpCompanyId`, `termNumber`),\n  INDEX `invoice_terms_templates_erp_company_idx` (`erpCompanyId`),\n  INDEX `invoice_terms_templates_sort_idx` (`erpCompanyId`, `sortOrder`)\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1901
+}

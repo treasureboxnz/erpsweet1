@@ -1,0 +1,110 @@
+{
+  "query": "\nSELECT DISTINCT o.id, o.orderNumber, o.status\nFROM orders o\nJOIN order_items oi ON oi.orderId = o.id\nJOIN product_variants pv ON oi.variantId = pv.id\nWHERE (pv.variantName LIKE '%测试%' OR pv.variantName LIKE '%test%' OR pv.variantName LIKE '%Test%' OR pv.variantName LIKE '%UI%' OR pv.variantName LIKE '%SKU%' OR pv.variantName LIKE '%验证%' OR pv.variantName LIKE '%Automation%')\nAND pv.id NOT IN (SELECT id FROM (SELECT id FROM product_variants WHERE variantName LIKE '%测试%' OR variantName LIKE '%test%' OR variantName LIKE '%Test%' OR variantName LIKE '%UI%' OR variantName LIKE '%SKU%' OR variantName LIKE '%验证%' OR variantName LIKE '%Automation%' ORDER BY id DESC LIMIT 2) AS k)\nORDER BY o.id DESC;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT DISTINCT o.id, o.orderNumber, o.status\nFROM orders o\nJOIN order_items oi ON oi.orderId = o.id\nJOIN product_variants pv ON oi.variantId = pv.id\nWHERE (pv.variantName LIKE '%测试%' OR pv.variantName LIKE '%test%' OR pv.variantName LIKE '%Test%' OR pv.variantName LIKE '%UI%' OR pv.variantName LIKE '%SKU%' OR pv.variantName LIKE '%验证%' OR pv.variantName LIKE '%Automation%')\nAND pv.id NOT IN (SELECT id FROM (SELECT id FROM product_variants WHERE variantName LIKE '%测试%' OR variantName LIKE '%test%' OR variantName LIKE '%Test%' OR variantName LIKE '%UI%' OR variantName LIKE '%SKU%' OR variantName LIKE '%验证%' OR variantName LIKE '%Automation%' ORDER BY id DESC LIMIT 2) AS k)\nORDER BY o.id DESC;\n",
+  "rows": [
+    {
+      "id": "570001",
+      "orderNumber": "ORD00010",
+      "status": "pending"
+    },
+    {
+      "id": "540002",
+      "orderNumber": "ORD00008",
+      "status": "pending"
+    },
+    {
+      "id": "540001",
+      "orderNumber": "ORD00007",
+      "status": "pending"
+    },
+    {
+      "id": "480001",
+      "orderNumber": "ORD-20260223-RT2",
+      "status": "pending"
+    },
+    {
+      "id": "450001",
+      "orderNumber": "ORD-20260222-Z1K",
+      "status": "pending"
+    },
+    {
+      "id": "420002",
+      "orderNumber": "ORD-20260222-YPE",
+      "status": "pending"
+    },
+    {
+      "id": "420001",
+      "orderNumber": "ORD-20260222-MQC",
+      "status": "pending"
+    },
+    {
+      "id": "390003",
+      "orderNumber": "ORD-20260222-8XM",
+      "status": "pending"
+    },
+    {
+      "id": "390002",
+      "orderNumber": "ORD-20260222-QYV",
+      "status": "pending"
+    },
+    {
+      "id": "390001",
+      "orderNumber": "ORD-20260222-5NZ",
+      "status": "pending"
+    },
+    {
+      "id": "360001",
+      "orderNumber": "ORD-20260222-38J",
+      "status": "pending"
+    },
+    {
+      "id": "330003",
+      "orderNumber": "ORD-20260221-UEC",
+      "status": "pending"
+    },
+    {
+      "id": "330002",
+      "orderNumber": "ORD-WEIGHT-TEST",
+      "status": "pending"
+    },
+    {
+      "id": "300001",
+      "orderNumber": "ORD-20260221-KXA",
+      "status": "pending"
+    },
+    {
+      "id": "270010",
+      "orderNumber": "ORD-TEST-4MAT",
+      "status": "pending"
+    },
+    {
+      "id": "270009",
+      "orderNumber": "ORD-TEST-3MAT",
+      "status": "pending"
+    },
+    {
+      "id": "270008",
+      "orderNumber": "ORD-TEST-2MAT",
+      "status": "pending"
+    },
+    {
+      "id": "270007",
+      "orderNumber": "ORD-TEST-1MAT",
+      "status": "pending"
+    },
+    {
+      "id": "180006",
+      "orderNumber": "ORD-20260217-NNB",
+      "status": "pending"
+    },
+    {
+      "id": "150007",
+      "orderNumber": "ORD-20260217-010",
+      "status": "pending"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\torderNumber\tstatus\n570001\tORD00010\tpending\n540002\tORD00008\tpending\n540001\tORD00007\tpending\n480001\tORD-20260223-RT2\tpending\n450001\tORD-20260222-Z1K\tpending\n420002\tORD-20260222-YPE\tpending\n420001\tORD-20260222-MQC\tpending\n390003\tORD-20260222-8XM\tpending\n390002\tORD-20260222-QYV\tpending\n390001\tORD-20260222-5NZ\tpending\n360001\tORD-20260222-38J\tpending\n330003\tORD-20260221-UEC\tpending\n330002\tORD-WEIGHT-TEST\tpending\n300001\tORD-20260221-KXA\tpending\n270010\tORD-TEST-4MAT\tpending\n270009\tORD-TEST-3MAT\tpending\n270008\tORD-TEST-2MAT\tpending\n270007\tORD-TEST-1MAT\tpending\n180006\tORD-20260217-NNB\tpending\n150007\tORD-20260217-010\tpending\n",
+  "stderr": "",
+  "execution_time_ms": 1550
+}

@@ -1,0 +1,523 @@
+import { useState, useEffect } from "react";
+import { useRoute, useLocation, Link } from "wouter";
+import { trpc } from "@/lib/trpc";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { ArrowLeft, Tag, X, Plus, Image as ImageIcon, Upload } from "lucide-react";
+import { useDropzone } from "react-dropzone";
+import { useCallback } from "react";
+import ERPLayout from "@/components/ERPLayout";
+import RichTextEditor from "@/components/RichTextEditor";
+import CategoryCombobox from "@/components/CategoryCombobox";
+import TagCombobox from "@/components/TagCombobox";
+import { toast } from "sonner";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
+export default function ProductEdit() {
+  const [, params] = useRoute("/products/:id/edit");
+  const [, setLocation] = useLocation();
+  const productId = params?.id ? parseInt(params.id) : 0;
+
+  // Form state
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [sku, setSku] = useState("");
+  const [category, setCategory] = useState("");
+  const [status, setStatus] = useState<"active" | "developing" | "discontinued">("active");
+  const [type, setType] = useState("");
+  const [vendor, setVendor] = useState("");
+  const [categoryIds, setCategoryIds] = useState<number[]>([]);
+  const [tagIds, setTagIds] = useState<number[]>([]);
+  const [productImages, setProductImages] = useState<any[]>([]); // 产品关联的图片
+  const [isUploading, setIsUploading] = useState(false);
+
+
+
+  const utils = trpc.useUtils();
+
+  // Fetch product data
+  const { data: products, isLoading } = trpc.products.list.useQuery();
+  const product = products?.find((p) => p.product.id === productId);
+
+  // Upload image mutation
+  const uploadImageMutation = trpc.productImages.uploadImage.useMutation({
+    onSuccess: (data) => {
+      // 添加新图片到列表
+      setProductImages(prev => [...prev, {
+        id: Date.now(), // 临时ID
+        imageUrl: data.url,
+        imageKey: data.fileKey,
+        sortOrder: data.sortOrder,
+        isPrimary: data.sortOrder === 0,
+      }]);
+    },
+    onError: (error) => {
+      toast.error(`上传失败: ${error.message}`);
+    },
+  });
+
+  // Fetch product images
+  const { data: existingImages } = trpc.productImages.getByProductId.useQuery(
+    { productId },
+    { enabled: productId > 0 }
+  );
+
+  // Load product images
+  useEffect(() => {
+    if (existingImages) {
+      setProductImages(existingImages);
+    }
+  }, [existingImages]);
+
+  // Load product data into form
+  useEffect(() => {
+    if (product) {
+      setTitle(product.product.name);
+      setDescription(product.product.description || "");
+      setSku(product.product.sku);
+      // setCategory(product.product.category); // TODO: Load from categoryId
+      setStatus(product.product.status as "active" | "developing" | "discontinued");
+      // TODO: Load type, vendor, collections, tags from database
+    }
+  }, [product]);
+
+  // Update product mutation
+  // TODO: Implement update API
+  // const updateMutation = trpc.products.update?.useMutation({
+  //   onSuccess: () => {
+  //     toast.success("产品已更新");
+  //     utils.products.list.invalidate();
+  //     setLocation(`/products/${productId}`);
+  //   },
+  //   onError: (error: any) => {
+  //     toast.error(`更新失败: ${error.message}`);
+  //   },
+  // });
+
+  const updateProduct = trpc.products.update.useMutation();
+  const addProductImages = trpc.productImages.addImages.useMutation();
+  const updateImageOrder = trpc.productImages.updateOrder.useMutation();
+  const deleteProductImage = trpc.productImages.deleteImage.useMutation();
+  const trpcUtils = trpc.useUtils();
+
+  const handleSave = async () => {
+    if (!title.trim()) {
+      toast.error("请输入产品标题");
+      return;
+    }
+    if (!sku.trim()) {
+      toast.error("请输入SKU");
+      return;
+    }
+
+    try {
+      // 1. 保存产品基本信息
+      await updateProduct.mutateAsync({
+        id: productId,
+        title,
+        description,
+        sku,
+        status: status as 'active' | 'developing' | 'discontinued',
+        type,
+        vendor,
+      });
+
+      // 2. 删除旧图片（如果有的话）
+      if (existingImages && existingImages.length > 0) {
+        for (const img of existingImages) {
+          await deleteProductImage.mutateAsync({ productId, imageId: img.id });
+        }
+      }
+
+      // 3. 添加新图片
+      if (productImages.length > 0) {
+        const images = productImages.map((img, index) => ({
+          imageUrl: img.imageUrl || img.fileUrl, // 兼容两种字段名
+          imageKey: img.imageKey || img.fileKey, // 兼容两种字段名
+          sortOrder: index,
+        }));
+        await addProductImages.mutateAsync({
+          productId,
+          images,
+        });
+      }
+
+      // 4. 刷新数据
+      await trpcUtils.products.list.invalidate();
+      await trpcUtils.productImages.getByProductId.invalidate({ productId });
+
+      toast.success("保存成功");
+    } catch (error: any) {
+      console.error('Error saving product:', error);
+      const errorMessage = error?.message || error?.toString() || '未知错误';
+      toast.error(`保存失败: ${errorMessage}`);
+    }
+  };
+
+  const handleDuplicate = () => {
+    toast.info("复制功能开发中...");
+  };
+
+
+
+  // Handle file upload
+  const handleFileUpload = useCallback(async (files: File[]) => {
+    if (!product) return;
+    
+    setIsUploading(true);
+    
+    for (const file of files) {
+      // 检查文件类型
+      if (!file.type.startsWith('image/')) {
+        toast.error(`${file.name} 不是图片文件`);
+        continue;
+      }
+      
+      // 检查文件大小 (10MB)
+      if (file.size > 10 * 1024 * 1024) {
+        toast.error(`${file.name} 超过10MB限制`);
+        continue;
+      }
+      
+      // 读取文件为base64
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const base64Data = e.target?.result as string;
+        const base64 = base64Data.split(',')[1]; // 移除 "data:image/...;base64," 前缀
+        
+        try {
+          await uploadImageMutation.mutateAsync({
+            productId: product.product.id,
+            productSku: product.product.sku,
+            fileName: file.name,
+            fileData: base64,
+            mimeType: file.type,
+          });
+          toast.success(`${file.name} 上传成功`);
+        } catch (error) {
+          // Error already handled in mutation
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+    
+    setIsUploading(false);
+  }, [product, uploadImageMutation]);
+  
+  // Setup dropzone
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop: handleFileUpload,
+    accept: {
+      'image/*': ['.png', '.jpg', '.jpeg', '.gif', '.webp']
+    },
+    multiple: true,
+    noClick: false,
+  });
+
+  const removeImage = (index: number) => {
+    const newImages = productImages.filter((_, i) => i !== index);
+    // 重新计算排序和主图
+    const reorderedImages = newImages.map((img, i) => ({
+      ...img,
+      sortOrder: i,
+      isPrimary: i === 0,
+    }));
+    setProductImages(reorderedImages);
+  };
+
+  const moveImage = (fromIndex: number, toIndex: number) => {
+    const newImages = [...productImages];
+    const [movedImage] = newImages.splice(fromIndex, 1);
+    newImages.splice(toIndex, 0, movedImage);
+    // 重新计算排序和主图
+    const reorderedImages = newImages.map((img, i) => ({
+      ...img,
+      sortOrder: i,
+      isPrimary: i === 0,
+    }));
+    setProductImages(reorderedImages);
+  };
+
+  if (isLoading) {
+    return (
+      <ERPLayout>
+        <div className="flex items-center justify-center py-12">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+        </div>
+      </ERPLayout>
+    );
+  }
+
+  if (!product) {
+    return (
+      <ERPLayout>
+        <div className="text-center py-12">
+          <p className="text-muted-foreground">产品不存在</p>
+          <Link href="/products">
+            <Button className="mt-4">返回产品列表</Button>
+          </Link>
+        </div>
+      </ERPLayout>
+    );
+  }
+
+  return (
+    <ERPLayout>
+      <div className="max-w-7xl mx-auto space-y-6 pb-12">
+        {/* Header */}
+        <div className="flex items-center justify-between sticky top-0 bg-background z-10 py-4 border-b">
+          <div className="flex items-center gap-4">
+            <Link href="/products">
+              <Button variant="ghost" size="icon">
+                <ArrowLeft className="h-4 w-4" />
+              </Button>
+            </Link>
+            <div>
+              <h1 className="text-2xl font-bold">{title || "编辑产品"}</h1>
+            </div>
+              <Badge variant={status === "active" ? "default" : "secondary"}>
+              {status === "active" ? "Active" : status === "developing" ? "Developing" : "Discontinued"}
+            </Badge>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button variant="outline" onClick={handleDuplicate}>
+              复制
+            </Button>
+            <Button onClick={handleSave}>保存</Button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Left Column - Main Content */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Title */}
+            <Card>
+              <CardContent className="pt-6 space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="title">标题</Label>
+                  <Input
+                    id="title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder="产品标题"
+                    className="text-lg"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="description">描述</Label>
+                  <RichTextEditor
+                    content={description}
+                    onChange={setDescription}
+                    placeholder="输入产品描述..."
+                  />
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Media */}
+            <Card>
+              <CardHeader>
+                <CardTitle>媒体</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-3 gap-4">
+                  {productImages.map((image, index) => (
+                    <div
+                      key={image.id}
+                      className="relative aspect-square border rounded-lg overflow-hidden group cursor-move"
+                      draggable
+                      onDragStart={(e) => {
+                        e.dataTransfer.effectAllowed = "move";
+                        e.dataTransfer.setData("text/plain", index.toString());
+                      }}
+                      onDragOver={(e) => {
+                        e.preventDefault();
+                        e.dataTransfer.dropEffect = "move";
+                      }}
+                      onDrop={(e) => {
+                        e.preventDefault();
+                        const fromIndex = parseInt(e.dataTransfer.getData("text/plain"));
+                        if (fromIndex !== index) {
+                          moveImage(fromIndex, index);
+                        }
+                      }}
+                    >
+                      <img
+                        src={image.imageUrl}
+                        alt="Product image"
+                        className="w-full h-full object-cover"
+                      />
+                      {image.isPrimary && (
+                        <div className="absolute top-2 left-2">
+                          <Badge variant="secondary" className="text-xs">
+                            主图
+                          </Badge>
+                        </div>
+                      )}
+                      <Button
+                        size="sm"
+                        variant="destructive"
+                        className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity h-6 w-6 p-0"
+                        onClick={() => removeImage(index)}
+                      >
+                        <X className="h-3 w-3" />
+                      </Button>
+                    </div>
+                  ))}
+                  
+                  {/* 拖拽上传区域 */}
+                  <div
+                    {...getRootProps()}
+                    className={`aspect-square border-2 border-dashed rounded-lg flex flex-col items-center justify-center cursor-pointer transition-colors ${
+                      isDragActive
+                        ? 'border-primary bg-primary/10'
+                        : 'hover:border-primary hover:bg-primary/5'
+                    } ${isUploading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  >
+                    <input {...getInputProps()} disabled={isUploading} />
+                    {isUploading ? (
+                      <>
+                        <Upload className="h-8 w-8 text-muted-foreground animate-pulse" />
+                        <p className="text-xs text-muted-foreground mt-2">上传中...</p>
+                      </>
+                    ) : (
+                      <>
+                        <Plus className="h-8 w-8 text-muted-foreground" />
+                        <p className="text-xs text-muted-foreground mt-2">
+                          {isDragActive ? '释放上传' : '点击或拖拽'}
+                        </p>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Category */}
+            <Card>
+              <CardHeader>
+                <CardTitle>分类</CardTitle>
+                <CardDescription>
+                  确定税率并添加元字段以改善搜索、过滤和跨渠道销售
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="category">产品分类</Label>
+                  <Select value={category} onValueChange={setCategory}>
+                    <SelectTrigger id="category">
+                      <SelectValue placeholder="选择分类" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="chairs">椅子 Chairs</SelectItem>
+                      <SelectItem value="tables">桌子 Tables</SelectItem>
+                      <SelectItem value="sofas">沙发 Sofas</SelectItem>
+                      <SelectItem value="beds">床 Beds</SelectItem>
+                      <SelectItem value="storage">收纳 Storage</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Right Column - Product Organization */}
+          <div className="space-y-6">
+            {/* Status */}
+            <Card>
+              <CardHeader>
+                <CardTitle>状态</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Select
+                  value={status}
+                  onValueChange={(value: "active" | "developing" | "discontinued") => setStatus(value)}
+                >
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="active">Active</SelectItem>
+                    <SelectItem value="developing">Developing</SelectItem>
+                    <SelectItem value="discontinued">Discontinued</SelectItem>
+                  </SelectContent>
+                </Select>
+              </CardContent>
+            </Card>
+
+            {/* Product Organization */}
+            <Card>
+              <CardHeader>
+                <CardTitle>产品组织</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="type">类型</Label>
+                  <Input
+                    id="type"
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}
+                    placeholder="例如: 办公椅"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="vendor">供应商</Label>
+                  <Input
+                    id="vendor"
+                    value={vendor}
+                    onChange={(e) => setVendor(e.target.value)}
+                    placeholder="例如: ABC供应商"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label>分类 Category</Label>
+                  <CategoryCombobox value={categoryIds} onChange={setCategoryIds} />
+                </div>
+
+                <div className="space-y-2">
+                  <Label>标签 Tags</Label>
+                  <TagCombobox value={tagIds} onChange={setTagIds} />
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* SKU */}
+            <Card>
+              <CardHeader>
+                <CardTitle>SKU</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Input
+                  value={sku}
+                  onChange={(e) => setSku(e.target.value)}
+                  placeholder="产品SKU"
+                />
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+
+    </ERPLayout>
+  );
+}

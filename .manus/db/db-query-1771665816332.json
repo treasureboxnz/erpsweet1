@@ -1,0 +1,22 @@
+{
+  "query": "SELECT \n  oi.id,\n  oi.productName,\n  oi.quantity,\n  oi.grossWeight,\n  oi.netWeight,\n  oi.cbm,\n  oi.variantId,\n  pb.grossWeight as batch_grossWeight,\n  pb.netWeight as batch_netWeight,\n  pb.cbm as batch_cbm\nFROM order_items oi\nLEFT JOIN package_boxes pb ON oi.variantId = pb.variantId\nWHERE oi.orderId = (SELECT MAX(id) FROM orders)\nLIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT \n  oi.id,\n  oi.productName,\n  oi.quantity,\n  oi.grossWeight,\n  oi.netWeight,\n  oi.cbm,\n  oi.variantId,\n  pb.grossWeight as batch_grossWeight,\n  pb.netWeight as batch_netWeight,\n  pb.cbm as batch_cbm\nFROM order_items oi\nLEFT JOIN package_boxes pb ON oi.variantId = pb.variantId\nWHERE oi.orderId = (SELECT MAX(id) FROM orders)\nLIMIT 5;",
+  "rows": [
+    {
+      "id": "360002",
+      "productName": "NULL",
+      "quantity": "110",
+      "grossWeight": "30.000",
+      "netWeight": "27.000",
+      "cbm": "0.315",
+      "variantId": "480002",
+      "batch_grossWeight": "30.00",
+      "batch_netWeight": "27.00",
+      "batch_cbm": "0.315000"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tproductName\tquantity\tgrossWeight\tnetWeight\tcbm\tvariantId\tbatch_grossWeight\tbatch_netWeight\tbatch_cbm\n360002\tNULL\t110\t30.000\t27.000\t0.315\t480002\t30.00\t27.00\t0.315000\n",
+  "stderr": "",
+  "execution_time_ms": 1533
+}

@@ -1,0 +1,25 @@
+{
+  "query": "SELECT COUNT(*) as total FROM package_boxes; SELECT id, variantId, boxNumber, cbm, grossWeight, netWeight FROM package_boxes LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT COUNT(*) as total FROM package_boxes; SELECT id, variantId, boxNumber, cbm, grossWeight, netWeight FROM package_boxes LIMIT 5;",
+  "rows": [
+    {
+      "total": "3"
+    },
+    {
+      "total": "id\tvariantId\tboxNumber\tcbm\tgrossWeight\tnetWeight"
+    },
+    {
+      "total": "180011\t870022\t1\t0.120000\t18.00\t16.00"
+    },
+    {
+      "total": "240041\t900001\t1\t0.522522\t34.00\t33.00"
+    },
+    {
+      "total": "240042\t900001\t2\t0.320000\t21.00\t20.00"
+    }
+  ],
+  "messages": [],
+  "stdout": "total\n3\nid\tvariantId\tboxNumber\tcbm\tgrossWeight\tnetWeight\n180011\t870022\t1\t0.120000\t18.00\t16.00\n240041\t900001\t1\t0.522522\t34.00\t33.00\n240042\t900001\t2\t0.320000\t21.00\t20.00\n",
+  "stderr": "",
+  "execution_time_ms": 1810
+}

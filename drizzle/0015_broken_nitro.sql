@@ -1,0 +1,1 @@
+ALTER TABLE `follow_up_records` ADD `images` text;

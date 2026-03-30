@@ -1,0 +1,1 @@
+ALTER TABLE `material_colors` ADD `usageCount` int DEFAULT 0 NOT NULL;

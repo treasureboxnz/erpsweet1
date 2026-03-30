@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS `company_letterheads` (\n  `id` int AUTO_INCREMENT PRIMARY KEY,\n  `companyId` int NOT NULL UNIQUE,\n  `companyNameEn` varchar(255),\n  `tradeAs` varchar(255),\n  `contactPersonEn` varchar(100),\n  `contactPhone` varchar(50),\n  `contactEmail` varchar(255),\n  `addressEn` text,\n  `cityEn` varchar(100),\n  `stateEn` varchar(100),\n  `postalCode` varchar(20),\n  `countryEn` varchar(100),\n  `notes` text,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (`companyId`) REFERENCES `companies`(`id`) ON DELETE CASCADE,\n  INDEX `company_letterheads_company_idx` (`companyId`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute CREATE TABLE IF NOT EXISTS `company_letterheads` (\n  `id` int AUTO_INCREMENT PRIMARY KEY,\n  `companyId` int NOT NULL UNIQUE,\n  `companyNameEn` varchar(255),\n  `tradeAs` varchar(255),\n  `contactPersonEn` varchar(100),\n  `contactPhone` varchar(50),\n  `contactEmail` varchar(255),\n  `addressEn` text,\n  `cityEn` varchar(100),\n  `stateEn` varchar(100),\n  `postalCode` varchar(20),\n  `countryEn` varchar(100),\n  `notes` text,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (`companyId`) REFERENCES `companies`(`id`) ON DELETE CASCADE,\n  INDEX `company_letterheads_company_idx` (`companyId`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1743
+}

@@ -1,0 +1,110 @@
+{
+  "query": "\nSELECT variantCode, variantName, sellingPriceFOB \nFROM product_variants \nWHERE variantName LIKE '%测试%' OR variantName LIKE '%test%' OR variantName LIKE '%Test%' OR variantName LIKE '%UI%' OR variantName LIKE '%SKU%'\nORDER BY id DESC \nLIMIT 20;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT variantCode, variantName, sellingPriceFOB \nFROM product_variants \nWHERE variantName LIKE '%测试%' OR variantName LIKE '%test%' OR variantName LIKE '%Test%' OR variantName LIKE '%UI%' OR variantName LIKE '%SKU%'\nORDER BY id DESC \nLIMIT 20;\n",
+  "rows": [
+    {
+      "variantCode": "VAR0005",
+      "variantName": "Test SKU Auto-Init Variant",
+      "sellingPriceFOB": "NULL"
+    },
+    {
+      "variantCode": "VAR0001",
+      "variantName": "测试批次-SKU规则验证",
+      "sellingPriceFOB": "NULL"
+    },
+    {
+      "variantCode": "TEST-VAR-1771904030369",
+      "variantName": "测试批次-FOB",
+      "sellingPriceFOB": "100.00"
+    },
+    {
+      "variantCode": "CV-1000-V003",
+      "variantName": "Option3-BulkPack-Test",
+      "sellingPriceFOB": "125.00"
+    },
+    {
+      "variantCode": "CV-1000-V002",
+      "variantName": "Option2-MultiBox-Test",
+      "sellingPriceFOB": "148.00"
+    },
+    {
+      "variantCode": "CV-1000-V001",
+      "variantName": "Option1-SingleBox-Test",
+      "sellingPriceFOB": "110.00"
+    },
+    {
+      "variantCode": "DC-005-OAK-V011",
+      "variantName": "SKU搜索测试批次-003",
+      "sellingPriceFOB": "110.00"
+    },
+    {
+      "variantCode": "DC-001-GRY-V046",
+      "variantName": "SKU搜索测试批次-002",
+      "sellingPriceFOB": "130.00"
+    },
+    {
+      "variantCode": "DC-001-GRY-V045",
+      "variantName": "SKU搜索测试批次-001",
+      "sellingPriceFOB": "120.00"
+    },
+    {
+      "variantCode": "DC-001-GRY-V044",
+      "variantName": "终极测试-SKU保存功能完整验证",
+      "sellingPriceFOB": "129.33"
+    },
+    {
+      "variantCode": "DC-001-GRY-V043",
+      "variantName": "最终测试-SKU保存修复验证",
+      "sellingPriceFOB": "143.87"
+    },
+    {
+      "variantCode": "DC-001-GRY-V042",
+      "variantName": "测试批次-SKU保存功能验证",
+      "sellingPriceFOB": "99.36"
+    },
+    {
+      "variantCode": "DC-001-GRY-V041",
+      "variantName": "SKU功能测试批次",
+      "sellingPriceFOB": "110.43"
+    },
+    {
+      "variantCode": "DC-001-GRY-V040",
+      "variantName": "单位米测试-Option3",
+      "sellingPriceFOB": "98.77"
+    },
+    {
+      "variantCode": "DC-001-GRY-V039",
+      "variantName": "单位米测试-Option2",
+      "sellingPriceFOB": "59.57"
+    },
+    {
+      "variantCode": "DC-001-GRY-V038",
+      "variantName": "单位米测试-Option1",
+      "sellingPriceFOB": "98.12"
+    },
+    {
+      "variantCode": "TEST-ZERO-CBM-1771753917428",
+      "variantName": "CBM为0测试",
+      "sellingPriceFOB": "37.18"
+    },
+    {
+      "variantCode": "TEST-AUTO-CBM-1771753916149",
+      "variantName": "自动CBM计算测试",
+      "sellingPriceFOB": "130.93"
+    },
+    {
+      "variantCode": "TEST-MANUAL-CBM-1771753914866",
+      "variantName": "手动CBM测试批次",
+      "sellingPriceFOB": "55.60"
+    },
+    {
+      "variantCode": "TEST-PKG-1771753912432",
+      "variantName": "包装尺寸测试批次",
+      "sellingPriceFOB": "139.50"
+    }
+  ],
+  "messages": [],
+  "stdout": "variantCode\tvariantName\tsellingPriceFOB\nVAR0005\tTest SKU Auto-Init Variant\tNULL\nVAR0001\t测试批次-SKU规则验证\tNULL\nTEST-VAR-1771904030369\t测试批次-FOB\t100.00\nCV-1000-V003\tOption3-BulkPack-Test\t125.00\nCV-1000-V002\tOption2-MultiBox-Test\t148.00\nCV-1000-V001\tOption1-SingleBox-Test\t110.00\nDC-005-OAK-V011\tSKU搜索测试批次-003\t110.00\nDC-001-GRY-V046\tSKU搜索测试批次-002\t130.00\nDC-001-GRY-V045\tSKU搜索测试批次-001\t120.00\nDC-001-GRY-V044\t终极测试-SKU保存功能完整验证\t129.33\nDC-001-GRY-V043\t最终测试-SKU保存修复验证\t143.87\nDC-001-GRY-V042\t测试批次-SKU保存功能验证\t99.36\nDC-001-GRY-V041\tSKU功能测试批次\t110.43\nDC-001-GRY-V040\t单位米测试-Option3\t98.77\nDC-001-GRY-V039\t单位米测试-Option2\t59.57\nDC-001-GRY-V038\t单位米测试-Option1\t98.12\nTEST-ZERO-CBM-1771753917428\tCBM为0测试\t37.18\nTEST-AUTO-CBM-1771753916149\t自动CBM计算测试\t130.93\nTEST-MANUAL-CBM-1771753914866\t手动CBM测试批次\t55.60\nTEST-PKG-1771753912432\t包装尺寸测试批次\t139.50\n",
+  "stderr": "",
+  "execution_time_ms": 1651
+}

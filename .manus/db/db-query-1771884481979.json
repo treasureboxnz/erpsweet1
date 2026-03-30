@@ -1,0 +1,91 @@
+{
+  "query": "\n-- 验证批次价格更新结果（查看前5条）\nSELECT id, variantCode, sellingPriceFOB, sellingPriceRMB \nFROM product_variants \nLIMIT 5;\n\n-- 验证外箱数据更新结果（查看前5条）\nSELECT id, cbm, grossWeight, netWeight \nFROM package_boxes \nLIMIT 5;\n\n-- 统计更新后的数据\nSELECT \n  COUNT(*) as total_variants,\n  SUM(CASE WHEN sellingPriceFOB IS NULL OR sellingPriceFOB = 0 THEN 1 ELSE 0 END) as missing_fob,\n  SUM(CASE WHEN sellingPriceRMB IS NULL OR sellingPriceRMB = 0 THEN 1 ELSE 0 END) as missing_rmb\nFROM product_variants;\n\nSELECT \n  COUNT(*) as total_boxes,\n  SUM(CASE WHEN cbm IS NULL OR cbm = 0 THEN 1 ELSE 0 END) as missing_cbm,\n  SUM(CASE WHEN grossWeight IS NULL OR grossWeight = 0 THEN 1 ELSE 0 END) as missing_gross_weight,\n  SUM(CASE WHEN netWeight IS NULL OR netWeight = 0 THEN 1 ELSE 0 END) as missing_net_weight\nFROM package_boxes;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- 验证批次价格更新结果（查看前5条）\nSELECT id, variantCode, sellingPriceFOB, sellingPriceRMB \nFROM product_variants \nLIMIT 5;\n\n-- 验证外箱数据更新结果（查看前5条）\nSELECT id, cbm, grossWeight, netWeight \nFROM package_boxes \nLIMIT 5;\n\n-- 统计更新后的数据\nSELECT \n  COUNT(*) as total_variants,\n  SUM(CASE WHEN sellingPriceFOB IS NULL OR sellingPriceFOB = 0 THEN 1 ELSE 0 END) as missing_fob,\n  SUM(CASE WHEN sellingPriceRMB IS NULL OR sellingPriceRMB = 0 THEN 1 ELSE 0 END) as missing_rmb\nFROM product_variants;\n\nSELECT \n  COUNT(*) as total_boxes,\n  SUM(CASE WHEN cbm IS NULL OR cbm = 0 THEN 1 ELSE 0 END) as missing_cbm,\n  SUM(CASE WHEN grossWeight IS NULL OR grossWeight = 0 THEN 1 ELSE 0 END) as missing_gross_weight,\n  SUM(CASE WHEN netWeight IS NULL OR netWeight = 0 THEN 1 ELSE 0 END) as missing_net_weight\nFROM package_boxes;\n",
+  "rows": [
+    {
+      "id": "120002",
+      "variantCode": "SB-001-GRY-V001",
+      "sellingPriceFOB": "117.39",
+      "sellingPriceRMB": "415.89"
+    },
+    {
+      "id": "120003",
+      "variantCode": "SB-001-GRY-V002",
+      "sellingPriceFOB": "49.75",
+      "sellingPriceRMB": "210.53"
+    },
+    {
+      "id": "120004",
+      "variantCode": "SB-001-GRY-V003",
+      "sellingPriceFOB": "98.66",
+      "sellingPriceRMB": "857.12"
+    },
+    {
+      "id": "120005",
+      "variantCode": "SB-001-GRY-V004",
+      "sellingPriceFOB": "76.85",
+      "sellingPriceRMB": "590.42"
+    },
+    {
+      "id": "120006",
+      "variantCode": "DC-001-GRY-V004",
+      "sellingPriceFOB": "62.25",
+      "sellingPriceRMB": "903.91"
+    },
+    {
+      "id": "id",
+      "variantCode": "cbm",
+      "sellingPriceFOB": "grossWeight",
+      "sellingPriceRMB": "netWeight"
+    },
+    {
+      "id": "1",
+      "variantCode": "0.519471",
+      "sellingPriceFOB": "26.63",
+      "sellingPriceRMB": "22.20"
+    },
+    {
+      "id": "2",
+      "variantCode": "0.940425",
+      "sellingPriceFOB": "26.36",
+      "sellingPriceRMB": "20.70"
+    },
+    {
+      "id": "3",
+      "variantCode": "1.188695",
+      "sellingPriceFOB": "28.80",
+      "sellingPriceRMB": "20.42"
+    },
+    {
+      "id": "30001",
+      "variantCode": "0.647915",
+      "sellingPriceFOB": "28.72",
+      "sellingPriceRMB": "23.46"
+    },
+    {
+      "id": "60001",
+      "variantCode": "0.250649",
+      "sellingPriceFOB": "27.41",
+      "sellingPriceRMB": "24.18"
+    },
+    {
+      "id": "total_boxes",
+      "variantCode": "missing_cbm",
+      "sellingPriceFOB": "missing_gross_weight",
+      "sellingPriceRMB": "missing_net_weight"
+    },
+    {
+      "id": "18",
+      "variantCode": "0",
+      "sellingPriceFOB": "0",
+      "sellingPriceRMB": "0"
+    }
+  ],
+  "messages": [
+    "total_variants\tmissing_fob\tmissing_rmb",
+    "91\t0\t0"
+  ],
+  "stdout": "id\tvariantCode\tsellingPriceFOB\tsellingPriceRMB\n120002\tSB-001-GRY-V001\t117.39\t415.89\n120003\tSB-001-GRY-V002\t49.75\t210.53\n120004\tSB-001-GRY-V003\t98.66\t857.12\n120005\tSB-001-GRY-V004\t76.85\t590.42\n120006\tDC-001-GRY-V004\t62.25\t903.91\nid\tcbm\tgrossWeight\tnetWeight\n1\t0.519471\t26.63\t22.20\n2\t0.940425\t26.36\t20.70\n3\t1.188695\t28.80\t20.42\n30001\t0.647915\t28.72\t23.46\n60001\t0.250649\t27.41\t24.18\ntotal_variants\tmissing_fob\tmissing_rmb\n91\t0\t0\ntotal_boxes\tmissing_cbm\tmissing_gross_weight\tmissing_net_weight\n18\t0\t0\t0\n",
+  "stderr": "",
+  "execution_time_ms": 2278
+}

@@ -1,0 +1,15 @@
+{
+  "query": "SELECT email, passwordHash, LENGTH(passwordHash) as hash_length FROM users WHERE email = 'manager@casavivafurniture.com';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT email, passwordHash, LENGTH(passwordHash) as hash_length FROM users WHERE email = 'manager@casavivafurniture.com';",
+  "rows": [
+    {
+      "email": "manager@casavivafurniture.com",
+      "passwordHash": "$2b$10$65GSvzNgjiewWOCZDQSVQusykQTFcymto/Wc.uMvgLxqOIbZaACbe",
+      "hash_length": "60"
+    }
+  ],
+  "messages": [],
+  "stdout": "email\tpasswordHash\thash_length\nmanager@casavivafurniture.com\t$2b$10$65GSvzNgjiewWOCZDQSVQusykQTFcymto/Wc.uMvgLxqOIbZaACbe\t60\n",
+  "stderr": "",
+  "execution_time_ms": 1504
+}

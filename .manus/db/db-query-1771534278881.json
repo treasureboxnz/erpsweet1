@@ -1,0 +1,18 @@
+{
+  "query": "SELECT u.id, u.email, u.name, u.role, e.companyName, e.companyCode \nFROM users u \nJOIN erp_companies e ON u.erpCompanyId = e.id \nWHERE e.companyCode = 'TEST2';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT u.id, u.email, u.name, u.role, e.companyName, e.companyCode \nFROM users u \nJOIN erp_companies e ON u.erpCompanyId = e.id \nWHERE e.companyCode = 'TEST2';",
+  "rows": [
+    {
+      "id": "780152",
+      "email": "admin2@test.com",
+      "name": "管理员2",
+      "role": "admin",
+      "companyName": "测试公司2",
+      "companyCode": "TEST2"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\tname\trole\tcompanyName\tcompanyCode\n780152\tadmin2@test.com\t管理员2\tadmin\t测试公司2\tTEST2\n",
+  "stderr": "",
+  "execution_time_ms": 1527
+}

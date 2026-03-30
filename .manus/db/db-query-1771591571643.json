@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE material_suppliers SET isLocked = TRUE WHERE code = 'SYS';\nUPDATE material_boards SET isLocked = TRUE WHERE boardNumber = 'COL' AND supplierId = (SELECT id FROM material_suppliers WHERE code = 'SYS' LIMIT 1);\nUPDATE material_colors SET isLocked = TRUE WHERE colorCode = 'ORIG' AND boardId = (SELECT id FROM material_boards WHERE boardNumber = 'COL' AND supplierId = (SELECT id FROM material_suppliers WHERE code = 'SYS' LIMIT 1) LIMIT 1);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute UPDATE material_suppliers SET isLocked = TRUE WHERE code = 'SYS';\nUPDATE material_boards SET isLocked = TRUE WHERE boardNumber = 'COL' AND supplierId = (SELECT id FROM material_suppliers WHERE code = 'SYS' LIMIT 1);\nUPDATE material_colors SET isLocked = TRUE WHERE colorCode = 'ORIG' AND boardId = (SELECT id FROM material_boards WHERE boardNumber = 'COL' AND supplierId = (SELECT id FROM material_suppliers WHERE code = 'SYS' LIMIT 1) LIMIT 1);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 2061
+}

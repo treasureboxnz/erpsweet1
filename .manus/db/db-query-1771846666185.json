@@ -1,0 +1,19 @@
+{
+  "query": "SELECT id, sku, name, fobLevel1, fobLevel2, fobLevel3, erpCompanyId FROM products WHERE sku = 'CV-1000';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, sku, name, fobLevel1, fobLevel2, fobLevel3, erpCompanyId FROM products WHERE sku = 'CV-1000';",
+  "rows": [
+    {
+      "id": "150001",
+      "sku": "CV-1000",
+      "name": "Test Product 001",
+      "fobLevel1": "NULL",
+      "fobLevel2": "NULL",
+      "fobLevel3": "NULL",
+      "erpCompanyId": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tsku\tname\tfobLevel1\tfobLevel2\tfobLevel3\terpCompanyId\n150001\tCV-1000\tTest Product 001\tNULL\tNULL\tNULL\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1513
+}

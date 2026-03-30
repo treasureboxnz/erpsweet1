@@ -1,0 +1,190 @@
+{
+  "query": "\nSELECT mc.id, mc.colorCode, mc.colorName, mc.fullCode, mb.boardNumber, mb.boardName, mc.erpCompanyId\nFROM material_colors mc\nJOIN material_boards mb ON mc.boardId = mb.id\nWHERE mc.status = 'active'\nORDER BY mc.id\nLIMIT 20;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT mc.id, mc.colorCode, mc.colorName, mc.fullCode, mb.boardNumber, mb.boardName, mc.erpCompanyId\nFROM material_colors mc\nJOIN material_boards mb ON mc.boardId = mb.id\nWHERE mc.status = 'active'\nORDER BY mc.id\nLIMIT 20;\n",
+  "rows": [
+    {
+      "id": "2",
+      "colorCode": "01",
+      "colorName": "白色羊羔绒",
+      "fullCode": "HM-A01-01",
+      "boardNumber": "A01",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "3",
+      "colorCode": "02",
+      "colorName": "灰色天鹅绒",
+      "fullCode": "HM-A01-02",
+      "boardNumber": "A01",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "4",
+      "colorCode": "03",
+      "colorName": "米色亚麻布",
+      "fullCode": "HM-A01-03",
+      "boardNumber": "A01",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "5",
+      "colorCode": "01",
+      "colorName": "深蓝色天鹅绒",
+      "fullCode": "HM-M02-01",
+      "boardNumber": "M02",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "6",
+      "colorCode": "02",
+      "colorName": "浅绿色棉布",
+      "fullCode": "HM-M02-02",
+      "boardNumber": "M02",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "7",
+      "colorCode": "03",
+      "colorName": "炭灰色羊毛",
+      "fullCode": "HM-M02-03",
+      "boardNumber": "M02",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "8",
+      "colorCode": "01",
+      "colorName": "奶油色结子呢",
+      "fullCode": "HM-C03-01",
+      "boardNumber": "C03",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "9",
+      "colorCode": "02",
+      "colorName": "酒红色雪尼尔",
+      "fullCode": "HM-C03-02",
+      "boardNumber": "C03",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "10",
+      "colorCode": "03",
+      "colorName": "橄榄绿帆布",
+      "fullCode": "HM-C03-03",
+      "boardNumber": "C03",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "11",
+      "colorCode": "04",
+      "colorName": "腮红粉丝绸",
+      "fullCode": "HM-C03-04",
+      "boardNumber": "C03",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "12",
+      "colorCode": "01",
+      "colorName": "灰褐色麂皮",
+      "fullCode": "HM-D04-01",
+      "boardNumber": "D04",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "13",
+      "colorCode": "02",
+      "colorName": "芥末黄灯芯绒",
+      "fullCode": "HM-D04-02",
+      "boardNumber": "D04",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "14",
+      "colorCode": "03",
+      "colorName": "蓝绿色粗花呢",
+      "fullCode": "HM-D04-03",
+      "boardNumber": "D04",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "15",
+      "colorCode": "01",
+      "colorName": "象牙白提花",
+      "fullCode": "HM-E05-01",
+      "boardNumber": "E05",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "16",
+      "colorCode": "02",
+      "colorName": "铁锈橙结子呢",
+      "fullCode": "HM-E05-02",
+      "boardNumber": "E05",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "17",
+      "colorCode": "03",
+      "colorName": "白色羊羔绒",
+      "fullCode": "HM-E05-03",
+      "boardNumber": "E05",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "18",
+      "colorCode": "04",
+      "colorName": "灰色天鹅绒",
+      "fullCode": "HM-E05-04",
+      "boardNumber": "E05",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "19",
+      "colorCode": "05",
+      "colorName": "米色亚麻布",
+      "fullCode": "HM-E05-05",
+      "boardNumber": "E05",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "20",
+      "colorCode": "01",
+      "colorName": "深蓝色天鹅绒",
+      "fullCode": "JX-A01-01",
+      "boardNumber": "A01",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "21",
+      "colorCode": "02",
+      "colorName": "浅绿色棉布",
+      "fullCode": "JX-A01-02",
+      "boardNumber": "A01",
+      "boardName": "NULL",
+      "erpCompanyId": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcolorCode\tcolorName\tfullCode\tboardNumber\tboardName\terpCompanyId\n2\t01\t白色羊羔绒\tHM-A01-01\tA01\tNULL\t1\n3\t02\t灰色天鹅绒\tHM-A01-02\tA01\tNULL\t1\n4\t03\t米色亚麻布\tHM-A01-03\tA01\tNULL\t1\n5\t01\t深蓝色天鹅绒\tHM-M02-01\tM02\tNULL\t1\n6\t02\t浅绿色棉布\tHM-M02-02\tM02\tNULL\t1\n7\t03\t炭灰色羊毛\tHM-M02-03\tM02\tNULL\t1\n8\t01\t奶油色结子呢\tHM-C03-01\tC03\tNULL\t1\n9\t02\t酒红色雪尼尔\tHM-C03-02\tC03\tNULL\t1\n10\t03\t橄榄绿帆布\tHM-C03-03\tC03\tNULL\t1\n11\t04\t腮红粉丝绸\tHM-C03-04\tC03\tNULL\t1\n12\t01\t灰褐色麂皮\tHM-D04-01\tD04\tNULL\t1\n13\t02\t芥末黄灯芯绒\tHM-D04-02\tD04\tNULL\t1\n14\t03\t蓝绿色粗花呢\tHM-D04-03\tD04\tNULL\t1\n15\t01\t象牙白提花\tHM-E05-01\tE05\tNULL\t1\n16\t02\t铁锈橙结子呢\tHM-E05-02\tE05\tNULL\t1\n17\t03\t白色羊羔绒\tHM-E05-03\tE05\tNULL\t1\n18\t04\t灰色天鹅绒\tHM-E05-04\tE05\tNULL\t1\n19\t05\t米色亚麻布\tHM-E05-05\tE05\tNULL\t1\n20\t01\t深蓝色天鹅绒\tJX-A01-01\tA01\tNULL\t1\n21\t02\t浅绿色棉布\tJX-A01-02\tA01\tNULL\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1503
+}

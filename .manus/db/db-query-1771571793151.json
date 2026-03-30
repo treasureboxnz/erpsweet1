@@ -1,0 +1,43 @@
+{
+  "query": "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'variant_materials' ORDER BY ORDINAL_POSITION;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'variant_materials' ORDER BY ORDINAL_POSITION;",
+  "rows": [
+    {
+      "COLUMN_NAME": "id"
+    },
+    {
+      "COLUMN_NAME": "erpCompanyId"
+    },
+    {
+      "COLUMN_NAME": "variantId"
+    },
+    {
+      "COLUMN_NAME": "materialColorId"
+    },
+    {
+      "COLUMN_NAME": "quantityUsed"
+    },
+    {
+      "COLUMN_NAME": "notes"
+    },
+    {
+      "COLUMN_NAME": "createdAt"
+    },
+    {
+      "COLUMN_NAME": "updatedAt"
+    },
+    {
+      "COLUMN_NAME": "sortOrder"
+    },
+    {
+      "COLUMN_NAME": "materialType"
+    },
+    {
+      "COLUMN_NAME": "materialTypeId"
+    }
+  ],
+  "messages": [],
+  "stdout": "COLUMN_NAME\nid\nerpCompanyId\nvariantId\nmaterialColorId\nquantityUsed\nnotes\ncreatedAt\nupdatedAt\nsortOrder\nmaterialType\nmaterialTypeId\n",
+  "stderr": "",
+  "execution_time_ms": 1496
+}

@@ -1,0 +1,109 @@
+{
+  "query": "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'product_variants' ORDER BY ORDINAL_POSITION;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'product_variants' ORDER BY ORDINAL_POSITION;",
+  "rows": [
+    {
+      "COLUMN_NAME": "id"
+    },
+    {
+      "COLUMN_NAME": "erpCompanyId"
+    },
+    {
+      "COLUMN_NAME": "productId"
+    },
+    {
+      "COLUMN_NAME": "variantCode"
+    },
+    {
+      "COLUMN_NAME": "variantName"
+    },
+    {
+      "COLUMN_NAME": "fabricChange"
+    },
+    {
+      "COLUMN_NAME": "legTypeChange"
+    },
+    {
+      "COLUMN_NAME": "heightChange"
+    },
+    {
+      "COLUMN_NAME": "packagingChange"
+    },
+    {
+      "COLUMN_NAME": "otherChanges"
+    },
+    {
+      "COLUMN_NAME": "productLength"
+    },
+    {
+      "COLUMN_NAME": "productWidth"
+    },
+    {
+      "COLUMN_NAME": "productHeight"
+    },
+    {
+      "COLUMN_NAME": "packageLength"
+    },
+    {
+      "COLUMN_NAME": "packageWidth"
+    },
+    {
+      "COLUMN_NAME": "packageHeight"
+    },
+    {
+      "COLUMN_NAME": "cbm"
+    },
+    {
+      "COLUMN_NAME": "variantType"
+    },
+    {
+      "COLUMN_NAME": "status"
+    },
+    {
+      "COLUMN_NAME": "createdBy"
+    },
+    {
+      "COLUMN_NAME": "createdAt"
+    },
+    {
+      "COLUMN_NAME": "updatedAt"
+    },
+    {
+      "COLUMN_NAME": "productionStatus"
+    },
+    {
+      "COLUMN_NAME": "supplierId"
+    },
+    {
+      "COLUMN_NAME": "supplierSku"
+    },
+    {
+      "COLUMN_NAME": "sellingPriceRMB"
+    },
+    {
+      "COLUMN_NAME": "sellingPriceFOB"
+    },
+    {
+      "COLUMN_NAME": "costPriceRMB"
+    },
+    {
+      "COLUMN_NAME": "customerId"
+    },
+    {
+      "COLUMN_NAME": "customerSku"
+    },
+    {
+      "COLUMN_NAME": "isDefault"
+    },
+    {
+      "COLUMN_NAME": "materialColorId"
+    },
+    {
+      "COLUMN_NAME": "moq"
+    }
+  ],
+  "messages": [],
+  "stdout": "COLUMN_NAME\nid\nerpCompanyId\nproductId\nvariantCode\nvariantName\nfabricChange\nlegTypeChange\nheightChange\npackagingChange\notherChanges\nproductLength\nproductWidth\nproductHeight\npackageLength\npackageWidth\npackageHeight\ncbm\nvariantType\nstatus\ncreatedBy\ncreatedAt\nupdatedAt\nproductionStatus\nsupplierId\nsupplierSku\nsellingPriceRMB\nsellingPriceFOB\ncostPriceRMB\ncustomerId\ncustomerSku\nisDefault\nmaterialColorId\nmoq\n",
+  "stderr": "",
+  "execution_time_ms": 1517
+}

@@ -1,0 +1,42 @@
+{
+  "query": "SELECT pv.id as variantId, pv.variantCode, pv.isDefault, vp.sellingPriceFobL1, vp.sellingPriceFobL2, vp.sellingPriceFobL3 \nFROM product_variants pv \nLEFT JOIN variant_pricing vp ON pv.id = vp.variantId \nWHERE pv.productId = (SELECT id FROM products WHERE sku = 'CV-1000') \nLIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT pv.id as variantId, pv.variantCode, pv.isDefault, vp.sellingPriceFobL1, vp.sellingPriceFobL2, vp.sellingPriceFobL3 \nFROM product_variants pv \nLEFT JOIN variant_pricing vp ON pv.id = vp.variantId \nWHERE pv.productId = (SELECT id FROM products WHERE sku = 'CV-1000') \nLIMIT 5;",
+  "rows": [
+    {
+      "variantId": "660001",
+      "variantCode": "CV-1000-DEFAULT",
+      "isDefault": "1",
+      "sellingPriceFobL1": "0.00",
+      "sellingPriceFobL2": "0.00",
+      "sellingPriceFobL3": "0.00"
+    },
+    {
+      "variantId": "660002",
+      "variantCode": "CV-1000-V001",
+      "isDefault": "0",
+      "sellingPriceFobL1": "NULL",
+      "sellingPriceFobL2": "NULL",
+      "sellingPriceFobL3": "NULL"
+    },
+    {
+      "variantId": "660003",
+      "variantCode": "CV-1000-V002",
+      "isDefault": "0",
+      "sellingPriceFobL1": "NULL",
+      "sellingPriceFobL2": "NULL",
+      "sellingPriceFobL3": "NULL"
+    },
+    {
+      "variantId": "660004",
+      "variantCode": "CV-1000-V003",
+      "isDefault": "0",
+      "sellingPriceFobL1": "NULL",
+      "sellingPriceFobL2": "NULL",
+      "sellingPriceFobL3": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "variantId\tvariantCode\tisDefault\tsellingPriceFobL1\tsellingPriceFobL2\tsellingPriceFobL3\n660001\tCV-1000-DEFAULT\t1\t0.00\t0.00\t0.00\n660002\tCV-1000-V001\t0\tNULL\tNULL\tNULL\n660003\tCV-1000-V002\t0\tNULL\tNULL\tNULL\n660004\tCV-1000-V003\t0\tNULL\tNULL\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1605
+}

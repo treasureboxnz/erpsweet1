@@ -1,0 +1,8 @@
+{
+  "query": "\nSELECT \n  p.productSku,\n  COUNT(pv.id) as total_variants,\n  SUM(CASE WHEN pv.isDefault = 1 THEN 1 ELSE 0 END) as default_count,\n  SUM(CASE WHEN pv.isDefault = 0 THEN 1 ELSE 0 END) as non_default_count\nFROM products p\nLEFT JOIN product_variants pv ON pv.productId = p.id\nGROUP BY p.id, p.productSku\nORDER BY total_variants DESC;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  p.productSku,\n  COUNT(pv.id) as total_variants,\n  SUM(CASE WHEN pv.isDefault = 1 THEN 1 ELSE 0 END) as default_count,\n  SUM(CASE WHEN pv.isDefault = 0 THEN 1 ELSE 0 END) as non_default_count\nFROM products p\nLEFT JOIN product_variants pv ON pv.productId = p.id\nGROUP BY p.id, p.productSku\nORDER BY total_variants DESC;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 2: Unknown column 'p.productsku' in 'group statement'"
+  ]
+}

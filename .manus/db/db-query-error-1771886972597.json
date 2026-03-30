@@ -1,0 +1,8 @@
+{
+  "query": "\nUPDATE variant_pricing\nSET \n  sellingPriceFobL1 = ROUND(30 + (RAND() * 120), 2),\n  sellingPriceRmbL1 = ROUND(200 + (RAND() * 800), 2)\nWHERE isCurrent = 1;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nUPDATE variant_pricing\nSET \n  sellingPriceFobL1 = ROUND(30 + (RAND() * 120), 2),\n  sellingPriceRmbL1 = ROUND(200 + (RAND() * 800), 2)\nWHERE isCurrent = 1;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 2: Unknown column 'sellingPriceRmbL1' in 'field list'"
+  ]
+}

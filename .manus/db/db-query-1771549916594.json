@@ -1,0 +1,17 @@
+{
+  "query": "SELECT \n  '迁移统计' AS info,\n  COUNT(*) AS total_variants,\n  SUM(CASE WHEN materialColorId IS NOT NULL THEN 1 ELSE 0 END) AS variants_with_old_material,\n  (SELECT COUNT(DISTINCT variantId) FROM variant_materials) AS variants_with_new_materials,\n  (SELECT COUNT(*) FROM variant_materials WHERE notes LIKE '%Migrated%') AS migrated_records\nFROM product_variants;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT \n  '迁移统计' AS info,\n  COUNT(*) AS total_variants,\n  SUM(CASE WHEN materialColorId IS NOT NULL THEN 1 ELSE 0 END) AS variants_with_old_material,\n  (SELECT COUNT(DISTINCT variantId) FROM variant_materials) AS variants_with_new_materials,\n  (SELECT COUNT(*) FROM variant_materials WHERE notes LIKE '%Migrated%') AS migrated_records\nFROM product_variants;",
+  "rows": [
+    {
+      "info": "迁移统计",
+      "total_variants": "40",
+      "variants_with_old_material": "39",
+      "variants_with_new_materials": "39",
+      "migrated_records": "39"
+    }
+  ],
+  "messages": [],
+  "stdout": "info\ttotal_variants\tvariants_with_old_material\tvariants_with_new_materials\tmigrated_records\n迁移统计\t40\t39\t39\t39\n",
+  "stderr": "",
+  "execution_time_ms": 1624
+}

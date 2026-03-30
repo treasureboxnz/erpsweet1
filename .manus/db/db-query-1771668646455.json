@@ -1,0 +1,70 @@
+{
+  "query": "SELECT * FROM material_types WHERE name IN ('皮革', '木腿', '配件', '布料') AND deletedAt IS NULL;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM material_types WHERE name IN ('皮革', '木腿', '配件', '布料') AND deletedAt IS NULL;",
+  "rows": [
+    {
+      "id": "1",
+      "erpCompanyId": "1",
+      "name": "布料",
+      "icon": "🧵",
+      "sortOrder": "1",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "2",
+      "erpCompanyId": "1",
+      "name": "木腿",
+      "icon": "🪑",
+      "sortOrder": "2",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "8",
+      "erpCompanyId": "1",
+      "name": "配件",
+      "icon": "🔧",
+      "sortOrder": "10",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 05:09:43",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "10",
+      "erpCompanyId": "2",
+      "name": "布料",
+      "icon": "🧵",
+      "sortOrder": "1",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "11",
+      "erpCompanyId": "2",
+      "name": "木腿",
+      "icon": "🪑",
+      "sortOrder": "2",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "17",
+      "erpCompanyId": "2",
+      "name": "配件",
+      "icon": "🔧",
+      "sortOrder": "8",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tname\ticon\tsortOrder\tcreatedAt\tupdatedAt\tdeletedAt\n1\t1\t布料\t🧵\t1\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n2\t1\t木腿\t🪑\t2\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n8\t1\t配件\t🔧\t10\t2026-02-20 03:46:29\t2026-02-20 05:09:43\tNULL\n10\t2\t布料\t🧵\t1\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n11\t2\t木腿\t🪑\t2\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n17\t2\t配件\t🔧\t8\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1496
+}

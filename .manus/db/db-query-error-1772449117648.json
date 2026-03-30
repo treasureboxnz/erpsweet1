@@ -1,0 +1,10 @@
+{
+  "query": "\nSELECT pv.id, pv.variantCode, pv.variantName, pv.supplierId, pv.supplierSku, pv.customerId, pv.customerSku\nFROM product_variants pv ORDER BY pv.id DESC LIMIT 1;\n\nSELECT vm.variantId, vm.materialId, vm.colorCode FROM variant_materials vm WHERE vm.variantId = (SELECT MAX(id) FROM product_variants);\n\nSELECT pb.variantId, pb.length, pb.width, pb.height, pb.cbm, pb.grossWeight, pb.netWeight FROM package_boxes pb WHERE pb.variantId = (SELECT MAX(id) FROM product_variants);\n\nSELECT vcl.variantId, vcl.customerId FROM variant_customer_links vcl WHERE vcl.variantId = (SELECT MAX(id) FROM product_variants);\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT pv.id, pv.variantCode, pv.variantName, pv.supplierId, pv.supplierSku, pv.customerId, pv.customerSku\nFROM product_variants pv ORDER BY pv.id DESC LIMIT 1;\n\nSELECT vm.variantId, vm.materialId, vm.colorCode FROM variant_materials vm WHERE vm.variantId = (SELECT MAX(id) FROM product_variants);\n\nSELECT pb.variantId, pb.length, pb.width, pb.height, pb.cbm, pb.grossWeight, pb.netWeight FROM package_boxes pb WHERE pb.variantId = (SELECT MAX(id) FROM product_variants);\n\nSELECT vcl.variantId, vcl.customerId FROM variant_customer_links vcl WHERE vcl.variantId = (SELECT MAX(id) FROM product_variants);\n",
+  "returncode": 1,
+  "logs": [
+    "id\tvariantCode\tvariantName\tsupplierId\tsupplierSku\tcustomerId\tcustomerSku",
+    "990002\tVAR0018\t15块麻布 (3)\t30004\tNULL\t30007\tNULL",
+    "ERROR 1054 (42S22) at line 5: Unknown column 'vm.materialid' in 'field list'"
+  ]
+}

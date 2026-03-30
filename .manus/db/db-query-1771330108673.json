@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO variant_pricing (\n  variantId,\n  factoryCostRmbExTax,\n  factoryCostRmbIncTax,\n  factoryCostUsdFob,\n  myCostRmb,\n  myCostUsd,\n  fobFeeRmb,\n  sellingPriceRmbIncTax,\n  sellingPriceFobL1,\n  sellingPriceFobL2,\n  sellingPriceFobL3,\n  effectiveDate,\n  isCurrent,\n  createdBy,\n  createdAt\n)\nSELECT \n  pv.id,\n  0.00,\n  0.00,\n  0.00,\n  0.00,\n  0.00,\n  0.00,\n  0.00,\n  150.00,\n  145.00,\n  140.00,\n  NOW(),\n  1,\n  1,\n  NOW()\nFROM product_variants pv\nINNER JOIN products p ON pv.productId = p.id\nWHERE p.sku IN ('DT-001-OAK', 'DT-002-MRB', 'AC-001-CHR')\nAND pv.id NOT IN (SELECT DISTINCT variantId FROM variant_pricing WHERE variantId IS NOT NULL);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute INSERT INTO variant_pricing (\n  variantId,\n  factoryCostRmbExTax,\n  factoryCostRmbIncTax,\n  factoryCostUsdFob,\n  myCostRmb,\n  myCostUsd,\n  fobFeeRmb,\n  sellingPriceRmbIncTax,\n  sellingPriceFobL1,\n  sellingPriceFobL2,\n  sellingPriceFobL3,\n  effectiveDate,\n  isCurrent,\n  createdBy,\n  createdAt\n)\nSELECT \n  pv.id,\n  0.00,\n  0.00,\n  0.00,\n  0.00,\n  0.00,\n  0.00,\n  0.00,\n  150.00,\n  145.00,\n  140.00,\n  NOW(),\n  1,\n  1,\n  NOW()\nFROM product_variants pv\nINNER JOIN products p ON pv.productId = p.id\nWHERE p.sku IN ('DT-001-OAK', 'DT-002-MRB', 'AC-001-CHR')\nAND pv.id NOT IN (SELECT DISTINCT variantId FROM variant_pricing WHERE variantId IS NOT NULL);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1534
+}

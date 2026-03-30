@@ -1,0 +1,244 @@
+{
+  "query": "\n-- 查询所有产品及其批次数量、图片状态\nSELECT \n  p.id as product_id,\n  p.name as product_name,\n  p.sku,\n  p.imageUrl,\n  p.erpCompanyId,\n  COUNT(DISTINCT pv.id) as variant_count,\n  COUNT(DISTINCT pi.id) as image_count\nFROM products p\nLEFT JOIN product_variants pv ON pv.productId = p.id\nLEFT JOIN product_images pi ON pi.productId = p.id\nGROUP BY p.id, p.name, p.sku, p.imageUrl, p.erpCompanyId\nORDER BY p.id;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- 查询所有产品及其批次数量、图片状态\nSELECT \n  p.id as product_id,\n  p.name as product_name,\n  p.sku,\n  p.imageUrl,\n  p.erpCompanyId,\n  COUNT(DISTINCT pv.id) as variant_count,\n  COUNT(DISTINCT pi.id) as image_count\nFROM products p\nLEFT JOIN product_variants pv ON pv.productId = p.id\nLEFT JOIN product_images pi ON pi.productId = p.id\nGROUP BY p.id, p.name, p.sku, p.imageUrl, p.erpCompanyId\nORDER BY p.id;\n",
+  "rows": [
+    {
+      "product_id": "60001",
+      "product_name": "Modern Convertible Sofa Bed - Gray",
+      "sku": "SB-001-GRY",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-001-GRY/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "4",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60002",
+      "product_name": "Luxury Velvet Sofa Bed - Navy Blue",
+      "sku": "SB-002-NVY",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-002-NVY/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "1",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60003",
+      "product_name": "Minimalist Linen Sofa Bed - Beige",
+      "sku": "SB-003-BGE",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-003-BGE/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "1",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60004",
+      "product_name": "L-Shaped Sofa Bed with Storage - Charcoal",
+      "sku": "SB-004-CHR",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-004-CHR/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "1",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60005",
+      "product_name": "Compact Two-Seater Sofa Bed - Teal",
+      "sku": "SB-005-TEA",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-005-TEA/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "1",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60006",
+      "product_name": "Classic Wingback Armchair - Charcoal",
+      "sku": "AC-001-CHR",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-001-CHR/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "1",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60007",
+      "product_name": "Mid-Century Modern Armchair - Mustard Yellow",
+      "sku": "AC-002-YEL",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-002-YEL/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "1",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60008",
+      "product_name": "Contemporary Lounge Armchair - Cream Boucle",
+      "sku": "AC-003-CRM",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-003-CRM/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "1",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60009",
+      "product_name": "Scandinavian Rattan Armchair - Oak & Beige",
+      "sku": "AC-004-OAK",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-004-OAK/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "1",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60010",
+      "product_name": "Modern Accent Armchair - Emerald Green",
+      "sku": "AC-005-EMR",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-005-EMR/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "1",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60011",
+      "product_name": "Solid Oak Rectangular Dining Table",
+      "sku": "DT-001-OAK",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DT-001-OAK/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "2",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60012",
+      "product_name": "Modern Round Marble Dining Table",
+      "sku": "DT-002-MRB",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DT-002-MRB/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "1",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60013",
+      "product_name": "Extendable Walnut Dining Table",
+      "sku": "DT-003-WAL",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DT-003-WAL/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "1",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60014",
+      "product_name": "Glass Top Industrial Dining Table",
+      "sku": "DT-004-GLS",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DT-004-GLS/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "1",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60015",
+      "product_name": "Live Edge Acacia Dining Table",
+      "sku": "DT-005-ACA",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DT-005-ACA/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "1",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60016",
+      "product_name": "Modern Upholstered Dining Chair - Gray",
+      "sku": "DC-001-GRY",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-001-GRY/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "55",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60017",
+      "product_name": "Mid-Century Rope Seat Dining Chair - Walnut",
+      "sku": "DC-002-WAL",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-002-WAL/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "4",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60018",
+      "product_name": "Eames-Inspired Molded Chair - White",
+      "sku": "DC-003-WHT",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-003-WHT/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "4",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60019",
+      "product_name": "Tufted Velvet Dining Chair - Navy Blue",
+      "sku": "DC-004-NVY",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-004-NVY/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "6",
+      "image_count": "1"
+    },
+    {
+      "product_id": "60020",
+      "product_name": "Windsor-Style Dining Chair - Oak",
+      "sku": "DC-005-OAK",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-005-OAK/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "11",
+      "image_count": "1"
+    },
+    {
+      "product_id": "150001",
+      "product_name": "Test Product 001",
+      "sku": "CV-1000",
+      "imageUrl": "NULL",
+      "erpCompanyId": "1",
+      "variant_count": "4",
+      "image_count": "0"
+    },
+    {
+      "product_id": "180001",
+      "product_name": "测试产品-FOB流程",
+      "sku": "TEST-PROD-1771904029901",
+      "imageUrl": "NULL",
+      "erpCompanyId": "2",
+      "variant_count": "1",
+      "image_count": "0"
+    },
+    {
+      "product_id": "180002",
+      "product_name": "测试产品-SKU规则",
+      "sku": "PRD0001",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-001-GRY/primary.png",
+      "erpCompanyId": "1",
+      "variant_count": "2",
+      "image_count": "0"
+    },
+    {
+      "product_id": "210001",
+      "product_name": "dd",
+      "sku": "PRD0006",
+      "imageUrl": "NULL",
+      "erpCompanyId": "1",
+      "variant_count": "1",
+      "image_count": "0"
+    },
+    {
+      "product_id": "240001",
+      "product_name": "test prd",
+      "sku": "PRD0009",
+      "imageUrl": "NULL",
+      "erpCompanyId": "1",
+      "variant_count": "2",
+      "image_count": "0"
+    },
+    {
+      "product_id": "270001",
+      "product_name": "SSC1001",
+      "sku": "SSC1001",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SSC1001/WPS图片(1)-04d3ef40.png",
+      "erpCompanyId": "60001",
+      "variant_count": "1",
+      "image_count": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "product_id\tproduct_name\tsku\timageUrl\terpCompanyId\tvariant_count\timage_count\n60001\tModern Convertible Sofa Bed - Gray\tSB-001-GRY\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-001-GRY/primary.png\t1\t4\t1\n60002\tLuxury Velvet Sofa Bed - Navy Blue\tSB-002-NVY\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-002-NVY/primary.png\t1\t1\t1\n60003\tMinimalist Linen Sofa Bed - Beige\tSB-003-BGE\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-003-BGE/primary.png\t1\t1\t1\n60004\tL-Shaped Sofa Bed with Storage - Charcoal\tSB-004-CHR\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-004-CHR/primary.png\t1\t1\t1\n60005\tCompact Two-Seater Sofa Bed - Teal\tSB-005-TEA\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-005-TEA/primary.png\t1\t1\t1\n60006\tClassic Wingback Armchair - Charcoal\tAC-001-CHR\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-001-CHR/primary.png\t1\t1\t1\n60007\tMid-Century Modern Armchair - Mustard Yellow\tAC-002-YEL\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-002-YEL/primary.png\t1\t1\t1\n60008\tContemporary Lounge Armchair - Cream Boucle\tAC-003-CRM\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-003-CRM/primary.png\t1\t1\t1\n60009\tScandinavian Rattan Armchair - Oak & Beige\tAC-004-OAK\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-004-OAK/primary.png\t1\t1\t1\n60010\tModern Accent Armchair - Emerald Green\tAC-005-EMR\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-005-EMR/primary.png\t1\t1\t1\n60011\tSolid Oak Rectangular Dining Table\tDT-001-OAK\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DT-001-OAK/primary.png\t1\t2\t1\n60012\tModern Round Marble Dining Table\tDT-002-MRB\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DT-002-MRB/primary.png\t1\t1\t1\n60013\tExtendable Walnut Dining Table\tDT-003-WAL\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DT-003-WAL/primary.png\t1\t1\t1\n60014\tGlass Top Industrial Dining Table\tDT-004-GLS\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DT-004-GLS/primary.png\t1\t1\t1\n60015\tLive Edge Acacia Dining Table\tDT-005-ACA\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DT-005-ACA/primary.png\t1\t1\t1\n60016\tModern Upholstered Dining Chair - Gray\tDC-001-GRY\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-001-GRY/primary.png\t1\t55\t1\n60017\tMid-Century Rope Seat Dining Chair - Walnut\tDC-002-WAL\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-002-WAL/primary.png\t1\t4\t1\n60018\tEames-Inspired Molded Chair - White\tDC-003-WHT\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-003-WHT/primary.png\t1\t4\t1\n60019\tTufted Velvet Dining Chair - Navy Blue\tDC-004-NVY\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-004-NVY/primary.png\t1\t6\t1\n60020\tWindsor-Style Dining Chair - Oak\tDC-005-OAK\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-005-OAK/primary.png\t1\t11\t1\n150001\tTest Product 001\tCV-1000\tNULL\t1\t4\t0\n180001\t测试产品-FOB流程\tTEST-PROD-1771904029901\tNULL\t2\t1\t0\n180002\t测试产品-SKU规则\tPRD0001\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-001-GRY/primary.png\t1\t2\t0\n210001\tdd\tPRD0006\tNULL\t1\t1\t0\n240001\ttest prd\tPRD0009\tNULL\t1\t2\t0\n270001\tSSC1001\tSSC1001\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SSC1001/WPS图片(1)-04d3ef40.png\t60001\t1\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1538
+}

@@ -1,0 +1,42 @@
+{
+  "query": "SELECT * FROM product_variants WHERE variantName LIKE '%UI测试批次%' ORDER BY createdAt DESC LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM product_variants WHERE variantName LIKE '%UI测试批次%' ORDER BY createdAt DESC LIMIT 1;",
+  "rows": [
+    {
+      "id": "390002",
+      "erpCompanyId": "NULL",
+      "productId": "60016",
+      "variantCode": "DC-001-GRY-V029",
+      "variantName": "UI测试批次-双材料",
+      "fabricChange": "",
+      "legTypeChange": "",
+      "heightChange": "",
+      "packagingChange": "",
+      "otherChanges": "",
+      "productLength": "NULL",
+      "productWidth": "NULL",
+      "productHeight": "NULL",
+      "packageLength": "NULL",
+      "packageWidth": "NULL",
+      "packageHeight": "NULL",
+      "cbm": "NULL",
+      "variantType": "universal",
+      "status": "active",
+      "createdBy": "780093",
+      "createdAt": "2026-02-20 23:05:09",
+      "updatedAt": "2026-02-20 23:05:09",
+      "productionStatus": "designing",
+      "supplierId": "30004",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "customerId": "NULL",
+      "isDefault": "0",
+      "materialColorId": "30008"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tproductId\tvariantCode\tvariantName\tfabricChange\tlegTypeChange\theightChange\tpackagingChange\totherChanges\tproductLength\tproductWidth\tproductHeight\tpackageLength\tpackageWidth\tpackageHeight\tcbm\tvariantType\tstatus\tcreatedBy\tcreatedAt\tupdatedAt\tproductionStatus\tsupplierId\tsellingPriceRMB\tsellingPriceFOB\tcostPriceRMB\tcustomerId\tisDefault\tmaterialColorId\n390002\tNULL\t60016\tDC-001-GRY-V029\tUI测试批次-双材料\t\t\t\t\t\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\tuniversal\tactive\t780093\t2026-02-20 23:05:09\t2026-02-20 23:05:09\tdesigning\t30004\tNULL\tNULL\tNULL\tNULL\t0\t30008\n",
+  "stderr": "",
+  "execution_time_ms": 1503
+}

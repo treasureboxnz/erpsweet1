@@ -1,0 +1,43 @@
+{
+  "query": "SELECT id, variantCode, variantName, variantType, status, productionStatus, isDefault, customerId, supplierId\nFROM product_variants\nWHERE variantCode IN ('DC-005-OAK-V008', 'DC-005-OAK-V009', 'DC-005-OAK-V010');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, variantCode, variantName, variantType, status, productionStatus, isDefault, customerId, supplierId\nFROM product_variants\nWHERE variantCode IN ('DC-005-OAK-V008', 'DC-005-OAK-V009', 'DC-005-OAK-V010');",
+  "rows": [
+    {
+      "id": "570001",
+      "variantCode": "DC-005-OAK-V008",
+      "variantName": "Test Single Box",
+      "variantType": "universal",
+      "status": "active",
+      "productionStatus": "completed",
+      "isDefault": "0",
+      "customerId": "NULL",
+      "supplierId": "NULL"
+    },
+    {
+      "id": "570002",
+      "variantCode": "DC-005-OAK-V009",
+      "variantName": "Test Multiple Boxes",
+      "variantType": "universal",
+      "status": "active",
+      "productionStatus": "completed",
+      "isDefault": "0",
+      "customerId": "NULL",
+      "supplierId": "NULL"
+    },
+    {
+      "id": "570003",
+      "variantCode": "DC-005-OAK-V010",
+      "variantName": "Test Bulk Packing",
+      "variantType": "universal",
+      "status": "active",
+      "productionStatus": "completed",
+      "isDefault": "0",
+      "customerId": "NULL",
+      "supplierId": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantName\tvariantType\tstatus\tproductionStatus\tisDefault\tcustomerId\tsupplierId\n570001\tDC-005-OAK-V008\tTest Single Box\tuniversal\tactive\tcompleted\t0\tNULL\tNULL\n570002\tDC-005-OAK-V009\tTest Multiple Boxes\tuniversal\tactive\tcompleted\t0\tNULL\tNULL\n570003\tDC-005-OAK-V010\tTest Bulk Packing\tuniversal\tactive\tcompleted\t0\tNULL\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1509
+}

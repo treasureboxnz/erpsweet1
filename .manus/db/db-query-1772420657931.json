@@ -1,0 +1,143 @@
+{
+  "query": "SELECT mt.id, mt.name, mt.icon, mt.sortOrder, mt.erpCompanyId \nFROM material_types mt \nWHERE mt.deletedAt IS NULL \nORDER BY mt.erpCompanyId, mt.sortOrder, mt.id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT mt.id, mt.name, mt.icon, mt.sortOrder, mt.erpCompanyId \nFROM material_types mt \nWHERE mt.deletedAt IS NULL \nORDER BY mt.erpCompanyId, mt.sortOrder, mt.id;",
+  "rows": [
+    {
+      "id": "1",
+      "name": "布料",
+      "icon": "🧵",
+      "sortOrder": "1",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "2",
+      "name": "木腿",
+      "icon": "🪑",
+      "sortOrder": "2",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "3",
+      "name": "扶手",
+      "icon": "🛋️",
+      "sortOrder": "3",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "4",
+      "name": "填充物",
+      "icon": "🧶",
+      "sortOrder": "4",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "5",
+      "name": "坐垫",
+      "icon": "💺",
+      "sortOrder": "5",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "6",
+      "name": "靠背",
+      "icon": "🪑",
+      "sortOrder": "6",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "7",
+      "name": "框架",
+      "icon": "🔲",
+      "sortOrder": "7",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "9",
+      "name": "其他",
+      "icon": "📦",
+      "sortOrder": "8",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "20",
+      "name": "测试材料",
+      "icon": "🎨",
+      "sortOrder": "9",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "8",
+      "name": "配件",
+      "icon": "🔧",
+      "sortOrder": "10",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "10",
+      "name": "布料",
+      "icon": "🧵",
+      "sortOrder": "1",
+      "erpCompanyId": "2"
+    },
+    {
+      "id": "11",
+      "name": "木腿",
+      "icon": "🪑",
+      "sortOrder": "2",
+      "erpCompanyId": "2"
+    },
+    {
+      "id": "12",
+      "name": "扶手",
+      "icon": "🛋️",
+      "sortOrder": "3",
+      "erpCompanyId": "2"
+    },
+    {
+      "id": "13",
+      "name": "填充物",
+      "icon": "🧶",
+      "sortOrder": "4",
+      "erpCompanyId": "2"
+    },
+    {
+      "id": "14",
+      "name": "坐垫",
+      "icon": "💺",
+      "sortOrder": "5",
+      "erpCompanyId": "2"
+    },
+    {
+      "id": "15",
+      "name": "靠背",
+      "icon": "🪑",
+      "sortOrder": "6",
+      "erpCompanyId": "2"
+    },
+    {
+      "id": "16",
+      "name": "框架",
+      "icon": "🔲",
+      "sortOrder": "7",
+      "erpCompanyId": "2"
+    },
+    {
+      "id": "17",
+      "name": "配件",
+      "icon": "🔧",
+      "sortOrder": "8",
+      "erpCompanyId": "2"
+    },
+    {
+      "id": "18",
+      "name": "其他",
+      "icon": "📦",
+      "sortOrder": "9",
+      "erpCompanyId": "2"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\ticon\tsortOrder\terpCompanyId\n1\t布料\t🧵\t1\t1\n2\t木腿\t🪑\t2\t1\n3\t扶手\t🛋️\t3\t1\n4\t填充物\t🧶\t4\t1\n5\t坐垫\t💺\t5\t1\n6\t靠背\t🪑\t6\t1\n7\t框架\t🔲\t7\t1\n9\t其他\t📦\t8\t1\n20\t测试材料\t🎨\t9\t1\n8\t配件\t🔧\t10\t1\n10\t布料\t🧵\t1\t2\n11\t木腿\t🪑\t2\t2\n12\t扶手\t🛋️\t3\t2\n13\t填充物\t🧶\t4\t2\n14\t坐垫\t💺\t5\t2\n15\t靠背\t🪑\t6\t2\n16\t框架\t🔲\t7\t2\n17\t配件\t🔧\t8\t2\n18\t其他\t📦\t9\t2\n",
+  "stderr": "",
+  "execution_time_ms": 1483
+}

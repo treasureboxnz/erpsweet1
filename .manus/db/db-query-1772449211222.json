@@ -1,0 +1,21 @@
+{
+  "query": "SELECT * FROM sku_rules WHERE ruleType = 'variant';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM sku_rules WHERE ruleType = 'variant';",
+  "rows": [
+    {
+      "id": "3",
+      "erpCompanyId": "1",
+      "ruleType": "variant",
+      "prefix": "VAR",
+      "suffixLength": "4",
+      "currentCounter": "18",
+      "description": "批次编号规则",
+      "createdAt": "2026-02-24 04:07:18",
+      "updatedAt": "2026-03-02 10:56:24"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\truleType\tprefix\tsuffixLength\tcurrentCounter\tdescription\tcreatedAt\tupdatedAt\n3\t1\tvariant\tVAR\t4\t18\t批次编号规则\t2026-02-24 04:07:18\t2026-03-02 10:56:24\n",
+  "stderr": "",
+  "execution_time_ms": 1582
+}

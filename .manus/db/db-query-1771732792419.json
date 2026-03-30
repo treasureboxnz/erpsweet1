@@ -1,0 +1,17 @@
+{
+  "query": "SELECT pb.packagingType, pb.piecesPerBox, pb.grossWeight, pb.netWeight, pb.cbm\nFROM package_boxes pb\nJOIN product_variants pv ON pb.variantId = pv.id\nWHERE pv.variantCode = 'DC-005-OAK-V010';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT pb.packagingType, pb.piecesPerBox, pb.grossWeight, pb.netWeight, pb.cbm\nFROM package_boxes pb\nJOIN product_variants pv ON pb.variantId = pv.id\nWHERE pv.variantCode = 'DC-005-OAK-V010';",
+  "rows": [
+    {
+      "packagingType": "single",
+      "piecesPerBox": "1",
+      "grossWeight": "30.00",
+      "netWeight": "28.00",
+      "cbm": "0.336000"
+    }
+  ],
+  "messages": [],
+  "stdout": "packagingType\tpiecesPerBox\tgrossWeight\tnetWeight\tcbm\nsingle\t1\t30.00\t28.00\t0.336000\n",
+  "stderr": "",
+  "execution_time_ms": 1581
+}

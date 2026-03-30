@@ -1,0 +1,9 @@
+{
+  "query": "-- 添加验货方式属性（inspection_method）\nINSERT INTO attributes (erpCompanyId, name, category, subcategory, fieldName, displayOrder, createdAt, updatedAt) VALUES\n(NULL, '三方', 'inspection_method', NULL, 'inspection_method', 1, NOW(), NOW()),\n(NULL, '自己质检', 'inspection_method', NULL, 'inspection_method', 2, NOW(), NOW()),\n(NULL, '工厂质检', 'inspection_method', NULL, 'inspection_method', 3, NOW(), NOW());\n\n-- 添加订单状态属性（order_status）\nINSERT INTO attributes (erpCompanyId, name, category, subcategory, fieldName, displayOrder, createdAt, updatedAt) VALUES\n(NULL, '跟单中', 'order_status', NULL, 'order_status', 1, NOW(), NOW()),\n(NULL, '订单完结', 'order_status', NULL, 'order_status', 2, NOW(), NOW());",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute -- 添加验货方式属性（inspection_method）\nINSERT INTO attributes (erpCompanyId, name, category, subcategory, fieldName, displayOrder, createdAt, updatedAt) VALUES\n(NULL, '三方', 'inspection_method', NULL, 'inspection_method', 1, NOW(), NOW()),\n(NULL, '自己质检', 'inspection_method', NULL, 'inspection_method', 2, NOW(), NOW()),\n(NULL, '工厂质检', 'inspection_method', NULL, 'inspection_method', 3, NOW(), NOW());\n\n-- 添加订单状态属性（order_status）\nINSERT INTO attributes (erpCompanyId, name, category, subcategory, fieldName, displayOrder, createdAt, updatedAt) VALUES\n(NULL, '跟单中', 'order_status', NULL, 'order_status', 1, NOW(), NOW()),\n(NULL, '订单完结', 'order_status', NULL, 'order_status', 2, NOW(), NOW());",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1801
+}

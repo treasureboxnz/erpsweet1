@@ -1,0 +1,34 @@
+{
+  "query": "\n-- 检查COL材料分类\nSELECT mb.id, mb.erpCompanyId, mb.boardNumber, mb.boardName, mb.supplierId, ms.code as supplierCode\nFROM material_boards mb\nLEFT JOIN material_suppliers ms ON mb.supplierId = ms.id\nWHERE mb.boardNumber = 'COL';\n\n-- 检查ORIG颜色\nSELECT mc.id, mc.erpCompanyId, mc.colorCode, mc.colorName, mc.boardId, mb.boardNumber\nFROM material_colors mc\nLEFT JOIN material_boards mb ON mc.boardId = mb.id\nWHERE mc.colorCode = 'ORIG';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- 检查COL材料分类\nSELECT mb.id, mb.erpCompanyId, mb.boardNumber, mb.boardName, mb.supplierId, ms.code as supplierCode\nFROM material_boards mb\nLEFT JOIN material_suppliers ms ON mb.supplierId = ms.id\nWHERE mb.boardNumber = 'COL';\n\n-- 检查ORIG颜色\nSELECT mc.id, mc.erpCompanyId, mc.colorCode, mc.colorName, mc.boardId, mb.boardNumber\nFROM material_colors mc\nLEFT JOIN material_boards mb ON mc.boardId = mb.id\nWHERE mc.colorCode = 'ORIG';\n",
+  "rows": [
+    {
+      "id": "30002",
+      "erpCompanyId": "1",
+      "boardNumber": "COL",
+      "boardName": "默认布板",
+      "supplierId": "30002",
+      "supplierCode": "SYS"
+    },
+    {
+      "id": "id",
+      "erpCompanyId": "erpCompanyId",
+      "boardNumber": "colorCode",
+      "boardName": "colorName",
+      "supplierId": "boardId",
+      "supplierCode": "boardNumber"
+    },
+    {
+      "id": "30008",
+      "erpCompanyId": "1",
+      "boardNumber": "ORIG",
+      "boardName": "Original 默认",
+      "supplierId": "30002",
+      "supplierCode": "COL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tboardNumber\tboardName\tsupplierId\tsupplierCode\n30002\t1\tCOL\t默认布板\t30002\tSYS\nid\terpCompanyId\tcolorCode\tcolorName\tboardId\tboardNumber\n30008\t1\tORIG\tOriginal 默认\t30002\tCOL\n",
+  "stderr": "",
+  "execution_time_ms": 1779
+}

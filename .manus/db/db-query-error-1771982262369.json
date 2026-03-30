@@ -1,0 +1,8 @@
+{
+  "query": "SELECT * FROM attributes WHERE field_name IN ('order_status', 'inspection_method');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM attributes WHERE field_name IN ('order_status', 'inspection_method');",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'field_name' in 'where clause'"
+  ]
+}

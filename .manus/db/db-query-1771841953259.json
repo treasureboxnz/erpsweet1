@@ -1,0 +1,18 @@
+{
+  "query": "SELECT u.id, u.email, u.erpCompanyId, c.id as companyId, c.companyCode, c.companyName \nFROM users u \nLEFT JOIN erp_companies c ON u.erpCompanyId = c.id \nWHERE u.email = 'manager@casavivafurniture.com';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT u.id, u.email, u.erpCompanyId, c.id as companyId, c.companyCode, c.companyName \nFROM users u \nLEFT JOIN erp_companies c ON u.erpCompanyId = c.id \nWHERE u.email = 'manager@casavivafurniture.com';",
+  "rows": [
+    {
+      "id": "1650166",
+      "email": "manager@casavivafurniture.com",
+      "erpCompanyId": "1",
+      "companyId": "1",
+      "companyCode": "TEST",
+      "companyName": "测试公司"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\terpCompanyId\tcompanyId\tcompanyCode\tcompanyName\n1650166\tmanager@casavivafurniture.com\t1\t1\tTEST\t测试公司\n",
+  "stderr": "",
+  "execution_time_ms": 1545
+}

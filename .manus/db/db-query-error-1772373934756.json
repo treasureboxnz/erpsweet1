@@ -1,0 +1,8 @@
+{
+  "query": "\nDELETE FROM inspection_files;\nDELETE FROM inspections;\nDELETE FROM order_tracking;\nDELETE FROM order_finance;\nDELETE FROM order_items;\nDELETE FROM orders;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nDELETE FROM inspection_files;\nDELETE FROM inspections;\nDELETE FROM order_tracking;\nDELETE FROM order_finance;\nDELETE FROM order_items;\nDELETE FROM orders;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1451 (23000) at line 7: Cannot delete or update a parent row: a foreign key constraint fails (`5qtmwqjey7efv8qjhvh9i8`.`quotations`, CONSTRAINT `fk_3` FOREIGN KEY (`convertedToOrderId`) REFERENCES `orders` (`id`))"
+  ]
+}

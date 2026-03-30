@@ -1,0 +1,24 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS `erp_companies` (\n  `id` int AUTO_INCREMENT PRIMARY KEY,\n  `companyCode` varchar(50) NOT NULL UNIQUE,\n  `companyName` varchar(200) NOT NULL,\n  `companyNameEn` varchar(200),\n  `logo` text,\n  `address` text,\n  `email` varchar(320),\n  `phone` varchar(50),\n  `status` enum('active', 'suspended', 'deleted') NOT NULL DEFAULT 'active',\n  `plan` enum('free', 'basic', 'pro', 'enterprise') NOT NULL DEFAULT 'free',\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP\n);\n\nINSERT INTO `erp_companies` (`companyCode`, `companyName`, `companyNameEn`, `status`, `plan`) \nVALUES ('TEST', '测试公司', 'Test Company', 'active', 'free')\nON DUPLICATE KEY UPDATE `companyName` = '测试公司';\n\nSELECT * FROM `erp_companies`;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute CREATE TABLE IF NOT EXISTS `erp_companies` (\n  `id` int AUTO_INCREMENT PRIMARY KEY,\n  `companyCode` varchar(50) NOT NULL UNIQUE,\n  `companyName` varchar(200) NOT NULL,\n  `companyNameEn` varchar(200),\n  `logo` text,\n  `address` text,\n  `email` varchar(320),\n  `phone` varchar(50),\n  `status` enum('active', 'suspended', 'deleted') NOT NULL DEFAULT 'active',\n  `plan` enum('free', 'basic', 'pro', 'enterprise') NOT NULL DEFAULT 'free',\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP\n);\n\nINSERT INTO `erp_companies` (`companyCode`, `companyName`, `companyNameEn`, `status`, `plan`) \nVALUES ('TEST', '测试公司', 'Test Company', 'active', 'free')\nON DUPLICATE KEY UPDATE `companyName` = '测试公司';\n\nSELECT * FROM `erp_companies`;",
+  "rows": [
+    {
+      "id": "1",
+      "companyCode": "TEST",
+      "companyName": "测试公司",
+      "companyNameEn": "Test Company",
+      "logo": "NULL",
+      "address": "NULL",
+      "email": "NULL",
+      "phone": "NULL",
+      "status": "active",
+      "plan": "free",
+      "createdAt": "2026-02-19 11:23:10",
+      "updatedAt": "2026-02-19 11:23:10"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcompanyCode\tcompanyName\tcompanyNameEn\tlogo\taddress\temail\tphone\tstatus\tplan\tcreatedAt\tupdatedAt\n1\tTEST\t测试公司\tTest Company\tNULL\tNULL\tNULL\tNULL\tactive\tfree\t2026-02-19 11:23:10\t2026-02-19 11:23:10\n",
+  "stderr": "",
+  "execution_time_ms": 2157
+}

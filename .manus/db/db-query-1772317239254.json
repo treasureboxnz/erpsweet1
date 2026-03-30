@@ -1,0 +1,60 @@
+{
+  "query": "SELECT id, name, imageUrl FROM products WHERE imageUrl IS NOT NULL LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, name, imageUrl FROM products WHERE imageUrl IS NOT NULL LIMIT 10;",
+  "rows": [
+    {
+      "id": "60001",
+      "name": "Modern Convertible Sofa Bed - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-001-GRY/primary.png"
+    },
+    {
+      "id": "60002",
+      "name": "Luxury Velvet Sofa Bed - Navy Blue",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-002-NVY/primary.png"
+    },
+    {
+      "id": "60003",
+      "name": "Minimalist Linen Sofa Bed - Beige",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-003-BGE/primary.png"
+    },
+    {
+      "id": "60004",
+      "name": "L-Shaped Sofa Bed with Storage - Charcoal",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-004-CHR/primary.png"
+    },
+    {
+      "id": "60005",
+      "name": "Compact Two-Seater Sofa Bed - Teal",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-005-TEA/primary.png"
+    },
+    {
+      "id": "60006",
+      "name": "Classic Wingback Armchair - Charcoal",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-001-CHR/primary.png"
+    },
+    {
+      "id": "60007",
+      "name": "Mid-Century Modern Armchair - Mustard Yellow",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-002-YEL/primary.png"
+    },
+    {
+      "id": "60008",
+      "name": "Contemporary Lounge Armchair - Cream Boucle",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-003-CRM/primary.png"
+    },
+    {
+      "id": "60009",
+      "name": "Scandinavian Rattan Armchair - Oak & Beige",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-004-OAK/primary.png"
+    },
+    {
+      "id": "60010",
+      "name": "Modern Accent Armchair - Emerald Green",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-005-EMR/primary.png"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\timageUrl\n60001\tModern Convertible Sofa Bed - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-001-GRY/primary.png\n60002\tLuxury Velvet Sofa Bed - Navy Blue\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-002-NVY/primary.png\n60003\tMinimalist Linen Sofa Bed - Beige\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-003-BGE/primary.png\n60004\tL-Shaped Sofa Bed with Storage - Charcoal\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-004-CHR/primary.png\n60005\tCompact Two-Seater Sofa Bed - Teal\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/SB-005-TEA/primary.png\n60006\tClassic Wingback Armchair - Charcoal\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-001-CHR/primary.png\n60007\tMid-Century Modern Armchair - Mustard Yellow\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-002-YEL/primary.png\n60008\tContemporary Lounge Armchair - Cream Boucle\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-003-CRM/primary.png\n60009\tScandinavian Rattan Armchair - Oak & Beige\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-004-OAK/primary.png\n60010\tModern Accent Armchair - Emerald Green\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/AC-005-EMR/primary.png\n",
+  "stderr": "",
+  "execution_time_ms": 1517
+}

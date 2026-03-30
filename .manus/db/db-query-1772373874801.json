@@ -1,0 +1,37 @@
+{
+  "query": "\nSELECT TABLE_NAME FROM information_schema.COLUMNS \nWHERE COLUMN_NAME = 'variantId' AND TABLE_SCHEMA = DATABASE()\nORDER BY TABLE_NAME;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT TABLE_NAME FROM information_schema.COLUMNS \nWHERE COLUMN_NAME = 'variantId' AND TABLE_SCHEMA = DATABASE()\nORDER BY TABLE_NAME;\n",
+  "rows": [
+    {
+      "TABLE_NAME": "order_items"
+    },
+    {
+      "TABLE_NAME": "package_boxes"
+    },
+    {
+      "TABLE_NAME": "quotation_batches"
+    },
+    {
+      "TABLE_NAME": "variant_customer_links"
+    },
+    {
+      "TABLE_NAME": "variant_images"
+    },
+    {
+      "TABLE_NAME": "variant_materials"
+    },
+    {
+      "TABLE_NAME": "variant_pricing"
+    },
+    {
+      "TABLE_NAME": "variant_pricing_history"
+    },
+    {
+      "TABLE_NAME": "variant_suppliers"
+    }
+  ],
+  "messages": [],
+  "stdout": "TABLE_NAME\norder_items\npackage_boxes\nquotation_batches\nvariant_customer_links\nvariant_images\nvariant_materials\nvariant_pricing\nvariant_pricing_history\nvariant_suppliers\n",
+  "stderr": "",
+  "execution_time_ms": 1501
+}

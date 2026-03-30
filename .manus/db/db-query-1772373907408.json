@@ -1,0 +1,130 @@
+{
+  "query": "\nSELECT oi.id as order_item_id, oi.orderId, pv.variantCode, pv.variantName\nFROM order_items oi\nJOIN product_variants pv ON oi.variantId = pv.id\nWHERE (pv.variantName LIKE '%测试%' OR pv.variantName LIKE '%test%' OR pv.variantName LIKE '%Test%' \n   OR pv.variantName LIKE '%UI%' OR pv.variantName LIKE '%SKU%' OR pv.variantName LIKE '%验证%'\n   OR pv.variantName LIKE '%Automation%')\nAND pv.id NOT IN (\n  SELECT id FROM (\n    SELECT id FROM product_variants \n    WHERE variantName LIKE '%测试%' OR variantName LIKE '%test%' OR variantName LIKE '%Test%' \n       OR variantName LIKE '%UI%' OR variantName LIKE '%SKU%' OR variantName LIKE '%验证%'\n       OR variantName LIKE '%Automation%'\n    ORDER BY id DESC LIMIT 2\n  ) AS keep_ids\n)\nLIMIT 20;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT oi.id as order_item_id, oi.orderId, pv.variantCode, pv.variantName\nFROM order_items oi\nJOIN product_variants pv ON oi.variantId = pv.id\nWHERE (pv.variantName LIKE '%测试%' OR pv.variantName LIKE '%test%' OR pv.variantName LIKE '%Test%' \n   OR pv.variantName LIKE '%UI%' OR pv.variantName LIKE '%SKU%' OR pv.variantName LIKE '%验证%'\n   OR pv.variantName LIKE '%Automation%')\nAND pv.id NOT IN (\n  SELECT id FROM (\n    SELECT id FROM product_variants \n    WHERE variantName LIKE '%测试%' OR variantName LIKE '%test%' OR variantName LIKE '%Test%' \n       OR variantName LIKE '%UI%' OR variantName LIKE '%SKU%' OR variantName LIKE '%验证%'\n       OR variantName LIKE '%Automation%'\n    ORDER BY id DESC LIMIT 2\n  ) AS keep_ids\n)\nLIMIT 20;\n",
+  "rows": [
+    {
+      "order_item_id": "180046",
+      "orderId": "180006",
+      "variantCode": "DC-001-GRY-V008",
+      "variantName": "订单页面测试批次V2"
+    },
+    {
+      "order_item_id": "180009",
+      "orderId": "150007",
+      "variantCode": "DC-001-GRY-V008",
+      "variantName": "订单页面测试批次V2"
+    },
+    {
+      "order_item_id": "270005",
+      "orderId": "270007",
+      "variantCode": "DC-001-GRY-V020",
+      "variantName": "测试批次-1材料"
+    },
+    {
+      "order_item_id": "270006",
+      "orderId": "270008",
+      "variantCode": "DC-001-GRY-V021",
+      "variantName": "测试批次-2材料"
+    },
+    {
+      "order_item_id": "270007",
+      "orderId": "270009",
+      "variantCode": "DC-001-GRY-V022",
+      "variantName": "测试批次-3材料"
+    },
+    {
+      "order_item_id": "300001",
+      "orderId": "270010",
+      "variantCode": "DC-001-GRY-V023",
+      "variantName": "测试批次-4材料"
+    },
+    {
+      "order_item_id": "300002",
+      "orderId": "270010",
+      "variantCode": "DC-001-GRY-V024",
+      "variantName": "测试批次4"
+    },
+    {
+      "order_item_id": "330001",
+      "orderId": "300001",
+      "variantCode": "CHAIR-GREY-V002",
+      "variantName": "UI测试批次-双材料"
+    },
+    {
+      "order_item_id": "630006",
+      "orderId": "570001",
+      "variantCode": "DC-001-GRY-V033",
+      "variantName": "最终测试-外箱重量功能"
+    },
+    {
+      "order_item_id": "510001",
+      "orderId": "480001",
+      "variantCode": "DC-001-GRY-V033",
+      "variantName": "最终测试-外箱重量功能"
+    },
+    {
+      "order_item_id": "480003",
+      "orderId": "450001",
+      "variantCode": "DC-001-GRY-V033",
+      "variantName": "最终测试-外箱重量功能"
+    },
+    {
+      "order_item_id": "450002",
+      "orderId": "420001",
+      "variantCode": "DC-001-GRY-V034",
+      "variantName": "按钮修复测试批次"
+    },
+    {
+      "order_item_id": "420003",
+      "orderId": "390003",
+      "variantCode": "DC-001-GRY-V034",
+      "variantName": "按钮修复测试批次"
+    },
+    {
+      "order_item_id": "420002",
+      "orderId": "390002",
+      "variantCode": "DC-001-GRY-V034",
+      "variantName": "按钮修复测试批次"
+    },
+    {
+      "order_item_id": "420001",
+      "orderId": "390001",
+      "variantCode": "DC-001-GRY-V034",
+      "variantName": "按钮修复测试批次"
+    },
+    {
+      "order_item_id": "390001",
+      "orderId": "360001",
+      "variantCode": "DC-001-GRY-V034",
+      "variantName": "按钮修复测试批次"
+    },
+    {
+      "order_item_id": "360002",
+      "orderId": "330003",
+      "variantCode": "DC-001-GRY-V034",
+      "variantName": "按钮修复测试批次"
+    },
+    {
+      "order_item_id": "600010",
+      "orderId": "540001",
+      "variantCode": "DC-005-OAK-V009",
+      "variantName": "Test Multiple Boxes"
+    },
+    {
+      "order_item_id": "480004",
+      "orderId": "450001",
+      "variantCode": "DC-005-OAK-V010",
+      "variantName": "Test Bulk Packing"
+    },
+    {
+      "order_item_id": "450003",
+      "orderId": "420002",
+      "variantCode": "DC-001-GRY-V038",
+      "variantName": "单位米测试-Option1"
+    }
+  ],
+  "messages": [],
+  "stdout": "order_item_id\torderId\tvariantCode\tvariantName\n180046\t180006\tDC-001-GRY-V008\t订单页面测试批次V2\n180009\t150007\tDC-001-GRY-V008\t订单页面测试批次V2\n270005\t270007\tDC-001-GRY-V020\t测试批次-1材料\n270006\t270008\tDC-001-GRY-V021\t测试批次-2材料\n270007\t270009\tDC-001-GRY-V022\t测试批次-3材料\n300001\t270010\tDC-001-GRY-V023\t测试批次-4材料\n300002\t270010\tDC-001-GRY-V024\t测试批次4\n330001\t300001\tCHAIR-GREY-V002\tUI测试批次-双材料\n630006\t570001\tDC-001-GRY-V033\t最终测试-外箱重量功能\n510001\t480001\tDC-001-GRY-V033\t最终测试-外箱重量功能\n480003\t450001\tDC-001-GRY-V033\t最终测试-外箱重量功能\n450002\t420001\tDC-001-GRY-V034\t按钮修复测试批次\n420003\t390003\tDC-001-GRY-V034\t按钮修复测试批次\n420002\t390002\tDC-001-GRY-V034\t按钮修复测试批次\n420001\t390001\tDC-001-GRY-V034\t按钮修复测试批次\n390001\t360001\tDC-001-GRY-V034\t按钮修复测试批次\n360002\t330003\tDC-001-GRY-V034\t按钮修复测试批次\n600010\t540001\tDC-005-OAK-V009\tTest Multiple Boxes\n480004\t450001\tDC-005-OAK-V010\tTest Bulk Packing\n450003\t420002\tDC-001-GRY-V038\t单位米测试-Option1\n",
+  "stderr": "",
+  "execution_time_ms": 1570
+}

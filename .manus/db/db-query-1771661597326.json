@@ -1,0 +1,21 @@
+{
+  "query": "SELECT \n  pb.id, pb.boxNumber, pb.length, pb.width, pb.height, \n  pb.cbm, pb.grossWeight, pb.netWeight, pb.createdAt\nFROM package_boxes pb\nJOIN product_variants pv ON pb.variantId = pv.id\nWHERE pv.variantCode = 'DC-001-GRY-V033';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT \n  pb.id, pb.boxNumber, pb.length, pb.width, pb.height, \n  pb.cbm, pb.grossWeight, pb.netWeight, pb.createdAt\nFROM package_boxes pb\nJOIN product_variants pv ON pb.variantId = pv.id\nWHERE pv.variantCode = 'DC-001-GRY-V033';",
+  "rows": [
+    {
+      "id": "1",
+      "boxNumber": "1",
+      "length": "110.00",
+      "width": "70.00",
+      "height": "45.00",
+      "cbm": "0.346500",
+      "grossWeight": "28.00",
+      "netWeight": "25.00",
+      "createdAt": "2026-02-21 07:34:08"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tboxNumber\tlength\twidth\theight\tcbm\tgrossWeight\tnetWeight\tcreatedAt\n1\t1\t110.00\t70.00\t45.00\t0.346500\t28.00\t25.00\t2026-02-21 07:34:08\n",
+  "stderr": "",
+  "execution_time_ms": 1623
+}

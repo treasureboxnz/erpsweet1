@@ -1,0 +1,9 @@
+{
+  "query": "ALTER TABLE `material_boards` ADD `categoryId` int;\nALTER TABLE `variant_materials` ADD `sortOrder` int DEFAULT 0 NOT NULL;\nALTER TABLE `variant_materials` ADD `materialType` varchar(50) DEFAULT 'fabric';\nALTER TABLE `material_boards` ADD CONSTRAINT `material_boards_categoryId_material_categories_id_fk` FOREIGN KEY (`categoryId`) REFERENCES `material_categories`(`id`) ON DELETE no action ON UPDATE no action;\nCREATE INDEX `material_boards_category_idx` ON `material_boards` (`categoryId`);\nCREATE INDEX `variant_materials_sort_idx` ON `variant_materials` (`variantId`,`sortOrder`);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute ALTER TABLE `material_boards` ADD `categoryId` int;\nALTER TABLE `variant_materials` ADD `sortOrder` int DEFAULT 0 NOT NULL;\nALTER TABLE `variant_materials` ADD `materialType` varchar(50) DEFAULT 'fabric';\nALTER TABLE `material_boards` ADD CONSTRAINT `material_boards_categoryId_material_categories_id_fk` FOREIGN KEY (`categoryId`) REFERENCES `material_categories`(`id`) ON DELETE no action ON UPDATE no action;\nCREATE INDEX `material_boards_category_idx` ON `material_boards` (`categoryId`);\nCREATE INDEX `variant_materials_sort_idx` ON `variant_materials` (`variantId`,`sortOrder`);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 8896
+}

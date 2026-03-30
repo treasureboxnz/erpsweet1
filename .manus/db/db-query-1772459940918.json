@@ -1,0 +1,28 @@
+{
+  "query": "\nSELECT \n  vcl.variantId,\n  pv.variantCode,\n  vcl.customerId,\n  c.companyName as customer_name\nFROM variant_customer_links vcl\nJOIN product_variants pv ON vcl.variantId = pv.id\nLEFT JOIN companies c ON vcl.customerId = c.id\nWHERE pv.variantCode LIKE 'DC-001-GRY%'\nORDER BY vcl.variantId\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  vcl.variantId,\n  pv.variantCode,\n  vcl.customerId,\n  c.companyName as customer_name\nFROM variant_customer_links vcl\nJOIN product_variants pv ON vcl.variantId = pv.id\nLEFT JOIN companies c ON vcl.customerId = c.id\nWHERE pv.variantCode LIKE 'DC-001-GRY%'\nORDER BY vcl.variantId\n",
+  "rows": [
+    {
+      "variantId": "420002",
+      "variantCode": "DC-001-GRY-V030",
+      "customerId": "30007",
+      "customer_name": "ABC Furniture"
+    },
+    {
+      "variantId": "1020002",
+      "variantCode": "DC-001-GRY-V031",
+      "customerId": "120001",
+      "customer_name": "acc living"
+    },
+    {
+      "variantId": "1020003",
+      "variantCode": "DC-001-GRY-V032",
+      "customerId": "120001",
+      "customer_name": "acc living"
+    }
+  ],
+  "messages": [],
+  "stdout": "variantId\tvariantCode\tcustomerId\tcustomer_name\n420002\tDC-001-GRY-V030\t30007\tABC Furniture\n1020002\tDC-001-GRY-V031\t120001\tacc living\n1020003\tDC-001-GRY-V032\t120001\tacc living\n",
+  "stderr": "",
+  "execution_time_ms": 1548
+}

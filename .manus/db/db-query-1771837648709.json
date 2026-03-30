@@ -1,0 +1,58 @@
+{
+  "query": "SELECT * FROM attributes WHERE category = '材料管理' AND fieldName = '材料类型' ORDER BY displayOrder, id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM attributes WHERE category = '材料管理' AND fieldName = '材料类型' ORDER BY displayOrder, id;",
+  "rows": [
+    {
+      "id": "60001",
+      "erpCompanyId": "1",
+      "name": "皮革",
+      "category": "材料管理",
+      "subcategory": "材料供应商",
+      "fieldName": "材料类型",
+      "displayOrder": "0",
+      "createdBy": "780093",
+      "createdAt": "2026-02-20 12:11:46",
+      "updatedAt": "2026-02-20 12:11:46"
+    },
+    {
+      "id": "60002",
+      "erpCompanyId": "1",
+      "name": "木腿",
+      "category": "材料管理",
+      "subcategory": "材料供应商",
+      "fieldName": "材料类型",
+      "displayOrder": "0",
+      "createdBy": "780093",
+      "createdAt": "2026-02-20 12:34:48",
+      "updatedAt": "2026-02-20 12:34:48"
+    },
+    {
+      "id": "90001",
+      "erpCompanyId": "1",
+      "name": "配件",
+      "category": "材料管理",
+      "subcategory": "材料供应商",
+      "fieldName": "材料类型",
+      "displayOrder": "0",
+      "createdBy": "780093",
+      "createdAt": "2026-02-21 00:38:15",
+      "updatedAt": "2026-02-21 00:38:15"
+    },
+    {
+      "id": "90002",
+      "erpCompanyId": "1",
+      "name": "布料",
+      "category": "材料管理",
+      "subcategory": "材料供应商",
+      "fieldName": "材料类型",
+      "displayOrder": "0",
+      "createdBy": "780093",
+      "createdAt": "2026-02-21 00:39:06",
+      "updatedAt": "2026-02-21 00:39:06"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tname\tcategory\tsubcategory\tfieldName\tdisplayOrder\tcreatedBy\tcreatedAt\tupdatedAt\n60001\t1\t皮革\t材料管理\t材料供应商\t材料类型\t0\t780093\t2026-02-20 12:11:46\t2026-02-20 12:11:46\n60002\t1\t木腿\t材料管理\t材料供应商\t材料类型\t0\t780093\t2026-02-20 12:34:48\t2026-02-20 12:34:48\n90001\t1\t配件\t材料管理\t材料供应商\t材料类型\t0\t780093\t2026-02-21 00:38:15\t2026-02-21 00:38:15\n90002\t1\t布料\t材料管理\t材料供应商\t材料类型\t0\t780093\t2026-02-21 00:39:06\t2026-02-21 00:39:06\n",
+  "stderr": "",
+  "execution_time_ms": 1490
+}

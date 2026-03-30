@@ -1,0 +1,38 @@
+{
+  "query": "\nSELECT v.id, v.variantCode, v.variantName, v.productId, \n       GROUP_CONCAT(vcl.customerId) as customerIds\nFROM product_variants v\nLEFT JOIN variant_customer_links vcl ON v.id = vcl.variantId\nWHERE v.productId = 60016\nGROUP BY v.id\nLIMIT 10;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT v.id, v.variantCode, v.variantName, v.productId, \n       GROUP_CONCAT(vcl.customerId) as customerIds\nFROM product_variants v\nLEFT JOIN variant_customer_links vcl ON v.id = vcl.variantId\nWHERE v.productId = 60016\nGROUP BY v.id\nLIMIT 10;\n",
+  "rows": [
+    {
+      "id": "120006",
+      "variantCode": "DC-001-B001",
+      "variantName": "Gray upholstery darker shade",
+      "productId": "60016",
+      "customerIds": "NULL"
+    },
+    {
+      "id": "120007",
+      "variantCode": "DC-001-B002",
+      "variantName": "Custom backrest height 90cm",
+      "productId": "60016",
+      "customerIds": "NULL"
+    },
+    {
+      "id": "120008",
+      "variantCode": "DC-001-B003",
+      "variantName": "Bulk order 100+ units",
+      "productId": "60016",
+      "customerIds": "NULL"
+    },
+    {
+      "id": "120009",
+      "variantCode": "DC-001-B004",
+      "variantName": "Premium fabric stain-resistant",
+      "productId": "60016",
+      "customerIds": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantName\tproductId\tcustomerIds\n120006\tDC-001-B001\tGray upholstery darker shade\t60016\tNULL\n120007\tDC-001-B002\tCustom backrest height 90cm\t60016\tNULL\n120008\tDC-001-B003\tBulk order 100+ units\t60016\tNULL\n120009\tDC-001-B004\tPremium fabric stain-resistant\t60016\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1549
+}

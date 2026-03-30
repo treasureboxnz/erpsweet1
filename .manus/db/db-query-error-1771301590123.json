@@ -1,0 +1,8 @@
+{
+  "query": "\nUPDATE quotation_batches qb\nINNER JOIN product_variants pv ON qb.variantId = pv.id\nSET qb.variantCode = pv.variantCode\nWHERE qb.variantCode IS NULL AND qb.variantId IS NOT NULL;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nUPDATE quotation_batches qb\nINNER JOIN product_variants pv ON qb.variantId = pv.id\nSET qb.variantCode = pv.variantCode\nWHERE qb.variantCode IS NULL AND qb.variantId IS NOT NULL;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 2: Unknown column 'qb.variantcode' in 'where clause'"
+  ]
+}

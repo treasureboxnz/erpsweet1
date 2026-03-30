@@ -1,0 +1,30 @@
+{
+  "query": "SELECT id, sku FROM products WHERE sku IN ('SB-001-GRY', 'SB-002-NVY', 'SB-003-BGE', 'SB-004-CHR', 'SB-005-TEA') ORDER BY sku;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, sku FROM products WHERE sku IN ('SB-001-GRY', 'SB-002-NVY', 'SB-003-BGE', 'SB-004-CHR', 'SB-005-TEA') ORDER BY sku;",
+  "rows": [
+    {
+      "id": "60001",
+      "sku": "SB-001-GRY"
+    },
+    {
+      "id": "60002",
+      "sku": "SB-002-NVY"
+    },
+    {
+      "id": "60003",
+      "sku": "SB-003-BGE"
+    },
+    {
+      "id": "60004",
+      "sku": "SB-004-CHR"
+    },
+    {
+      "id": "60005",
+      "sku": "SB-005-TEA"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tsku\n60001\tSB-001-GRY\n60002\tSB-002-NVY\n60003\tSB-003-BGE\n60004\tSB-004-CHR\n60005\tSB-005-TEA\n",
+  "stderr": "",
+  "execution_time_ms": 1609
+}

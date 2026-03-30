@@ -1,0 +1,13 @@
+{
+  "query": "SELECT id FROM material_suppliers WHERE code = 'TEST-SUP-001' LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id FROM material_suppliers WHERE code = 'TEST-SUP-001' LIMIT 1;",
+  "rows": [
+    {
+      "id": "30001"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\n30001\n",
+  "stderr": "",
+  "execution_time_ms": 1541
+}

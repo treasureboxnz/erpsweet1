@@ -1,0 +1,28 @@
+{
+  "query": "\n-- 查询批次总数和缺失数据的统计\nSELECT \n  COUNT(*) as total_variants,\n  SUM(CASE WHEN sellingPriceFOB IS NULL OR sellingPriceFOB = 0 THEN 1 ELSE 0 END) as missing_fob,\n  SUM(CASE WHEN sellingPriceRMB IS NULL OR sellingPriceRMB = 0 THEN 1 ELSE 0 END) as missing_rmb,\n  SUM(CASE WHEN cbm IS NULL OR cbm = 0 THEN 1 ELSE 0 END) as missing_cbm\nFROM product_variants;\n\n-- 查询外箱重量数据状态\nSELECT \n  COUNT(*) as total_boxes,\n  SUM(CASE WHEN grossWeight IS NULL OR grossWeight = 0 THEN 1 ELSE 0 END) as missing_gross_weight,\n  SUM(CASE WHEN netWeight IS NULL OR netWeight = 0 THEN 1 ELSE 0 END) as missing_net_weight,\n  SUM(CASE WHEN cbm IS NULL OR cbm = 0 THEN 1 ELSE 0 END) as missing_cbm\nFROM package_boxes;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- 查询批次总数和缺失数据的统计\nSELECT \n  COUNT(*) as total_variants,\n  SUM(CASE WHEN sellingPriceFOB IS NULL OR sellingPriceFOB = 0 THEN 1 ELSE 0 END) as missing_fob,\n  SUM(CASE WHEN sellingPriceRMB IS NULL OR sellingPriceRMB = 0 THEN 1 ELSE 0 END) as missing_rmb,\n  SUM(CASE WHEN cbm IS NULL OR cbm = 0 THEN 1 ELSE 0 END) as missing_cbm\nFROM product_variants;\n\n-- 查询外箱重量数据状态\nSELECT \n  COUNT(*) as total_boxes,\n  SUM(CASE WHEN grossWeight IS NULL OR grossWeight = 0 THEN 1 ELSE 0 END) as missing_gross_weight,\n  SUM(CASE WHEN netWeight IS NULL OR netWeight = 0 THEN 1 ELSE 0 END) as missing_net_weight,\n  SUM(CASE WHEN cbm IS NULL OR cbm = 0 THEN 1 ELSE 0 END) as missing_cbm\nFROM package_boxes;\n",
+  "rows": [
+    {
+      "total_variants": "91",
+      "missing_fob": "45",
+      "missing_rmb": "82",
+      "missing_cbm": "84"
+    },
+    {
+      "total_variants": "total_boxes",
+      "missing_fob": "missing_gross_weight",
+      "missing_rmb": "missing_net_weight",
+      "missing_cbm": "missing_cbm"
+    },
+    {
+      "total_variants": "18",
+      "missing_fob": "0",
+      "missing_rmb": "0",
+      "missing_cbm": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_variants\tmissing_fob\tmissing_rmb\tmissing_cbm\n91\t45\t82\t84\ntotal_boxes\tmissing_gross_weight\tmissing_net_weight\tmissing_cbm\n18\t0\t0\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1771
+}

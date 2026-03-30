@@ -1,0 +1,13 @@
+{
+  "query": "SELECT COUNT(*) as total_batches FROM product_batches;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT COUNT(*) as total_batches FROM product_batches;",
+  "rows": [
+    {
+      "total_batches": "80"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_batches\n80\n",
+  "stderr": "",
+  "execution_time_ms": 1534
+}

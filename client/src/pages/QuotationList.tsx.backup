@@ -1,0 +1,401 @@
+import { useState } from "react";
+import { Link } from "wouter";
+import { trpc } from "@/lib/trpc";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Select } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
+import { Plus, Search, FileText, CheckCircle2, XCircle, Clock, Send, Trash2, Download } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { toast as showToast } from "sonner";
+
+export default function QuotationList() {
+  const [page, setPage] = useState(1);
+  const [search, setSearch] = useState("");
+  const [status, setStatus] = useState<"draft" | "sent" | "accepted" | "rejected" | "expired" | undefined>();
+  const [selectedIds, setSelectedIds] = useState<number[]>([]);
+  const [isSelectMode, setIsSelectMode] = useState(false);
+  
+  const { data: quotationsData, isLoading, refetch } = trpc.quotations.list.useQuery({
+    page,
+    pageSize: 20,
+    status,
+    search,
+  });
+
+  const { data: stats } = trpc.quotations.stats.useQuery({});
+
+  const deleteMutation = trpc.quotations.delete.useMutation({
+    onSuccess: () => {
+      showToast.success("报价已删除");
+      refetch();
+    },
+    onError: (error) => {
+      showToast.error(`删除失败: ${error.message}`);
+    },
+  });
+
+  const duplicateMutation = trpc.quotations.duplicate.useMutation({
+    onSuccess: (data) => {
+      showToast.success(`新报价单号: ${data.quotationNumber}`);
+      refetch();
+    },
+    onError: (error) => {
+      showToast.error(`复制失败: ${error.message}`);
+    },
+  });
+
+  const batchDeleteMutation = trpc.quotations.batchDelete.useMutation({
+    onSuccess: () => {
+      showToast.success(`已删除 ${selectedIds.length} 个报价`);
+      setSelectedIds([]);
+      setIsSelectMode(false);
+      refetch();
+    },
+    onError: (error: any) => {
+      showToast.error(`批量删除失败: ${error.message}`);
+    },
+  });
+
+  const handleSelectAll = () => {
+    if (selectedIds.length === quotationsData?.items.length) {
+      setSelectedIds([]);
+    } else {
+      setSelectedIds(quotationsData?.items.map((q: any) => q.id) || []);
+    }
+  };
+
+  const handleSelectOne = (id: number) => {
+    setSelectedIds(prev => 
+      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
+    );
+  };
+
+  const handleBatchDelete = () => {
+    if (selectedIds.length === 0) {
+      showToast.error("请选择要删除的报价");
+      return;
+    }
+    if (confirm(`确定要删除 ${selectedIds.length} 个报价吗？`)) {
+      batchDeleteMutation.mutate({ ids: selectedIds });
+    }
+  };
+
+  const batchExportMutation = trpc.batchPdfExport.exportBatch.useMutation({
+    onSuccess: (data) => {
+      // Convert base64 to blob and download
+      const byteCharacters = atob(data.data);
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const blob = new Blob([byteArray], { type: 'application/zip' });
+      
+      // Create download link
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = data.filename;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+      
+      showToast.success(`已导出 ${data.count} 个报价`);
+      setSelectedIds([]);
+      setIsSelectMode(false);
+    },
+    onError: (error: any) => {
+      showToast.error(`导出失败: ${error.message}`);
+    },
+  });
+
+  const handleBatchExportPDF = () => {
+    if (selectedIds.length === 0) {
+      showToast.error("请选择要导出的报价");
+      return;
+    }
+    showToast.info(`正在导出 ${selectedIds.length} 个报价PDF...`);
+    batchExportMutation.mutate({ quotationIds: selectedIds });
+  };
+
+  const getStatusBadge = (status: string) => {
+    const statusConfig = {
+      draft: { label: "草稿", variant: "secondary" as const, icon: FileText },
+      sent: { label: "已发送", variant: "default" as const, icon: Send },
+      accepted: { label: "已接受", variant: "default" as const, icon: CheckCircle2 },
+      rejected: { label: "已拒绝", variant: "destructive" as const, icon: XCircle },
+      expired: { label: "已过期", variant: "outline" as const, icon: Clock },
+    };
+    
+    const config = statusConfig[status as keyof typeof statusConfig];
+    if (!config) return null;
+    
+    const Icon = config.icon;
+    return (
+      <Badge variant={config.variant} className="flex items-center gap-1">
+        <Icon className="h-3 w-3" />
+        {config.label}
+      </Badge>
+    );
+  };
+
+  const getModeBadge = (mode: string) => {
+    return mode === "fob_only" ? (
+      <Badge variant="outline">订单模式</Badge>
+    ) : (
+      <Badge variant="outline">批次模式</Badge>
+    );
+  };
+
+  return (
+    <div className="container mx-auto py-8">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h1 className="text-3xl font-bold">报价管理</h1>
+          <p className="text-muted-foreground mt-1">管理客户报价和价格提案</p>
+        </div>
+        <div className="flex gap-2">
+          {!isSelectMode ? (
+            <>
+              <Button variant="outline" onClick={() => setIsSelectMode(true)}>
+                批量操作
+              </Button>
+              <Link href="/quotations/create">
+                <Button>
+                  <Plus className="h-4 w-4 mr-2" />
+                  新建报价
+                </Button>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Button 
+                variant="outline" 
+                onClick={handleBatchExportPDF}
+                disabled={selectedIds.length === 0}
+              >
+                <Download className="h-4 w-4 mr-2" />
+                导出PDF ({selectedIds.length})
+              </Button>
+              <Button 
+                variant="destructive" 
+                onClick={handleBatchDelete}
+                disabled={selectedIds.length === 0 || batchDeleteMutation.isPending}
+              >
+                <Trash2 className="h-4 w-4 mr-2" />
+                删除 ({selectedIds.length})
+              </Button>
+              <Button variant="outline" onClick={() => { setIsSelectMode(false); setSelectedIds([]); }}>
+                取消
+              </Button>
+            </>
+          )}
+        </div>
+      </div>
+
+      {/* Statistics Cards */}
+      {stats && (
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+          <Card className="p-4">
+            <div className="text-sm text-muted-foreground">总报价数</div>
+            <div className="text-2xl font-bold">{stats.totalQuotations}</div>
+          </Card>
+          <Card className="p-4">
+            <div className="text-sm text-muted-foreground">草稿</div>
+            <div className="text-2xl font-bold">{stats.byStatus.draft}</div>
+          </Card>
+          <Card className="p-4">
+            <div className="text-sm text-muted-foreground">已发送</div>
+            <div className="text-2xl font-bold">{stats.byStatus.sent}</div>
+          </Card>
+          <Card className="p-4">
+            <div className="text-sm text-muted-foreground">已接受</div>
+            <div className="text-2xl font-bold text-green-600">{stats.byStatus.accepted}</div>
+          </Card>
+          <Card className="p-4">
+            <div className="text-sm text-muted-foreground">转化率</div>
+            <div className="text-2xl font-bold">{stats.conversionRate}%</div>
+          </Card>
+        </div>
+      )}
+
+      {/* Filters */}
+      <Card className="p-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="flex items-center gap-2">
+            <Search className="h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder="搜索报价单号或客户名称..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+          <Select
+            value={status || "all"}
+            onValueChange={(value) => setStatus(value === "all" ? undefined : value as any)}
+          >
+            <option value="all">全部状态</option>
+            <option value="draft">草稿</option>
+            <option value="sent">已发送</option>
+            <option value="accepted">已接受</option>
+            <option value="rejected">已拒绝</option>
+            <option value="expired">已过期</option>
+          </Select>
+          <Button variant="outline" onClick={() => { setSearch(""); setStatus(undefined); }}>
+            重置筛选
+          </Button>
+        </div>
+      </Card>
+
+      {/* Quotations Table */}
+      <Card>
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead className="border-b">
+              <tr className="text-left">
+                {isSelectMode && (
+                  <th className="p-4 font-medium w-12">
+                    <Checkbox 
+                      checked={selectedIds.length === quotationsData?.items.length && quotationsData?.items.length > 0}
+                      onCheckedChange={handleSelectAll}
+                    />
+                  </th>
+                )}
+                <th className="p-4 font-medium">报价单号</th>
+                <th className="p-4 font-medium">客户名称</th>
+                <th className="p-4 font-medium">报价模式</th>
+                <th className="p-4 font-medium">金额</th>
+                <th className="p-4 font-medium">状态</th>
+                <th className="p-4 font-medium">有效期</th>
+                <th className="p-4 font-medium">创建时间</th>
+                <th className="p-4 font-medium">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              {isLoading ? (
+                <tr>
+                  <td colSpan={8} className="p-8 text-center text-muted-foreground">
+                    加载中...
+                  </td>
+                </tr>
+              ) : quotationsData?.items.length === 0 ? (
+                <tr>
+                  <td colSpan={8} className="p-8 text-center text-muted-foreground">
+                    暂无报价记录
+                  </td>
+                </tr>
+              ) : (
+                quotationsData?.items.map((quotation) => (
+                  <tr key={quotation.id} className="border-b hover:bg-muted/50">
+                    {isSelectMode && (
+                      <td className="p-4">
+                        <Checkbox 
+                          checked={selectedIds.includes(quotation.id)}
+                          onCheckedChange={() => handleSelectOne(quotation.id)}
+                        />
+                      </td>
+                    )}
+                    <td className="p-4">
+                      <Link href={`/quotations/${quotation.id}`}>
+                        <span className="text-primary hover:underline font-medium">
+                          {quotation.quotationNumber}
+                        </span>
+                      </Link>
+                    </td>
+                    <td className="p-4">{quotation.customerName}</td>
+                    <td className="p-4">{getModeBadge(quotation.quotationMode)}</td>
+                    <td className="p-4 font-medium">
+                      {quotation.currency} {parseFloat(quotation.totalAmount).toLocaleString()}
+                    </td>
+                    <td className="p-4">{getStatusBadge(quotation.status)}</td>
+                    <td className="p-4">
+                      {quotation.validUntil ? (
+                        <span className={
+                          new Date(quotation.validUntil) < new Date() 
+                            ? "text-red-600" 
+                            : ""
+                        }>
+                          {new Date(quotation.validUntil).toLocaleDateString()}
+                        </span>
+                      ) : (
+                        <span className="text-muted-foreground">-</span>
+                      )}
+                    </td>
+                    <td className="p-4 text-muted-foreground">
+                      {new Date(quotation.createdAt).toLocaleDateString()}
+                    </td>
+                    <td className="p-4">
+                      <div className="flex items-center gap-2">
+                        <Link href={`/quotations/${quotation.id}`}>
+                          <Button variant="ghost" size="sm">查看</Button>
+                        </Link>
+                        <Link href={`/quotations/${quotation.id}/edit`}>
+                          <Button variant="ghost" size="sm">编辑</Button>
+                        </Link>
+                        {quotation.status === "draft" && (
+                          <>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => {
+                                if (confirm("确定要删除这个报价吗？")) {
+                                  deleteMutation.mutate({ id: quotation.id });
+                                }
+                              }}
+                            >
+                              删除
+                            </Button>
+                          </>
+                        )}
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => {
+                            duplicateMutation.mutate({ quotationId: quotation.id });
+                          }}
+                        >
+                          复制
+                        </Button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Pagination */}
+        {quotationsData && quotationsData.total > quotationsData.pageSize && (
+          <div className="flex items-center justify-between p-4 border-t">
+            <div className="text-sm text-muted-foreground">
+              共 {quotationsData.total} 条记录，第 {page} / {Math.ceil(quotationsData.total / quotationsData.pageSize)} 页
+            </div>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={page === 1}
+                onClick={() => setPage(page - 1)}
+              >
+                上一页
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={page >= Math.ceil(quotationsData.total / quotationsData.pageSize)}
+                onClick={() => setPage(page + 1)}
+              >
+                下一页
+              </Button>
+            </div>
+          </div>
+        )}
+      </Card>
+    </div>
+  );
+}

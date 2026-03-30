@@ -1,0 +1,1 @@
+ALTER TABLE `order_finance` ADD `supplierCurrency` enum('USD','RMB','EUR','GBP') DEFAULT 'RMB';

@@ -1,0 +1,9 @@
+{
+  "query": "SELECT termNumber, titleEn, isEnabled FROM invoice_terms_templates ORDER BY termNumber LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT termNumber, titleEn, isEnabled FROM invoice_terms_templates ORDER BY termNumber LIMIT 20;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1744
+}

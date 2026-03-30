@@ -1,0 +1,622 @@
+{
+  "query": "SELECT \n  mc.id, \n  mc.colorCode, \n  mc.colorName, \n  mc.imageUrl,\n  mb.boardNumber,\n  ms.code as supplierCode,\n  ms.name as supplierName\nFROM material_colors mc\nLEFT JOIN material_boards mb ON mc.boardId = mb.id\nLEFT JOIN material_suppliers ms ON mb.supplierId = ms.id\nORDER BY mc.id\nLIMIT 100;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT \n  mc.id, \n  mc.colorCode, \n  mc.colorName, \n  mc.imageUrl,\n  mb.boardNumber,\n  ms.code as supplierCode,\n  ms.name as supplierName\nFROM material_colors mc\nLEFT JOIN material_boards mb ON mc.boardId = mb.id\nLEFT JOIN material_suppliers ms ON mb.supplierId = ms.id\nORDER BY mc.id\nLIMIT 100;",
+  "rows": [
+    {
+      "id": "2",
+      "colorCode": "01",
+      "colorName": "白色羊羔绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/yXKbxQGDeRhWDSBG.jpg",
+      "boardNumber": "A01",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "3",
+      "colorCode": "02",
+      "colorName": "灰色天鹅绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/uQFrTGnRMogUrAfG.jpg",
+      "boardNumber": "A01",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "4",
+      "colorCode": "03",
+      "colorName": "米色亚麻布",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/MDKuuglehUgYafbo.jpg",
+      "boardNumber": "A01",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "5",
+      "colorCode": "01",
+      "colorName": "深蓝色天鹅绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ultfhOkuWWxVrEyr.jpg",
+      "boardNumber": "M02",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "6",
+      "colorCode": "02",
+      "colorName": "浅绿色棉布",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/XDRqtVAtpdcqmUWg.jpg",
+      "boardNumber": "M02",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "7",
+      "colorCode": "03",
+      "colorName": "炭灰色羊毛",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/zIXrebGmodZqJDuJ.jpg",
+      "boardNumber": "M02",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "8",
+      "colorCode": "01",
+      "colorName": "奶油色结子呢",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/JreMkXkWFVBXzgWO.jpg",
+      "boardNumber": "C03",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "9",
+      "colorCode": "02",
+      "colorName": "酒红色雪尼尔",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/nbNzNCqYVTUOJWjI.jpg",
+      "boardNumber": "C03",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "10",
+      "colorCode": "03",
+      "colorName": "橄榄绿帆布",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/AnciBXoaKAKOFCVl.jpg",
+      "boardNumber": "C03",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "11",
+      "colorCode": "04",
+      "colorName": "腮红粉丝绸",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ftVphIvlXSyYuIkN.jpg",
+      "boardNumber": "C03",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "12",
+      "colorCode": "01",
+      "colorName": "灰褐色麂皮",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/GvTpVMvWZgehRFad.jpg",
+      "boardNumber": "D04",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "13",
+      "colorCode": "02",
+      "colorName": "芥末黄灯芯绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/iLRVcSbpoZoJLjMk.jpg",
+      "boardNumber": "D04",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "14",
+      "colorCode": "03",
+      "colorName": "蓝绿色粗花呢",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/UCAmWvrOvdRNfIjM.jpg",
+      "boardNumber": "D04",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "15",
+      "colorCode": "01",
+      "colorName": "象牙白提花",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/TEvLdhAknYFrlNur.jpg",
+      "boardNumber": "E05",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "16",
+      "colorCode": "02",
+      "colorName": "铁锈橙结子呢",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/WAdpbjHZYHVoJsPc.jpg",
+      "boardNumber": "E05",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "17",
+      "colorCode": "03",
+      "colorName": "白色羊羔绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/yXKbxQGDeRhWDSBG.jpg",
+      "boardNumber": "E05",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "18",
+      "colorCode": "04",
+      "colorName": "灰色天鹅绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/uQFrTGnRMogUrAfG.jpg",
+      "boardNumber": "E05",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "19",
+      "colorCode": "05",
+      "colorName": "米色亚麻布",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/MDKuuglehUgYafbo.jpg",
+      "boardNumber": "E05",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "20",
+      "colorCode": "01",
+      "colorName": "深蓝色天鹅绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ultfhOkuWWxVrEyr.jpg",
+      "boardNumber": "A01",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "21",
+      "colorCode": "02",
+      "colorName": "浅绿色棉布",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/XDRqtVAtpdcqmUWg.jpg",
+      "boardNumber": "A01",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "22",
+      "colorCode": "03",
+      "colorName": "炭灰色羊毛",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/zIXrebGmodZqJDuJ.jpg",
+      "boardNumber": "A01",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "23",
+      "colorCode": "04",
+      "colorName": "奶油色结子呢",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/JreMkXkWFVBXzgWO.jpg",
+      "boardNumber": "A01",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "24",
+      "colorCode": "01",
+      "colorName": "酒红色雪尼尔",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/nbNzNCqYVTUOJWjI.jpg",
+      "boardNumber": "M02",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "25",
+      "colorCode": "02",
+      "colorName": "橄榄绿帆布",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/AnciBXoaKAKOFCVl.jpg",
+      "boardNumber": "M02",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "26",
+      "colorCode": "03",
+      "colorName": "腮红粉丝绸",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ftVphIvlXSyYuIkN.jpg",
+      "boardNumber": "M02",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "27",
+      "colorCode": "01",
+      "colorName": "灰褐色麂皮",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/GvTpVMvWZgehRFad.jpg",
+      "boardNumber": "C03",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "28",
+      "colorCode": "02",
+      "colorName": "芥末黄灯芯绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/iLRVcSbpoZoJLjMk.jpg",
+      "boardNumber": "C03",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "29",
+      "colorCode": "03",
+      "colorName": "蓝绿色粗花呢",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/UCAmWvrOvdRNfIjM.jpg",
+      "boardNumber": "C03",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "30",
+      "colorCode": "01",
+      "colorName": "象牙白提花",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/TEvLdhAknYFrlNur.jpg",
+      "boardNumber": "D04",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "31",
+      "colorCode": "02",
+      "colorName": "铁锈橙结子呢",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/WAdpbjHZYHVoJsPc.jpg",
+      "boardNumber": "D04",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "32",
+      "colorCode": "03",
+      "colorName": "白色羊羔绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/yXKbxQGDeRhWDSBG.jpg",
+      "boardNumber": "D04",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "33",
+      "colorCode": "04",
+      "colorName": "灰色天鹅绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/uQFrTGnRMogUrAfG.jpg",
+      "boardNumber": "D04",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "34",
+      "colorCode": "05",
+      "colorName": "米色亚麻布",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/MDKuuglehUgYafbo.jpg",
+      "boardNumber": "D04",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "35",
+      "colorCode": "01",
+      "colorName": "深蓝色天鹅绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ultfhOkuWWxVrEyr.jpg",
+      "boardNumber": "E05",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "36",
+      "colorCode": "02",
+      "colorName": "浅绿色棉布",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/XDRqtVAtpdcqmUWg.jpg",
+      "boardNumber": "E05",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "37",
+      "colorCode": "03",
+      "colorName": "炭灰色羊毛",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/zIXrebGmodZqJDuJ.jpg",
+      "boardNumber": "E05",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "38",
+      "colorCode": "04",
+      "colorName": "奶油色结子呢",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/JreMkXkWFVBXzgWO.jpg",
+      "boardNumber": "E05",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "39",
+      "colorCode": "05",
+      "colorName": "酒红色雪尼尔",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/nbNzNCqYVTUOJWjI.jpg",
+      "boardNumber": "E05",
+      "supplierCode": "JX",
+      "supplierName": "锦绣布业"
+    },
+    {
+      "id": "40",
+      "colorCode": "01",
+      "colorName": "橄榄绿帆布",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/AnciBXoaKAKOFCVl.jpg",
+      "boardNumber": "A01",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "41",
+      "colorCode": "02",
+      "colorName": "腮红粉丝绸",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ftVphIvlXSyYuIkN.jpg",
+      "boardNumber": "A01",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "42",
+      "colorCode": "03",
+      "colorName": "灰褐色麂皮",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/GvTpVMvWZgehRFad.jpg",
+      "boardNumber": "A01",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "43",
+      "colorCode": "04",
+      "colorName": "芥末黄灯芯绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/iLRVcSbpoZoJLjMk.jpg",
+      "boardNumber": "A01",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "44",
+      "colorCode": "05",
+      "colorName": "蓝绿色粗花呢",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/UCAmWvrOvdRNfIjM.jpg",
+      "boardNumber": "A01",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "45",
+      "colorCode": "01",
+      "colorName": "象牙白提花",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/TEvLdhAknYFrlNur.jpg",
+      "boardNumber": "M02",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "46",
+      "colorCode": "02",
+      "colorName": "铁锈橙结子呢",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/WAdpbjHZYHVoJsPc.jpg",
+      "boardNumber": "M02",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "47",
+      "colorCode": "03",
+      "colorName": "白色羊羔绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/yXKbxQGDeRhWDSBG.jpg",
+      "boardNumber": "M02",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "48",
+      "colorCode": "01",
+      "colorName": "灰色天鹅绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/uQFrTGnRMogUrAfG.jpg",
+      "boardNumber": "C03",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "49",
+      "colorCode": "02",
+      "colorName": "米色亚麻布",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/MDKuuglehUgYafbo.jpg",
+      "boardNumber": "C03",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "50",
+      "colorCode": "03",
+      "colorName": "深蓝色天鹅绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ultfhOkuWWxVrEyr.jpg",
+      "boardNumber": "C03",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "51",
+      "colorCode": "04",
+      "colorName": "浅绿色棉布",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/XDRqtVAtpdcqmUWg.jpg",
+      "boardNumber": "C03",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "52",
+      "colorCode": "05",
+      "colorName": "炭灰色羊毛",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/zIXrebGmodZqJDuJ.jpg",
+      "boardNumber": "C03",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "53",
+      "colorCode": "01",
+      "colorName": "奶油色结子呢",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/JreMkXkWFVBXzgWO.jpg",
+      "boardNumber": "D04",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "54",
+      "colorCode": "02",
+      "colorName": "酒红色雪尼尔",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/nbNzNCqYVTUOJWjI.jpg",
+      "boardNumber": "D04",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "55",
+      "colorCode": "03",
+      "colorName": "橄榄绿帆布",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/AnciBXoaKAKOFCVl.jpg",
+      "boardNumber": "D04",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "56",
+      "colorCode": "01",
+      "colorName": "腮红粉丝绸",
+      "imageUrl": "NULL",
+      "boardNumber": "E05",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "57",
+      "colorCode": "02",
+      "colorName": "灰褐色麂皮",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/GvTpVMvWZgehRFad.jpg",
+      "boardNumber": "E05",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "58",
+      "colorCode": "03",
+      "colorName": "芥末黄灯芯绒",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/iLRVcSbpoZoJLjMk.jpg",
+      "boardNumber": "E05",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "59",
+      "colorCode": "04",
+      "colorName": "蓝绿色粗花呢",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/UCAmWvrOvdRNfIjM.jpg",
+      "boardNumber": "E05",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "60",
+      "colorCode": "05",
+      "colorName": "象牙白提花",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/TEvLdhAknYFrlNur.jpg",
+      "boardNumber": "E05",
+      "supplierCode": "DF",
+      "supplierName": "东方纺织"
+    },
+    {
+      "id": "61",
+      "colorCode": "01",
+      "colorName": "测试蓝色",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/material-boards/c37e5cfb6d73e33d956143d796d0b0dd.webp",
+      "boardNumber": "B01",
+      "supplierCode": "TEST",
+      "supplierName": "测试供应商"
+    },
+    {
+      "id": "30001",
+      "colorCode": "TEST-01",
+      "colorName": "测试蓝色",
+      "imageUrl": "NULL",
+      "boardNumber": "TEST-BOARD-001",
+      "supplierCode": "TEST-SUP-001",
+      "supplierName": "测试供应商A"
+    },
+    {
+      "id": "30002",
+      "colorCode": "32",
+      "colorName": "黄色",
+      "imageUrl": "NULL",
+      "boardNumber": "B01",
+      "supplierCode": "TEST",
+      "supplierName": "测试供应商"
+    },
+    {
+      "id": "30003",
+      "colorCode": "03",
+      "colorName": "NULL",
+      "imageUrl": "NULL",
+      "boardNumber": "A01",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "30004",
+      "colorCode": "05",
+      "colorName": "NULL",
+      "imageUrl": "NULL",
+      "boardNumber": "A01",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "30005",
+      "colorCode": "04",
+      "colorName": "NULL",
+      "imageUrl": "NULL",
+      "boardNumber": "A01",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "30006",
+      "colorCode": "06",
+      "colorName": "NULL",
+      "imageUrl": "NULL",
+      "boardNumber": "A01",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "30007",
+      "colorCode": "07",
+      "colorName": "NULL",
+      "imageUrl": "NULL",
+      "boardNumber": "A01",
+      "supplierCode": "HM",
+      "supplierName": "华美纺织"
+    },
+    {
+      "id": "30008",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/OjqPhcBgxLDYsVOk.png",
+      "boardNumber": "DEFAULT-BOARD",
+      "supplierCode": "SYS-DEFAULT",
+      "supplierName": "系统默认"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcolorCode\tcolorName\timageUrl\tboardNumber\tsupplierCode\tsupplierName\n2\t01\t白色羊羔绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/yXKbxQGDeRhWDSBG.jpg\tA01\tHM\t华美纺织\n3\t02\t灰色天鹅绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/uQFrTGnRMogUrAfG.jpg\tA01\tHM\t华美纺织\n4\t03\t米色亚麻布\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/MDKuuglehUgYafbo.jpg\tA01\tHM\t华美纺织\n5\t01\t深蓝色天鹅绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ultfhOkuWWxVrEyr.jpg\tM02\tHM\t华美纺织\n6\t02\t浅绿色棉布\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/XDRqtVAtpdcqmUWg.jpg\tM02\tHM\t华美纺织\n7\t03\t炭灰色羊毛\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/zIXrebGmodZqJDuJ.jpg\tM02\tHM\t华美纺织\n8\t01\t奶油色结子呢\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/JreMkXkWFVBXzgWO.jpg\tC03\tHM\t华美纺织\n9\t02\t酒红色雪尼尔\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/nbNzNCqYVTUOJWjI.jpg\tC03\tHM\t华美纺织\n10\t03\t橄榄绿帆布\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/AnciBXoaKAKOFCVl.jpg\tC03\tHM\t华美纺织\n11\t04\t腮红粉丝绸\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ftVphIvlXSyYuIkN.jpg\tC03\tHM\t华美纺织\n12\t01\t灰褐色麂皮\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/GvTpVMvWZgehRFad.jpg\tD04\tHM\t华美纺织\n13\t02\t芥末黄灯芯绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/iLRVcSbpoZoJLjMk.jpg\tD04\tHM\t华美纺织\n14\t03\t蓝绿色粗花呢\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/UCAmWvrOvdRNfIjM.jpg\tD04\tHM\t华美纺织\n15\t01\t象牙白提花\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/TEvLdhAknYFrlNur.jpg\tE05\tHM\t华美纺织\n16\t02\t铁锈橙结子呢\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/WAdpbjHZYHVoJsPc.jpg\tE05\tHM\t华美纺织\n17\t03\t白色羊羔绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/yXKbxQGDeRhWDSBG.jpg\tE05\tHM\t华美纺织\n18\t04\t灰色天鹅绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/uQFrTGnRMogUrAfG.jpg\tE05\tHM\t华美纺织\n19\t05\t米色亚麻布\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/MDKuuglehUgYafbo.jpg\tE05\tHM\t华美纺织\n20\t01\t深蓝色天鹅绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ultfhOkuWWxVrEyr.jpg\tA01\tJX\t锦绣布业\n21\t02\t浅绿色棉布\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/XDRqtVAtpdcqmUWg.jpg\tA01\tJX\t锦绣布业\n22\t03\t炭灰色羊毛\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/zIXrebGmodZqJDuJ.jpg\tA01\tJX\t锦绣布业\n23\t04\t奶油色结子呢\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/JreMkXkWFVBXzgWO.jpg\tA01\tJX\t锦绣布业\n24\t01\t酒红色雪尼尔\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/nbNzNCqYVTUOJWjI.jpg\tM02\tJX\t锦绣布业\n25\t02\t橄榄绿帆布\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/AnciBXoaKAKOFCVl.jpg\tM02\tJX\t锦绣布业\n26\t03\t腮红粉丝绸\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ftVphIvlXSyYuIkN.jpg\tM02\tJX\t锦绣布业\n27\t01\t灰褐色麂皮\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/GvTpVMvWZgehRFad.jpg\tC03\tJX\t锦绣布业\n28\t02\t芥末黄灯芯绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/iLRVcSbpoZoJLjMk.jpg\tC03\tJX\t锦绣布业\n29\t03\t蓝绿色粗花呢\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/UCAmWvrOvdRNfIjM.jpg\tC03\tJX\t锦绣布业\n30\t01\t象牙白提花\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/TEvLdhAknYFrlNur.jpg\tD04\tJX\t锦绣布业\n31\t02\t铁锈橙结子呢\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/WAdpbjHZYHVoJsPc.jpg\tD04\tJX\t锦绣布业\n32\t03\t白色羊羔绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/yXKbxQGDeRhWDSBG.jpg\tD04\tJX\t锦绣布业\n33\t04\t灰色天鹅绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/uQFrTGnRMogUrAfG.jpg\tD04\tJX\t锦绣布业\n34\t05\t米色亚麻布\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/MDKuuglehUgYafbo.jpg\tD04\tJX\t锦绣布业\n35\t01\t深蓝色天鹅绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ultfhOkuWWxVrEyr.jpg\tE05\tJX\t锦绣布业\n36\t02\t浅绿色棉布\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/XDRqtVAtpdcqmUWg.jpg\tE05\tJX\t锦绣布业\n37\t03\t炭灰色羊毛\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/zIXrebGmodZqJDuJ.jpg\tE05\tJX\t锦绣布业\n38\t04\t奶油色结子呢\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/JreMkXkWFVBXzgWO.jpg\tE05\tJX\t锦绣布业\n39\t05\t酒红色雪尼尔\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/nbNzNCqYVTUOJWjI.jpg\tE05\tJX\t锦绣布业\n40\t01\t橄榄绿帆布\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/AnciBXoaKAKOFCVl.jpg\tA01\tDF\t东方纺织\n41\t02\t腮红粉丝绸\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ftVphIvlXSyYuIkN.jpg\tA01\tDF\t东方纺织\n42\t03\t灰褐色麂皮\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/GvTpVMvWZgehRFad.jpg\tA01\tDF\t东方纺织\n43\t04\t芥末黄灯芯绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/iLRVcSbpoZoJLjMk.jpg\tA01\tDF\t东方纺织\n44\t05\t蓝绿色粗花呢\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/UCAmWvrOvdRNfIjM.jpg\tA01\tDF\t东方纺织\n45\t01\t象牙白提花\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/TEvLdhAknYFrlNur.jpg\tM02\tDF\t东方纺织\n46\t02\t铁锈橙结子呢\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/WAdpbjHZYHVoJsPc.jpg\tM02\tDF\t东方纺织\n47\t03\t白色羊羔绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/yXKbxQGDeRhWDSBG.jpg\tM02\tDF\t东方纺织\n48\t01\t灰色天鹅绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/uQFrTGnRMogUrAfG.jpg\tC03\tDF\t东方纺织\n49\t02\t米色亚麻布\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/MDKuuglehUgYafbo.jpg\tC03\tDF\t东方纺织\n50\t03\t深蓝色天鹅绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/ultfhOkuWWxVrEyr.jpg\tC03\tDF\t东方纺织\n51\t04\t浅绿色棉布\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/XDRqtVAtpdcqmUWg.jpg\tC03\tDF\t东方纺织\n52\t05\t炭灰色羊毛\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/zIXrebGmodZqJDuJ.jpg\tC03\tDF\t东方纺织\n53\t01\t奶油色结子呢\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/JreMkXkWFVBXzgWO.jpg\tD04\tDF\t东方纺织\n54\t02\t酒红色雪尼尔\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/nbNzNCqYVTUOJWjI.jpg\tD04\tDF\t东方纺织\n55\t03\t橄榄绿帆布\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/AnciBXoaKAKOFCVl.jpg\tD04\tDF\t东方纺织\n56\t01\t腮红粉丝绸\tNULL\tE05\tDF\t东方纺织\n57\t02\t灰褐色麂皮\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/GvTpVMvWZgehRFad.jpg\tE05\tDF\t东方纺织\n58\t03\t芥末黄灯芯绒\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/iLRVcSbpoZoJLjMk.jpg\tE05\tDF\t东方纺织\n59\t04\t蓝绿色粗花呢\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/UCAmWvrOvdRNfIjM.jpg\tE05\tDF\t东方纺织\n60\t05\t象牙白提花\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/TEvLdhAknYFrlNur.jpg\tE05\tDF\t东方纺织\n61\t01\t测试蓝色\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/material-boards/c37e5cfb6d73e33d956143d796d0b0dd.webp\tB01\tTEST\t测试供应商\n30001\tTEST-01\t测试蓝色\tNULL\tTEST-BOARD-001\tTEST-SUP-001\t测试供应商A\n30002\t32\t黄色\tNULL\tB01\tTEST\t测试供应商\n30003\t03\tNULL\tNULL\tA01\tHM\t华美纺织\n30004\t05\tNULL\tNULL\tA01\tHM\t华美纺织\n30005\t04\tNULL\tNULL\tA01\tHM\t华美纺织\n30006\t06\tNULL\tNULL\tA01\tHM\t华美纺织\n30007\t07\tNULL\tNULL\tA01\tHM\t华美纺织\n30008\tORIGINAL-ORIG-01\tOriginal\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/OjqPhcBgxLDYsVOk.png\tDEFAULT-BOARD\tSYS-DEFAULT\t系统默认\n",
+  "stderr": "",
+  "execution_time_ms": 1534
+}

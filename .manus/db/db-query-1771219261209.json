@@ -1,0 +1,9 @@
+{
+  "query": "\nINSERT INTO variant_pricing (\n  variantId,\n  factoryCostRmbIncTax,\n  sellingPriceRmbIncTax,\n  sellingPriceFobL1,\n  effectiveDate,\n  isCurrent,\n  createdAt\n)\nSELECT \n  id as variantId,\n  costPriceRMB as factoryCostRmbIncTax,\n  sellingPriceRMB as sellingPriceRmbIncTax,\n  sellingPriceFOB as sellingPriceFobL1,\n  NOW() as effectiveDate,\n  1 as isCurrent,\n  NOW() as createdAt\nFROM product_variants\nWHERE (sellingPriceFOB IS NOT NULL OR sellingPriceRMB IS NOT NULL OR costPriceRMB IS NOT NULL)\n  AND id NOT IN (SELECT variantId FROM variant_pricing);\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nINSERT INTO variant_pricing (\n  variantId,\n  factoryCostRmbIncTax,\n  sellingPriceRmbIncTax,\n  sellingPriceFobL1,\n  effectiveDate,\n  isCurrent,\n  createdAt\n)\nSELECT \n  id as variantId,\n  costPriceRMB as factoryCostRmbIncTax,\n  sellingPriceRMB as sellingPriceRmbIncTax,\n  sellingPriceFOB as sellingPriceFobL1,\n  NOW() as effectiveDate,\n  1 as isCurrent,\n  NOW() as createdAt\nFROM product_variants\nWHERE (sellingPriceFOB IS NOT NULL OR sellingPriceRMB IS NOT NULL OR costPriceRMB IS NOT NULL)\n  AND id NOT IN (SELECT variantId FROM variant_pricing);\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1499
+}

@@ -1,0 +1,52 @@
+{
+  "query": "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'material_boards' ORDER BY ORDINAL_POSITION;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'material_boards' ORDER BY ORDINAL_POSITION;",
+  "rows": [
+    {
+      "COLUMN_NAME": "id"
+    },
+    {
+      "COLUMN_NAME": "supplierId"
+    },
+    {
+      "COLUMN_NAME": "boardNumber"
+    },
+    {
+      "COLUMN_NAME": "boardName"
+    },
+    {
+      "COLUMN_NAME": "pricePerMeter"
+    },
+    {
+      "COLUMN_NAME": "currency"
+    },
+    {
+      "COLUMN_NAME": "minOrderQuantity"
+    },
+    {
+      "COLUMN_NAME": "leadTime"
+    },
+    {
+      "COLUMN_NAME": "description"
+    },
+    {
+      "COLUMN_NAME": "notes"
+    },
+    {
+      "COLUMN_NAME": "status"
+    },
+    {
+      "COLUMN_NAME": "createdAt"
+    },
+    {
+      "COLUMN_NAME": "updatedAt"
+    },
+    {
+      "COLUMN_NAME": "materialType"
+    }
+  ],
+  "messages": [],
+  "stdout": "COLUMN_NAME\nid\nsupplierId\nboardNumber\nboardName\npricePerMeter\ncurrency\nminOrderQuantity\nleadTime\ndescription\nnotes\nstatus\ncreatedAt\nupdatedAt\nmaterialType\n",
+  "stderr": "",
+  "execution_time_ms": 1595
+}

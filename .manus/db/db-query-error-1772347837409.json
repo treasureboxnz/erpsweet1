@@ -1,0 +1,8 @@
+{
+  "query": "\n-- 查询所有批次的价格和CBM状态\nSELECT \n  pv.id as variant_id,\n  pv.productId,\n  pv.variantName,\n  pv.variantCode,\n  pv.productLength,\n  pv.productWidth,\n  pv.productHeight,\n  pv.cbm,\n  pv.grossWeight,\n  pv.netWeight,\n  pv.isDefault,\n  pv.supplierId,\n  -- 检查是否有价格\n  (SELECT COUNT(*) FROM product_variant_prices pvp WHERE pvp.variantId = pv.id) as price_count,\n  -- 检查是否有材料\n  (SELECT COUNT(*) FROM variant_materials vm WHERE vm.variantId = pv.id) as material_count\nFROM product_variants pv\nORDER BY pv.productId, pv.id;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- 查询所有批次的价格和CBM状态\nSELECT \n  pv.id as variant_id,\n  pv.productId,\n  pv.variantName,\n  pv.variantCode,\n  pv.productLength,\n  pv.productWidth,\n  pv.productHeight,\n  pv.cbm,\n  pv.grossWeight,\n  pv.netWeight,\n  pv.isDefault,\n  pv.supplierId,\n  -- 检查是否有价格\n  (SELECT COUNT(*) FROM product_variant_prices pvp WHERE pvp.variantId = pv.id) as price_count,\n  -- 检查是否有材料\n  (SELECT COUNT(*) FROM variant_materials vm WHERE vm.variantId = pv.id) as material_count\nFROM product_variants pv\nORDER BY pv.productId, pv.id;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1146 (42S02) at line 3: Table '5qtmwqjey7efv8qjhvh9i8.product_variant_prices' doesn't exist"
+  ]
+}

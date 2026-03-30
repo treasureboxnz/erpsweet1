@@ -1,0 +1,21 @@
+{
+  "query": "\nSELECT \n  oi.id as order_item_id,\n  oi.productId,\n  oi.variantId,\n  pv.variantCode,\n  pv.materialColorId,\n  mc.colorCode,\n  mc.colorName,\n  mc.imageUrl as materialColor_imageUrl,\n  (SELECT COUNT(*) FROM variant_materials vm WHERE vm.variantId = pv.id) as variant_materials_count\nFROM order_items oi\nLEFT JOIN product_variants pv ON oi.variantId = pv.id\nLEFT JOIN material_colors mc ON pv.materialColorId = mc.id\nWHERE oi.orderId = 240001\nORDER BY oi.id\nLIMIT 1;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  oi.id as order_item_id,\n  oi.productId,\n  oi.variantId,\n  pv.variantCode,\n  pv.materialColorId,\n  mc.colorCode,\n  mc.colorName,\n  mc.imageUrl as materialColor_imageUrl,\n  (SELECT COUNT(*) FROM variant_materials vm WHERE vm.variantId = pv.id) as variant_materials_count\nFROM order_items oi\nLEFT JOIN product_variants pv ON oi.variantId = pv.id\nLEFT JOIN material_colors mc ON pv.materialColorId = mc.id\nWHERE oi.orderId = 240001\nORDER BY oi.id\nLIMIT 1;\n",
+  "rows": [
+    {
+      "order_item_id": "240003",
+      "productId": "60016",
+      "variantId": "120084",
+      "variantCode": "DC-001-GRY-V003",
+      "materialColorId": "30008",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original",
+      "materialColor_imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/SrrIqBNgvMhYuqPB.png",
+      "variant_materials_count": "2"
+    }
+  ],
+  "messages": [],
+  "stdout": "order_item_id\tproductId\tvariantId\tvariantCode\tmaterialColorId\tcolorCode\tcolorName\tmaterialColor_imageUrl\tvariant_materials_count\n240003\t60016\t120084\tDC-001-GRY-V003\t30008\tORIGINAL-ORIG-01\tOriginal\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/SrrIqBNgvMhYuqPB.png\t2\n",
+  "stderr": "",
+  "execution_time_ms": 1513
+}

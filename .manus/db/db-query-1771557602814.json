@@ -1,0 +1,19 @@
+{
+  "query": "\nSELECT mc.id, mc.colorCode, mc.colorName, mc.imageUrl, mc.thumbnailUrl, mb.boardNumber, ms.code as supplierCode\nFROM material_colors mc\nLEFT JOIN material_boards mb ON mc.boardId = mb.id\nLEFT JOIN material_suppliers ms ON mb.supplierId = ms.id\nWHERE mc.colorCode = 'ORIGINAL-ORIG-01'\nLIMIT 1;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT mc.id, mc.colorCode, mc.colorName, mc.imageUrl, mc.thumbnailUrl, mb.boardNumber, ms.code as supplierCode\nFROM material_colors mc\nLEFT JOIN material_boards mb ON mc.boardId = mb.id\nLEFT JOIN material_suppliers ms ON mb.supplierId = ms.id\nWHERE mc.colorCode = 'ORIGINAL-ORIG-01'\nLIMIT 1;\n",
+  "rows": [
+    {
+      "id": "30008",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/SrrIqBNgvMhYuqPB.png",
+      "thumbnailUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/LENaRBZddVTqNAtz.png",
+      "boardNumber": "DEFAULT-BOARD",
+      "supplierCode": "SYS-DEFAULT"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcolorCode\tcolorName\timageUrl\tthumbnailUrl\tboardNumber\tsupplierCode\n30008\tORIGINAL-ORIG-01\tOriginal\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/SrrIqBNgvMhYuqPB.png\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/LENaRBZddVTqNAtz.png\tDEFAULT-BOARD\tSYS-DEFAULT\n",
+  "stderr": "",
+  "execution_time_ms": 1489
+}

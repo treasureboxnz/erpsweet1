@@ -1,0 +1,65 @@
+{
+  "query": "\nSELECT id, name, LEFT(imageUrl, 60) as imageUrl_preview\nFROM products\nWHERE id IN (60002,60003,60004,60005,60007,60008,60009,60010,60013,60014,60015)\nORDER BY id;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT id, name, LEFT(imageUrl, 60) as imageUrl_preview\nFROM products\nWHERE id IN (60002,60003,60004,60005,60007,60008,60009,60010,60013,60014,60015)\nORDER BY id;\n",
+  "rows": [
+    {
+      "id": "60002",
+      "name": "Luxury Velvet Sofa Bed - Navy Blue",
+      "imageUrl_preview": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt"
+    },
+    {
+      "id": "60003",
+      "name": "Minimalist Linen Sofa Bed - Beige",
+      "imageUrl_preview": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt"
+    },
+    {
+      "id": "60004",
+      "name": "L-Shaped Sofa Bed with Storage - Charcoal",
+      "imageUrl_preview": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt"
+    },
+    {
+      "id": "60005",
+      "name": "Compact Two-Seater Sofa Bed - Teal",
+      "imageUrl_preview": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt"
+    },
+    {
+      "id": "60007",
+      "name": "Mid-Century Modern Armchair - Mustard Yellow",
+      "imageUrl_preview": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt"
+    },
+    {
+      "id": "60008",
+      "name": "Contemporary Lounge Armchair - Cream Boucle",
+      "imageUrl_preview": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt"
+    },
+    {
+      "id": "60009",
+      "name": "Scandinavian Rattan Armchair - Oak & Beige",
+      "imageUrl_preview": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt"
+    },
+    {
+      "id": "60010",
+      "name": "Modern Accent Armchair - Emerald Green",
+      "imageUrl_preview": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt"
+    },
+    {
+      "id": "60013",
+      "name": "Extendable Walnut Dining Table",
+      "imageUrl_preview": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt"
+    },
+    {
+      "id": "60014",
+      "name": "Glass Top Industrial Dining Table",
+      "imageUrl_preview": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt"
+    },
+    {
+      "id": "60015",
+      "name": "Live Edge Acacia Dining Table",
+      "imageUrl_preview": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\timageUrl_preview\n60002\tLuxury Velvet Sofa Bed - Navy Blue\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt\n60003\tMinimalist Linen Sofa Bed - Beige\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt\n60004\tL-Shaped Sofa Bed with Storage - Charcoal\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt\n60005\tCompact Two-Seater Sofa Bed - Teal\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt\n60007\tMid-Century Modern Armchair - Mustard Yellow\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt\n60008\tContemporary Lounge Armchair - Cream Boucle\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt\n60009\tScandinavian Rattan Armchair - Oak & Beige\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt\n60010\tModern Accent Armchair - Emerald Green\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt\n60013\tExtendable Walnut Dining Table\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt\n60014\tGlass Top Industrial Dining Table\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt\n60015\tLive Edge Acacia Dining Table\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5Qt\n",
+  "stderr": "",
+  "execution_time_ms": 1489
+}

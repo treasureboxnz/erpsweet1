@@ -1,0 +1,90 @@
+{
+  "query": "SELECT \n  pv.variantCode,\n  pv.isDefault,\n  mc.colorCode,\n  mc.colorName,\n  s.supplierName,\n  c.companyName as customerName\nFROM product_variants pv\nLEFT JOIN material_colors mc ON pv.materialColorId = mc.id\nLEFT JOIN suppliers s ON pv.supplierId = s.id\nLEFT JOIN companies c ON pv.customerId = c.id\nORDER BY pv.isDefault DESC, pv.id\nLIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT \n  pv.variantCode,\n  pv.isDefault,\n  mc.colorCode,\n  mc.colorName,\n  s.supplierName,\n  c.companyName as customerName\nFROM product_variants pv\nLEFT JOIN material_colors mc ON pv.materialColorId = mc.id\nLEFT JOIN suppliers s ON pv.supplierId = s.id\nLEFT JOIN companies c ON pv.customerId = c.id\nORDER BY pv.isDefault DESC, pv.id\nLIMIT 10;",
+  "rows": [
+    {
+      "variantCode": "SB-001-GRY-V001",
+      "isDefault": "1",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original",
+      "supplierName": "杭州丝绸厂",
+      "customerName": "French Connection SARL"
+    },
+    {
+      "variantCode": "DC-002-WAL-V001",
+      "isDefault": "1",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original",
+      "supplierName": "义乌小商品批发商",
+      "customerName": "Mexican Imports SA"
+    },
+    {
+      "variantCode": "DC-003-WHT-V001",
+      "isDefault": "1",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original",
+      "supplierName": "广州家具制造厂",
+      "customerName": "djf"
+    },
+    {
+      "variantCode": "DC-004-NVY-V001",
+      "isDefault": "1",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original",
+      "supplierName": "东莞五金配件厂",
+      "customerName": "Scandinavian Partners"
+    },
+    {
+      "variantCode": "DC-005-OAK-V001",
+      "isDefault": "1",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original",
+      "supplierName": "苏州电子元件供应商",
+      "customerName": "Global Trade Partners"
+    },
+    {
+      "variantCode": "DC-001-GRY-V003",
+      "isDefault": "1",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original",
+      "supplierName": "佛山木业有限公司",
+      "customerName": "ABC Furniture"
+    },
+    {
+      "variantCode": "AC-001-CHR-V001",
+      "isDefault": "1",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original",
+      "supplierName": "上海纺织品供应商",
+      "customerName": "Nordic Supplies AB"
+    },
+    {
+      "variantCode": "DT-001-OAK-V001",
+      "isDefault": "1",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original",
+      "supplierName": "佛山市顺德区美家家具有限公司",
+      "customerName": "Follow-up Test Company"
+    },
+    {
+      "variantCode": "DT-002-MRB-V001",
+      "isDefault": "1",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original",
+      "supplierName": "广州家具制造厂",
+      "customerName": "Mexican Imports SA"
+    },
+    {
+      "variantCode": "SB-001-GRY-V002",
+      "isDefault": "0",
+      "colorCode": "04",
+      "colorName": "NULL",
+      "supplierName": "宁波塑料制品厂",
+      "customerName": "Partial Company"
+    }
+  ],
+  "messages": [],
+  "stdout": "variantCode\tisDefault\tcolorCode\tcolorName\tsupplierName\tcustomerName\nSB-001-GRY-V001\t1\tORIGINAL-ORIG-01\tOriginal\t杭州丝绸厂\tFrench Connection SARL\nDC-002-WAL-V001\t1\tORIGINAL-ORIG-01\tOriginal\t义乌小商品批发商\tMexican Imports SA\nDC-003-WHT-V001\t1\tORIGINAL-ORIG-01\tOriginal\t广州家具制造厂\tdjf\nDC-004-NVY-V001\t1\tORIGINAL-ORIG-01\tOriginal\t东莞五金配件厂\tScandinavian Partners\nDC-005-OAK-V001\t1\tORIGINAL-ORIG-01\tOriginal\t苏州电子元件供应商\tGlobal Trade Partners\nDC-001-GRY-V003\t1\tORIGINAL-ORIG-01\tOriginal\t佛山木业有限公司\tABC Furniture\nAC-001-CHR-V001\t1\tORIGINAL-ORIG-01\tOriginal\t上海纺织品供应商\tNordic Supplies AB\nDT-001-OAK-V001\t1\tORIGINAL-ORIG-01\tOriginal\t佛山市顺德区美家家具有限公司\tFollow-up Test Company\nDT-002-MRB-V001\t1\tORIGINAL-ORIG-01\tOriginal\t广州家具制造厂\tMexican Imports SA\nSB-001-GRY-V002\t0\t04\tNULL\t宁波塑料制品厂\tPartial Company\n",
+  "stderr": "",
+  "execution_time_ms": 1537
+}

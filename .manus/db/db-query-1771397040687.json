@@ -1,0 +1,80 @@
+{
+  "query": "SELECT id, boardId, colorCode, colorName, status FROM material_colors LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, boardId, colorCode, colorName, status FROM material_colors LIMIT 10;",
+  "rows": [
+    {
+      "id": "2",
+      "boardId": "17",
+      "colorCode": "01",
+      "colorName": "白色羊羔绒",
+      "status": "active"
+    },
+    {
+      "id": "3",
+      "boardId": "17",
+      "colorCode": "02",
+      "colorName": "灰色天鹅绒",
+      "status": "active"
+    },
+    {
+      "id": "4",
+      "boardId": "17",
+      "colorCode": "03",
+      "colorName": "米色亚麻布",
+      "status": "active"
+    },
+    {
+      "id": "5",
+      "boardId": "18",
+      "colorCode": "01",
+      "colorName": "深蓝色天鹅绒",
+      "status": "active"
+    },
+    {
+      "id": "6",
+      "boardId": "18",
+      "colorCode": "02",
+      "colorName": "浅绿色棉布",
+      "status": "active"
+    },
+    {
+      "id": "7",
+      "boardId": "18",
+      "colorCode": "03",
+      "colorName": "炭灰色羊毛",
+      "status": "active"
+    },
+    {
+      "id": "8",
+      "boardId": "19",
+      "colorCode": "01",
+      "colorName": "奶油色结子呢",
+      "status": "active"
+    },
+    {
+      "id": "9",
+      "boardId": "19",
+      "colorCode": "02",
+      "colorName": "酒红色雪尼尔",
+      "status": "active"
+    },
+    {
+      "id": "10",
+      "boardId": "19",
+      "colorCode": "03",
+      "colorName": "橄榄绿帆布",
+      "status": "active"
+    },
+    {
+      "id": "11",
+      "boardId": "19",
+      "colorCode": "04",
+      "colorName": "腮红粉丝绸",
+      "status": "active"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tboardId\tcolorCode\tcolorName\tstatus\n2\t17\t01\t白色羊羔绒\tactive\n3\t17\t02\t灰色天鹅绒\tactive\n4\t17\t03\t米色亚麻布\tactive\n5\t18\t01\t深蓝色天鹅绒\tactive\n6\t18\t02\t浅绿色棉布\tactive\n7\t18\t03\t炭灰色羊毛\tactive\n8\t19\t01\t奶油色结子呢\tactive\n9\t19\t02\t酒红色雪尼尔\tactive\n10\t19\t03\t橄榄绿帆布\tactive\n11\t19\t04\t腮红粉丝绸\tactive\n",
+  "stderr": "",
+  "execution_time_ms": 1486
+}

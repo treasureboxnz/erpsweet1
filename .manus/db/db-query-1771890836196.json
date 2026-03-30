@@ -1,0 +1,19 @@
+{
+  "query": "\nSELECT \n  o.orderNumber,\n  o.currency,\n  o.totalAmount,\n  oi.productName,\n  oi.quantity,\n  oi.unitPrice,\n  oi.subtotal\nFROM orders o\nLEFT JOIN order_items oi ON o.id = oi.orderId\nWHERE o.orderNumber = 'ORD-20260223-RT2';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  o.orderNumber,\n  o.currency,\n  o.totalAmount,\n  oi.productName,\n  oi.quantity,\n  oi.unitPrice,\n  oi.subtotal\nFROM orders o\nLEFT JOIN order_items oi ON o.id = oi.orderId\nWHERE o.orderNumber = 'ORD-20260223-RT2';\n",
+  "rows": [
+    {
+      "orderNumber": "ORD-20260223-RT2",
+      "currency": "RMB",
+      "totalAmount": "527.48",
+      "productName": "NULL",
+      "quantity": "1",
+      "unitPrice": "527.48",
+      "subtotal": "527.48"
+    }
+  ],
+  "messages": [],
+  "stdout": "orderNumber\tcurrency\ttotalAmount\tproductName\tquantity\tunitPrice\tsubtotal\nORD-20260223-RT2\tRMB\t527.48\tNULL\t1\t527.48\t527.48\n",
+  "stderr": "",
+  "execution_time_ms": 1612
+}

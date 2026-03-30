@@ -1,0 +1,210 @@
+{
+  "query": "SELECT * FROM material_types ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM material_types ORDER BY id;",
+  "rows": [
+    {
+      "id": "1",
+      "erpCompanyId": "1",
+      "name": "布料",
+      "icon": "🧵",
+      "sortOrder": "1",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "2",
+      "erpCompanyId": "1",
+      "name": "木腿",
+      "icon": "🪑",
+      "sortOrder": "2",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "3",
+      "erpCompanyId": "1",
+      "name": "扶手",
+      "icon": "🛋️",
+      "sortOrder": "3",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "4",
+      "erpCompanyId": "1",
+      "name": "填充物",
+      "icon": "🧶",
+      "sortOrder": "4",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "5",
+      "erpCompanyId": "1",
+      "name": "坐垫",
+      "icon": "💺",
+      "sortOrder": "5",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "6",
+      "erpCompanyId": "1",
+      "name": "靠背",
+      "icon": "🪑",
+      "sortOrder": "6",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "7",
+      "erpCompanyId": "1",
+      "name": "框架",
+      "icon": "🔲",
+      "sortOrder": "7",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "8",
+      "erpCompanyId": "1",
+      "name": "配件",
+      "icon": "🔧",
+      "sortOrder": "10",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 05:09:43",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "9",
+      "erpCompanyId": "1",
+      "name": "其他",
+      "icon": "📦",
+      "sortOrder": "8",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 04:35:43",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "10",
+      "erpCompanyId": "2",
+      "name": "布料",
+      "icon": "🧵",
+      "sortOrder": "1",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "11",
+      "erpCompanyId": "2",
+      "name": "木腿",
+      "icon": "🪑",
+      "sortOrder": "2",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "12",
+      "erpCompanyId": "2",
+      "name": "扶手",
+      "icon": "🛋️",
+      "sortOrder": "3",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "13",
+      "erpCompanyId": "2",
+      "name": "填充物",
+      "icon": "🧶",
+      "sortOrder": "4",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "14",
+      "erpCompanyId": "2",
+      "name": "坐垫",
+      "icon": "💺",
+      "sortOrder": "5",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "15",
+      "erpCompanyId": "2",
+      "name": "靠背",
+      "icon": "🪑",
+      "sortOrder": "6",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "16",
+      "erpCompanyId": "2",
+      "name": "框架",
+      "icon": "🔲",
+      "sortOrder": "7",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "17",
+      "erpCompanyId": "2",
+      "name": "配件",
+      "icon": "🔧",
+      "sortOrder": "8",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "18",
+      "erpCompanyId": "2",
+      "name": "其他",
+      "icon": "📦",
+      "sortOrder": "9",
+      "createdAt": "2026-02-20 03:46:29",
+      "updatedAt": "2026-02-20 03:46:29",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "19",
+      "erpCompanyId": "1",
+      "name": "螺丝配件",
+      "icon": "🔩",
+      "sortOrder": "10",
+      "createdAt": "2026-02-20 04:22:55",
+      "updatedAt": "2026-02-20 04:35:19",
+      "deletedAt": "2026-02-20 04:35:20"
+    },
+    {
+      "id": "20",
+      "erpCompanyId": "1",
+      "name": "测试材料",
+      "icon": "🎨",
+      "sortOrder": "9",
+      "createdAt": "2026-02-20 05:09:24",
+      "updatedAt": "2026-02-20 05:09:43",
+      "deletedAt": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tname\ticon\tsortOrder\tcreatedAt\tupdatedAt\tdeletedAt\n1\t1\t布料\t🧵\t1\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n2\t1\t木腿\t🪑\t2\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n3\t1\t扶手\t🛋️\t3\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n4\t1\t填充物\t🧶\t4\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n5\t1\t坐垫\t💺\t5\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n6\t1\t靠背\t🪑\t6\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n7\t1\t框架\t🔲\t7\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n8\t1\t配件\t🔧\t10\t2026-02-20 03:46:29\t2026-02-20 05:09:43\tNULL\n9\t1\t其他\t📦\t8\t2026-02-20 03:46:29\t2026-02-20 04:35:43\tNULL\n10\t2\t布料\t🧵\t1\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n11\t2\t木腿\t🪑\t2\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n12\t2\t扶手\t🛋️\t3\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n13\t2\t填充物\t🧶\t4\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n14\t2\t坐垫\t💺\t5\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n15\t2\t靠背\t🪑\t6\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n16\t2\t框架\t🔲\t7\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n17\t2\t配件\t🔧\t8\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n18\t2\t其他\t📦\t9\t2026-02-20 03:46:29\t2026-02-20 03:46:29\tNULL\n19\t1\t螺丝配件\t🔩\t10\t2026-02-20 04:22:55\t2026-02-20 04:35:19\t2026-02-20 04:35:20\n20\t1\t测试材料\t🎨\t9\t2026-02-20 05:09:24\t2026-02-20 05:09:43\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1545
+}

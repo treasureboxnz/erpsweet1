@@ -1,0 +1,1306 @@
+import { useState, useMemo } from "react";
+import { Link } from "wouter";
+import { trpc } from "@/lib/trpc";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
+import { Plus, Copy, Edit, Trash2, Package } from "lucide-react";
+import { toast } from "sonner";
+
+interface ProductVariantsProps {
+  productId: number;
+  productSku: string;
+}
+
+export default function ProductVariants({ productId, productSku }: ProductVariantsProps) {
+  const utils = trpc.useUtils();
+
+  const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [editingVariantId, setEditingVariantId] = useState<number | null>(null);
+  
+  // 搜索和筛选state
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+  const [selectedCustomer, setSelectedCustomer] = useState<string>("all");
+  const [dateFilter, setDateFilter] = useState<string>("all");
+  const [showMyVariants, setShowMyVariants] = useState(false);
+  const [formData, setFormData] = useState({
+    variantName: "",
+    fabricChange: "",
+    legTypeChange: "",
+    heightChange: "",
+    packagingChange: "",
+    otherChanges: "",
+    productLength: "",
+    productWidth: "",
+    productHeight: "",
+    packageLength: "",
+    packageWidth: "",
+    packageHeight: "",
+    cbm: "",
+    variantType: "universal" as "universal" | "exclusive",
+    productionStatus: "designing" as "designing" | "sampling" | "production" | "completed",
+    supplierId: "" as string,
+    sellingPriceRMB: "",
+    sellingPriceFOB: "",
+    costPriceRMB: "",
+    linkedCustomerIds: [] as number[],
+  });
+
+  // 查询批次列表
+  const { data: variantsData, isLoading } = trpc.productVariants.getAll.useQuery({
+    productId,
+    search: searchTerm,
+    page: 1,
+    pageSize: 100,
+  });
+  
+  // 查询客户列表用于筛选
+  const { data: customersData } = trpc.customerManagement.companies.list.useQuery({});
+  
+  // 查询供应商列表
+  const { data: suppliersData } = trpc.suppliers.list.useQuery();
+  
+  // 查询产品供应商关联
+  const { data: productSuppliersData = [] } = trpc.products.getSuppliers.useQuery({ productId });
+
+  // 排序供应商列表：主供应商和备选供应商置顶
+  const sortedSuppliers = useMemo(() => {
+    if (!suppliersData || !productSuppliersData) return { prioritySuppliers: [], otherSuppliers: [] };
+
+    const productSupplierIds = new Set(productSuppliersData.map((ps: any) => ps.supplierId));
+    const primarySupplier = productSuppliersData.find((ps: any) => ps.isPrimary);
+    const alternateSuppliers = productSuppliersData.filter((ps: any) => !ps.isPrimary);
+
+    const prioritySuppliers: any[] = [];
+    const otherSuppliers: any[] = [];
+
+    // 首先添加主供应商
+    if (primarySupplier) {
+      const supplier = suppliersData.find((s: any) => s.id === primarySupplier.supplierId);
+      if (supplier) {
+        prioritySuppliers.push({ ...supplier, isPrimary: true });
+      }
+    }
+
+    // 然后添加备选供应商
+    alternateSuppliers.forEach((ps: any) => {
+      const supplier = suppliersData.find((s: any) => s.id === ps.supplierId);
+      if (supplier) {
+        prioritySuppliers.push({ ...supplier, isAlternate: true });
+      }
+    });
+
+    // 最后添加其他供应商
+    suppliersData.forEach((supplier: any) => {
+      if (!productSupplierIds.has(supplier.id)) {
+        otherSuppliers.push(supplier);
+      }
+    });
+
+    return { prioritySuppliers, otherSuppliers };
+  }, [suppliersData, productSuppliersData]);
+
+  // 创建批次
+  const createVariant = trpc.productVariants.create.useMutation({
+    onSuccess: () => {
+      toast.success("批次创建成功", {
+        description: "新批次已成功创建",
+      });
+      utils.productVariants.getAll.invalidate();
+      setIsCreateDialogOpen(false);
+      resetForm();
+    },
+    onError: (error) => {
+      toast.error("创建失败", {
+        description: error.message,
+      });
+    },
+  });
+
+  // 复制批次
+  const duplicateVariant = trpc.productVariants.duplicate.useMutation({
+    onSuccess: () => {
+      toast.success("批次复制成功", {
+        description: "批次已成功复制",
+      });
+      utils.productVariants.getAll.invalidate();
+    },
+    onError: (error) => {
+      toast.error("复制失败", {
+        description: error.message,
+      });
+    },
+  });
+
+  // 更新批次
+  const updateVariant = trpc.productVariants.update.useMutation({
+    onSuccess: () => {
+      toast.success("批次更新成功", {
+        description: "批次已成功更新",
+      });
+      utils.productVariants.getAll.invalidate();
+      setIsEditDialogOpen(false);
+      setEditingVariantId(null);
+      resetForm();
+    },
+    onError: (error) => {
+      toast.error("更新失败", {
+        description: error.message,
+      });
+    },
+  });
+
+  // 删除批次
+  const deleteVariant = trpc.productVariants.delete.useMutation({
+    onSuccess: () => {
+      toast.success("批次删除成功", {
+        description: "批次已成功删除",
+      });
+      utils.productVariants.getAll.invalidate();
+    },
+    onError: (error) => {
+      toast.error("删除失败", {
+        description: error.message,
+      });
+    },
+  });
+
+  const resetForm = () => {
+    setFormData({
+      variantName: "",
+      fabricChange: "",
+      legTypeChange: "",
+      heightChange: "",
+      packagingChange: "",
+      otherChanges: "",
+      productLength: "",
+      productWidth: "",
+      productHeight: "",
+      packageLength: "",
+      packageWidth: "",
+      packageHeight: "",
+      cbm: "",
+      variantType: "universal",
+      productionStatus: "designing",
+      supplierId: "",
+      sellingPriceRMB: "",
+      sellingPriceFOB: "",
+      costPriceRMB: "",
+      linkedCustomerIds: [],
+    });
+  };
+
+  const handleSubmit = () => {
+    if (!formData.variantName.trim()) {
+      toast.error("请填写批次名称");
+      return;
+    }
+
+    // 计算或获取CBM
+    let cbmValue: number | undefined;
+    if (formData.packageLength && formData.packageWidth && formData.packageHeight) {
+      // 如果包装尺寸都已填写，使用自动计算的CBM
+      cbmValue = parseFloat(formData.packageLength) * parseFloat(formData.packageWidth) * parseFloat(formData.packageHeight);
+    } else if (formData.cbm) {
+      // 如果包装尺寸未填写，使用手动输入的CBM
+      cbmValue = parseFloat(formData.cbm);
+    }
+
+    const data = {
+      productId,
+      variantName: formData.variantName,
+      fabricChange: formData.fabricChange,
+      legTypeChange: formData.legTypeChange,
+      heightChange: formData.heightChange,
+      packagingChange: formData.packagingChange,
+      otherChanges: formData.otherChanges,
+      productLength: formData.productLength ? parseFloat(formData.productLength) : undefined,
+      productWidth: formData.productWidth ? parseFloat(formData.productWidth) : undefined,
+      productHeight: formData.productHeight ? parseFloat(formData.productHeight) : undefined,
+      packageLength: formData.packageLength ? parseFloat(formData.packageLength) : undefined,
+      packageWidth: formData.packageWidth ? parseFloat(formData.packageWidth) : undefined,
+      packageHeight: formData.packageHeight ? parseFloat(formData.packageHeight) : undefined,
+      cbm: cbmValue,
+      variantType: formData.variantType,
+      productionStatus: formData.productionStatus,
+      supplierId: formData.supplierId && formData.supplierId !== "none" ? parseInt(formData.supplierId) : undefined,
+      sellingPriceRMB: formData.sellingPriceRMB ? parseFloat(formData.sellingPriceRMB) : undefined,
+      sellingPriceFOB: formData.sellingPriceFOB ? parseFloat(formData.sellingPriceFOB) : undefined,
+      costPriceRMB: formData.costPriceRMB ? parseFloat(formData.costPriceRMB) : undefined,
+    };
+
+    if (editingVariantId) {
+      updateVariant.mutate({ id: editingVariantId, ...data });
+    } else {
+      createVariant.mutate(data);
+    }
+  };
+
+  const handleDuplicate = (variantId: number) => {
+    duplicateVariant.mutate({ id: variantId });
+  };
+
+  const handleDelete = (variantId: number) => {
+    if (confirm("确定要删除这个批次吗？此操作不可恢复。")) {
+      deleteVariant.mutate({ id: variantId });
+    }
+  };
+
+  const handleEdit = (variantId: number) => {
+    const variant = filteredVariants.find(v => v.variant.id === variantId);
+    if (variant) {
+      setFormData({
+        variantName: variant.variant.variantName,
+        fabricChange: variant.variant.fabricChange || "",
+        legTypeChange: variant.variant.legTypeChange || "",
+        heightChange: variant.variant.heightChange || "",
+        packagingChange: variant.variant.packagingChange || "",
+        otherChanges: variant.variant.otherChanges || "",
+        productLength: variant.variant.productLength?.toString() || "",
+        productWidth: variant.variant.productWidth?.toString() || "",
+        productHeight: variant.variant.productHeight?.toString() || "",
+        packageLength: variant.variant.packageLength?.toString() || "",
+        packageWidth: variant.variant.packageWidth?.toString() || "",
+        packageHeight: variant.variant.packageHeight?.toString() || "",
+        cbm: variant.variant.cbm?.toString() || "",
+        variantType: variant.variant.variantType as "universal" | "exclusive",
+        productionStatus: variant.variant.productionStatus as "designing" | "sampling" | "production" | "completed",
+        supplierId: variant.variant.supplierId?.toString() || "",
+        sellingPriceRMB: variant.variant.sellingPriceRMB?.toString() || "",
+        sellingPriceFOB: variant.variant.sellingPriceFOB?.toString() || "",
+        costPriceRMB: variant.variant.costPriceRMB?.toString() || "",
+        linkedCustomerIds: variant.customers?.map((c: any) => c.id) || [],
+      });
+      setEditingVariantId(variantId);
+      setIsEditDialogOpen(true);
+    }
+  };
+
+  // 计算CBM
+  const calculateCBM = () => {
+    const length = parseFloat(formData.packageLength);
+    const width = parseFloat(formData.packageWidth);
+    const height = parseFloat(formData.packageHeight);
+    
+    if (length && width && height) {
+      return (length * width * height).toFixed(6);
+    }
+    return "-";
+  };
+  
+  // 搜索处理
+  const handleSearch = () => {
+    setSearchTerm(searchInput);
+  };
+  
+  // 重置筛选
+  const handleReset = () => {
+    setSearchInput("");
+    setSearchTerm("");
+    setSelectedCustomer("all");
+    setDateFilter("all");
+    setShowMyVariants(false);
+  };
+  
+  // 客户端筛选逻辑
+  const filteredVariants = variantsData?.variants.filter(item => {
+    // 客户筛选 - 暂时留空，等待后端返回客户数据
+    // if (selectedCustomer !== "all") {
+    //   const hasCustomer = item.customers?.some((c: any) => c.id === parseInt(selectedCustomer));
+    //   if (!hasCustomer) return false;
+    // }
+    
+    // 时间筛选
+    if (dateFilter !== "all") {
+      const createdDate = new Date(item.variant.createdAt);
+      const now = new Date();
+      const diffDays = Math.floor((now.getTime() - createdDate.getTime()) / (1000 * 60 * 60 * 24));
+      
+      if (dateFilter === "week" && diffDays > 7) return false;
+      if (dateFilter === "month" && diffDays > 30) return false;
+      if (dateFilter === "quarter" && diffDays > 90) return false;
+    }
+    
+    return true;
+  }) || [];
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle>批次列表</CardTitle>
+              <CardDescription>
+                共 {filteredVariants.length} 个批次
+              </CardDescription>
+            </div>
+            <Button onClick={() => {
+              // 打开Dialog前，自动填充产品的主供应商
+              const primarySupplier = productSuppliersData.find((ps: any) => ps.isPrimary);
+              if (primarySupplier) {
+                setFormData(prev => ({
+                  ...prev,
+                  supplierId: primarySupplier.supplierId.toString(),
+                }));
+              }
+              setIsCreateDialogOpen(true);
+            }}>
+              <Plus className="mr-2 h-4 w-4" />
+              新建批次
+            </Button>
+          </div>
+          
+          {/* 搜索和筛选区域 */}
+          <div className="mt-4 space-y-3">
+            {/* 搜索框 */}
+            <div className="flex gap-2">
+              <Input
+                placeholder="搜索批次编号或变更说明..."
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                className="max-w-sm"
+              />
+              <Button onClick={handleSearch} variant="secondary">
+                搜索
+              </Button>
+              <Button onClick={handleReset} variant="outline">
+                重置
+              </Button>
+            </div>
+            
+            {/* 筛选器 */}
+            <div className="flex gap-3 flex-wrap">
+              <div className="flex items-center gap-2">
+                <Label className="text-sm">客户:</Label>
+                <Select value={selectedCustomer} onValueChange={setSelectedCustomer}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">全部客户</SelectItem>
+                    {customersData?.data?.map((c: any) => (
+                      <SelectItem key={c.id} value={c.id.toString()}>
+                        {c.companyName}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <Label className="text-sm">创建时间:</Label>
+                <Select value={dateFilter} onValueChange={setDateFilter}>
+                  <SelectTrigger className="w-[150px]">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">全部时间</SelectItem>
+                    <SelectItem value="week">最近一周</SelectItem>
+                    <SelectItem value="month">最近一月</SelectItem>
+                    <SelectItem value="quarter">最近三月</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent>
+          {isLoading ? (
+            <div className="text-center py-8 text-muted-foreground">
+              加载中...
+            </div>
+          ) : filteredVariants.length === 0 ? (
+            <div className="text-center py-8 text-muted-foreground">
+              <Package className="h-12 w-12 mx-auto mb-4 opacity-50" />
+              <p>暂无批次</p>
+              <Button
+                className="mt-4"
+                onClick={() => {
+                  // 打开Dialog前，自动填充产品的主供应商
+                  const primarySupplier = productSuppliersData.find((ps: any) => ps.isPrimary);
+                  if (primarySupplier) {
+                    setFormData(prev => ({
+                      ...prev,
+                      supplierId: primarySupplier.supplierId.toString(),
+                    }));
+                  }
+                  setIsCreateDialogOpen(true);
+                }}
+              >
+                <Plus className="mr-2 h-4 w-4" />
+                创建第一个批次
+              </Button>
+            </div>
+          ) : (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>批次编号</TableHead>
+                  <TableHead>批次名称</TableHead>
+                  <TableHead>变更说明</TableHead>
+                  <TableHead>CBM</TableHead>
+                  <TableHead>供应商</TableHead>
+                  <TableHead>客户</TableHead>
+                  <TableHead>类型</TableHead>
+                  <TableHead>状态</TableHead>
+                  <TableHead>创建时间</TableHead>
+                  <TableHead>操作</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {filteredVariants.map((item) => (
+                  <TableRow key={item.variant.id}>
+                    <TableCell>
+                      <Link href={`/products/${productId}/variants/${item.variant.id}`}>
+                        <code className="text-sm bg-muted px-2 py-1 rounded hover:bg-primary/10 cursor-pointer transition-colors">
+                          {item.variant.variantCode}
+                        </code>
+                      </Link>
+                    </TableCell>
+                    <TableCell className="font-medium">
+                      {item.variant.variantName}
+                    </TableCell>
+                    <TableCell>
+                      <div className="text-sm space-y-1">
+                        {item.variant.fabricChange && (
+                          <div>布料: {item.variant.fabricChange}</div>
+                        )}
+                        {item.variant.legTypeChange && (
+                          <div>脚型: {item.variant.legTypeChange}</div>
+                        )}
+                        {item.variant.heightChange && (
+                          <div>高度: {item.variant.heightChange}</div>
+                        )}
+                        {item.variant.packagingChange && (
+                          <div>包装: {item.variant.packagingChange}</div>
+                        )}
+                        {!item.variant.fabricChange &&
+                          !item.variant.legTypeChange &&
+                          !item.variant.heightChange &&
+                          !item.variant.packagingChange && (
+                            <span className="text-muted-foreground">-</span>
+                          )}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      {item.variant.cbm
+                        ? `${Number(item.variant.cbm).toFixed(6)} m³`
+                        : "-"}
+                    </TableCell>
+                    <TableCell>
+                      {item.supplier?.supplierName || "-"}
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex flex-wrap gap-1">
+                        {item.customers && item.customers.length > 0 ? (
+                          item.customers.map((customer: any) => (
+                            <Badge key={customer.id} variant="outline" className="text-xs">
+                              {customer.companyName}
+                            </Badge>
+                          ))
+                        ) : (
+                          <span className="text-muted-foreground">-</span>
+                        )}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <Badge
+                        variant={
+                          item.variant.variantType === "universal"
+                            ? "default"
+                            : "secondary"
+                        }
+                      >
+                        {item.variant.variantType === "universal"
+                          ? "通用"
+                          : "专属"}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      <Badge
+                        className={
+                          item.variant.productionStatus === "designing"
+                            ? "bg-gray-500 text-white hover:bg-gray-600"
+                            : item.variant.productionStatus === "sampling"
+                            ? "bg-blue-500 text-white hover:bg-blue-600"
+                            : item.variant.productionStatus === "production"
+                            ? "bg-yellow-500 text-white hover:bg-yellow-600"
+                            : "bg-[#A8B5A0] text-white hover:bg-[#98A590]"
+                        }
+                      >
+                        {item.variant.productionStatus === "designing"
+                          ? "设计中"
+                          : item.variant.productionStatus === "sampling"
+                          ? "打样中"
+                          : item.variant.productionStatus === "production"
+                          ? "量产中"
+                          : "已完成"}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      {new Date(item.variant.createdAt).toLocaleDateString()}
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-2">
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleDuplicate(item.variant.id)}
+                        >
+                          <Copy className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleEdit(item.variant.id)}
+                        >
+                          <Edit className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleDelete(item.variant.id)}
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* 新建批次对话框 */}
+      <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
+        <DialogContent className="max-w-[95vw]">
+          <DialogHeader>
+            <DialogTitle>新建批次</DialogTitle>
+            <DialogDescription>
+              为产品 {productSku} 创建新的批次/变形
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="grid grid-cols-2 gap-8">
+            {/* 基本信息 */}
+            <div className="space-y-4">
+              <h3 className="font-semibold">基本信息</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="col-span-2">
+                  <Label htmlFor="variantName">
+                    批次名称 <span className="text-destructive">*</span>
+                  </Label>
+                  <Input
+                    id="variantName"
+                    value={formData.variantName}
+                    onChange={(e) =>
+                      setFormData({ ...formData, variantName: e.target.value })
+                    }
+                    placeholder="例如：高背版、加厚布料版"
+                  />
+                </div>
+                <div className="col-span-2">
+                  <Label htmlFor="variantType">批次类型</Label>
+                  <Select
+                    value={formData.variantType}
+                    onValueChange={(value: "universal" | "exclusive") =>
+                      setFormData({ ...formData, variantType: value })
+                    }
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="universal">通用批次</SelectItem>
+                      <SelectItem value="exclusive">客户专属</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="col-span-2">
+                  <Label htmlFor="productionStatus">生产状态</Label>
+                  <Select
+                    value={formData.productionStatus}
+                    onValueChange={(value: "designing" | "sampling" | "production" | "completed") =>
+                      setFormData({ ...formData, productionStatus: value })
+                    }
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="designing">设计中</SelectItem>
+                      <SelectItem value="sampling">打样中</SelectItem>
+                      <SelectItem value="production">量产中</SelectItem>
+                      <SelectItem value="completed">已完成</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="col-span-2">
+                  <Label htmlFor="supplierId">供应商</Label>
+                  <Select
+                    value={formData.supplierId}
+                    onValueChange={(value) =>
+                      setFormData({ ...formData, supplierId: value })
+                    }
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="选择供应商" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="none">无</SelectItem>
+                      {/* 主供应商和备选供应商 */}
+                      {sortedSuppliers.prioritySuppliers.map((supplier: any) => (
+                        <SelectItem key={supplier.id} value={supplier.id.toString()}>
+                          {supplier.isPrimary ? '⭐ ' : '🔹 '}{supplier.supplierName}
+                        </SelectItem>
+                      ))}
+                      {/* 分隔线 */}
+                      {sortedSuppliers.prioritySuppliers.length > 0 && sortedSuppliers.otherSuppliers.length > 0 && (
+                        <SelectSeparator />
+                      )}
+                      {/* 其他供应商 */}
+                      {sortedSuppliers.otherSuppliers.map((supplier: any) => (
+                        <SelectItem key={supplier.id} value={supplier.id.toString()}>
+                          {supplier.supplierName}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </div>
+
+            {/* 变更说明 */}
+            <div className="space-y-4">
+              <h3 className="font-semibold">变更说明</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="fabricChange">布料变更</Label>
+                  <Input
+                    id="fabricChange"
+                    value={formData.fabricChange}
+                    onChange={(e) =>
+                      setFormData({ ...formData, fabricChange: e.target.value })
+                    }
+                    placeholder="例如：麻布改绒布"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="legTypeChange">脚型变更</Label>
+                  <Input
+                    id="legTypeChange"
+                    value={formData.legTypeChange}
+                    onChange={(e) =>
+                      setFormData({ ...formData, legTypeChange: e.target.value })
+                    }
+                    placeholder="例如：木脚改金属脚"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="heightChange">高度变更</Label>
+                  <Input
+                    id="heightChange"
+                    value={formData.heightChange}
+                    onChange={(e) =>
+                      setFormData({ ...formData, heightChange: e.target.value })
+                    }
+                    placeholder="例如：加高10cm"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="packagingChange">包装变更</Label>
+                  <Input
+                    id="packagingChange"
+                    value={formData.packagingChange}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        packagingChange: e.target.value,
+                      })
+                    }
+                    placeholder="例如：纸箱改木箱"
+                  />
+                </div>
+                <div className="col-span-2">
+                  <Label htmlFor="otherChanges">其他变更</Label>
+                  <Textarea
+                    id="otherChanges"
+                    value={formData.otherChanges}
+                    onChange={(e) =>
+                      setFormData({ ...formData, otherChanges: e.target.value })
+                    }
+                    placeholder="其他变更说明..."
+                    rows={3}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* 尺寸信息 */}
+            <div className="space-y-4">
+              <h3 className="font-semibold">尺寸信息（单位：m）</h3>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <Label htmlFor="productLength">产品长度</Label>
+                  <Input
+                    id="productLength"
+                    type="number"
+                    step="0.01"
+                    value={formData.productLength}
+                    onChange={(e) =>
+                      setFormData({ ...formData, productLength: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="productWidth">产品宽度</Label>
+                  <Input
+                    id="productWidth"
+                    type="number"
+                    step="0.01"
+                    value={formData.productWidth}
+                    onChange={(e) =>
+                      setFormData({ ...formData, productWidth: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="productHeight">产品高度</Label>
+                  <Input
+                    id="productHeight"
+                    type="number"
+                    step="0.01"
+                    value={formData.productHeight}
+                    onChange={(e) =>
+                      setFormData({ ...formData, productHeight: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <Label htmlFor="packageLength">包装长度</Label>
+                  <Input
+                    id="packageLength"
+                    type="number"
+                    step="0.01"
+                    value={formData.packageLength}
+                    onChange={(e) =>
+                      setFormData({ ...formData, packageLength: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="packageWidth">包装宽度</Label>
+                  <Input
+                    id="packageWidth"
+                    type="number"
+                    step="0.01"
+                    value={formData.packageWidth}
+                    onChange={(e) =>
+                      setFormData({ ...formData, packageWidth: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="packageHeight">包装高度</Label>
+                  <Input
+                    id="packageHeight"
+                    type="number"
+                    step="0.01"
+                    value={formData.packageHeight}
+                    onChange={(e) =>
+                      setFormData({ ...formData, packageHeight: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+              </div>
+              <div className="bg-muted p-4 rounded-lg space-y-3">
+                {parseFloat(formData.packageLength) && parseFloat(formData.packageWidth) && parseFloat(formData.packageHeight) ? (
+                  <>
+                    <div className="flex items-center justify-between">
+                      <span className="font-medium">自动计算CBM：</span>
+                      <span className="text-lg font-bold">{calculateCBM()} m³</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      CBM = 包装长 × 包装宽 × 包装高（单位：米）
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <Label htmlFor="manualCBM">手动输入CBM（m³）</Label>
+                    <Input
+                      id="manualCBM"
+                      type="number"
+                      step="0.000001"
+                      placeholder="0.000000"
+                      value={formData.cbm || ""}
+                      onChange={(e) => setFormData({ ...formData, cbm: e.target.value })}
+                    />
+                    <p className="text-sm text-muted-foreground">
+                      包装尺寸未填写，请手动输入CBM
+                    </p>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* 价格信息 */}
+            <div className="space-y-4">
+              <h3 className="font-semibold">价格信息</h3>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <Label htmlFor="sellingPriceRMB">售价：RMB含税</Label>
+                  <Input
+                    id="sellingPriceRMB"
+                    type="number"
+                    step="0.01"
+                    value={formData.sellingPriceRMB}
+                    onChange={(e) =>
+                      setFormData({ ...formData, sellingPriceRMB: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="sellingPriceFOB">售价：美金FOB</Label>
+                  <Input
+                    id="sellingPriceFOB"
+                    type="number"
+                    step="0.01"
+                    value={formData.sellingPriceFOB}
+                    onChange={(e) =>
+                      setFormData({ ...formData, sellingPriceFOB: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="costPriceRMB">成本：RMB含税</Label>
+                  <Input
+                    id="costPriceRMB"
+                    type="number"
+                    step="0.01"
+                    value={formData.costPriceRMB}
+                    onChange={(e) =>
+                      setFormData({ ...formData, costPriceRMB: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => setIsCreateDialogOpen(false)}
+            >
+              取消
+            </Button>
+            <Button onClick={handleSubmit} disabled={createVariant.isPending}>
+              {createVariant.isPending ? "创建中..." : "创建批次"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* 编辑批次对话框 */}
+      <Dialog open={isEditDialogOpen} onOpenChange={(open) => {
+        setIsEditDialogOpen(open);
+        if (!open) {
+          setEditingVariantId(null);
+          resetForm();
+        }
+      }}>
+        <DialogContent className="max-w-[95vw] max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>编辑批次</DialogTitle>
+            <DialogDescription>
+              修改产品 {productSku} 的批次信息
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-6">
+            {/* 基本信息 */}
+            <div className="space-y-4">
+              <h3 className="font-semibold">基本信息</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="col-span-2">
+                  <Label htmlFor="edit-variantName">
+                    批次名称 <span className="text-destructive">*</span>
+                  </Label>
+                  <Input
+                    id="edit-variantName"
+                    value={formData.variantName}
+                    onChange={(e) =>
+                      setFormData({ ...formData, variantName: e.target.value })
+                    }
+                    placeholder="例如：高背版、加厚布料版"
+                  />
+                </div>
+                <div className="col-span-2">
+                  <Label htmlFor="edit-variantType">批次类型</Label>
+                  <Select
+                    value={formData.variantType}
+                    onValueChange={(value: "universal" | "exclusive") =>
+                      setFormData({ ...formData, variantType: value })
+                    }
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="universal">通用批次</SelectItem>
+                      <SelectItem value="exclusive">客户专属</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="col-span-2">
+                  <Label htmlFor="edit-productionStatus">生产状态</Label>
+                  <Select
+                    value={formData.productionStatus}
+                    onValueChange={(value: "designing" | "sampling" | "production" | "completed") =>
+                      setFormData({ ...formData, productionStatus: value })
+                    }
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="designing">设计中</SelectItem>
+                      <SelectItem value="sampling">打样中</SelectItem>
+                      <SelectItem value="production">量产中</SelectItem>
+                      <SelectItem value="completed">已完成</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="col-span-2">
+                  <Label htmlFor="edit-supplierId">供应商</Label>
+                  <Select
+                    value={formData.supplierId}
+                    onValueChange={(value) =>
+                      setFormData({ ...formData, supplierId: value })
+                    }
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="选择供应商" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="none">无</SelectItem>
+                      {/* 主供应商和备选供应商 */}
+                      {sortedSuppliers.prioritySuppliers.map((supplier: any) => (
+                        <SelectItem key={supplier.id} value={supplier.id.toString()}>
+                          {supplier.isPrimary ? '⭐ ' : '🔹 '}{supplier.supplierName}
+                        </SelectItem>
+                      ))}
+                      {/* 分隔线 */}
+                      {sortedSuppliers.prioritySuppliers.length > 0 && sortedSuppliers.otherSuppliers.length > 0 && (
+                        <SelectSeparator />
+                      )}
+                      {/* 其他供应商 */}
+                      {sortedSuppliers.otherSuppliers.map((supplier: any) => (
+                        <SelectItem key={supplier.id} value={supplier.id.toString()}>
+                          {supplier.supplierName}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </div>
+
+            {/* 变更说明 */}
+            <div className="space-y-4">
+              <h3 className="font-semibold">变更说明</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="edit-fabricChange">布料变更</Label>
+                  <Input
+                    id="edit-fabricChange"
+                    value={formData.fabricChange}
+                    onChange={(e) =>
+                      setFormData({ ...formData, fabricChange: e.target.value })
+                    }
+                    placeholder="例如：麻布改绒布"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="edit-legTypeChange">脚型变更</Label>
+                  <Input
+                    id="edit-legTypeChange"
+                    value={formData.legTypeChange}
+                    onChange={(e) =>
+                      setFormData({ ...formData, legTypeChange: e.target.value })
+                    }
+                    placeholder="例如：木脚改金属脚"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="edit-heightChange">高度变更</Label>
+                  <Input
+                    id="edit-heightChange"
+                    value={formData.heightChange}
+                    onChange={(e) =>
+                      setFormData({ ...formData, heightChange: e.target.value })
+                    }
+                    placeholder="例如：加高10cm"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="edit-packagingChange">包装变更</Label>
+                  <Input
+                    id="edit-packagingChange"
+                    value={formData.packagingChange}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        packagingChange: e.target.value,
+                      })
+                    }
+                    placeholder="例如：纸箱改木箱"
+                  />
+                </div>
+                <div className="col-span-2">
+                  <Label htmlFor="edit-otherChanges">其他变更</Label>
+                  <Textarea
+                    id="edit-otherChanges"
+                    value={formData.otherChanges}
+                    onChange={(e) =>
+                      setFormData({ ...formData, otherChanges: e.target.value })
+                    }
+                    placeholder="其他变更说明..."
+                    rows={3}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* 尺寸信息 */}
+            <div className="space-y-4">
+              <h3 className="font-semibold">尺寸信息（单位：m）</h3>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <Label htmlFor="edit-productLength">产品长度</Label>
+                  <Input
+                    id="edit-productLength"
+                    type="number"
+                    step="0.01"
+                    value={formData.productLength}
+                    onChange={(e) =>
+                      setFormData({ ...formData, productLength: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="edit-productWidth">产品宽度</Label>
+                  <Input
+                    id="edit-productWidth"
+                    type="number"
+                    step="0.01"
+                    value={formData.productWidth}
+                    onChange={(e) =>
+                      setFormData({ ...formData, productWidth: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="edit-productHeight">产品高度</Label>
+                  <Input
+                    id="edit-productHeight"
+                    type="number"
+                    step="0.01"
+                    value={formData.productHeight}
+                    onChange={(e) =>
+                      setFormData({ ...formData, productHeight: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <Label htmlFor="edit-packageLength">包装长度</Label>
+                  <Input
+                    id="edit-packageLength"
+                    type="number"
+                    step="0.01"
+                    value={formData.packageLength}
+                    onChange={(e) =>
+                      setFormData({ ...formData, packageLength: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="edit-packageWidth">包装宽度</Label>
+                  <Input
+                    id="edit-packageWidth"
+                    type="number"
+                    step="0.01"
+                    value={formData.packageWidth}
+                    onChange={(e) =>
+                      setFormData({ ...formData, packageWidth: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="edit-packageHeight">包装高度</Label>
+                  <Input
+                    id="edit-packageHeight"
+                    type="number"
+                    step="0.01"
+                    value={formData.packageHeight}
+                    onChange={(e) =>
+                      setFormData({ ...formData, packageHeight: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+              </div>
+              <div className="bg-muted p-4 rounded-lg space-y-3">
+                {parseFloat(formData.packageLength) && parseFloat(formData.packageWidth) && parseFloat(formData.packageHeight) ? (
+                  <>
+                    <div className="flex items-center justify-between">
+                      <span className="font-medium">自动计算CBM：</span>
+                      <span className="text-lg font-bold">{calculateCBM()} m³</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      CBM = 包装长 × 包装宽 × 包装高（单位：米）
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <Label htmlFor="manualCBM">手动输入CBM（m³）</Label>
+                    <Input
+                      id="manualCBM"
+                      type="number"
+                      step="0.000001"
+                      placeholder="0.000000"
+                      value={formData.cbm || ""}
+                      onChange={(e) => setFormData({ ...formData, cbm: e.target.value })}
+                    />
+                    <p className="text-sm text-muted-foreground">
+                      包装尺寸未填写，请手动输入CBM
+                    </p>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* 价格信息 */}
+            <div className="space-y-4">
+              <h3 className="font-semibold">价格信息</h3>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <Label htmlFor="sellingPriceRMB">售价：RMB含税</Label>
+                  <Input
+                    id="sellingPriceRMB"
+                    type="number"
+                    step="0.01"
+                    value={formData.sellingPriceRMB}
+                    onChange={(e) =>
+                      setFormData({ ...formData, sellingPriceRMB: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="sellingPriceFOB">售价：美金FOB</Label>
+                  <Input
+                    id="sellingPriceFOB"
+                    type="number"
+                    step="0.01"
+                    value={formData.sellingPriceFOB}
+                    onChange={(e) =>
+                      setFormData({ ...formData, sellingPriceFOB: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="costPriceRMB">成本：RMB含税</Label>
+                  <Input
+                    id="costPriceRMB"
+                    type="number"
+                    step="0.01"
+                    value={formData.costPriceRMB}
+                    onChange={(e) =>
+                      setFormData({ ...formData, costPriceRMB: e.target.value })
+                    }
+                    placeholder="0.00"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setIsEditDialogOpen(false);
+                setEditingVariantId(null);
+                resetForm();
+              }}
+            >
+              取消
+            </Button>
+            <Button onClick={handleSubmit} disabled={updateVariant.isPending}>
+              {updateVariant.isPending ? "保存中..." : "保存修改"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+}

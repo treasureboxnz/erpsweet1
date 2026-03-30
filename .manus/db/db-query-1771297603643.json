@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS `quotation_versions` (\n  `id` int AUTO_INCREMENT PRIMARY KEY,\n  `quotationId` int NOT NULL,\n  `versionNumber` int NOT NULL,\n  `snapshotData` json NOT NULL,\n  `changeDescription` text,\n  `createdBy` int NOT NULL,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  KEY `quotation_versions_quotation_idx` (`quotationId`),\n  KEY `quotation_versions_version_idx` (`quotationId`, `versionNumber`),\n  CONSTRAINT `quotation_versions_quotationId_fk` FOREIGN KEY (`quotationId`) REFERENCES `quotations`(`id`) ON DELETE CASCADE,\n  CONSTRAINT `quotation_versions_createdBy_fk` FOREIGN KEY (`createdBy`) REFERENCES `users`(`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute CREATE TABLE IF NOT EXISTS `quotation_versions` (\n  `id` int AUTO_INCREMENT PRIMARY KEY,\n  `quotationId` int NOT NULL,\n  `versionNumber` int NOT NULL,\n  `snapshotData` json NOT NULL,\n  `changeDescription` text,\n  `createdBy` int NOT NULL,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  KEY `quotation_versions_quotation_idx` (`quotationId`),\n  KEY `quotation_versions_version_idx` (`quotationId`, `versionNumber`),\n  CONSTRAINT `quotation_versions_quotationId_fk` FOREIGN KEY (`quotationId`) REFERENCES `quotations`(`id`) ON DELETE CASCADE,\n  CONSTRAINT `quotation_versions_createdBy_fk` FOREIGN KEY (`createdBy`) REFERENCES `users`(`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1969
+}

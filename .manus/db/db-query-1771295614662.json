@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS `quotation_templates` (\n  `id` int AUTO_INCREMENT PRIMARY KEY,\n  `templateName` varchar(255) NOT NULL,\n  `description` text,\n  `quotationMode` enum('fob_only', 'batch_selection') NOT NULL DEFAULT 'batch_selection',\n  `currency` varchar(10) NOT NULL DEFAULT 'USD',\n  `productsData` json NOT NULL,\n  `notes` text,\n  `customerNotes` text,\n  `createdBy` int NOT NULL,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (`createdBy`) REFERENCES `users`(`id`)\n)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute CREATE TABLE IF NOT EXISTS `quotation_templates` (\n  `id` int AUTO_INCREMENT PRIMARY KEY,\n  `templateName` varchar(255) NOT NULL,\n  `description` text,\n  `quotationMode` enum('fob_only', 'batch_selection') NOT NULL DEFAULT 'batch_selection',\n  `currency` varchar(10) NOT NULL DEFAULT 'USD',\n  `productsData` json NOT NULL,\n  `notes` text,\n  `customerNotes` text,\n  `createdBy` int NOT NULL,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (`createdBy`) REFERENCES `users`(`id`)\n)",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 2065
+}

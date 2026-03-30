@@ -1,0 +1,130 @@
+{
+  "query": "SELECT * FROM customer_price_history ORDER BY transactionDate DESC LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM customer_price_history ORDER BY transactionDate DESC LIMIT 10;",
+  "rows": [
+    {
+      "id": "360001",
+      "erpCompanyId": "NULL",
+      "customerId": "30007",
+      "productId": "60016",
+      "unitPrice": "527.48",
+      "currency": "USD",
+      "orderId": "480001",
+      "transactionDate": "2026-02-23 23:53:35",
+      "createdBy": "1140093",
+      "createdAt": "2026-02-23 23:53:35"
+    },
+    {
+      "id": "330002",
+      "erpCompanyId": "NULL",
+      "customerId": "30007",
+      "productId": "60020",
+      "unitPrice": "100.00",
+      "currency": "USD",
+      "orderId": "450001",
+      "transactionDate": "2026-02-22 22:38:03",
+      "createdBy": "780093",
+      "createdAt": "2026-02-22 22:38:03"
+    },
+    {
+      "id": "330001",
+      "erpCompanyId": "NULL",
+      "customerId": "30007",
+      "productId": "60016",
+      "unitPrice": "45.00",
+      "currency": "USD",
+      "orderId": "450001",
+      "transactionDate": "2026-02-22 22:38:03",
+      "createdBy": "780093",
+      "createdAt": "2026-02-22 22:38:03"
+    },
+    {
+      "id": "300002",
+      "erpCompanyId": "NULL",
+      "customerId": "120001",
+      "productId": "60016",
+      "unitPrice": "0.00",
+      "currency": "USD",
+      "orderId": "420002",
+      "transactionDate": "2026-02-22 12:17:14",
+      "createdBy": "1",
+      "createdAt": "2026-02-22 12:17:13"
+    },
+    {
+      "id": "300001",
+      "erpCompanyId": "NULL",
+      "customerId": "30007",
+      "productId": "60016",
+      "unitPrice": "0.00",
+      "currency": "USD",
+      "orderId": "420001",
+      "transactionDate": "2026-02-22 08:52:00",
+      "createdBy": "1",
+      "createdAt": "2026-02-22 08:52:00"
+    },
+    {
+      "id": "270003",
+      "erpCompanyId": "NULL",
+      "customerId": "120001",
+      "productId": "60016",
+      "unitPrice": "0.00",
+      "currency": "USD",
+      "orderId": "390003",
+      "transactionDate": "2026-02-22 07:03:27",
+      "createdBy": "1",
+      "createdAt": "2026-02-22 07:03:27"
+    },
+    {
+      "id": "270002",
+      "erpCompanyId": "NULL",
+      "customerId": "120001",
+      "productId": "60016",
+      "unitPrice": "0.00",
+      "currency": "USD",
+      "orderId": "390002",
+      "transactionDate": "2026-02-22 06:56:10",
+      "createdBy": "1",
+      "createdAt": "2026-02-22 06:56:10"
+    },
+    {
+      "id": "270001",
+      "erpCompanyId": "NULL",
+      "customerId": "120001",
+      "productId": "60016",
+      "unitPrice": "0.00",
+      "currency": "USD",
+      "orderId": "390001",
+      "transactionDate": "2026-02-22 06:47:59",
+      "createdBy": "1",
+      "createdAt": "2026-02-22 06:47:58"
+    },
+    {
+      "id": "240001",
+      "erpCompanyId": "NULL",
+      "customerId": "120001",
+      "productId": "60016",
+      "unitPrice": "0.00",
+      "currency": "USD",
+      "orderId": "360001",
+      "transactionDate": "2026-02-22 05:58:54",
+      "createdBy": "1",
+      "createdAt": "2026-02-22 05:58:54"
+    },
+    {
+      "id": "210001",
+      "erpCompanyId": "NULL",
+      "customerId": "30007",
+      "productId": "60016",
+      "unitPrice": "0.00",
+      "currency": "USD",
+      "orderId": "330003",
+      "transactionDate": "2026-02-21 09:23:14",
+      "createdBy": "1",
+      "createdAt": "2026-02-21 09:23:14"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tcustomerId\tproductId\tunitPrice\tcurrency\torderId\ttransactionDate\tcreatedBy\tcreatedAt\n360001\tNULL\t30007\t60016\t527.48\tUSD\t480001\t2026-02-23 23:53:35\t1140093\t2026-02-23 23:53:35\n330002\tNULL\t30007\t60020\t100.00\tUSD\t450001\t2026-02-22 22:38:03\t780093\t2026-02-22 22:38:03\n330001\tNULL\t30007\t60016\t45.00\tUSD\t450001\t2026-02-22 22:38:03\t780093\t2026-02-22 22:38:03\n300002\tNULL\t120001\t60016\t0.00\tUSD\t420002\t2026-02-22 12:17:14\t1\t2026-02-22 12:17:13\n300001\tNULL\t30007\t60016\t0.00\tUSD\t420001\t2026-02-22 08:52:00\t1\t2026-02-22 08:52:00\n270003\tNULL\t120001\t60016\t0.00\tUSD\t390003\t2026-02-22 07:03:27\t1\t2026-02-22 07:03:27\n270002\tNULL\t120001\t60016\t0.00\tUSD\t390002\t2026-02-22 06:56:10\t1\t2026-02-22 06:56:10\n270001\tNULL\t120001\t60016\t0.00\tUSD\t390001\t2026-02-22 06:47:59\t1\t2026-02-22 06:47:58\n240001\tNULL\t120001\t60016\t0.00\tUSD\t360001\t2026-02-22 05:58:54\t1\t2026-02-22 05:58:54\n210001\tNULL\t30007\t60016\t0.00\tUSD\t330003\t2026-02-21 09:23:14\t1\t2026-02-21 09:23:14\n",
+  "stderr": "",
+  "execution_time_ms": 1528
+}

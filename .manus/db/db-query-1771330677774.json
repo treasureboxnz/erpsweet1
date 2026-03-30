@@ -1,0 +1,9 @@
+{
+  "query": "-- 备份SB-001-GRY的FOB价格数据\nSELECT vp.* \nFROM variant_pricing vp\nINNER JOIN product_variants pv ON vp.variantId = pv.id\nINNER JOIN products p ON pv.productId = p.id\nWHERE p.sku = 'SB-001-GRY';\n\n-- 临时删除SB-001-GRY的FOB价格\nUPDATE variant_pricing vp\nINNER JOIN product_variants pv ON vp.variantId = pv.id\nINNER JOIN products p ON pv.productId = p.id\nSET vp.sellingPriceFobL1 = NULL,\n    vp.sellingPriceFobL2 = NULL,\n    vp.sellingPriceFobL3 = NULL\nWHERE p.sku = 'SB-001-GRY';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute -- 备份SB-001-GRY的FOB价格数据\nSELECT vp.* \nFROM variant_pricing vp\nINNER JOIN product_variants pv ON vp.variantId = pv.id\nINNER JOIN products p ON pv.productId = p.id\nWHERE p.sku = 'SB-001-GRY';\n\n-- 临时删除SB-001-GRY的FOB价格\nUPDATE variant_pricing vp\nINNER JOIN product_variants pv ON vp.variantId = pv.id\nINNER JOIN products p ON pv.productId = p.id\nSET vp.sellingPriceFobL1 = NULL,\n    vp.sellingPriceFobL2 = NULL,\n    vp.sellingPriceFobL3 = NULL\nWHERE p.sku = 'SB-001-GRY';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1980
+}

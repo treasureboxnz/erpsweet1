@@ -1,0 +1,28 @@
+{
+  "query": "\nSELECT \n  mb.id,\n  mb.boardNumber,\n  mb.supplierId,\n  ms.name as supplier_name\nFROM material_boards mb\nLEFT JOIN material_suppliers ms ON mb.supplierId = ms.id\nWHERE mb.boardNumber = 'C03';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  mb.id,\n  mb.boardNumber,\n  mb.supplierId,\n  ms.name as supplier_name\nFROM material_boards mb\nLEFT JOIN material_suppliers ms ON mb.supplierId = ms.id\nWHERE mb.boardNumber = 'C03';\n",
+  "rows": [
+    {
+      "id": "19",
+      "boardNumber": "C03",
+      "supplierId": "5",
+      "supplier_name": "华美纺织"
+    },
+    {
+      "id": "24",
+      "boardNumber": "C03",
+      "supplierId": "6",
+      "supplier_name": "锦绣布业"
+    },
+    {
+      "id": "29",
+      "boardNumber": "C03",
+      "supplierId": "7",
+      "supplier_name": "东方纺织"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tboardNumber\tsupplierId\tsupplier_name\n19\tC03\t5\t华美纺织\n24\tC03\t6\t锦绣布业\n29\tC03\t7\t东方纺织\n",
+  "stderr": "",
+  "execution_time_ms": 1549
+}

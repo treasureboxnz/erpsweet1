@@ -1,0 +1,16 @@
+{
+  "query": "\nSELECT \n  oi.id, \n  oi.productId,\n  p.name as productName,\n  pi.imageUrl\nFROM order_items oi\nLEFT JOIN products p ON oi.productId = p.id\nLEFT JOIN product_images pi ON p.id = pi.productId\nWHERE oi.orderId = 510001\nLIMIT 10;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  oi.id, \n  oi.productId,\n  p.name as productName,\n  pi.imageUrl\nFROM order_items oi\nLEFT JOIN products p ON oi.productId = p.id\nLEFT JOIN product_images pi ON p.id = pi.productId\nWHERE oi.orderId = 510001\nLIMIT 10;\n",
+  "rows": [
+    {
+      "id": "570001",
+      "productId": "180002",
+      "productName": "测试产品-SKU规则",
+      "imageUrl": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tproductId\tproductName\timageUrl\n570001\t180002\t测试产品-SKU规则\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1686
+}

@@ -1,0 +1,9 @@
+{
+  "query": "SELECT pv.id, pv.variantCode, pv.variantName, pv.createdAt,\n       pb.id as box_id, pb.length, pb.width, pb.height, pb.cbm, pb.grossWeight, pb.netWeight\nFROM product_variants pv\nLEFT JOIN package_boxes pb ON pb.variantId = pv.id\nWHERE pv.variantName LIKE '%日志测试%' OR pv.variantName LIKE '%完整功能测试%'\nORDER BY pv.createdAt DESC\nLIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT pv.id, pv.variantCode, pv.variantName, pv.createdAt,\n       pb.id as box_id, pb.length, pb.width, pb.height, pb.cbm, pb.grossWeight, pb.netWeight\nFROM product_variants pv\nLEFT JOIN package_boxes pb ON pb.variantId = pv.id\nWHERE pv.variantName LIKE '%日志测试%' OR pv.variantName LIKE '%完整功能测试%'\nORDER BY pv.createdAt DESC\nLIMIT 5;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1511
+}

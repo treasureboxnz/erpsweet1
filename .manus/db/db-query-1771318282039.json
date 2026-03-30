@@ -1,0 +1,210 @@
+{
+  "query": "SELECT \n  pv.id,\n  pv.variantCode,\n  pv.sellingPriceRMB,\n  pv.sellingPriceFOB,\n  pv.costPriceRMB,\n  pv.isDefault,\n  p.sku as productSku,\n  p.name as productName\nFROM product_variants pv\nJOIN products p ON pv.productId = p.id\nWHERE pv.sellingPriceFOB IS NULL OR pv.sellingPriceFOB = '0' OR pv.sellingPriceFOB = '0.00'\nORDER BY p.sku, pv.variantCode\nLIMIT 50;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT \n  pv.id,\n  pv.variantCode,\n  pv.sellingPriceRMB,\n  pv.sellingPriceFOB,\n  pv.costPriceRMB,\n  pv.isDefault,\n  p.sku as productSku,\n  p.name as productName\nFROM product_variants pv\nJOIN products p ON pv.productId = p.id\nWHERE pv.sellingPriceFOB IS NULL OR pv.sellingPriceFOB = '0' OR pv.sellingPriceFOB = '0.00'\nORDER BY p.sku, pv.variantCode\nLIMIT 50;",
+  "rows": [
+    {
+      "id": "120010",
+      "variantCode": "DC-002-WAL-V001",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "1",
+      "productSku": "DC-002-WAL",
+      "productName": "Mid-Century Rope Seat Dining Chair - Walnut"
+    },
+    {
+      "id": "120011",
+      "variantCode": "DC-002-WAL-V002",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "DC-002-WAL",
+      "productName": "Mid-Century Rope Seat Dining Chair - Walnut"
+    },
+    {
+      "id": "120012",
+      "variantCode": "DC-002-WAL-V003",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "DC-002-WAL",
+      "productName": "Mid-Century Rope Seat Dining Chair - Walnut"
+    },
+    {
+      "id": "120013",
+      "variantCode": "DC-002-WAL-V004",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "DC-002-WAL",
+      "productName": "Mid-Century Rope Seat Dining Chair - Walnut"
+    },
+    {
+      "id": "120014",
+      "variantCode": "DC-003-WHT-V001",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "1",
+      "productSku": "DC-003-WHT",
+      "productName": "Eames-Inspired Molded Chair - White"
+    },
+    {
+      "id": "120015",
+      "variantCode": "DC-003-WHT-V002",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "DC-003-WHT",
+      "productName": "Eames-Inspired Molded Chair - White"
+    },
+    {
+      "id": "120016",
+      "variantCode": "DC-003-WHT-V003",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "DC-003-WHT",
+      "productName": "Eames-Inspired Molded Chair - White"
+    },
+    {
+      "id": "120017",
+      "variantCode": "DC-003-WHT-V004",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "DC-003-WHT",
+      "productName": "Eames-Inspired Molded Chair - White"
+    },
+    {
+      "id": "120018",
+      "variantCode": "DC-004-NVY-V001",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "1",
+      "productSku": "DC-004-NVY",
+      "productName": "Tufted Velvet Dining Chair - Navy Blue"
+    },
+    {
+      "id": "120019",
+      "variantCode": "DC-004-NVY-V002",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "DC-004-NVY",
+      "productName": "Tufted Velvet Dining Chair - Navy Blue"
+    },
+    {
+      "id": "120020",
+      "variantCode": "DC-004-NVY-V003",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "DC-004-NVY",
+      "productName": "Tufted Velvet Dining Chair - Navy Blue"
+    },
+    {
+      "id": "120021",
+      "variantCode": "DC-004-NVY-V004",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "DC-004-NVY",
+      "productName": "Tufted Velvet Dining Chair - Navy Blue"
+    },
+    {
+      "id": "120022",
+      "variantCode": "DC-005-OAK-V001",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "1",
+      "productSku": "DC-005-OAK",
+      "productName": "Windsor-Style Dining Chair - Oak"
+    },
+    {
+      "id": "120023",
+      "variantCode": "DC-005-OAK-V002",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "DC-005-OAK",
+      "productName": "Windsor-Style Dining Chair - Oak"
+    },
+    {
+      "id": "120024",
+      "variantCode": "DC-005-OAK-V003",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "DC-005-OAK",
+      "productName": "Windsor-Style Dining Chair - Oak"
+    },
+    {
+      "id": "120025",
+      "variantCode": "DC-005-OAK-V004",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "DC-005-OAK",
+      "productName": "Windsor-Style Dining Chair - Oak"
+    },
+    {
+      "id": "120002",
+      "variantCode": "SB-001-GRY-V001",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "1",
+      "productSku": "SB-001-GRY",
+      "productName": "Modern Convertible Sofa Bed - Gray"
+    },
+    {
+      "id": "120003",
+      "variantCode": "SB-001-GRY-V002",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "SB-001-GRY",
+      "productName": "Modern Convertible Sofa Bed - Gray"
+    },
+    {
+      "id": "120004",
+      "variantCode": "SB-001-GRY-V003",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "SB-001-GRY",
+      "productName": "Modern Convertible Sofa Bed - Gray"
+    },
+    {
+      "id": "120005",
+      "variantCode": "SB-001-GRY-V004",
+      "sellingPriceRMB": "NULL",
+      "sellingPriceFOB": "NULL",
+      "costPriceRMB": "NULL",
+      "isDefault": "0",
+      "productSku": "SB-001-GRY",
+      "productName": "Modern Convertible Sofa Bed - Gray"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tsellingPriceRMB\tsellingPriceFOB\tcostPriceRMB\tisDefault\tproductSku\tproductName\n120010\tDC-002-WAL-V001\tNULL\tNULL\tNULL\t1\tDC-002-WAL\tMid-Century Rope Seat Dining Chair - Walnut\n120011\tDC-002-WAL-V002\tNULL\tNULL\tNULL\t0\tDC-002-WAL\tMid-Century Rope Seat Dining Chair - Walnut\n120012\tDC-002-WAL-V003\tNULL\tNULL\tNULL\t0\tDC-002-WAL\tMid-Century Rope Seat Dining Chair - Walnut\n120013\tDC-002-WAL-V004\tNULL\tNULL\tNULL\t0\tDC-002-WAL\tMid-Century Rope Seat Dining Chair - Walnut\n120014\tDC-003-WHT-V001\tNULL\tNULL\tNULL\t1\tDC-003-WHT\tEames-Inspired Molded Chair - White\n120015\tDC-003-WHT-V002\tNULL\tNULL\tNULL\t0\tDC-003-WHT\tEames-Inspired Molded Chair - White\n120016\tDC-003-WHT-V003\tNULL\tNULL\tNULL\t0\tDC-003-WHT\tEames-Inspired Molded Chair - White\n120017\tDC-003-WHT-V004\tNULL\tNULL\tNULL\t0\tDC-003-WHT\tEames-Inspired Molded Chair - White\n120018\tDC-004-NVY-V001\tNULL\tNULL\tNULL\t1\tDC-004-NVY\tTufted Velvet Dining Chair - Navy Blue\n120019\tDC-004-NVY-V002\tNULL\tNULL\tNULL\t0\tDC-004-NVY\tTufted Velvet Dining Chair - Navy Blue\n120020\tDC-004-NVY-V003\tNULL\tNULL\tNULL\t0\tDC-004-NVY\tTufted Velvet Dining Chair - Navy Blue\n120021\tDC-004-NVY-V004\tNULL\tNULL\tNULL\t0\tDC-004-NVY\tTufted Velvet Dining Chair - Navy Blue\n120022\tDC-005-OAK-V001\tNULL\tNULL\tNULL\t1\tDC-005-OAK\tWindsor-Style Dining Chair - Oak\n120023\tDC-005-OAK-V002\tNULL\tNULL\tNULL\t0\tDC-005-OAK\tWindsor-Style Dining Chair - Oak\n120024\tDC-005-OAK-V003\tNULL\tNULL\tNULL\t0\tDC-005-OAK\tWindsor-Style Dining Chair - Oak\n120025\tDC-005-OAK-V004\tNULL\tNULL\tNULL\t0\tDC-005-OAK\tWindsor-Style Dining Chair - Oak\n120002\tSB-001-GRY-V001\tNULL\tNULL\tNULL\t1\tSB-001-GRY\tModern Convertible Sofa Bed - Gray\n120003\tSB-001-GRY-V002\tNULL\tNULL\tNULL\t0\tSB-001-GRY\tModern Convertible Sofa Bed - Gray\n120004\tSB-001-GRY-V003\tNULL\tNULL\tNULL\t0\tSB-001-GRY\tModern Convertible Sofa Bed - Gray\n120005\tSB-001-GRY-V004\tNULL\tNULL\tNULL\t0\tSB-001-GRY\tModern Convertible Sofa Bed - Gray\n",
+  "stderr": "",
+  "execution_time_ms": 1556
+}

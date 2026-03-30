@@ -1,0 +1,80 @@
+{
+  "query": "SELECT id, name, category, fieldName, displayOrder FROM attributes WHERE category = '材料管理' AND fieldName = '材料类型' ORDER BY displayOrder LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, name, category, fieldName, displayOrder FROM attributes WHERE category = '材料管理' AND fieldName = '材料类型' ORDER BY displayOrder LIMIT 10;",
+  "rows": [
+    {
+      "id": "60002",
+      "name": "木腿",
+      "category": "材料管理",
+      "fieldName": "材料类型",
+      "displayOrder": "0"
+    },
+    {
+      "id": "90001",
+      "name": "配件",
+      "category": "材料管理",
+      "fieldName": "材料类型",
+      "displayOrder": "0"
+    },
+    {
+      "id": "90002",
+      "name": "布料",
+      "category": "材料管理",
+      "fieldName": "材料类型",
+      "displayOrder": "0"
+    },
+    {
+      "id": "210001",
+      "name": "颜色",
+      "category": "材料管理",
+      "fieldName": "材料类型",
+      "displayOrder": "0"
+    },
+    {
+      "id": "210002",
+      "name": "扶手",
+      "category": "材料管理",
+      "fieldName": "材料类型",
+      "displayOrder": "0"
+    },
+    {
+      "id": "210003",
+      "name": "填充物",
+      "category": "材料管理",
+      "fieldName": "材料类型",
+      "displayOrder": "0"
+    },
+    {
+      "id": "210004",
+      "name": "坐垫",
+      "category": "材料管理",
+      "fieldName": "材料类型",
+      "displayOrder": "0"
+    },
+    {
+      "id": "210005",
+      "name": "靠背",
+      "category": "材料管理",
+      "fieldName": "材料类型",
+      "displayOrder": "0"
+    },
+    {
+      "id": "210006",
+      "name": "框架",
+      "category": "材料管理",
+      "fieldName": "材料类型",
+      "displayOrder": "0"
+    },
+    {
+      "id": "60001",
+      "name": "皮革",
+      "category": "材料管理",
+      "fieldName": "材料类型",
+      "displayOrder": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tcategory\tfieldName\tdisplayOrder\n60002\t木腿\t材料管理\t材料类型\t0\n90001\t配件\t材料管理\t材料类型\t0\n90002\t布料\t材料管理\t材料类型\t0\n210001\t颜色\t材料管理\t材料类型\t0\n210002\t扶手\t材料管理\t材料类型\t0\n210003\t填充物\t材料管理\t材料类型\t0\n210004\t坐垫\t材料管理\t材料类型\t0\n210005\t靠背\t材料管理\t材料类型\t0\n210006\t框架\t材料管理\t材料类型\t0\n60001\t皮革\t材料管理\t材料类型\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1544
+}

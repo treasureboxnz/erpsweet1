@@ -1,0 +1,40 @@
+{
+  "query": "SELECT * FROM companies LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM companies LIMIT 1;",
+  "rows": [
+    {
+      "id": "1",
+      "erpCompanyId": "1",
+      "companyName": "Test Company Ltd",
+      "customerCode": "TC001",
+      "industryType": "NULL",
+      "country": "United States",
+      "state": "NULL",
+      "city": "New York",
+      "address": "NULL",
+      "postalCode": "NULL",
+      "businessLicense": "NULL",
+      "taxNumber": "NULL",
+      "website": "NULL",
+      "companyScale": "NULL",
+      "mainProducts": "NULL",
+      "annualPurchaseVolume": "NULL",
+      "assignedTo": "NULL",
+      "cooperationLevel": "medium",
+      "notes": "NULL",
+      "createdBy": "1",
+      "createdAt": "2026-02-11 23:02:30",
+      "updatedAt": "2026-02-19 11:26:15",
+      "logoUrl": "NULL",
+      "cooperationStatus": "developing",
+      "source": "NULL",
+      "customerNature": "NULL",
+      "customerCategory": "[]",
+      "defaultFobLevel": "level1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tcompanyName\tcustomerCode\tindustryType\tcountry\tstate\tcity\taddress\tpostalCode\tbusinessLicense\ttaxNumber\twebsite\tcompanyScale\tmainProducts\tannualPurchaseVolume\tassignedTo\tcooperationLevel\tnotes\tcreatedBy\tcreatedAt\tupdatedAt\tlogoUrl\tcooperationStatus\tsource\tcustomerNature\tcustomerCategory\tdefaultFobLevel\n1\t1\tTest Company Ltd\tTC001\tNULL\tUnited States\tNULL\tNew York\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\tNULL\tmedium\tNULL\t1\t2026-02-11 23:02:30\t2026-02-19 11:26:15\tNULL\tdeveloping\tNULL\tNULL\t[]\tlevel1\n",
+  "stderr": "",
+  "execution_time_ms": 1501
+}

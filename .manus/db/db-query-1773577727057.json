@@ -1,0 +1,90 @@
+{
+  "query": "SELECT id, companyDomain FROM apollo_candidates WHERE companyDomain IS NOT NULL LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, companyDomain FROM apollo_candidates WHERE companyDomain IS NOT NULL LIMIT 20;",
+  "rows": [
+    {
+      "id": "1",
+      "companyDomain": "http://www.homedepot.com"
+    },
+    {
+      "id": "2",
+      "companyDomain": "http://www.ashleyfurnitureindustriesllc.com"
+    },
+    {
+      "id": "3",
+      "companyDomain": "http://www.ashleyfurnitureindustriesllc.com"
+    },
+    {
+      "id": "4",
+      "companyDomain": "http://www.steelcase.com"
+    },
+    {
+      "id": "5",
+      "companyDomain": "http://www.loaf.com"
+    },
+    {
+      "id": "6",
+      "companyDomain": "http://www.marksandspencer.com"
+    },
+    {
+      "id": "7",
+      "companyDomain": "http://www.loaf.com"
+    },
+    {
+      "id": "8",
+      "companyDomain": "http://www.dams.com"
+    },
+    {
+      "id": "9",
+      "companyDomain": "http://www.loaf.com"
+    },
+    {
+      "id": "10",
+      "companyDomain": "http://www.amberinteriordesign.com"
+    },
+    {
+      "id": "11",
+      "companyDomain": "http://www.amberinteriordesign.com"
+    },
+    {
+      "id": "12",
+      "companyDomain": "http://www.amberinteriordesign.com"
+    },
+    {
+      "id": "13",
+      "companyDomain": "http://www.dezeen.com"
+    },
+    {
+      "id": "14",
+      "companyDomain": "http://www.furniturevillage.co.uk"
+    },
+    {
+      "id": "15",
+      "companyDomain": "http://www.istikbalgb.com"
+    },
+    {
+      "id": "16",
+      "companyDomain": "http://www.amberinteriordesign.com"
+    },
+    {
+      "id": "17",
+      "companyDomain": "http://www.next.co.uk"
+    },
+    {
+      "id": "18",
+      "companyDomain": "http://www.marksandspencer.com"
+    },
+    {
+      "id": "19",
+      "companyDomain": "http://www.dezeen.com"
+    },
+    {
+      "id": "20",
+      "companyDomain": "http://www.swyfthome.co.uk"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcompanyDomain\n1\thttp://www.homedepot.com\n2\thttp://www.ashleyfurnitureindustriesllc.com\n3\thttp://www.ashleyfurnitureindustriesllc.com\n4\thttp://www.steelcase.com\n5\thttp://www.loaf.com\n6\thttp://www.marksandspencer.com\n7\thttp://www.loaf.com\n8\thttp://www.dams.com\n9\thttp://www.loaf.com\n10\thttp://www.amberinteriordesign.com\n11\thttp://www.amberinteriordesign.com\n12\thttp://www.amberinteriordesign.com\n13\thttp://www.dezeen.com\n14\thttp://www.furniturevillage.co.uk\n15\thttp://www.istikbalgb.com\n16\thttp://www.amberinteriordesign.com\n17\thttp://www.next.co.uk\n18\thttp://www.marksandspencer.com\n19\thttp://www.dezeen.com\n20\thttp://www.swyfthome.co.uk\n",
+  "stderr": "",
+  "execution_time_ms": 1579
+}

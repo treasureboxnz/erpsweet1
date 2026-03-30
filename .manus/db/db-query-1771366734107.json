@@ -1,0 +1,50 @@
+{
+  "query": "SELECT id, variantCode, variantName FROM product_variants WHERE variantCode LIKE 'DC-001-GRY%' LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, variantCode, variantName FROM product_variants WHERE variantCode LIKE 'DC-001-GRY%' LIMIT 10;",
+  "rows": [
+    {
+      "id": "120006",
+      "variantCode": "DC-001-GRY-V004",
+      "variantName": "Gray upholstery darker shade"
+    },
+    {
+      "id": "120007",
+      "variantCode": "DC-001-GRY-V005",
+      "variantName": "Custom backrest height 90cm"
+    },
+    {
+      "id": "120008",
+      "variantCode": "DC-001-GRY-V006",
+      "variantName": "Bulk order 100+ units"
+    },
+    {
+      "id": "120009",
+      "variantCode": "DC-001-GRY-V007",
+      "variantName": "Premium fabric stain-resistant"
+    },
+    {
+      "id": "120082",
+      "variantCode": "DC-001-GRY-V001",
+      "variantName": "30米布料"
+    },
+    {
+      "id": "120083",
+      "variantCode": "DC-001-GRY-V002",
+      "variantName": "高背版本"
+    },
+    {
+      "id": "120084",
+      "variantCode": "DC-001-GRY-V003",
+      "variantName": "低背高级棉"
+    },
+    {
+      "id": "180001",
+      "variantCode": "DC-001-GRY-V008",
+      "variantName": "订单页面测试批次V2"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantName\n120006\tDC-001-GRY-V004\tGray upholstery darker shade\n120007\tDC-001-GRY-V005\tCustom backrest height 90cm\n120008\tDC-001-GRY-V006\tBulk order 100+ units\n120009\tDC-001-GRY-V007\tPremium fabric stain-resistant\n120082\tDC-001-GRY-V001\t30米布料\n120083\tDC-001-GRY-V002\t高背版本\n120084\tDC-001-GRY-V003\t低背高级棉\n180001\tDC-001-GRY-V008\t订单页面测试批次V2\n",
+  "stderr": "",
+  "execution_time_ms": 1500
+}

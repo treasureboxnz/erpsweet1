@@ -1,0 +1,28 @@
+{
+  "query": "SELECT o.id, o.orderNumber, oi.productName, COUNT(vm.id) as material_count\nFROM orders o\nJOIN order_items oi ON o.id = oi.orderId\nJOIN product_variants pv ON oi.variantId = pv.id\nJOIN variant_materials vm ON pv.id = vm.variantId\nWHERE o.deletedAt IS NULL\nGROUP BY o.id, oi.id\nHAVING material_count >= 4\nLIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT o.id, o.orderNumber, oi.productName, COUNT(vm.id) as material_count\nFROM orders o\nJOIN order_items oi ON o.id = oi.orderId\nJOIN product_variants pv ON oi.variantId = pv.id\nJOIN variant_materials vm ON pv.id = vm.variantId\nWHERE o.deletedAt IS NULL\nGROUP BY o.id, oi.id\nHAVING material_count >= 4\nLIMIT 5;",
+  "rows": [
+    {
+      "id": "270008",
+      "orderNumber": "ORD-TEST-2MAT",
+      "productName": "NULL",
+      "material_count": "5"
+    },
+    {
+      "id": "270009",
+      "orderNumber": "ORD-TEST-3MAT",
+      "productName": "NULL",
+      "material_count": "7"
+    },
+    {
+      "id": "270010",
+      "orderNumber": "ORD-TEST-4MAT",
+      "productName": "NULL",
+      "material_count": "9"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\torderNumber\tproductName\tmaterial_count\n270008\tORD-TEST-2MAT\tNULL\t5\n270009\tORD-TEST-3MAT\tNULL\t7\n270010\tORD-TEST-4MAT\tNULL\t9\n",
+  "stderr": "",
+  "execution_time_ms": 1509
+}

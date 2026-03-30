@@ -1,0 +1,46 @@
+{
+  "query": "\nSELECT \n  p.id as productId,\n  p.sku as productSku,\n  COUNT(pv.id) as variantCount,\n  GROUP_CONCAT(DISTINCT SUBSTRING(pv.variantCode, 1, LOCATE('-V', pv.variantCode) - 1)) as skuPrefixes\nFROM products p\nLEFT JOIN product_variants pv ON p.id = pv.productId\nWHERE pv.id IS NOT NULL\nGROUP BY p.id, p.sku\nHAVING p.sku != skuPrefixes\nLIMIT 10;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  p.id as productId,\n  p.sku as productSku,\n  COUNT(pv.id) as variantCount,\n  GROUP_CONCAT(DISTINCT SUBSTRING(pv.variantCode, 1, LOCATE('-V', pv.variantCode) - 1)) as skuPrefixes\nFROM products p\nLEFT JOIN product_variants pv ON p.id = pv.productId\nWHERE pv.id IS NOT NULL\nGROUP BY p.id, p.sku\nHAVING p.sku != skuPrefixes\nLIMIT 10;\n",
+  "rows": [
+    {
+      "productId": "60001",
+      "productSku": "SB-001-GRY",
+      "variantCount": "4",
+      "skuPrefixes": ""
+    },
+    {
+      "productId": "60016",
+      "productSku": "DC-001-GRY",
+      "variantCount": "7",
+      "skuPrefixes": ",DC-001-GRY"
+    },
+    {
+      "productId": "60017",
+      "productSku": "DC-002-WAL",
+      "variantCount": "4",
+      "skuPrefixes": ""
+    },
+    {
+      "productId": "60018",
+      "productSku": "DC-003-WHT",
+      "variantCount": "4",
+      "skuPrefixes": ""
+    },
+    {
+      "productId": "60019",
+      "productSku": "DC-004-NVY",
+      "variantCount": "4",
+      "skuPrefixes": ""
+    },
+    {
+      "productId": "60020",
+      "productSku": "DC-005-OAK",
+      "variantCount": "4",
+      "skuPrefixes": ""
+    }
+  ],
+  "messages": [],
+  "stdout": "productId\tproductSku\tvariantCount\tskuPrefixes\n60001\tSB-001-GRY\t4\t\n60016\tDC-001-GRY\t7\t,DC-001-GRY\n60017\tDC-002-WAL\t4\t\n60018\tDC-003-WHT\t4\t\n60019\tDC-004-NVY\t4\t\n60020\tDC-005-OAK\t4\t\n",
+  "stderr": "",
+  "execution_time_ms": 1512
+}

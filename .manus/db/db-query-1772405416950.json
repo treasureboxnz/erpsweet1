@@ -1,0 +1,64 @@
+{
+  "query": "\nSELECT u.id, u.name, u.email, u.role, u.passwordHash, c.companyCode, c.companyName\nFROM users u\nJOIN erp_companies c ON u.erpCompanyId = c.id\nWHERE (c.companyCode LIKE '%test%' OR c.companyName LIKE '%test%' OR c.companyCode LIKE '%ERIC%')\n  AND u.role IN ('super_admin', 'admin')\nLIMIT 10;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT u.id, u.name, u.email, u.role, u.passwordHash, c.companyCode, c.companyName\nFROM users u\nJOIN erp_companies c ON u.erpCompanyId = c.id\nWHERE (c.companyCode LIKE '%test%' OR c.companyName LIKE '%test%' OR c.companyCode LIKE '%ERIC%')\n  AND u.role IN ('super_admin', 'admin')\nLIMIT 10;\n",
+  "rows": [
+    {
+      "id": "2010015",
+      "name": "eric",
+      "email": "eric@treasurebox.co.nz",
+      "role": "super_admin",
+      "passwordHash": "$2b$10$cewN4xdlp6/VhxJvWkJOsO1R43EFetsfTbd/N9TcYWcT2bzVDp9ru",
+      "companyCode": "TEST",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "1140093",
+      "name": "tester",
+      "email": "admin@admin.com",
+      "role": "admin",
+      "passwordHash": "$2b$10$ZUyTeKy3H.YlDhveFX2/5u1yfDLfM9FkMcNr2rS9AV8iPUJLdLnDy",
+      "companyCode": "TEST",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "780093",
+      "name": "管理员(已编辑)",
+      "email": "admin@test.com",
+      "role": "admin",
+      "passwordHash": "$2b$10$DzIXdixWWzEdW.MflFCl2O56Z3IBIUW89.PamHuE1YDd66mcoJd2G",
+      "companyCode": "TEST",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "1",
+      "name": "Eric zhou",
+      "email": "nzchunzhou1@gmail.com",
+      "role": "super_admin",
+      "passwordHash": "NULL",
+      "companyCode": "TEST",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "840074",
+      "name": "测试公司2管理员",
+      "email": "admin@test2.com",
+      "role": "admin",
+      "passwordHash": "$2b$10$DzIXdixWWzEdW.MflFCl2O56Z3IBIUW89.PamHuE1YDd66mcoJd2G",
+      "companyCode": "TEST2",
+      "companyName": "测试公司2"
+    },
+    {
+      "id": "780152",
+      "name": "管理员2",
+      "email": "admin2@test.com",
+      "role": "admin",
+      "passwordHash": "$2b$10$4S4v65xuV7BBhtLGF3f3He7e48mT7CJw4uUmIf6o2uzCdtJ5gbhfG",
+      "companyCode": "TEST2",
+      "companyName": "测试公司2"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\temail\trole\tpasswordHash\tcompanyCode\tcompanyName\n2010015\teric\teric@treasurebox.co.nz\tsuper_admin\t$2b$10$cewN4xdlp6/VhxJvWkJOsO1R43EFetsfTbd/N9TcYWcT2bzVDp9ru\tTEST\t测试公司\n1140093\ttester\tadmin@admin.com\tadmin\t$2b$10$ZUyTeKy3H.YlDhveFX2/5u1yfDLfM9FkMcNr2rS9AV8iPUJLdLnDy\tTEST\t测试公司\n780093\t管理员(已编辑)\tadmin@test.com\tadmin\t$2b$10$DzIXdixWWzEdW.MflFCl2O56Z3IBIUW89.PamHuE1YDd66mcoJd2G\tTEST\t测试公司\n1\tEric zhou\tnzchunzhou1@gmail.com\tsuper_admin\tNULL\tTEST\t测试公司\n840074\t测试公司2管理员\tadmin@test2.com\tadmin\t$2b$10$DzIXdixWWzEdW.MflFCl2O56Z3IBIUW89.PamHuE1YDd66mcoJd2G\tTEST2\t测试公司2\n780152\t管理员2\tadmin2@test.com\tadmin\t$2b$10$4S4v65xuV7BBhtLGF3f3He7e48mT7CJw4uUmIf6o2uzCdtJ5gbhfG\tTEST2\t测试公司2\n",
+  "stderr": "",
+  "execution_time_ms": 1549
+}

@@ -1,0 +1,8 @@
+{
+  "query": "\nSELECT \n  o.id,\n  o.order_number,\n  o.customer_id,\n  o.total_amount,\n  oi.id as item_id,\n  oi.product_id,\n  oi.product_name,\n  oi.product_sku,\n  oi.order_mode,\n  oi.fob_quantity,\n  oi.fob_unit_price,\n  oi.fob_total_price\nFROM orders o\nLEFT JOIN order_items oi ON o.id = oi.order_id\nWHERE o.order_number = 'ORD-20260217-FWY'\nORDER BY o.id DESC, oi.id;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  o.id,\n  o.order_number,\n  o.customer_id,\n  o.total_amount,\n  oi.id as item_id,\n  oi.product_id,\n  oi.product_name,\n  oi.product_sku,\n  oi.order_mode,\n  oi.fob_quantity,\n  oi.fob_unit_price,\n  oi.fob_total_price\nFROM orders o\nLEFT JOIN order_items oi ON o.id = oi.order_id\nWHERE o.order_number = 'ORD-20260217-FWY'\nORDER BY o.id DESC, oi.id;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 2: Unknown column 'oi.order_id' in 'on clause'"
+  ]
+}

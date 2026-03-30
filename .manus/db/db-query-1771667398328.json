@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE product_variants\nSET isDefault = 0\nWHERE productId = 60016 \n  AND isDefault = 1\n  AND id NOT IN (\n    SELECT id FROM (\n      SELECT id\n      FROM product_variants\n      WHERE productId = 60016 AND isDefault = 1\n      ORDER BY createdAt DESC\n      LIMIT 1\n    ) AS latest\n  );",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute UPDATE product_variants\nSET isDefault = 0\nWHERE productId = 60016 \n  AND isDefault = 1\n  AND id NOT IN (\n    SELECT id FROM (\n      SELECT id\n      FROM product_variants\n      WHERE productId = 60016 AND isDefault = 1\n      ORDER BY createdAt DESC\n      LIMIT 1\n    ) AS latest\n  );",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1507
+}

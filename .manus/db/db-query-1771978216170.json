@@ -1,0 +1,58 @@
+{
+  "query": "\n-- 删除之前创建的港口属性\nDELETE FROM attributes WHERE category = 'shipping_port';\n\n-- 插入新的4个港口（使用camelCase字段名）\nINSERT INTO attributes (category, fieldName, name, displayOrder, erpCompanyId, createdAt, updatedAt)\nVALUES\n  ('shipping_port', 'shipping_port', '天津港', 1, 1, NOW(), NOW()),\n  ('shipping_port', 'shipping_port', '上海港', 2, 1, NOW(), NOW()),\n  ('shipping_port', 'shipping_port', '宁波港', 3, 1, NOW(), NOW()),\n  ('shipping_port', 'shipping_port', '深圳港', 4, 1, NOW(), NOW());\n\n-- 验证插入结果\nSELECT * FROM attributes WHERE category = 'shipping_port' ORDER BY displayOrder;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- 删除之前创建的港口属性\nDELETE FROM attributes WHERE category = 'shipping_port';\n\n-- 插入新的4个港口（使用camelCase字段名）\nINSERT INTO attributes (category, fieldName, name, displayOrder, erpCompanyId, createdAt, updatedAt)\nVALUES\n  ('shipping_port', 'shipping_port', '天津港', 1, 1, NOW(), NOW()),\n  ('shipping_port', 'shipping_port', '上海港', 2, 1, NOW(), NOW()),\n  ('shipping_port', 'shipping_port', '宁波港', 3, 1, NOW(), NOW()),\n  ('shipping_port', 'shipping_port', '深圳港', 4, 1, NOW(), NOW());\n\n-- 验证插入结果\nSELECT * FROM attributes WHERE category = 'shipping_port' ORDER BY displayOrder;\n",
+  "rows": [
+    {
+      "id": "150009",
+      "erpCompanyId": "1",
+      "name": "天津港",
+      "category": "shipping_port",
+      "subcategory": "NULL",
+      "fieldName": "shipping_port",
+      "displayOrder": "1",
+      "createdBy": "NULL",
+      "createdAt": "2026-02-25 00:10:15",
+      "updatedAt": "2026-02-25 00:10:15"
+    },
+    {
+      "id": "150010",
+      "erpCompanyId": "1",
+      "name": "上海港",
+      "category": "shipping_port",
+      "subcategory": "NULL",
+      "fieldName": "shipping_port",
+      "displayOrder": "2",
+      "createdBy": "NULL",
+      "createdAt": "2026-02-25 00:10:15",
+      "updatedAt": "2026-02-25 00:10:15"
+    },
+    {
+      "id": "150011",
+      "erpCompanyId": "1",
+      "name": "宁波港",
+      "category": "shipping_port",
+      "subcategory": "NULL",
+      "fieldName": "shipping_port",
+      "displayOrder": "3",
+      "createdBy": "NULL",
+      "createdAt": "2026-02-25 00:10:15",
+      "updatedAt": "2026-02-25 00:10:15"
+    },
+    {
+      "id": "150012",
+      "erpCompanyId": "1",
+      "name": "深圳港",
+      "category": "shipping_port",
+      "subcategory": "NULL",
+      "fieldName": "shipping_port",
+      "displayOrder": "4",
+      "createdBy": "NULL",
+      "createdAt": "2026-02-25 00:10:15",
+      "updatedAt": "2026-02-25 00:10:15"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tname\tcategory\tsubcategory\tfieldName\tdisplayOrder\tcreatedBy\tcreatedAt\tupdatedAt\n150009\t1\t天津港\tshipping_port\tNULL\tshipping_port\t1\tNULL\t2026-02-25 00:10:15\t2026-02-25 00:10:15\n150010\t1\t上海港\tshipping_port\tNULL\tshipping_port\t2\tNULL\t2026-02-25 00:10:15\t2026-02-25 00:10:15\n150011\t1\t宁波港\tshipping_port\tNULL\tshipping_port\t3\tNULL\t2026-02-25 00:10:15\t2026-02-25 00:10:15\n150012\t1\t深圳港\tshipping_port\tNULL\tshipping_port\t4\tNULL\t2026-02-25 00:10:15\t2026-02-25 00:10:15\n",
+  "stderr": "",
+  "execution_time_ms": 1980
+}

@@ -1,0 +1,21 @@
+{
+  "query": "\nSELECT \n  pb.id,\n  pb.length,\n  pb.width,\n  pb.height,\n  pb.cbm,\n  pb.grossWeight,\n  pb.netWeight,\n  pv.variantCode,\n  pv.variantName\nFROM package_boxes pb\nJOIN product_variants pv ON pb.variantId = pv.id\nWHERE pv.variantCode = 'DC-001-GRY-V034'\nORDER BY pb.id DESC;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  pb.id,\n  pb.length,\n  pb.width,\n  pb.height,\n  pb.cbm,\n  pb.grossWeight,\n  pb.netWeight,\n  pv.variantCode,\n  pv.variantName\nFROM package_boxes pb\nJOIN product_variants pv ON pb.variantId = pv.id\nWHERE pv.variantCode = 'DC-001-GRY-V034'\nORDER BY pb.id DESC;\n",
+  "rows": [
+    {
+      "id": "2",
+      "length": "100.00",
+      "width": "70.00",
+      "height": "45.00",
+      "cbm": "0.315000",
+      "grossWeight": "30.00",
+      "netWeight": "27.00",
+      "variantCode": "DC-001-GRY-V034",
+      "variantName": "按钮修复测试批次"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tlength\twidth\theight\tcbm\tgrossWeight\tnetWeight\tvariantCode\tvariantName\n2\t100.00\t70.00\t45.00\t0.315000\t30.00\t27.00\tDC-001-GRY-V034\t按钮修复测试批次\n",
+  "stderr": "",
+  "execution_time_ms": 1559
+}

@@ -1,0 +1,30 @@
+{
+  "query": "SELECT termNumber, titleCn, titleEn, SUBSTRING(contentCn, 1, 100) as contentCn_preview, SUBSTRING(contentEn, 1, 100) as contentEn_preview FROM invoice_terms_templates WHERE contentCn LIKE '%{{%' OR contentEn LIKE '%{{%' ORDER BY termNumber;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT termNumber, titleCn, titleEn, SUBSTRING(contentCn, 1, 100) as contentCn_preview, SUBSTRING(contentEn, 1, 100) as contentEn_preview FROM invoice_terms_templates WHERE contentCn LIKE '%{{%' OR contentEn LIKE '%{{%' ORDER BY termNumber;",
+  "rows": [
+    {
+      "termNumber": "2",
+      "titleCn": "装运口岸和目的港",
+      "titleEn": "Loading Port & Destination",
+      "contentCn_preview": "从 {{shipmentPort}} 港 到 按买方要求",
+      "contentEn_preview": "From {{shipmentPort}} port To As buyer requirement"
+    }
+  ],
+  "messages": [
+    "11\t美金银行信息\tUSD Bank information\tBeneficiary Name: {{accountName}}",
+    "Bank: {{bankName}}",
+    "A/C NO: {{accountNumber}}",
+    "SWIFT CODE: {{swiftCo\tBeneficiary Name: {{accountName}}",
+    "Bank: {{bankName}}",
+    "A/C NO: {{accountNumber}}",
+    "SWIFT CODE: {{swiftCo",
+    "12\t人民币银行信息\tRMB Bank information\t收款公司: {{companyName}}",
+    "银行: {{cnyBankName}}",
+    "银行账号: {{cnyAccountNumber}}\t收款公司: {{companyName}}",
+    "银行: {{cnyBankName}}",
+    "银行账号: {{cnyAccountNumber}}"
+  ],
+  "stdout": "termNumber\ttitleCn\ttitleEn\tcontentCn_preview\tcontentEn_preview\n2\t装运口岸和目的港\tLoading Port & Destination\t从 {{shipmentPort}} 港 到 按买方要求\tFrom {{shipmentPort}} port To As buyer requirement\n11\t美金银行信息\tUSD Bank information\tBeneficiary Name: {{accountName}}\nBank: {{bankName}}\nA/C NO: {{accountNumber}}\nSWIFT CODE: {{swiftCo\tBeneficiary Name: {{accountName}}\nBank: {{bankName}}\nA/C NO: {{accountNumber}}\nSWIFT CODE: {{swiftCo\n12\t人民币银行信息\tRMB Bank information\t收款公司: {{companyName}}\n银行: {{cnyBankName}}\n银行账号: {{cnyAccountNumber}}\t收款公司: {{companyName}}\n银行: {{cnyBankName}}\n银行账号: {{cnyAccountNumber}}\n",
+  "stderr": "",
+  "execution_time_ms": 1582
+}

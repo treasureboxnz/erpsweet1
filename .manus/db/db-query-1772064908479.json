@@ -1,0 +1,50 @@
+{
+  "query": "\nSELECT \n  p.id, \n  p.name, \n  p.sku, \n  p.imageUrl as product_imageUrl,\n  pi.imageUrl as primary_image_url,\n  pi.isPrimary\nFROM products p\nLEFT JOIN product_images pi ON p.id = pi.productId AND pi.isPrimary = true\nWHERE p.id IN (SELECT id FROM products LIMIT 5);\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  p.id, \n  p.name, \n  p.sku, \n  p.imageUrl as product_imageUrl,\n  pi.imageUrl as primary_image_url,\n  pi.isPrimary\nFROM products p\nLEFT JOIN product_images pi ON p.id = pi.productId AND pi.isPrimary = true\nWHERE p.id IN (SELECT id FROM products LIMIT 5);\n",
+  "rows": [
+    {
+      "id": "150001",
+      "name": "Test Product 001",
+      "sku": "CV-1000",
+      "product_imageUrl": "NULL",
+      "primary_image_url": "NULL",
+      "isPrimary": "NULL"
+    },
+    {
+      "id": "180001",
+      "name": "测试产品-FOB流程",
+      "sku": "TEST-PROD-1771904029901",
+      "product_imageUrl": "NULL",
+      "primary_image_url": "NULL",
+      "isPrimary": "NULL"
+    },
+    {
+      "id": "180002",
+      "name": "测试产品-SKU规则",
+      "sku": "PRD0001",
+      "product_imageUrl": "NULL",
+      "primary_image_url": "NULL",
+      "isPrimary": "NULL"
+    },
+    {
+      "id": "210001",
+      "name": "dd",
+      "sku": "PRD0006",
+      "product_imageUrl": "NULL",
+      "primary_image_url": "NULL",
+      "isPrimary": "NULL"
+    },
+    {
+      "id": "240001",
+      "name": "test prd",
+      "sku": "PRD0009",
+      "product_imageUrl": "NULL",
+      "primary_image_url": "NULL",
+      "isPrimary": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tsku\tproduct_imageUrl\tprimary_image_url\tisPrimary\n150001\tTest Product 001\tCV-1000\tNULL\tNULL\tNULL\n180001\t测试产品-FOB流程\tTEST-PROD-1771904029901\tNULL\tNULL\tNULL\n180002\t测试产品-SKU规则\tPRD0001\tNULL\tNULL\tNULL\n210001\tdd\tPRD0006\tNULL\tNULL\tNULL\n240001\ttest prd\tPRD0009\tNULL\tNULL\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1651
+}

@@ -1,0 +1,8 @@
+{
+  "query": "\nSELECT pv.variant_code, pv.variant_name, pv.selling_price_fob, vp.sellingPriceFobL1, vp.sellingPriceFobL2, vp.sellingPriceFobL3, vp.isCurrent\nFROM product_variants pv\nLEFT JOIN variant_pricing vp ON pv.id = vp.variantId AND vp.isCurrent = true\nWHERE pv.variant_code = 'DC-001-GRY-V033'\nLIMIT 5;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT pv.variant_code, pv.variant_name, pv.selling_price_fob, vp.sellingPriceFobL1, vp.sellingPriceFobL2, vp.sellingPriceFobL3, vp.isCurrent\nFROM product_variants pv\nLEFT JOIN variant_pricing vp ON pv.id = vp.variantId AND vp.isCurrent = true\nWHERE pv.variant_code = 'DC-001-GRY-V033'\nLIMIT 5;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 2: Unknown column 'pv.variant_code' in 'where clause'"
+  ]
+}

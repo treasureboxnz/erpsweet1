@@ -1,0 +1,23 @@
+{
+  "query": "\nSELECT \n  pv.id, \n  pv.variantCode, \n  pv.variantName, \n  pv.productId,\n  pv.status,\n  pv.variantType,\n  pv.isDefault,\n  pv.customerId,\n  pv.createdAt,\n  p.sku as productSku,\n  p.name as productName\nFROM product_variants pv\nLEFT JOIN products p ON pv.productId = p.id\nWHERE pv.variantName = 'UI测试批次-双材料'\nLIMIT 1;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  pv.id, \n  pv.variantCode, \n  pv.variantName, \n  pv.productId,\n  pv.status,\n  pv.variantType,\n  pv.isDefault,\n  pv.customerId,\n  pv.createdAt,\n  p.sku as productSku,\n  p.name as productName\nFROM product_variants pv\nLEFT JOIN products p ON pv.productId = p.id\nWHERE pv.variantName = 'UI测试批次-双材料'\nLIMIT 1;\n",
+  "rows": [
+    {
+      "id": "390002",
+      "variantCode": "DC-001-GRY-V029",
+      "variantName": "UI测试批次-双材料",
+      "productId": "60016",
+      "status": "active",
+      "variantType": "universal",
+      "isDefault": "0",
+      "customerId": "NULL",
+      "createdAt": "2026-02-20 23:05:09",
+      "productSku": "DC-001-GRY",
+      "productName": "Modern Upholstered Dining Chair - Gray"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantName\tproductId\tstatus\tvariantType\tisDefault\tcustomerId\tcreatedAt\tproductSku\tproductName\n390002\tDC-001-GRY-V029\tUI测试批次-双材料\t60016\tactive\tuniversal\t0\tNULL\t2026-02-20 23:05:09\tDC-001-GRY\tModern Upholstered Dining Chair - Gray\n",
+  "stderr": "",
+  "execution_time_ms": 1520
+}

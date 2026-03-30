@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO variant_materials (\n  erpCompanyId,\n  variantId,\n  materialColorId,\n  sortOrder,\n  materialType,\n  quantityUsed,\n  notes,\n  createdAt,\n  updatedAt\n)\nSELECT \n  pv.erpCompanyId,\n  pv.id AS variantId,\n  pv.materialColorId,\n  0 AS sortOrder,\n  'fabric' AS materialType,\n  NULL AS quantityUsed,\n  'Migrated from product_variants.materialColorId' AS notes,\n  NOW() AS createdAt,\n  NOW() AS updatedAt\nFROM product_variants pv\nWHERE pv.materialColorId IS NOT NULL\n  AND NOT EXISTS (\n    SELECT 1 \n    FROM variant_materials vm \n    WHERE vm.variantId = pv.id \n      AND vm.materialColorId = pv.materialColorId\n  );",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute INSERT INTO variant_materials (\n  erpCompanyId,\n  variantId,\n  materialColorId,\n  sortOrder,\n  materialType,\n  quantityUsed,\n  notes,\n  createdAt,\n  updatedAt\n)\nSELECT \n  pv.erpCompanyId,\n  pv.id AS variantId,\n  pv.materialColorId,\n  0 AS sortOrder,\n  'fabric' AS materialType,\n  NULL AS quantityUsed,\n  'Migrated from product_variants.materialColorId' AS notes,\n  NOW() AS createdAt,\n  NOW() AS updatedAt\nFROM product_variants pv\nWHERE pv.materialColorId IS NOT NULL\n  AND NOT EXISTS (\n    SELECT 1 \n    FROM variant_materials vm \n    WHERE vm.variantId = pv.id \n      AND vm.materialColorId = pv.materialColorId\n  );",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1601
+}

@@ -1,0 +1,8 @@
+{
+  "query": "\nSELECT u.id, u.username, u.email, u.role, u.password_hash, c.company_code, c.company_name\nFROM users u\nJOIN erp_companies c ON u.company_id = c.id\nWHERE (c.company_code LIKE '%test%' OR c.company_name LIKE '%test%' OR c.company_code = 'ERIC')\n  AND u.role IN ('super_admin', 'admin')\nLIMIT 10;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT u.id, u.username, u.email, u.role, u.password_hash, c.company_code, c.company_name\nFROM users u\nJOIN erp_companies c ON u.company_id = c.id\nWHERE (c.company_code LIKE '%test%' OR c.company_name LIKE '%test%' OR c.company_code = 'ERIC')\n  AND u.role IN ('super_admin', 'admin')\nLIMIT 10;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 2: Unknown column 'u.company_id' in 'on clause'"
+  ]
+}

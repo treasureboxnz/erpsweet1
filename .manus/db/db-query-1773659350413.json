@@ -1,0 +1,14 @@
+{
+  "query": "SELECT COUNT(*) as total, SUM(CASE WHEN addedDate IS NULL THEN 1 ELSE 0 END) as null_count FROM products WHERE deletedAt IS NULL;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT COUNT(*) as total, SUM(CASE WHEN addedDate IS NULL THEN 1 ELSE 0 END) as null_count FROM products WHERE deletedAt IS NULL;",
+  "rows": [
+    {
+      "total": "25",
+      "null_count": "25"
+    }
+  ],
+  "messages": [],
+  "stdout": "total\tnull_count\n25\t25\n",
+  "stderr": "",
+  "execution_time_ms": 1598
+}

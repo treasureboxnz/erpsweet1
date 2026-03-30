@@ -1,0 +1,8 @@
+{
+  "query": "SELECT pv.id, pv.variant_code, pv.variant_name, pv.created_at,\n       pb.id as box_id, pb.length, pb.width, pb.height, pb.cbm, pb.grossWeight, pb.netWeight\nFROM product_variants pv\nLEFT JOIN package_boxes pb ON pb.variantId = pv.id\nWHERE pv.variant_name LIKE '%完整功能测试%' OR pv.variant_name LIKE '%最终测试%'\nORDER BY pv.created_at DESC\nLIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT pv.id, pv.variant_code, pv.variant_name, pv.created_at,\n       pb.id as box_id, pb.length, pb.width, pb.height, pb.cbm, pb.grossWeight, pb.netWeight\nFROM product_variants pv\nLEFT JOIN package_boxes pb ON pb.variantId = pv.id\nWHERE pv.variant_name LIKE '%完整功能测试%' OR pv.variant_name LIKE '%最终测试%'\nORDER BY pv.created_at DESC\nLIMIT 10;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'pv.created_at' in 'order clause'"
+  ]
+}

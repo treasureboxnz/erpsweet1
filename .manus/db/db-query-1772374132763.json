@@ -1,0 +1,15 @@
+{
+  "query": "\nSELECT \n  COUNT(*) as total_variants,\n  SUM(CASE WHEN isDefault = 1 THEN 1 ELSE 0 END) as default_count,\n  SUM(CASE WHEN isDefault = 0 THEN 1 ELSE 0 END) as non_default_count\nFROM product_variants;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  COUNT(*) as total_variants,\n  SUM(CASE WHEN isDefault = 1 THEN 1 ELSE 0 END) as default_count,\n  SUM(CASE WHEN isDefault = 0 THEN 1 ELSE 0 END) as non_default_count\nFROM product_variants;\n",
+  "rows": [
+    {
+      "total_variants": "66",
+      "default_count": "25",
+      "non_default_count": "41"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_variants\tdefault_count\tnon_default_count\n66\t25\t41\n",
+  "stderr": "",
+  "execution_time_ms": 1525
+}

@@ -1,0 +1,8 @@
+{
+  "query": "SELECT cph.*, c.name as customer_name, pv.sku as variant_sku\nFROM customer_price_history cph\nLEFT JOIN customers c ON cph.customer_id = c.id\nLEFT JOIN product_variants pv ON cph.product_id = pv.id\nWHERE c.name = 'ABC Furniture' AND pv.sku LIKE 'DC-001-GRY%'\nORDER BY cph.created_at DESC\nLIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT cph.*, c.name as customer_name, pv.sku as variant_sku\nFROM customer_price_history cph\nLEFT JOIN customers c ON cph.customer_id = c.id\nLEFT JOIN product_variants pv ON cph.product_id = pv.id\nWHERE c.name = 'ABC Furniture' AND pv.sku LIKE 'DC-001-GRY%'\nORDER BY cph.created_at DESC\nLIMIT 10;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'cph.customer_id' in 'on clause'"
+  ]
+}

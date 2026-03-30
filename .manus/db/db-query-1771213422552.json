@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO product_variants (productId, variantCode, variantName, productionStatus, variantType, customerId, sellingPriceFOB, createdBy, createdAt, updatedAt)\nVALUES \n(60016, 'DC-001-B001', 'Gray upholstery darker shade', 'completed', 'exclusive', (SELECT id FROM companies ORDER BY id LIMIT 1 OFFSET 0), 72.00, 1, NOW(), NOW()),\n(60016, 'DC-001-B002', 'Custom backrest height 90cm', 'production', 'exclusive', (SELECT id FROM companies ORDER BY id LIMIT 1 OFFSET 1), 75.00, 1, NOW(), NOW()),\n(60016, 'DC-001-B003', 'Bulk order 100+ units', 'designing', 'exclusive', (SELECT id FROM companies ORDER BY id LIMIT 1 OFFSET 2), 58.00, 1, NOW(), NOW()),\n(60016, 'DC-001-B004', 'Premium fabric stain-resistant', 'completed', 'exclusive', (SELECT id FROM companies ORDER BY id LIMIT 1 OFFSET 3), 78.00, 1, NOW(), NOW());",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute INSERT INTO product_variants (productId, variantCode, variantName, productionStatus, variantType, customerId, sellingPriceFOB, createdBy, createdAt, updatedAt)\nVALUES \n(60016, 'DC-001-B001', 'Gray upholstery darker shade', 'completed', 'exclusive', (SELECT id FROM companies ORDER BY id LIMIT 1 OFFSET 0), 72.00, 1, NOW(), NOW()),\n(60016, 'DC-001-B002', 'Custom backrest height 90cm', 'production', 'exclusive', (SELECT id FROM companies ORDER BY id LIMIT 1 OFFSET 1), 75.00, 1, NOW(), NOW()),\n(60016, 'DC-001-B003', 'Bulk order 100+ units', 'designing', 'exclusive', (SELECT id FROM companies ORDER BY id LIMIT 1 OFFSET 2), 58.00, 1, NOW(), NOW()),\n(60016, 'DC-001-B004', 'Premium fabric stain-resistant', 'completed', 'exclusive', (SELECT id FROM companies ORDER BY id LIMIT 1 OFFSET 3), 78.00, 1, NOW(), NOW());",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1676
+}

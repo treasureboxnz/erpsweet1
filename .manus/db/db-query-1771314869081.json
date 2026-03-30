@@ -1,0 +1,40 @@
+{
+  "query": "\n-- 查找所有没有默认批次的产品\nSELECT p.id, p.sku, p.name, COUNT(pv.id) as variant_count\nFROM products p\nLEFT JOIN product_variants pv ON p.id = pv.productId\nWHERE p.id NOT IN (\n  SELECT DISTINCT productId \n  FROM product_variants \n  WHERE isDefault = 1\n)\nGROUP BY p.id, p.sku, p.name\nHAVING variant_count > 0\nLIMIT 10;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- 查找所有没有默认批次的产品\nSELECT p.id, p.sku, p.name, COUNT(pv.id) as variant_count\nFROM products p\nLEFT JOIN product_variants pv ON p.id = pv.productId\nWHERE p.id NOT IN (\n  SELECT DISTINCT productId \n  FROM product_variants \n  WHERE isDefault = 1\n)\nGROUP BY p.id, p.sku, p.name\nHAVING variant_count > 0\nLIMIT 10;\n",
+  "rows": [
+    {
+      "id": "60019",
+      "sku": "DC-004-NVY",
+      "name": "Tufted Velvet Dining Chair - Navy Blue",
+      "variant_count": "4"
+    },
+    {
+      "id": "60017",
+      "sku": "DC-002-WAL",
+      "name": "Mid-Century Rope Seat Dining Chair - Walnut",
+      "variant_count": "4"
+    },
+    {
+      "id": "60018",
+      "sku": "DC-003-WHT",
+      "name": "Eames-Inspired Molded Chair - White",
+      "variant_count": "4"
+    },
+    {
+      "id": "60020",
+      "sku": "DC-005-OAK",
+      "name": "Windsor-Style Dining Chair - Oak",
+      "variant_count": "4"
+    },
+    {
+      "id": "60001",
+      "sku": "SB-001-GRY",
+      "name": "Modern Convertible Sofa Bed - Gray",
+      "variant_count": "4"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tsku\tname\tvariant_count\n60019\tDC-004-NVY\tTufted Velvet Dining Chair - Navy Blue\t4\n60017\tDC-002-WAL\tMid-Century Rope Seat Dining Chair - Walnut\t4\n60018\tDC-003-WHT\tEames-Inspired Molded Chair - White\t4\n60020\tDC-005-OAK\tWindsor-Style Dining Chair - Oak\t4\n60001\tSB-001-GRY\tModern Convertible Sofa Bed - Gray\t4\n",
+  "stderr": "",
+  "execution_time_ms": 1729
+}

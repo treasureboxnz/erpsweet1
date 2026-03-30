@@ -1,0 +1,28 @@
+{
+  "query": "SELECT * FROM users WHERE erpCompanyId = (SELECT id FROM erp_companies WHERE companyCode = 'TEST2');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM users WHERE erpCompanyId = (SELECT id FROM erp_companies WHERE companyCode = 'TEST2');",
+  "rows": [
+    {
+      "id": "780152",
+      "erpCompanyId": "2",
+      "openId": "NULL",
+      "name": "管理员2",
+      "email": "admin2@test.com",
+      "passwordHash": "$2b$10$4S4v65xuV7BBhtLGF3f3He7e48mT7CJw4uUmIf6o2uzCdtJ5gbhfG",
+      "mustChangePassword": "0",
+      "loginMethod": "NULL",
+      "role": "admin",
+      "createdAt": "2026-02-19 12:22:58",
+      "updatedAt": "2026-02-19 12:22:58",
+      "lastSignedIn": "2026-02-19 12:22:58",
+      "avatarUrl": "NULL",
+      "displayName": "NULL",
+      "status": "active",
+      "positionId": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\topenId\tname\temail\tpasswordHash\tmustChangePassword\tloginMethod\trole\tcreatedAt\tupdatedAt\tlastSignedIn\tavatarUrl\tdisplayName\tstatus\tpositionId\n780152\t2\tNULL\t管理员2\tadmin2@test.com\t$2b$10$4S4v65xuV7BBhtLGF3f3He7e48mT7CJw4uUmIf6o2uzCdtJ5gbhfG\t0\tNULL\tadmin\t2026-02-19 12:22:58\t2026-02-19 12:22:58\t2026-02-19 12:22:58\tNULL\tNULL\tactive\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1523
+}

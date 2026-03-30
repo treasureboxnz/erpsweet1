@@ -1,0 +1,8 @@
+{
+  "query": "INSERT INTO attributes (categoryId, name, displayName, description, sortOrder, isEnabled, createdAt, updatedAt) \nVALUES \n(1, 'customer_nature_direct', '直接客户', '直接与公司进行业务往来的客户', 1, 1, NOW(), NOW()),\n(1, 'customer_nature_distributor', '分销商', '通过分销渠道销售产品的客户', 2, 1, NOW(), NOW()),\n(1, 'customer_nature_agent', '代理商', '代理公司产品销售的客户', 3, 1, NOW(), NOW()),\n(1, 'customer_nature_oem', 'OEM客户', '贴牌生产的客户', 4, 1, NOW(), NOW()),\n(1, 'customer_nature_odm', 'ODM客户', '原始设计制造商客户', 5, 1, NOW(), NOW());",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute INSERT INTO attributes (categoryId, name, displayName, description, sortOrder, isEnabled, createdAt, updatedAt) \nVALUES \n(1, 'customer_nature_direct', '直接客户', '直接与公司进行业务往来的客户', 1, 1, NOW(), NOW()),\n(1, 'customer_nature_distributor', '分销商', '通过分销渠道销售产品的客户', 2, 1, NOW(), NOW()),\n(1, 'customer_nature_agent', '代理商', '代理公司产品销售的客户', 3, 1, NOW(), NOW()),\n(1, 'customer_nature_oem', 'OEM客户', '贴牌生产的客户', 4, 1, NOW(), NOW()),\n(1, 'customer_nature_odm', 'ODM客户', '原始设计制造商客户', 5, 1, NOW(), NOW());",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'categoryId' in 'field list'"
+  ]
+}

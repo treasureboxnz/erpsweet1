@@ -1,0 +1,13 @@
+{
+  "query": "SELECT id FROM orders WHERE orderNumber = 'ORD-WEIGHT-TEST';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id FROM orders WHERE orderNumber = 'ORD-WEIGHT-TEST';",
+  "rows": [
+    {
+      "id": "330002"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\n330002\n",
+  "stderr": "",
+  "execution_time_ms": 1497
+}

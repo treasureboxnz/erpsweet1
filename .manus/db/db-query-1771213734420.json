@@ -1,0 +1,100 @@
+{
+  "query": "SELECT p.id, p.sku, p.name \nFROM products p\nWHERE p.id NOT IN (\n  SELECT DISTINCT productId FROM product_variants\n)\nORDER BY p.id\nLIMIT 18;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT p.id, p.sku, p.name \nFROM products p\nWHERE p.id NOT IN (\n  SELECT DISTINCT productId FROM product_variants\n)\nORDER BY p.id\nLIMIT 18;",
+  "rows": [
+    {
+      "id": "60002",
+      "sku": "SB-002-NVY",
+      "name": "Luxury Velvet Sofa Bed - Navy Blue"
+    },
+    {
+      "id": "60003",
+      "sku": "SB-003-BGE",
+      "name": "Minimalist Linen Sofa Bed - Beige"
+    },
+    {
+      "id": "60004",
+      "sku": "SB-004-CHR",
+      "name": "L-Shaped Sofa Bed with Storage - Charcoal"
+    },
+    {
+      "id": "60005",
+      "sku": "SB-005-TEA",
+      "name": "Compact Two-Seater Sofa Bed - Teal"
+    },
+    {
+      "id": "60006",
+      "sku": "AC-001-CHR",
+      "name": "Classic Wingback Armchair - Charcoal"
+    },
+    {
+      "id": "60007",
+      "sku": "AC-002-YEL",
+      "name": "Mid-Century Modern Armchair - Mustard Yellow"
+    },
+    {
+      "id": "60008",
+      "sku": "AC-003-CRM",
+      "name": "Contemporary Lounge Armchair - Cream Boucle"
+    },
+    {
+      "id": "60009",
+      "sku": "AC-004-OAK",
+      "name": "Scandinavian Rattan Armchair - Oak & Beige"
+    },
+    {
+      "id": "60010",
+      "sku": "AC-005-EMR",
+      "name": "Modern Accent Armchair - Emerald Green"
+    },
+    {
+      "id": "60011",
+      "sku": "DT-001-OAK",
+      "name": "Solid Oak Rectangular Dining Table"
+    },
+    {
+      "id": "60012",
+      "sku": "DT-002-MRB",
+      "name": "Modern Round Marble Dining Table"
+    },
+    {
+      "id": "60013",
+      "sku": "DT-003-WAL",
+      "name": "Extendable Walnut Dining Table"
+    },
+    {
+      "id": "60014",
+      "sku": "DT-004-GLS",
+      "name": "Glass Top Industrial Dining Table"
+    },
+    {
+      "id": "60015",
+      "sku": "DT-005-ACA",
+      "name": "Live Edge Acacia Dining Table"
+    },
+    {
+      "id": "60017",
+      "sku": "DC-002-WAL",
+      "name": "Mid-Century Rope Seat Dining Chair - Walnut"
+    },
+    {
+      "id": "60018",
+      "sku": "DC-003-WHT",
+      "name": "Eames-Inspired Molded Chair - White"
+    },
+    {
+      "id": "60019",
+      "sku": "DC-004-NVY",
+      "name": "Tufted Velvet Dining Chair - Navy Blue"
+    },
+    {
+      "id": "60020",
+      "sku": "DC-005-OAK",
+      "name": "Windsor-Style Dining Chair - Oak"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tsku\tname\n60002\tSB-002-NVY\tLuxury Velvet Sofa Bed - Navy Blue\n60003\tSB-003-BGE\tMinimalist Linen Sofa Bed - Beige\n60004\tSB-004-CHR\tL-Shaped Sofa Bed with Storage - Charcoal\n60005\tSB-005-TEA\tCompact Two-Seater Sofa Bed - Teal\n60006\tAC-001-CHR\tClassic Wingback Armchair - Charcoal\n60007\tAC-002-YEL\tMid-Century Modern Armchair - Mustard Yellow\n60008\tAC-003-CRM\tContemporary Lounge Armchair - Cream Boucle\n60009\tAC-004-OAK\tScandinavian Rattan Armchair - Oak & Beige\n60010\tAC-005-EMR\tModern Accent Armchair - Emerald Green\n60011\tDT-001-OAK\tSolid Oak Rectangular Dining Table\n60012\tDT-002-MRB\tModern Round Marble Dining Table\n60013\tDT-003-WAL\tExtendable Walnut Dining Table\n60014\tDT-004-GLS\tGlass Top Industrial Dining Table\n60015\tDT-005-ACA\tLive Edge Acacia Dining Table\n60017\tDC-002-WAL\tMid-Century Rope Seat Dining Chair - Walnut\n60018\tDC-003-WHT\tEames-Inspired Molded Chair - White\n60019\tDC-004-NVY\tTufted Velvet Dining Chair - Navy Blue\n60020\tDC-005-OAK\tWindsor-Style Dining Chair - Oak\n",
+  "stderr": "",
+  "execution_time_ms": 1600
+}

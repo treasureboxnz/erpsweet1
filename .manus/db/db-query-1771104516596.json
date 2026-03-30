@@ -1,0 +1,24 @@
+{
+  "query": "SELECT CONSTRAINT_NAME, TABLE_NAME, COLUMN_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME \nFROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE \nWHERE TABLE_NAME = 'orders' \nAND REFERENCED_TABLE_NAME IS NOT NULL;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT CONSTRAINT_NAME, TABLE_NAME, COLUMN_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME \nFROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE \nWHERE TABLE_NAME = 'orders' \nAND REFERENCED_TABLE_NAME IS NOT NULL;",
+  "rows": [
+    {
+      "CONSTRAINT_NAME": "orders_customerId_customers_id_fk",
+      "TABLE_NAME": "orders",
+      "COLUMN_NAME": "customerId",
+      "REFERENCED_TABLE_NAME": "customers",
+      "REFERENCED_COLUMN_NAME": "id"
+    },
+    {
+      "CONSTRAINT_NAME": "orders_createdBy_users_id_fk",
+      "TABLE_NAME": "orders",
+      "COLUMN_NAME": "createdBy",
+      "REFERENCED_TABLE_NAME": "users",
+      "REFERENCED_COLUMN_NAME": "id"
+    }
+  ],
+  "messages": [],
+  "stdout": "CONSTRAINT_NAME\tTABLE_NAME\tCOLUMN_NAME\tREFERENCED_TABLE_NAME\tREFERENCED_COLUMN_NAME\norders_customerId_customers_id_fk\torders\tcustomerId\tcustomers\tid\norders_createdBy_users_id_fk\torders\tcreatedBy\tusers\tid\n",
+  "stderr": "",
+  "execution_time_ms": 49
+}

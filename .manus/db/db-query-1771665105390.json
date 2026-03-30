@@ -1,0 +1,38 @@
+{
+  "query": "SELECT v.id, v.variantCode, v.variantName, v.status, v.productId, \n       pb.id as box_id, pb.length, pb.width, pb.height, pb.cbm, pb.grossWeight, pb.netWeight\nFROM product_variants v\nLEFT JOIN package_boxes pb ON v.id = pb.variantId\nWHERE v.variantCode IN ('DC-001-GRY-V034', 'DC-001-GRY-V035')\nORDER BY v.variantCode, pb.id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT v.id, v.variantCode, v.variantName, v.status, v.productId, \n       pb.id as box_id, pb.length, pb.width, pb.height, pb.cbm, pb.grossWeight, pb.netWeight\nFROM product_variants v\nLEFT JOIN package_boxes pb ON v.id = pb.variantId\nWHERE v.variantCode IN ('DC-001-GRY-V034', 'DC-001-GRY-V035')\nORDER BY v.variantCode, pb.id;",
+  "rows": [
+    {
+      "id": "480002",
+      "variantCode": "DC-001-GRY-V034",
+      "variantName": "按钮修复测试批次",
+      "status": "active",
+      "productId": "60016",
+      "box_id": "2",
+      "length": "100.00",
+      "width": "70.00",
+      "height": "45.00",
+      "cbm": "0.315000",
+      "grossWeight": "30.00",
+      "netWeight": "27.00"
+    },
+    {
+      "id": "480003",
+      "variantCode": "DC-001-GRY-V035",
+      "variantName": "Loading状态测试批次",
+      "status": "active",
+      "productId": "60016",
+      "box_id": "3",
+      "length": "90.00",
+      "width": "60.00",
+      "height": "40.00",
+      "cbm": "0.216000",
+      "grossWeight": "20.00",
+      "netWeight": "18.00"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantName\tstatus\tproductId\tbox_id\tlength\twidth\theight\tcbm\tgrossWeight\tnetWeight\n480002\tDC-001-GRY-V034\t按钮修复测试批次\tactive\t60016\t2\t100.00\t70.00\t45.00\t0.315000\t30.00\t27.00\n480003\tDC-001-GRY-V035\tLoading状态测试批次\tactive\t60016\t3\t90.00\t60.00\t40.00\t0.216000\t20.00\t18.00\n",
+  "stderr": "",
+  "execution_time_ms": 1521
+}

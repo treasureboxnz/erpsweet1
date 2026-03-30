@@ -1,0 +1,20 @@
+{
+  "query": "SELECT id, orderNumber, customerName, totalAmount, status, createdAt, deletedAt, erpCompanyId FROM orders WHERE id = 270001;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, orderNumber, customerName, totalAmount, status, createdAt, deletedAt, erpCompanyId FROM orders WHERE id = 270001;",
+  "rows": [
+    {
+      "id": "270001",
+      "orderNumber": "ORD-20260220-OMD",
+      "customerName": "ABC Furniture",
+      "totalAmount": "45.00",
+      "status": "pending",
+      "createdAt": "2026-02-20 00:12:05",
+      "deletedAt": "NULL",
+      "erpCompanyId": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\torderNumber\tcustomerName\ttotalAmount\tstatus\tcreatedAt\tdeletedAt\terpCompanyId\n270001\tORD-20260220-OMD\tABC Furniture\t45.00\tpending\t2026-02-20 00:12:05\tNULL\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1522
+}

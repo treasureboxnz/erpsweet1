@@ -1,0 +1,18 @@
+{
+  "query": "SELECT id, email, name, role, erpCompanyId, status FROM users WHERE email = 'manager@casavivafurniture.com';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, email, name, role, erpCompanyId, status FROM users WHERE email = 'manager@casavivafurniture.com';",
+  "rows": [
+    {
+      "id": "1650166",
+      "email": "manager@casavivafurniture.com",
+      "name": "Iris",
+      "role": "super_admin",
+      "erpCompanyId": "1",
+      "status": "active"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\tname\trole\terpCompanyId\tstatus\n1650166\tmanager@casavivafurniture.com\tIris\tsuper_admin\t1\tactive\n",
+  "stderr": "",
+  "execution_time_ms": 1513
+}

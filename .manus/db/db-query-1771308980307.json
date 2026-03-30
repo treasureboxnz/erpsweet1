@@ -1,0 +1,30 @@
+{
+  "query": "SELECT * FROM order_items WHERE orderId = 120001;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM order_items WHERE orderId = 120001;",
+  "rows": [
+    {
+      "id": "120001",
+      "orderId": "120001",
+      "productId": "60016",
+      "quantity": "1",
+      "unitPrice": "155.00",
+      "subtotal": "155.00",
+      "createdAt": "2026-02-17 05:57:17",
+      "variantId": "NULL",
+      "productName": "NULL",
+      "sku": "NULL",
+      "discount": "0.00",
+      "taxRate": "0.00",
+      "notes": "",
+      "productSku": "NULL",
+      "orderMode": "batch_selection",
+      "fobQuantity": "NULL",
+      "fobUnitPrice": "NULL",
+      "fobTotalPrice": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\torderId\tproductId\tquantity\tunitPrice\tsubtotal\tcreatedAt\tvariantId\tproductName\tsku\tdiscount\ttaxRate\tnotes\tproductSku\torderMode\tfobQuantity\tfobUnitPrice\tfobTotalPrice\n120001\t120001\t60016\t1\t155.00\t155.00\t2026-02-17 05:57:17\tNULL\tNULL\tNULL\t0.00\t0.00\t\tNULL\tbatch_selection\tNULL\tNULL\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1604
+}

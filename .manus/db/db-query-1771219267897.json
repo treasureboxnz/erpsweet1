@@ -1,0 +1,20 @@
+{
+  "query": "\nSELECT \n  pv.variantCode,\n  pv.variantName,\n  pv.sellingPriceFOB as old_fob,\n  pv.sellingPriceRMB as old_rmb,\n  pv.costPriceRMB as old_cost,\n  vp.sellingPriceFobL1 as new_fob_l1,\n  vp.sellingPriceRmbIncTax as new_rmb,\n  vp.factoryCostRmbIncTax as new_cost\nFROM product_variants pv\nLEFT JOIN variant_pricing vp ON pv.id = vp.variantId\nWHERE pv.variantCode = 'DC-001-GRY-V001';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  pv.variantCode,\n  pv.variantName,\n  pv.sellingPriceFOB as old_fob,\n  pv.sellingPriceRMB as old_rmb,\n  pv.costPriceRMB as old_cost,\n  vp.sellingPriceFobL1 as new_fob_l1,\n  vp.sellingPriceRmbIncTax as new_rmb,\n  vp.factoryCostRmbIncTax as new_cost\nFROM product_variants pv\nLEFT JOIN variant_pricing vp ON pv.id = vp.variantId\nWHERE pv.variantCode = 'DC-001-GRY-V001';\n",
+  "rows": [
+    {
+      "variantCode": "DC-001-GRY-V001",
+      "variantName": "30米布料",
+      "old_fob": "109.00",
+      "old_rmb": "985.00",
+      "old_cost": "780.00",
+      "new_fob_l1": "NULL",
+      "new_rmb": "NULL",
+      "new_cost": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "variantCode\tvariantName\told_fob\told_rmb\told_cost\tnew_fob_l1\tnew_rmb\tnew_cost\nDC-001-GRY-V001\t30米布料\t109.00\t985.00\t780.00\tNULL\tNULL\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1685
+}

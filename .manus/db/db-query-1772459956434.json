@@ -1,0 +1,37 @@
+{
+  "query": "\nSELECT \n  pv.id, \n  pv.variantCode, \n  pv.variantType,\n  pv.customerId as directCustomerId,\n  c1.companyName as directCustomerName,\n  vcl.customerId as linkedCustomerId,\n  c2.companyName as linkedCustomerName\nFROM product_variants pv\nLEFT JOIN companies c1 ON pv.customerId = c1.id\nLEFT JOIN variant_customer_links vcl ON pv.id = vcl.variantId\nLEFT JOIN companies c2 ON vcl.customerId = c2.id\nWHERE pv.variantCode LIKE 'DC-001-GRY%'\nORDER BY pv.id, vcl.customerId\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  pv.id, \n  pv.variantCode, \n  pv.variantType,\n  pv.customerId as directCustomerId,\n  c1.companyName as directCustomerName,\n  vcl.customerId as linkedCustomerId,\n  c2.companyName as linkedCustomerName\nFROM product_variants pv\nLEFT JOIN companies c1 ON pv.customerId = c1.id\nLEFT JOIN variant_customer_links vcl ON pv.id = vcl.variantId\nLEFT JOIN companies c2 ON vcl.customerId = c2.id\nWHERE pv.variantCode LIKE 'DC-001-GRY%'\nORDER BY pv.id, vcl.customerId\n",
+  "rows": [
+    {
+      "id": "420002",
+      "variantCode": "DC-001-GRY-V030",
+      "variantType": "universal",
+      "directCustomerId": "30007",
+      "directCustomerName": "ABC Furniture",
+      "linkedCustomerId": "30007",
+      "linkedCustomerName": "ABC Furniture"
+    },
+    {
+      "id": "1020002",
+      "variantCode": "DC-001-GRY-V031",
+      "variantType": "universal",
+      "directCustomerId": "120001",
+      "directCustomerName": "acc living",
+      "linkedCustomerId": "120001",
+      "linkedCustomerName": "acc living"
+    },
+    {
+      "id": "1020003",
+      "variantCode": "DC-001-GRY-V032",
+      "variantType": "universal",
+      "directCustomerId": "30007",
+      "directCustomerName": "ABC Furniture",
+      "linkedCustomerId": "120001",
+      "linkedCustomerName": "acc living"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantType\tdirectCustomerId\tdirectCustomerName\tlinkedCustomerId\tlinkedCustomerName\n420002\tDC-001-GRY-V030\tuniversal\t30007\tABC Furniture\t30007\tABC Furniture\n1020002\tDC-001-GRY-V031\tuniversal\t120001\tacc living\t120001\tacc living\n1020003\tDC-001-GRY-V032\tuniversal\t30007\tABC Furniture\t120001\tacc living\n",
+  "stderr": "",
+  "execution_time_ms": 1572
+}

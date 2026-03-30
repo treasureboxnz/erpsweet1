@@ -1,0 +1,20 @@
+{
+  "query": "SELECT id, variantCode, variantName, customerSku, supplierSku, customerId, variantType, erpCompanyId FROM product_variants WHERE customerSku = 'CLIENT-SKU-ABC-001' LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, variantCode, variantName, customerSku, supplierSku, customerId, variantType, erpCompanyId FROM product_variants WHERE customerSku = 'CLIENT-SKU-ABC-001' LIMIT 5;",
+  "rows": [
+    {
+      "id": "630005",
+      "variantCode": "DC-001-GRY-V045",
+      "variantName": "SKU搜索测试批次-001",
+      "customerSku": "CLIENT-SKU-ABC-001",
+      "supplierSku": "FACTORY-SKU-SEARCH-TEST-001",
+      "customerId": "30007",
+      "variantType": "universal",
+      "erpCompanyId": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantName\tcustomerSku\tsupplierSku\tcustomerId\tvariantType\terpCompanyId\n630005\tDC-001-GRY-V045\tSKU搜索测试批次-001\tCLIENT-SKU-ABC-001\tFACTORY-SKU-SEARCH-TEST-001\t30007\tuniversal\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1522
+}

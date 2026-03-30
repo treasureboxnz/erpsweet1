@@ -1,0 +1,20 @@
+{
+  "query": "SELECT id, variantName, productId FROM product_variants WHERE productId = 60011 ORDER BY createdAt DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, variantName, productId FROM product_variants WHERE productId = 60011 ORDER BY createdAt DESC LIMIT 5;",
+  "rows": [
+    {
+      "id": "450001",
+      "variantName": "测试批次",
+      "productId": "60011"
+    },
+    {
+      "id": "180004",
+      "variantName": "DT-001-OAK-V001",
+      "productId": "60011"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantName\tproductId\n450001\t测试批次\t60011\n180004\tDT-001-OAK-V001\t60011\n",
+  "stderr": "",
+  "execution_time_ms": 1595
+}

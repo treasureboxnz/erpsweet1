@@ -1,0 +1,8 @@
+{
+  "query": "\nSELECT a.id, a.name, a.code, a.attributeGroupId, ag.name as groupName\nFROM attributes a\nLEFT JOIN attribute_groups ag ON a.attributeGroupId = ag.id\nWHERE ag.name LIKE '%件数%' OR ag.name LIKE '%包装%' OR ag.code LIKE '%pieces%' OR ag.code LIKE '%packaging%'\nLIMIT 20;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT a.id, a.name, a.code, a.attributeGroupId, ag.name as groupName\nFROM attributes a\nLEFT JOIN attribute_groups ag ON a.attributeGroupId = ag.id\nWHERE ag.name LIKE '%件数%' OR ag.name LIKE '%包装%' OR ag.code LIKE '%pieces%' OR ag.code LIKE '%packaging%'\nLIMIT 20;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1146 (42S02) at line 2: Table '5qtmwqjey7efv8qjhvh9i8.attribute_groups' doesn't exist"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "query": "\nSELECT \n  id,\n  erpCompanyId,\n  boardId,\n  colorCode,\n  colorName,\n  imageUrl,\n  status\nFROM material_colors\nWHERE colorCode = 'ORIGINAL-ORIG-01'\nLIMIT 1;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  id,\n  erpCompanyId,\n  boardId,\n  colorCode,\n  colorName,\n  imageUrl,\n  status\nFROM material_colors\nWHERE colorCode = 'ORIGINAL-ORIG-01'\nLIMIT 1;\n",
+  "rows": [
+    {
+      "id": "30008",
+      "erpCompanyId": "1",
+      "boardId": "30002",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original",
+      "imageUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/SrrIqBNgvMhYuqPB.png",
+      "status": "active"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tboardId\tcolorCode\tcolorName\timageUrl\tstatus\n30008\t1\t30002\tORIGINAL-ORIG-01\tOriginal\thttps://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/SrrIqBNgvMhYuqPB.png\tactive\n",
+  "stderr": "",
+  "execution_time_ms": 1539
+}

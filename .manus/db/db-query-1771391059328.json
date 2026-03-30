@@ -1,0 +1,46 @@
+{
+  "query": "SELECT c.*, b.boardNumber, s.name as supplierName \nFROM material_colors c\nJOIN material_boards b ON c.boardId = b.id\nJOIN material_suppliers s ON b.supplierId = s.id\nWHERE s.name = '测试供应商' AND b.boardNumber = 'B01';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT c.*, b.boardNumber, s.name as supplierName \nFROM material_colors c\nJOIN material_boards b ON c.boardId = b.id\nJOIN material_suppliers s ON b.supplierId = s.id\nWHERE s.name = '测试供应商' AND b.boardNumber = 'B01';",
+  "rows": [
+    {
+      "id": "61",
+      "boardId": "32",
+      "colorCode": "01",
+      "colorName": "测试蓝色",
+      "hexColor": "#000000",
+      "imageUrl": "NULL",
+      "thumbnailUrl": "NULL",
+      "stockQuantity": "NULL",
+      "notes": "NULL",
+      "status": "active",
+      "sortOrder": "0",
+      "createdAt": "2026-02-18 04:57:13",
+      "updatedAt": "2026-02-18 04:57:13",
+      "fullCode": "TEST-B01-01",
+      "boardNumber": "B01",
+      "supplierName": "测试供应商"
+    },
+    {
+      "id": "62",
+      "boardId": "32",
+      "colorCode": "01",
+      "colorName": "测试蓝色",
+      "hexColor": "#000000",
+      "imageUrl": "NULL",
+      "thumbnailUrl": "NULL",
+      "stockQuantity": "NULL",
+      "notes": "NULL",
+      "status": "active",
+      "sortOrder": "0",
+      "createdAt": "2026-02-18 05:00:10",
+      "updatedAt": "2026-02-18 05:00:10",
+      "fullCode": "TEST-B01-01",
+      "boardNumber": "B01",
+      "supplierName": "测试供应商"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tboardId\tcolorCode\tcolorName\thexColor\timageUrl\tthumbnailUrl\tstockQuantity\tnotes\tstatus\tsortOrder\tcreatedAt\tupdatedAt\tfullCode\tboardNumber\tsupplierName\n61\t32\t01\t测试蓝色\t#000000\tNULL\tNULL\tNULL\tNULL\tactive\t0\t2026-02-18 04:57:13\t2026-02-18 04:57:13\tTEST-B01-01\tB01\t测试供应商\n62\t32\t01\t测试蓝色\t#000000\tNULL\tNULL\tNULL\tNULL\tactive\t0\t2026-02-18 05:00:10\t2026-02-18 05:00:10\tTEST-B01-01\tB01\t测试供应商\n",
+  "stderr": "",
+  "execution_time_ms": 1598
+}

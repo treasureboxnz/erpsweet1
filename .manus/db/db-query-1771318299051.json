@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE product_variants\nSET \n  sellingPriceFOB = CASE\n    WHEN costPriceRMB IS NOT NULL AND costPriceRMB != '0' THEN ROUND(CAST(costPriceRMB AS DECIMAL(10,2)) / 7.2 * 1.3, 2)\n    WHEN sellingPriceRMB IS NOT NULL AND sellingPriceRMB != '0' THEN ROUND(CAST(sellingPriceRMB AS DECIMAL(10,2)) / 7.2, 2)\n    ELSE '100.00'\n  END\nWHERE sellingPriceFOB IS NULL OR sellingPriceFOB = '0' OR sellingPriceFOB = '0.00';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute UPDATE product_variants\nSET \n  sellingPriceFOB = CASE\n    WHEN costPriceRMB IS NOT NULL AND costPriceRMB != '0' THEN ROUND(CAST(costPriceRMB AS DECIMAL(10,2)) / 7.2 * 1.3, 2)\n    WHEN sellingPriceRMB IS NOT NULL AND sellingPriceRMB != '0' THEN ROUND(CAST(sellingPriceRMB AS DECIMAL(10,2)) / 7.2, 2)\n    ELSE '100.00'\n  END\nWHERE sellingPriceFOB IS NULL OR sellingPriceFOB = '0' OR sellingPriceFOB = '0.00';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1535
+}

@@ -1,0 +1,17 @@
+{
+  "query": "SELECT defaultProfitMarginLevel1, defaultProfitMarginLevel2, defaultProfitMarginLevel3, defaultRmbProfitMargin, exchangeRateUsdCny FROM company_settings LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT defaultProfitMarginLevel1, defaultProfitMarginLevel2, defaultProfitMarginLevel3, defaultRmbProfitMargin, exchangeRateUsdCny FROM company_settings LIMIT 5;",
+  "rows": [
+    {
+      "defaultProfitMarginLevel1": "8.00",
+      "defaultProfitMarginLevel2": "13.00",
+      "defaultProfitMarginLevel3": "16.00",
+      "defaultRmbProfitMargin": "10.00",
+      "exchangeRateUsdCny": "6.8500"
+    }
+  ],
+  "messages": [],
+  "stdout": "defaultProfitMarginLevel1\tdefaultProfitMarginLevel2\tdefaultProfitMarginLevel3\tdefaultRmbProfitMargin\texchangeRateUsdCny\n8.00\t13.00\t16.00\t10.00\t6.8500\n",
+  "stderr": "",
+  "execution_time_ms": 1605
+}

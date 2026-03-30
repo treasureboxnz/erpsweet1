@@ -1,0 +1,90 @@
+{
+  "query": "SELECT id, companyName FROM companies ORDER BY id LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, companyName FROM companies ORDER BY id LIMIT 20;",
+  "rows": [
+    {
+      "id": "1",
+      "companyName": "Test Company Ltd"
+    },
+    {
+      "id": "2",
+      "companyName": "Follow-up Test Company"
+    },
+    {
+      "id": "3",
+      "companyName": "test01"
+    },
+    {
+      "id": "6",
+      "companyName": "Test Company"
+    },
+    {
+      "id": "7",
+      "companyName": "Partial Company"
+    },
+    {
+      "id": "8",
+      "companyName": "Update Test Company"
+    },
+    {
+      "id": "9",
+      "companyName": "Follow-up Test Company"
+    },
+    {
+      "id": "10",
+      "companyName": "Test Company"
+    },
+    {
+      "id": "11",
+      "companyName": "Partial Company"
+    },
+    {
+      "id": "12",
+      "companyName": "Update Test Company"
+    },
+    {
+      "id": "13",
+      "companyName": "Follow-up Test Company"
+    },
+    {
+      "id": "15",
+      "companyName": "Casa Viva Furniture Australia"
+    },
+    {
+      "id": "16",
+      "companyName": "TechVision Solutions"
+    },
+    {
+      "id": "17",
+      "companyName": "Global Trade Partners"
+    },
+    {
+      "id": "18",
+      "companyName": "Pacific Imports Ltd"
+    },
+    {
+      "id": "19",
+      "companyName": "Euro Commerce GmbH"
+    },
+    {
+      "id": "20",
+      "companyName": "Asia Pacific Trading"
+    },
+    {
+      "id": "21",
+      "companyName": "Nordic Supplies AB"
+    },
+    {
+      "id": "22",
+      "companyName": "Mediterranean Exports"
+    },
+    {
+      "id": "23",
+      "companyName": "Canadian Wholesale Co"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcompanyName\n1\tTest Company Ltd\n2\tFollow-up Test Company\n3\ttest01\n6\tTest Company\n7\tPartial Company\n8\tUpdate Test Company\n9\tFollow-up Test Company\n10\tTest Company\n11\tPartial Company\n12\tUpdate Test Company\n13\tFollow-up Test Company\n15\tCasa Viva Furniture Australia\n16\tTechVision Solutions\n17\tGlobal Trade Partners\n18\tPacific Imports Ltd\n19\tEuro Commerce GmbH\n20\tAsia Pacific Trading\n21\tNordic Supplies AB\n22\tMediterranean Exports\n23\tCanadian Wholesale Co\n",
+  "stderr": "",
+  "execution_time_ms": 1490
+}

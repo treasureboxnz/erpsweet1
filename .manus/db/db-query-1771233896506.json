@@ -1,0 +1,9 @@
+{
+  "query": "DELETE FROM order_items WHERE orderId IN (SELECT id FROM orders WHERE orderNumber = 'ORD-20260216-PM2');\nDELETE FROM orders WHERE orderNumber = 'ORD-20260216-PM2';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute DELETE FROM order_items WHERE orderId IN (SELECT id FROM orders WHERE orderNumber = 'ORD-20260216-PM2');\nDELETE FROM orders WHERE orderNumber = 'ORD-20260216-PM2';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1893
+}

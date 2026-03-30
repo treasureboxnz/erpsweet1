@@ -1,0 +1,8 @@
+{
+  "query": "\nSELECT pv.id, pv.variantCode, pv.variantType, pv.customerId, pv.isDefault,\n       vcl.customerId as linkedCustomerId, c.name as customerName\nFROM product_variants pv\nLEFT JOIN variant_customer_links vcl ON pv.id = vcl.variantId\nLEFT JOIN companies c ON vcl.customerId = c.id\nWHERE pv.variantCode IN ('VAR0017', 'VAR0011', 'DC-001-GRY-V030')\nORDER BY pv.variantCode;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT pv.id, pv.variantCode, pv.variantType, pv.customerId, pv.isDefault,\n       vcl.customerId as linkedCustomerId, c.name as customerName\nFROM product_variants pv\nLEFT JOIN variant_customer_links vcl ON pv.id = vcl.variantId\nLEFT JOIN companies c ON vcl.customerId = c.id\nWHERE pv.variantCode IN ('VAR0017', 'VAR0011', 'DC-001-GRY-V030')\nORDER BY pv.variantCode;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 2: Unknown column 'c.name' in 'field list'"
+  ]
+}

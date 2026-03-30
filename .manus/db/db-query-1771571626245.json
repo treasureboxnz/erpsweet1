@@ -1,0 +1,70 @@
+{
+  "query": "SELECT id, orderNumber, customerName, status FROM orders ORDER BY id DESC LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, orderNumber, customerName, status FROM orders ORDER BY id DESC LIMIT 10;",
+  "rows": [
+    {
+      "id": "270010",
+      "orderNumber": "ORD-TEST-4MAT",
+      "customerName": "NULL",
+      "status": "pending"
+    },
+    {
+      "id": "270009",
+      "orderNumber": "ORD-TEST-3MAT",
+      "customerName": "NULL",
+      "status": "pending"
+    },
+    {
+      "id": "270008",
+      "orderNumber": "ORD-TEST-2MAT",
+      "customerName": "NULL",
+      "status": "pending"
+    },
+    {
+      "id": "270007",
+      "orderNumber": "ORD-TEST-1MAT",
+      "customerName": "NULL",
+      "status": "pending"
+    },
+    {
+      "id": "270004",
+      "orderNumber": "ORD-20260220-LJE",
+      "customerName": "ABC Furniture",
+      "status": "pending"
+    },
+    {
+      "id": "270003",
+      "orderNumber": "ORD-20260220-TOC",
+      "customerName": "ABC Furniture",
+      "status": "pending"
+    },
+    {
+      "id": "270002",
+      "orderNumber": "ORD-20260220-177",
+      "customerName": "ABC Furniture",
+      "status": "pending"
+    },
+    {
+      "id": "270001",
+      "orderNumber": "ORD-20260220-OMD",
+      "customerName": "ABC Furniture",
+      "status": "pending"
+    },
+    {
+      "id": "240003",
+      "orderNumber": "ORD-20260219-CQV",
+      "customerName": "ABC Furniture",
+      "status": "pending"
+    },
+    {
+      "id": "240002",
+      "orderNumber": "ORD-20260219-HMK",
+      "customerName": "ABC Furniture",
+      "status": "pending"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\torderNumber\tcustomerName\tstatus\n270010\tORD-TEST-4MAT\tNULL\tpending\n270009\tORD-TEST-3MAT\tNULL\tpending\n270008\tORD-TEST-2MAT\tNULL\tpending\n270007\tORD-TEST-1MAT\tNULL\tpending\n270004\tORD-20260220-LJE\tABC Furniture\tpending\n270003\tORD-20260220-TOC\tABC Furniture\tpending\n270002\tORD-20260220-177\tABC Furniture\tpending\n270001\tORD-20260220-OMD\tABC Furniture\tpending\n240003\tORD-20260219-CQV\tABC Furniture\tpending\n240002\tORD-20260219-HMK\tABC Furniture\tpending\n",
+  "stderr": "",
+  "execution_time_ms": 1495
+}

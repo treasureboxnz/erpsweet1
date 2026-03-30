@@ -1,0 +1,16 @@
+{
+  "query": "\nSELECT id FROM product_variants \nWHERE variantName LIKE '%测试%' OR variantName LIKE '%test%' OR variantName LIKE '%Test%' \n   OR variantName LIKE '%UI%' OR variantName LIKE '%SKU%' OR variantName LIKE '%验证%'\n   OR variantName LIKE '%Automation%'\nORDER BY id DESC\nLIMIT 2;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT id FROM product_variants \nWHERE variantName LIKE '%测试%' OR variantName LIKE '%test%' OR variantName LIKE '%Test%' \n   OR variantName LIKE '%UI%' OR variantName LIKE '%SKU%' OR variantName LIKE '%验证%'\n   OR variantName LIKE '%Automation%'\nORDER BY id DESC\nLIMIT 2;\n",
+  "rows": [
+    {
+      "id": "840001"
+    },
+    {
+      "id": "720001"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\n840001\n720001\n",
+  "stderr": "",
+  "execution_time_ms": 1601
+}

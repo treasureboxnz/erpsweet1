@@ -1,0 +1,120 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { trpc } from "@/lib/trpc";
+import Breadcrumb from "@/components/Breadcrumb";
+import { Plus, Search } from "lucide-react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+
+export default function Orders() {
+  const { data: orders, isLoading } = trpc.orders.list.useQuery();
+
+  const getStatusBadge = (status: string) => {
+    const variants: Record<string, { variant: "default" | "secondary" | "outline" | "destructive", label: string }> = {
+      pending: { variant: "outline", label: "待处理" },
+      confirmed: { variant: "secondary", label: "已确认" },
+      processing: { variant: "default", label: "处理中" },
+      shipped: { variant: "default", label: "已发货" },
+      delivered: { variant: "default", label: "已送达" },
+      cancelled: { variant: "destructive", label: "已取消" },
+    };
+    const config = variants[status] || variants.pending;
+    return <Badge variant={config.variant}>{config.label}</Badge>;
+  };
+
+  return (
+    <div className="space-y-6">
+      <Breadcrumb items={[{ label: "订单管理" }]} />
+      {/* Page Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">订单管理</h1>
+          <p className="text-gray-500 mt-1">管理您的订单和发货信息</p>
+        </div>
+        <Button className="gap-2">
+          <Plus className="h-4 w-4" />
+          新增订单
+        </Button>
+      </div>
+
+      {/* Search and Filters */}
+      <Card>
+        <CardContent className="pt-6">
+          <div className="flex gap-4">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Input
+                placeholder="搜索订单号、客户名称..."
+                className="pl-10"
+              />
+            </div>
+            <Button variant="outline">筛选</Button>
+            <Button variant="outline">导出</Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Orders Table */}
+      <Card>
+        <CardHeader>
+          <CardTitle>订单列表</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {isLoading ? (
+            <div className="flex items-center justify-center py-8">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+            </div>
+          ) : orders && orders.length > 0 ? (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>订单号</TableHead>
+                  <TableHead>客户</TableHead>
+                  <TableHead>订单金额</TableHead>
+                  <TableHead>状态</TableHead>
+                  <TableHead>订单日期</TableHead>
+                  <TableHead className="text-right">操作</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {orders.map((item) => (
+                  <TableRow key={item.order.id}>
+                    <TableCell className="font-medium">{item.order.orderNumber}</TableCell>
+                    <TableCell>{item.customer?.companyName || "-"}</TableCell>
+                    <TableCell className="font-semibold text-primary">
+                      ¥{Number(item.order.totalAmount).toLocaleString()}
+                    </TableCell>
+                    <TableCell>{getStatusBadge(item.order.status)}</TableCell>
+                    <TableCell className="text-sm text-gray-500">
+                      {new Date(item.order.orderDate).toLocaleDateString("zh-CN")}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      <Button variant="ghost" size="sm">查看</Button>
+                      <Button variant="ghost" size="sm">编辑</Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-gray-500">暂无订单数据</p>
+              <Button className="mt-4 gap-2">
+                <Plus className="h-4 w-4" />
+                添加第一个订单
+              </Button>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}

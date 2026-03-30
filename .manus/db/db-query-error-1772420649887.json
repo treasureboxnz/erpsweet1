@@ -1,0 +1,8 @@
+{
+  "query": "SELECT mt.id, mt.name, mt.icon, mt.sortOrder, mt.erpCompanyId, ec.name as company_name \nFROM material_types mt \nLEFT JOIN erp_companies ec ON mt.erpCompanyId = ec.id \nWHERE mt.deletedAt IS NULL \nORDER BY mt.erpCompanyId, mt.sortOrder, mt.id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT mt.id, mt.name, mt.icon, mt.sortOrder, mt.erpCompanyId, ec.name as company_name \nFROM material_types mt \nLEFT JOIN erp_companies ec ON mt.erpCompanyId = ec.id \nWHERE mt.deletedAt IS NULL \nORDER BY mt.erpCompanyId, mt.sortOrder, mt.id;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'ec.name' in 'field list'"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "query": "SELECT id, email, name, role, erpCompanyId FROM users WHERE erpCompanyId = 1 LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, email, name, role, erpCompanyId FROM users WHERE erpCompanyId = 1 LIMIT 5;",
+  "rows": [
+    {
+      "id": "1",
+      "email": "nzchunzhou1@gmail.com",
+      "name": "Eric zhou",
+      "role": "super_admin",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "1718",
+      "email": "15222650319@163.com",
+      "name": "15222650319",
+      "role": "super_admin",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "780093",
+      "email": "admin@test.com",
+      "name": "管理员",
+      "role": "admin",
+      "erpCompanyId": "1"
+    },
+    {
+      "id": "780121",
+      "email": "test3@test.com",
+      "name": "测试用户3",
+      "role": "operator",
+      "erpCompanyId": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\tname\trole\terpCompanyId\n1\tnzchunzhou1@gmail.com\tEric zhou\tsuper_admin\t1\n1718\t15222650319@163.com\t15222650319\tsuper_admin\t1\n780093\tadmin@test.com\t管理员\tadmin\t1\n780121\ttest3@test.com\t测试用户3\toperator\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1593
+}

@@ -1,0 +1,8 @@
+{
+  "query": "ALTER TABLE quotations \nADD COLUMN requiresApproval BOOLEAN DEFAULT FALSE NOT NULL AFTER status,\nADD COLUMN approvalStatus ENUM('pending', 'approved', 'rejected') AFTER requiresApproval,\nMODIFY COLUMN status ENUM('draft', 'sent', 'accepted', 'rejected', 'expired', 'pending_approval', 'approval_rejected') DEFAULT 'draft' NOT NULL",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute ALTER TABLE quotations \nADD COLUMN requiresApproval BOOLEAN DEFAULT FALSE NOT NULL AFTER status,\nADD COLUMN approvalStatus ENUM('pending', 'approved', 'rejected') AFTER requiresApproval,\nMODIFY COLUMN status ENUM('draft', 'sent', 'accepted', 'rejected', 'expired', 'pending_approval', 'approval_rejected') DEFAULT 'draft' NOT NULL",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'requiresapproval' in 'quotations'"
+  ]
+}

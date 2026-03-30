@@ -1,0 +1,73 @@
+{
+  "query": "SELECT u.id, u.email, u.name, u.role, u.passwordHash, e.id as companyId, e.companyName \nFROM users u \nLEFT JOIN erp_companies e ON u.erpCompanyId = e.id \nORDER BY e.id, u.id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT u.id, u.email, u.name, u.role, u.passwordHash, e.id as companyId, e.companyName \nFROM users u \nLEFT JOIN erp_companies e ON u.erpCompanyId = e.id \nORDER BY e.id, u.id;",
+  "rows": [
+    {
+      "id": "1",
+      "email": "nzchunzhou1@gmail.com",
+      "name": "Eric zhou",
+      "role": "super_admin",
+      "passwordHash": "NULL",
+      "companyId": "1",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "780093",
+      "email": "admin@test.com",
+      "name": "管理员(已编辑)",
+      "role": "admin",
+      "passwordHash": "$2b$10$DzIXdixWWzEdW.MflFCl2O56Z3IBIUW89.PamHuE1YDd66mcoJd2G",
+      "companyId": "1",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "780121",
+      "email": "test3@test.com",
+      "name": "测试用户3",
+      "role": "operator",
+      "passwordHash": "$2b$10$JEtQmL6Gv8CkqD3zZx3Miu0PfOehXRbq8GesdWTEolo2Mwwv7PS1S",
+      "companyId": "1",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "1140093",
+      "email": "admin@admin.com",
+      "name": "tester",
+      "role": "admin",
+      "passwordHash": "$2b$10$ZUyTeKy3H.YlDhveFX2/5u1yfDLfM9FkMcNr2rS9AV8iPUJLdLnDy",
+      "companyId": "1",
+      "companyName": "测试公司"
+    },
+    {
+      "id": "780152",
+      "email": "admin2@test.com",
+      "name": "管理员2",
+      "role": "admin",
+      "passwordHash": "$2b$10$4S4v65xuV7BBhtLGF3f3He7e48mT7CJw4uUmIf6o2uzCdtJ5gbhfG",
+      "companyId": "2",
+      "companyName": "测试公司2"
+    },
+    {
+      "id": "840074",
+      "email": "admin@test2.com",
+      "name": "测试公司2管理员",
+      "role": "admin",
+      "passwordHash": "$2b$10$DzIXdixWWzEdW.MflFCl2O56Z3IBIUW89.PamHuE1YDd66mcoJd2G",
+      "companyId": "2",
+      "companyName": "测试公司2"
+    },
+    {
+      "id": "1650166",
+      "email": "manager@casavivafurniture.com",
+      "name": "Iris",
+      "role": "super_admin",
+      "passwordHash": "$2b$10$65GSvzNgjiewWOCZDQSVQusykQTFcymto/Wc.uMvgLxqOIbZaACbe",
+      "companyId": "60001",
+      "companyName": "广州凯飒家具有限公司"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\tname\trole\tpasswordHash\tcompanyId\tcompanyName\n1\tnzchunzhou1@gmail.com\tEric zhou\tsuper_admin\tNULL\t1\t测试公司\n780093\tadmin@test.com\t管理员(已编辑)\tadmin\t$2b$10$DzIXdixWWzEdW.MflFCl2O56Z3IBIUW89.PamHuE1YDd66mcoJd2G\t1\t测试公司\n780121\ttest3@test.com\t测试用户3\toperator\t$2b$10$JEtQmL6Gv8CkqD3zZx3Miu0PfOehXRbq8GesdWTEolo2Mwwv7PS1S\t1\t测试公司\n1140093\tadmin@admin.com\ttester\tadmin\t$2b$10$ZUyTeKy3H.YlDhveFX2/5u1yfDLfM9FkMcNr2rS9AV8iPUJLdLnDy\t1\t测试公司\n780152\tadmin2@test.com\t管理员2\tadmin\t$2b$10$4S4v65xuV7BBhtLGF3f3He7e48mT7CJw4uUmIf6o2uzCdtJ5gbhfG\t2\t测试公司2\n840074\tadmin@test2.com\t测试公司2管理员\tadmin\t$2b$10$DzIXdixWWzEdW.MflFCl2O56Z3IBIUW89.PamHuE1YDd66mcoJd2G\t2\t测试公司2\n1650166\tmanager@casavivafurniture.com\tIris\tsuper_admin\t$2b$10$65GSvzNgjiewWOCZDQSVQusykQTFcymto/Wc.uMvgLxqOIbZaACbe\t60001\t广州凯飒家具有限公司\n",
+  "stderr": "",
+  "execution_time_ms": 1598
+}

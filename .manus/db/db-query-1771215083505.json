@@ -1,0 +1,14 @@
+{
+  "query": "\n-- Get ABC Furniture ID\nSELECT id, companyName FROM companies WHERE companyName LIKE '%ABC%' LIMIT 1;\n\n-- Insert batch-customer associations for all 4 batches\nINSERT INTO variant_customer_links (variantId, customerId)\nSELECT v.id, (SELECT id FROM companies WHERE companyName LIKE '%ABC%' LIMIT 1)\nFROM product_variants v\nWHERE v.productId = 60016\n  AND NOT EXISTS (\n    SELECT 1 FROM variant_customer_links vcl \n    WHERE vcl.variantId = v.id\n  );\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- Get ABC Furniture ID\nSELECT id, companyName FROM companies WHERE companyName LIKE '%ABC%' LIMIT 1;\n\n-- Insert batch-customer associations for all 4 batches\nINSERT INTO variant_customer_links (variantId, customerId)\nSELECT v.id, (SELECT id FROM companies WHERE companyName LIKE '%ABC%' LIMIT 1)\nFROM product_variants v\nWHERE v.productId = 60016\n  AND NOT EXISTS (\n    SELECT 1 FROM variant_customer_links vcl \n    WHERE vcl.variantId = v.id\n  );\n",
+  "rows": [
+    {
+      "id": "30007",
+      "companyName": "ABC Furniture"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcompanyName\n30007\tABC Furniture\n",
+  "stderr": "",
+  "execution_time_ms": 1934
+}

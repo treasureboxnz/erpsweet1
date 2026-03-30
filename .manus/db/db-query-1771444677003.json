@@ -1,0 +1,95 @@
+{
+  "query": "SELECT id, companyName, customerCode FROM companies WHERE companyName LIKE '%测试%' OR companyName LIKE '%test%' OR companyName LIKE '%Test%' OR companyName LIKE '%DEBUG%' OR companyName LIKE '%Debug%' OR companyName = 'djf' ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, companyName, customerCode FROM companies WHERE companyName LIKE '%测试%' OR companyName LIKE '%test%' OR companyName LIKE '%Test%' OR companyName LIKE '%DEBUG%' OR companyName LIKE '%Debug%' OR companyName = 'djf' ORDER BY id;",
+  "rows": [
+    {
+      "id": "1",
+      "companyName": "Test Company Ltd",
+      "customerCode": "TC001"
+    },
+    {
+      "id": "2",
+      "companyName": "Follow-up Test Company",
+      "customerCode": "NULL"
+    },
+    {
+      "id": "3",
+      "companyName": "test01",
+      "customerCode": ""
+    },
+    {
+      "id": "6",
+      "companyName": "Test Company",
+      "customerCode": "NULL"
+    },
+    {
+      "id": "8",
+      "companyName": "Update Test Company",
+      "customerCode": "NULL"
+    },
+    {
+      "id": "9",
+      "companyName": "Follow-up Test Company",
+      "customerCode": "NULL"
+    },
+    {
+      "id": "10",
+      "companyName": "Test Company",
+      "customerCode": "NULL"
+    },
+    {
+      "id": "12",
+      "companyName": "Update Test Company",
+      "customerCode": "NULL"
+    },
+    {
+      "id": "13",
+      "companyName": "Follow-up Test Company",
+      "customerCode": "NULL"
+    },
+    {
+      "id": "56",
+      "companyName": "djf",
+      "customerCode": "NULL"
+    },
+    {
+      "id": "57",
+      "companyName": "测试公司ABC",
+      "customerCode": "CUS2602110802"
+    },
+    {
+      "id": "30001",
+      "companyName": "测试5星客户",
+      "customerCode": "CUS2602155012"
+    },
+    {
+      "id": "30002",
+      "companyName": "Debug测试客户",
+      "customerCode": "CUS2602152914"
+    },
+    {
+      "id": "30003",
+      "companyName": "修复测试客户",
+      "customerCode": "CUS2602153149"
+    },
+    {
+      "id": "30004",
+      "companyName": "Test Nature Category Company",
+      "customerCode": "CUS2602152144"
+    },
+    {
+      "id": "30005",
+      "companyName": "多分类测试客户",
+      "customerCode": "CUS2602158999"
+    },
+    {
+      "id": "30006",
+      "companyName": "合作级别测试客户",
+      "customerCode": "CUS2602154531"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcompanyName\tcustomerCode\n1\tTest Company Ltd\tTC001\n2\tFollow-up Test Company\tNULL\n3\ttest01\t\n6\tTest Company\tNULL\n8\tUpdate Test Company\tNULL\n9\tFollow-up Test Company\tNULL\n10\tTest Company\tNULL\n12\tUpdate Test Company\tNULL\n13\tFollow-up Test Company\tNULL\n56\tdjf\tNULL\n57\t测试公司ABC\tCUS2602110802\n30001\t测试5星客户\tCUS2602155012\n30002\tDebug测试客户\tCUS2602152914\n30003\t修复测试客户\tCUS2602153149\n30004\tTest Nature Category Company\tCUS2602152144\n30005\t多分类测试客户\tCUS2602158999\n30006\t合作级别测试客户\tCUS2602154531\n",
+  "stderr": "",
+  "execution_time_ms": 1520
+}

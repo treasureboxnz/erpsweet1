@@ -1,0 +1,65 @@
+{
+  "query": "SELECT * FROM attributes WHERE category = '客户管理' AND fieldName = '客户性质' ORDER BY displayOrder;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT * FROM attributes WHERE category = '客户管理' AND fieldName = '客户性质' ORDER BY displayOrder;",
+  "rows": [
+    {
+      "id": "15",
+      "name": "线上线下零售",
+      "category": "客户管理",
+      "subcategory": "NULL",
+      "fieldName": "客户性质",
+      "displayOrder": "1",
+      "createdBy": "NULL",
+      "createdAt": "2026-02-15 21:47:58",
+      "updatedAt": "2026-02-15 22:22:48"
+    },
+    {
+      "id": "16",
+      "name": "线下零售",
+      "category": "客户管理",
+      "subcategory": "NULL",
+      "fieldName": "客户性质",
+      "displayOrder": "2",
+      "createdBy": "NULL",
+      "createdAt": "2026-02-15 21:47:58",
+      "updatedAt": "2026-02-15 22:22:39"
+    },
+    {
+      "id": "17",
+      "name": "线上零售",
+      "category": "客户管理",
+      "subcategory": "NULL",
+      "fieldName": "客户性质",
+      "displayOrder": "3",
+      "createdBy": "NULL",
+      "createdAt": "2026-02-15 21:47:58",
+      "updatedAt": "2026-02-15 22:22:30"
+    },
+    {
+      "id": "18",
+      "name": "项目工程",
+      "category": "客户管理",
+      "subcategory": "NULL",
+      "fieldName": "客户性质",
+      "displayOrder": "4",
+      "createdBy": "NULL",
+      "createdAt": "2026-02-15 21:47:58",
+      "updatedAt": "2026-02-15 22:22:21"
+    },
+    {
+      "id": "19",
+      "name": "分销商",
+      "category": "客户管理",
+      "subcategory": "NULL",
+      "fieldName": "客户性质",
+      "displayOrder": "5",
+      "createdBy": "NULL",
+      "createdAt": "2026-02-15 21:47:58",
+      "updatedAt": "2026-02-15 22:22:13"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tcategory\tsubcategory\tfieldName\tdisplayOrder\tcreatedBy\tcreatedAt\tupdatedAt\n15\t线上线下零售\t客户管理\tNULL\t客户性质\t1\tNULL\t2026-02-15 21:47:58\t2026-02-15 22:22:48\n16\t线下零售\t客户管理\tNULL\t客户性质\t2\tNULL\t2026-02-15 21:47:58\t2026-02-15 22:22:39\n17\t线上零售\t客户管理\tNULL\t客户性质\t3\tNULL\t2026-02-15 21:47:58\t2026-02-15 22:22:30\n18\t项目工程\t客户管理\tNULL\t客户性质\t4\tNULL\t2026-02-15 21:47:58\t2026-02-15 22:22:21\n19\t分销商\t客户管理\tNULL\t客户性质\t5\tNULL\t2026-02-15 21:47:58\t2026-02-15 22:22:13\n",
+  "stderr": "",
+  "execution_time_ms": 1570
+}

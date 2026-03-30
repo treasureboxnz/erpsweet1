@@ -1,0 +1,40 @@
+{
+  "query": "SELECT id, variantCode, variantName, supplierId, supplierSku, customerId, customerSku, productionStatus FROM product_variants ORDER BY id DESC LIMIT 3;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, variantCode, variantName, supplierId, supplierSku, customerId, customerSku, productionStatus FROM product_variants ORDER BY id DESC LIMIT 3;",
+  "rows": [
+    {
+      "id": "990002",
+      "variantCode": "VAR0018",
+      "variantName": "15块麻布 (3)",
+      "supplierId": "30004",
+      "supplierSku": "NULL",
+      "customerId": "30007",
+      "customerSku": "NULL",
+      "productionStatus": "designing"
+    },
+    {
+      "id": "990001",
+      "variantCode": "DC-001-GRY-V032",
+      "variantName": "15块麻布 (2)",
+      "supplierId": "NULL",
+      "supplierSku": "NULL",
+      "customerId": "NULL",
+      "customerSku": "NULL",
+      "productionStatus": "designing"
+    },
+    {
+      "id": "960002",
+      "variantCode": "DC-001-GRY-V031",
+      "variantName": "20块羊羔绒 (2)",
+      "supplierId": "NULL",
+      "supplierSku": "NULL",
+      "customerId": "NULL",
+      "customerSku": "NULL",
+      "productionStatus": "designing"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantName\tsupplierId\tsupplierSku\tcustomerId\tcustomerSku\tproductionStatus\n990002\tVAR0018\t15块麻布 (3)\t30004\tNULL\t30007\tNULL\tdesigning\n990001\tDC-001-GRY-V032\t15块麻布 (2)\tNULL\tNULL\tNULL\tNULL\tdesigning\n960002\tDC-001-GRY-V031\t20块羊羔绒 (2)\tNULL\tNULL\tNULL\tNULL\tdesigning\n",
+  "stderr": "",
+  "execution_time_ms": 1606
+}

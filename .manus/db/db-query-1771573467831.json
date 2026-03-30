@@ -1,0 +1,31 @@
+{
+  "query": "\nSELECT \n  oi.id as order_item_id,\n  oi.variantId,\n  pv.variantCode,\n  pv.variantName,\n  COUNT(vm.id) as material_count\nFROM order_items oi\nLEFT JOIN product_variants pv ON oi.variantId = pv.id\nLEFT JOIN variant_materials vm ON pv.id = vm.variantId\nWHERE oi.orderId = 240001\nGROUP BY oi.id, oi.variantId, pv.variantCode, pv.variantName\nORDER BY oi.id;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  oi.id as order_item_id,\n  oi.variantId,\n  pv.variantCode,\n  pv.variantName,\n  COUNT(vm.id) as material_count\nFROM order_items oi\nLEFT JOIN product_variants pv ON oi.variantId = pv.id\nLEFT JOIN variant_materials vm ON pv.id = vm.variantId\nWHERE oi.orderId = 240001\nGROUP BY oi.id, oi.variantId, pv.variantCode, pv.variantName\nORDER BY oi.id;\n",
+  "rows": [
+    {
+      "order_item_id": "240003",
+      "variantId": "120084",
+      "variantCode": "DC-001-GRY-V003",
+      "variantName": "低背高级棉",
+      "material_count": "2"
+    },
+    {
+      "order_item_id": "240004",
+      "variantId": "NULL",
+      "variantCode": "NULL",
+      "variantName": "NULL",
+      "material_count": "0"
+    },
+    {
+      "order_item_id": "240005",
+      "variantId": "120025",
+      "variantCode": "DC-005-OAK-V004",
+      "variantName": "Premium memory foam",
+      "material_count": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "order_item_id\tvariantId\tvariantCode\tvariantName\tmaterial_count\n240003\t120084\tDC-001-GRY-V003\t低背高级棉\t2\n240004\tNULL\tNULL\tNULL\t0\n240005\t120025\tDC-005-OAK-V004\tPremium memory foam\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1522
+}

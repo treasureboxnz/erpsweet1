@@ -1,0 +1,14 @@
+{
+  "query": "\nSELECT id, companyName FROM companies WHERE companyName LIKE '%ABC Furniture%' LIMIT 1;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT id, companyName FROM companies WHERE companyName LIKE '%ABC Furniture%' LIMIT 1;\n",
+  "rows": [
+    {
+      "id": "30007",
+      "companyName": "ABC Furniture"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcompanyName\n30007\tABC Furniture\n",
+  "stderr": "",
+  "execution_time_ms": 1512
+}

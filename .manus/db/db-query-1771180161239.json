@@ -1,0 +1,17 @@
+{
+  "query": "SELECT id, variantCode, variantName, customerId, supplierId FROM product_variants WHERE variantCode = 'CV-1000-V013' LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, variantCode, variantName, customerId, supplierId FROM product_variants WHERE variantCode = 'CV-1000-V013' LIMIT 1;",
+  "rows": [
+    {
+      "id": "90002",
+      "variantCode": "CV-1000-V013",
+      "variantName": "测试客户字段-修复后",
+      "customerId": "52",
+      "supplierId": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantName\tcustomerId\tsupplierId\n90002\tCV-1000-V013\t测试客户字段-修复后\t52\t1\n",
+  "stderr": "",
+  "execution_time_ms": 63
+}

@@ -1,0 +1,8 @@
+{
+  "query": "\nSELECT \n  pv.id, \n  pv.variant_code, \n  pv.variant_name,\n  pv.variant_type,\n  pv.customer_id,\n  c.name as direct_customer_name\nFROM product_variants pv\nLEFT JOIN companies c ON pv.customer_id = c.id\nWHERE pv.variant_code LIKE 'DC-001-GRY%'\nORDER BY pv.id;\n\nSELECT \n  vcl.variant_id,\n  pv.variant_code,\n  vcl.customer_id,\n  c.name as customer_name\nFROM variant_customer_links vcl\nJOIN product_variants pv ON vcl.variant_id = pv.id\nLEFT JOIN companies c ON vcl.customer_id = c.id\nWHERE pv.variant_code LIKE 'DC-001-GRY%'\nORDER BY vcl.variant_id;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  pv.id, \n  pv.variant_code, \n  pv.variant_name,\n  pv.variant_type,\n  pv.customer_id,\n  c.name as direct_customer_name\nFROM product_variants pv\nLEFT JOIN companies c ON pv.customer_id = c.id\nWHERE pv.variant_code LIKE 'DC-001-GRY%'\nORDER BY pv.id;\n\nSELECT \n  vcl.variant_id,\n  pv.variant_code,\n  vcl.customer_id,\n  c.name as customer_name\nFROM variant_customer_links vcl\nJOIN product_variants pv ON vcl.variant_id = pv.id\nLEFT JOIN companies c ON vcl.customer_id = c.id\nWHERE pv.variant_code LIKE 'DC-001-GRY%'\nORDER BY vcl.variant_id;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 2: Unknown column 'pv.customer_id' in 'on clause'"
+  ]
+}

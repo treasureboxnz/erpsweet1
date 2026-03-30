@@ -1,0 +1,8 @@
+{
+  "query": "INSERT INTO product_variants (productId, variantName, variantType, productionStatus, isDefault, createdBy, createdAt, updatedAt)\nSELECT \n  id,\n  CONCAT(sku, '-V001'),\n  'universal',\n  'production',\n  1,\n  1,\n  NOW(),\n  NOW()\nFROM products\nWHERE sku IN ('DT-001-OAK', 'DT-002-MRB', 'AC-001-CHR')\nAND id NOT IN (SELECT DISTINCT productId FROM product_variants WHERE productId IS NOT NULL);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute INSERT INTO product_variants (productId, variantName, variantType, productionStatus, isDefault, createdBy, createdAt, updatedAt)\nSELECT \n  id,\n  CONCAT(sku, '-V001'),\n  'universal',\n  'production',\n  1,\n  1,\n  NOW(),\n  NOW()\nFROM products\nWHERE sku IN ('DT-001-OAK', 'DT-002-MRB', 'AC-001-CHR')\nAND id NOT IN (SELECT DISTINCT productId FROM product_variants WHERE productId IS NOT NULL);",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1364 (HY000) at line 1: Field 'variantCode' doesn't have a default value"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "query": "SELECT id, quotationNumber, status, totalAmount FROM quotations WHERE quotationNumber = 'QUO-20260216-004' OR quotationNumber = 'QUO-20260217-001' LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, quotationNumber, status, totalAmount FROM quotations WHERE quotationNumber = 'QUO-20260216-004' OR quotationNumber = 'QUO-20260217-001' LIMIT 5;",
+  "rows": [
+    {
+      "id": "60002",
+      "quotationNumber": "QUO-20260216-004",
+      "status": "pending_approval",
+      "totalAmount": "11900.00"
+    },
+    {
+      "id": "30001",
+      "quotationNumber": "QUO-20260217-001",
+      "status": "accepted",
+      "totalAmount": "8895.00"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tquotationNumber\tstatus\ttotalAmount\n60002\tQUO-20260216-004\tpending_approval\t11900.00\n30001\tQUO-20260217-001\taccepted\t8895.00\n",
+  "stderr": "",
+  "execution_time_ms": 1518
+}

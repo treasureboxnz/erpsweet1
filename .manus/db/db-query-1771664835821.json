@@ -1,0 +1,90 @@
+{
+  "query": "SELECT oi.id, oi.orderId, o.orderNumber, oi.variantId, pv.variantCode, oi.quantity \nFROM order_items oi \nLEFT JOIN orders o ON oi.orderId = o.id \nLEFT JOIN product_variants pv ON oi.variantId = pv.id \nWHERE oi.variantId IS NOT NULL \nLIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT oi.id, oi.orderId, o.orderNumber, oi.variantId, pv.variantCode, oi.quantity \nFROM order_items oi \nLEFT JOIN orders o ON oi.orderId = o.id \nLEFT JOIN product_variants pv ON oi.variantId = pv.id \nWHERE oi.variantId IS NOT NULL \nLIMIT 10;",
+  "rows": [
+    {
+      "id": "60004",
+      "orderId": "60002",
+      "orderNumber": "ORD-20260216-IGD",
+      "variantId": "120082",
+      "variantCode": "DC-001-GRY-V001",
+      "quantity": "140"
+    },
+    {
+      "id": "150003",
+      "orderId": "150002",
+      "orderNumber": "ORD-20260217-IDG",
+      "variantId": "120084",
+      "variantCode": "DC-001-GRY-V003",
+      "quantity": "1"
+    },
+    {
+      "id": "60003",
+      "orderId": "60002",
+      "orderNumber": "ORD-20260216-IGD",
+      "variantId": "120084",
+      "variantCode": "DC-001-GRY-V003",
+      "quantity": "199"
+    },
+    {
+      "id": "60001",
+      "orderId": "60001",
+      "orderNumber": "ORD-20260216-90N",
+      "variantId": "120084",
+      "variantCode": "DC-001-GRY-V003",
+      "quantity": "150"
+    },
+    {
+      "id": "30006",
+      "orderId": "30002",
+      "orderNumber": "ORD-20260216-6HB",
+      "variantId": "120084",
+      "variantCode": "DC-001-GRY-V003",
+      "quantity": "120"
+    },
+    {
+      "id": "90001",
+      "orderId": "90001",
+      "orderNumber": "ORD-20260216-ZM3",
+      "variantId": "120006",
+      "variantCode": "DC-001-GRY-V004",
+      "quantity": "150"
+    },
+    {
+      "id": "60010",
+      "orderId": "60008",
+      "orderNumber": "ORD-20260216-D8S",
+      "variantId": "120006",
+      "variantCode": "DC-001-GRY-V004",
+      "quantity": "150"
+    },
+    {
+      "id": "150004",
+      "orderId": "150003",
+      "orderNumber": "ORD-20260217-FMR",
+      "variantId": "120014",
+      "variantCode": "DC-003-WHT-V001",
+      "quantity": "1"
+    },
+    {
+      "id": "150005",
+      "orderId": "150003",
+      "orderNumber": "ORD-20260217-FMR",
+      "variantId": "120024",
+      "variantCode": "DC-005-OAK-V003",
+      "quantity": "1"
+    },
+    {
+      "id": "150002",
+      "orderId": "150001",
+      "orderNumber": "ORD-20260217-2MG",
+      "variantId": "120025",
+      "variantCode": "DC-005-OAK-V004",
+      "quantity": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\torderId\torderNumber\tvariantId\tvariantCode\tquantity\n60004\t60002\tORD-20260216-IGD\t120082\tDC-001-GRY-V001\t140\n150003\t150002\tORD-20260217-IDG\t120084\tDC-001-GRY-V003\t1\n60003\t60002\tORD-20260216-IGD\t120084\tDC-001-GRY-V003\t199\n60001\t60001\tORD-20260216-90N\t120084\tDC-001-GRY-V003\t150\n30006\t30002\tORD-20260216-6HB\t120084\tDC-001-GRY-V003\t120\n90001\t90001\tORD-20260216-ZM3\t120006\tDC-001-GRY-V004\t150\n60010\t60008\tORD-20260216-D8S\t120006\tDC-001-GRY-V004\t150\n150004\t150003\tORD-20260217-FMR\t120014\tDC-003-WHT-V001\t1\n150005\t150003\tORD-20260217-FMR\t120024\tDC-005-OAK-V003\t1\n150002\t150001\tORD-20260217-2MG\t120025\tDC-005-OAK-V004\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1536
+}

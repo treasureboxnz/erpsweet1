@@ -1,0 +1,8 @@
+{
+  "query": "INSERT INTO system_settings (settingKey, settingValue, settingType, description, displayName) \nVALUES ('quotation_approval_threshold', '10000', 'number', '报价单金额超过此阈值时需要管理员审批', '报价审批阈值')\nON DUPLICATE KEY UPDATE settingValue = '10000'",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute INSERT INTO system_settings (settingKey, settingValue, settingType, description, displayName) \nVALUES ('quotation_approval_threshold', '10000', 'number', '报价单金额超过此阈值时需要管理员审批', '报价审批阈值')\nON DUPLICATE KEY UPDATE settingValue = '10000'",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'settingType' in 'field list'"
+  ]
+}

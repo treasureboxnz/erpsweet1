@@ -1,0 +1,90 @@
+{
+  "query": "SELECT companyDomain, COUNT(*) as cnt FROM apollo_candidates WHERE companyDomain IS NOT NULL GROUP BY companyDomain HAVING companyDomain LIKE 'http%' LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT companyDomain, COUNT(*) as cnt FROM apollo_candidates WHERE companyDomain IS NOT NULL GROUP BY companyDomain HAVING companyDomain LIKE 'http%' LIMIT 20;",
+  "rows": [
+    {
+      "companyDomain": "http://www.trendhim.com",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.contractfurniture.co.uk",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.hdhc.com",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.aldiss.com",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.neptune.com",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.laredoute.com",
+      "cnt": "13"
+    },
+    {
+      "companyDomain": "http://www.silentnight.co.uk",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.groupeconforama.fr",
+      "cnt": "3"
+    },
+    {
+      "companyDomain": "http://www.voltexelectrical.com.au",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.denbighrowe.co.uk",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.blfinefurniture.co.uk",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.atc-concept.com",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.poppyfurnish.com",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.candlelight.co.uk",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.creativeforce.io",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.cuisine-aujourdhui.fr",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.costco.co.uk",
+      "cnt": "2"
+    },
+    {
+      "companyDomain": "http://www.justdigitalpeople.com.au",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.spicerorchards.com",
+      "cnt": "1"
+    },
+    {
+      "companyDomain": "http://www.nanotechnologyworld.org",
+      "cnt": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "companyDomain\tcnt\nhttp://www.trendhim.com\t1\nhttp://www.contractfurniture.co.uk\t1\nhttp://www.hdhc.com\t1\nhttp://www.aldiss.com\t1\nhttp://www.neptune.com\t1\nhttp://www.laredoute.com\t13\nhttp://www.silentnight.co.uk\t1\nhttp://www.groupeconforama.fr\t3\nhttp://www.voltexelectrical.com.au\t1\nhttp://www.denbighrowe.co.uk\t1\nhttp://www.blfinefurniture.co.uk\t1\nhttp://www.atc-concept.com\t1\nhttp://www.poppyfurnish.com\t1\nhttp://www.candlelight.co.uk\t1\nhttp://www.creativeforce.io\t1\nhttp://www.cuisine-aujourdhui.fr\t1\nhttp://www.costco.co.uk\t2\nhttp://www.justdigitalpeople.com.au\t1\nhttp://www.spicerorchards.com\t1\nhttp://www.nanotechnologyworld.org\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1497
+}

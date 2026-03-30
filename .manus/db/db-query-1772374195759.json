@@ -1,0 +1,13 @@
+{
+  "query": "\nSELECT COUNT(*) as total FROM customer_price_history;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT COUNT(*) as total FROM customer_price_history;\n",
+  "rows": [
+    {
+      "total": "46"
+    }
+  ],
+  "messages": [],
+  "stdout": "total\n46\n",
+  "stderr": "",
+  "execution_time_ms": 1556
+}

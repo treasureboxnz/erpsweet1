@@ -1,0 +1,24 @@
+{
+  "query": "SELECT pv.id, pv.variantName, pv.productId, pv.createdAt, \n       (SELECT COUNT(*) FROM package_boxes pb WHERE pb.variantId = pv.id) as boxCount\nFROM product_variants pv \nWHERE pv.productId = 60011 \nORDER BY pv.createdAt DESC \nLIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT pv.id, pv.variantName, pv.productId, pv.createdAt, \n       (SELECT COUNT(*) FROM package_boxes pb WHERE pb.variantId = pv.id) as boxCount\nFROM product_variants pv \nWHERE pv.productId = 60011 \nORDER BY pv.createdAt DESC \nLIMIT 5;",
+  "rows": [
+    {
+      "id": "450001",
+      "variantName": "测试批次",
+      "productId": "60011",
+      "createdAt": "2026-02-21 05:52:47",
+      "boxCount": "0"
+    },
+    {
+      "id": "180004",
+      "variantName": "DT-001-OAK-V001",
+      "productId": "60011",
+      "createdAt": "2026-02-17 12:07:59",
+      "boxCount": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantName\tproductId\tcreatedAt\tboxCount\n450001\t测试批次\t60011\t2026-02-21 05:52:47\t0\n180004\tDT-001-OAK-V001\t60011\t2026-02-17 12:07:59\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1509
+}

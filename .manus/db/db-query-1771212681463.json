@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE products SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/vOsWHOPsGokWBLgm.png' WHERE sku = 'DT-001-OAK';\nUPDATE products SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/kXIylnNmErjGqByk.png' WHERE sku = 'DT-002-MRB';\nUPDATE products SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/jCvzBuHlgrHbARTd.png' WHERE sku = 'DT-003-WAL';\nUPDATE products SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/OHaGUvmCtKYHWUhm.png' WHERE sku = 'DT-004-GLS';\nUPDATE products SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/hlRPTuZbNvyOrlnj.png' WHERE sku = 'DT-005-ACA';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute UPDATE products SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/vOsWHOPsGokWBLgm.png' WHERE sku = 'DT-001-OAK';\nUPDATE products SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/kXIylnNmErjGqByk.png' WHERE sku = 'DT-002-MRB';\nUPDATE products SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/jCvzBuHlgrHbARTd.png' WHERE sku = 'DT-003-WAL';\nUPDATE products SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/OHaGUvmCtKYHWUhm.png' WHERE sku = 'DT-004-GLS';\nUPDATE products SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663334223494/hlRPTuZbNvyOrlnj.png' WHERE sku = 'DT-005-ACA';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 2571
+}

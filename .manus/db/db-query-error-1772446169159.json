@@ -1,0 +1,8 @@
+{
+  "query": "\nSELECT \n  COUNT(*) as total_variants,\n  SUM(CASE WHEN packageLength IS NULL OR packageWidth IS NULL OR packageHeight IS NULL THEN 1 ELSE 0 END) as missing_dimensions,\n  SUM(CASE WHEN packageLength IS NOT NULL AND packageWidth IS NOT NULL AND packageHeight IS NOT NULL THEN 1 ELSE 0 END) as has_dimensions,\n  SUM(CASE WHEN grossWeight IS NULL THEN 1 ELSE 0 END) as missing_gross_weight,\n  SUM(CASE WHEN netWeight IS NULL THEN 1 ELSE 0 END) as missing_net_weight,\n  SUM(CASE WHEN piecesPerBox IS NULL OR piecesPerBox = 0 THEN 1 ELSE 0 END) as missing_pieces_per_box\nFROM product_variants\nWHERE isArchived = 0;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  COUNT(*) as total_variants,\n  SUM(CASE WHEN packageLength IS NULL OR packageWidth IS NULL OR packageHeight IS NULL THEN 1 ELSE 0 END) as missing_dimensions,\n  SUM(CASE WHEN packageLength IS NOT NULL AND packageWidth IS NOT NULL AND packageHeight IS NOT NULL THEN 1 ELSE 0 END) as has_dimensions,\n  SUM(CASE WHEN grossWeight IS NULL THEN 1 ELSE 0 END) as missing_gross_weight,\n  SUM(CASE WHEN netWeight IS NULL THEN 1 ELSE 0 END) as missing_net_weight,\n  SUM(CASE WHEN piecesPerBox IS NULL OR piecesPerBox = 0 THEN 1 ELSE 0 END) as missing_pieces_per_box\nFROM product_variants\nWHERE isArchived = 0;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 2: Unknown column 'isarchived' in 'where clause'"
+  ]
+}

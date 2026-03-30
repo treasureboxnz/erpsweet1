@@ -1,0 +1,190 @@
+{
+  "query": "\nSELECT \n  pv.variantCode,\n  pv.variantName,\n  vp.sellingPriceFobL1,\n  vp.sellingPriceFobL2,\n  vp.sellingPriceFobL3,\n  vp.sellingPriceRmbIncTax,\n  vp.factoryCostRmbIncTax\nFROM product_variants pv\nLEFT JOIN variant_pricing vp ON pv.id = vp.variantId\nORDER BY pv.createdAt DESC\nLIMIT 20;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  pv.variantCode,\n  pv.variantName,\n  vp.sellingPriceFobL1,\n  vp.sellingPriceFobL2,\n  vp.sellingPriceFobL3,\n  vp.sellingPriceRmbIncTax,\n  vp.factoryCostRmbIncTax\nFROM product_variants pv\nLEFT JOIN variant_pricing vp ON pv.id = vp.variantId\nORDER BY pv.createdAt DESC\nLIMIT 20;\n",
+  "rows": [
+    {
+      "variantCode": "DC-001-GRY-V002",
+      "variantName": "高背版本",
+      "sellingPriceFobL1": "NULL",
+      "sellingPriceFobL2": "NULL",
+      "sellingPriceFobL3": "NULL",
+      "sellingPriceRmbIncTax": "NULL",
+      "factoryCostRmbIncTax": "NULL"
+    },
+    {
+      "variantCode": "DC-001-GRY-V001",
+      "variantName": "30米布料",
+      "sellingPriceFobL1": "NULL",
+      "sellingPriceFobL2": "NULL",
+      "sellingPriceFobL3": "NULL",
+      "sellingPriceRmbIncTax": "NULL",
+      "factoryCostRmbIncTax": "NULL"
+    },
+    {
+      "variantCode": "SB-004-GRN-B004",
+      "variantName": "Premium memory foam",
+      "sellingPriceFobL1": "562.50",
+      "sellingPriceFobL2": "528.75",
+      "sellingPriceFobL3": "506.25",
+      "sellingPriceRmbIncTax": "4921.88",
+      "factoryCostRmbIncTax": "2923.62"
+    },
+    {
+      "variantCode": "SB-004-GRN-B003",
+      "variantName": "Bulk order 20+ units",
+      "sellingPriceFobL1": "414.00",
+      "sellingPriceFobL2": "389.16",
+      "sellingPriceFobL3": "372.60",
+      "sellingPriceRmbIncTax": "3622.50",
+      "factoryCostRmbIncTax": "2151.77"
+    },
+    {
+      "variantCode": "SB-004-GRN-B002",
+      "variantName": "Extended dimensions 220cm",
+      "sellingPriceFobL1": "540.00",
+      "sellingPriceFobL2": "507.60",
+      "sellingPriceFobL3": "486.00",
+      "sellingPriceRmbIncTax": "4725.00",
+      "factoryCostRmbIncTax": "2806.65"
+    },
+    {
+      "variantCode": "SB-004-GRN-B001",
+      "variantName": "Custom fabric upgrade",
+      "sellingPriceFobL1": "517.50",
+      "sellingPriceFobL2": "486.45",
+      "sellingPriceFobL3": "465.75",
+      "sellingPriceRmbIncTax": "4528.12",
+      "factoryCostRmbIncTax": "2689.68"
+    },
+    {
+      "variantCode": "SB-003-BEI-B004",
+      "variantName": "Premium memory foam",
+      "sellingPriceFobL1": "562.50",
+      "sellingPriceFobL2": "528.75",
+      "sellingPriceFobL3": "506.25",
+      "sellingPriceRmbIncTax": "4921.88",
+      "factoryCostRmbIncTax": "2923.62"
+    },
+    {
+      "variantCode": "SB-003-BEI-B003",
+      "variantName": "Bulk order 20+ units",
+      "sellingPriceFobL1": "414.00",
+      "sellingPriceFobL2": "389.16",
+      "sellingPriceFobL3": "372.60",
+      "sellingPriceRmbIncTax": "3622.50",
+      "factoryCostRmbIncTax": "2151.77"
+    },
+    {
+      "variantCode": "SB-003-BEI-B002",
+      "variantName": "Extended dimensions 220cm",
+      "sellingPriceFobL1": "540.00",
+      "sellingPriceFobL2": "507.60",
+      "sellingPriceFobL3": "486.00",
+      "sellingPriceRmbIncTax": "4725.00",
+      "factoryCostRmbIncTax": "2806.65"
+    },
+    {
+      "variantCode": "SB-003-BEI-B001",
+      "variantName": "Custom fabric upgrade",
+      "sellingPriceFobL1": "517.50",
+      "sellingPriceFobL2": "486.45",
+      "sellingPriceFobL3": "465.75",
+      "sellingPriceRmbIncTax": "4528.12",
+      "factoryCostRmbIncTax": "2689.68"
+    },
+    {
+      "variantCode": "SB-002-BLU-B004",
+      "variantName": "Premium memory foam",
+      "sellingPriceFobL1": "562.50",
+      "sellingPriceFobL2": "528.75",
+      "sellingPriceFobL3": "506.25",
+      "sellingPriceRmbIncTax": "4921.88",
+      "factoryCostRmbIncTax": "2923.62"
+    },
+    {
+      "variantCode": "SB-002-BLU-B003",
+      "variantName": "Bulk order 20+ units",
+      "sellingPriceFobL1": "414.00",
+      "sellingPriceFobL2": "389.16",
+      "sellingPriceFobL3": "372.60",
+      "sellingPriceRmbIncTax": "3622.50",
+      "factoryCostRmbIncTax": "2151.77"
+    },
+    {
+      "variantCode": "SB-002-BLU-B002",
+      "variantName": "Extended dimensions 220cm",
+      "sellingPriceFobL1": "540.00",
+      "sellingPriceFobL2": "507.60",
+      "sellingPriceFobL3": "486.00",
+      "sellingPriceRmbIncTax": "4725.00",
+      "factoryCostRmbIncTax": "2806.65"
+    },
+    {
+      "variantCode": "SB-002-BLU-B001",
+      "variantName": "Custom fabric upgrade",
+      "sellingPriceFobL1": "517.50",
+      "sellingPriceFobL2": "486.45",
+      "sellingPriceFobL3": "465.75",
+      "sellingPriceRmbIncTax": "4528.12",
+      "factoryCostRmbIncTax": "2689.68"
+    },
+    {
+      "variantCode": "SB-001-GRY-B004",
+      "variantName": "Premium memory foam",
+      "sellingPriceFobL1": "562.50",
+      "sellingPriceFobL2": "528.75",
+      "sellingPriceFobL3": "506.25",
+      "sellingPriceRmbIncTax": "4921.88",
+      "factoryCostRmbIncTax": "2923.62"
+    },
+    {
+      "variantCode": "SB-001-GRY-B003",
+      "variantName": "Bulk order 20+ units",
+      "sellingPriceFobL1": "414.00",
+      "sellingPriceFobL2": "389.16",
+      "sellingPriceFobL3": "372.60",
+      "sellingPriceRmbIncTax": "3622.50",
+      "factoryCostRmbIncTax": "2151.77"
+    },
+    {
+      "variantCode": "SB-001-GRY-B002",
+      "variantName": "Extended dimensions 220cm",
+      "sellingPriceFobL1": "540.00",
+      "sellingPriceFobL2": "507.60",
+      "sellingPriceFobL3": "486.00",
+      "sellingPriceRmbIncTax": "4725.00",
+      "factoryCostRmbIncTax": "2806.65"
+    },
+    {
+      "variantCode": "SB-001-GRY-B001",
+      "variantName": "Custom fabric upgrade",
+      "sellingPriceFobL1": "517.50",
+      "sellingPriceFobL2": "486.45",
+      "sellingPriceFobL3": "465.75",
+      "sellingPriceRmbIncTax": "4528.12",
+      "factoryCostRmbIncTax": "2689.68"
+    },
+    {
+      "variantCode": "DC-001-B004",
+      "variantName": "Premium fabric stain-resistant",
+      "sellingPriceFobL1": "150.00",
+      "sellingPriceFobL2": "165.00",
+      "sellingPriceFobL3": "180.00",
+      "sellingPriceRmbIncTax": "NULL",
+      "factoryCostRmbIncTax": "NULL"
+    },
+    {
+      "variantCode": "DC-001-B001",
+      "variantName": "Gray upholstery darker shade",
+      "sellingPriceFobL1": "145.00",
+      "sellingPriceFobL2": "155.00",
+      "sellingPriceFobL3": "165.00",
+      "sellingPriceRmbIncTax": "NULL",
+      "factoryCostRmbIncTax": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "variantCode\tvariantName\tsellingPriceFobL1\tsellingPriceFobL2\tsellingPriceFobL3\tsellingPriceRmbIncTax\tfactoryCostRmbIncTax\nDC-001-GRY-V002\t高背版本\tNULL\tNULL\tNULL\tNULL\tNULL\nDC-001-GRY-V001\t30米布料\tNULL\tNULL\tNULL\tNULL\tNULL\nSB-004-GRN-B004\tPremium memory foam\t562.50\t528.75\t506.25\t4921.88\t2923.62\nSB-004-GRN-B003\tBulk order 20+ units\t414.00\t389.16\t372.60\t3622.50\t2151.77\nSB-004-GRN-B002\tExtended dimensions 220cm\t540.00\t507.60\t486.00\t4725.00\t2806.65\nSB-004-GRN-B001\tCustom fabric upgrade\t517.50\t486.45\t465.75\t4528.12\t2689.68\nSB-003-BEI-B004\tPremium memory foam\t562.50\t528.75\t506.25\t4921.88\t2923.62\nSB-003-BEI-B003\tBulk order 20+ units\t414.00\t389.16\t372.60\t3622.50\t2151.77\nSB-003-BEI-B002\tExtended dimensions 220cm\t540.00\t507.60\t486.00\t4725.00\t2806.65\nSB-003-BEI-B001\tCustom fabric upgrade\t517.50\t486.45\t465.75\t4528.12\t2689.68\nSB-002-BLU-B004\tPremium memory foam\t562.50\t528.75\t506.25\t4921.88\t2923.62\nSB-002-BLU-B003\tBulk order 20+ units\t414.00\t389.16\t372.60\t3622.50\t2151.77\nSB-002-BLU-B002\tExtended dimensions 220cm\t540.00\t507.60\t486.00\t4725.00\t2806.65\nSB-002-BLU-B001\tCustom fabric upgrade\t517.50\t486.45\t465.75\t4528.12\t2689.68\nSB-001-GRY-B004\tPremium memory foam\t562.50\t528.75\t506.25\t4921.88\t2923.62\nSB-001-GRY-B003\tBulk order 20+ units\t414.00\t389.16\t372.60\t3622.50\t2151.77\nSB-001-GRY-B002\tExtended dimensions 220cm\t540.00\t507.60\t486.00\t4725.00\t2806.65\nSB-001-GRY-B001\tCustom fabric upgrade\t517.50\t486.45\t465.75\t4528.12\t2689.68\nDC-001-B004\tPremium fabric stain-resistant\t150.00\t165.00\t180.00\tNULL\tNULL\nDC-001-B001\tGray upholstery darker shade\t145.00\t155.00\t165.00\tNULL\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1584
+}

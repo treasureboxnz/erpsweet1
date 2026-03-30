@@ -1,0 +1,30 @@
+{
+  "query": "SELECT id, variantCode, variantName FROM product_variants WHERE variantCode IN ('DC-001-GRY-V031', 'DC-001-GRY-V032', 'DC-001-GRY-V033', 'VAR0018') ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, variantCode, variantName FROM product_variants WHERE variantCode IN ('DC-001-GRY-V031', 'DC-001-GRY-V032', 'DC-001-GRY-V033', 'VAR0018') ORDER BY id;",
+  "rows": [
+    {
+      "id": "960002",
+      "variantCode": "DC-001-GRY-V031",
+      "variantName": "20块羊羔绒 (2)"
+    },
+    {
+      "id": "990001",
+      "variantCode": "DC-001-GRY-V032",
+      "variantName": "15块麻布 (2)"
+    },
+    {
+      "id": "990002",
+      "variantCode": "VAR0018",
+      "variantName": "15块麻布 (3)"
+    },
+    {
+      "id": "990003",
+      "variantCode": "DC-001-GRY-V033",
+      "variantName": "15块麻布 (4)"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantName\n960002\tDC-001-GRY-V031\t20块羊羔绒 (2)\n990001\tDC-001-GRY-V032\t15块麻布 (2)\n990002\tVAR0018\t15块麻布 (3)\n990003\tDC-001-GRY-V033\t15块麻布 (4)\n",
+  "stderr": "",
+  "execution_time_ms": 1585
+}

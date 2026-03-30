@@ -1,0 +1,98 @@
+{
+  "query": "SELECT id, erpCompanyId, name, parentId, sortOrder, isEnabled FROM product_categories ORDER BY erpCompanyId, parentId, sortOrder",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, erpCompanyId, name, parentId, sortOrder, isEnabled FROM product_categories ORDER BY erpCompanyId, parentId, sortOrder",
+  "rows": [
+    {
+      "id": "3",
+      "erpCompanyId": "1",
+      "name": "Dining Room",
+      "parentId": "NULL",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "4",
+      "erpCompanyId": "1",
+      "name": "Bedroom",
+      "parentId": "NULL",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "1",
+      "erpCompanyId": "1",
+      "name": "Living Room",
+      "parentId": "NULL",
+      "sortOrder": "1",
+      "isEnabled": "1"
+    },
+    {
+      "id": "2",
+      "erpCompanyId": "1",
+      "name": "Office Furniture",
+      "parentId": "NULL",
+      "sortOrder": "2",
+      "isEnabled": "1"
+    },
+    {
+      "id": "30001",
+      "erpCompanyId": "1",
+      "name": "armchairs",
+      "parentId": "1",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "30002",
+      "erpCompanyId": "1",
+      "name": "Office Chairs",
+      "parentId": "2",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "30003",
+      "erpCompanyId": "1",
+      "name": "Dining Chairs餐椅",
+      "parentId": "3",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "30004",
+      "erpCompanyId": "1",
+      "name": "Dining Tables",
+      "parentId": "3",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "60001",
+      "erpCompanyId": "1",
+      "name": "布艺餐椅",
+      "parentId": "30003",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "90001",
+      "erpCompanyId": "60001",
+      "name": "armchair",
+      "parentId": "NULL",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    },
+    {
+      "id": "90002",
+      "erpCompanyId": "60001",
+      "name": "rocking armchair",
+      "parentId": "90001",
+      "sortOrder": "0",
+      "isEnabled": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tname\tparentId\tsortOrder\tisEnabled\n3\t1\tDining Room\tNULL\t0\t1\n4\t1\tBedroom\tNULL\t0\t1\n1\t1\tLiving Room\tNULL\t1\t1\n2\t1\tOffice Furniture\tNULL\t2\t1\n30001\t1\tarmchairs\t1\t0\t1\n30002\t1\tOffice Chairs\t2\t0\t1\n30003\t1\tDining Chairs餐椅\t3\t0\t1\n30004\t1\tDining Tables\t3\t0\t1\n60001\t1\t布艺餐椅\t30003\t0\t1\n90001\t60001\tarmchair\tNULL\t0\t1\n90002\t60001\trocking armchair\t90001\t0\t1\n",
+  "stderr": "",
+  "execution_time_ms": 1525
+}

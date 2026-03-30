@@ -1,0 +1,60 @@
+{
+  "query": "SELECT name, category, fieldName FROM attributes WHERE category = '材料管理' AND fieldName = '材料类型' LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT name, category, fieldName FROM attributes WHERE category = '材料管理' AND fieldName = '材料类型' LIMIT 10;",
+  "rows": [
+    {
+      "name": "皮革",
+      "category": "材料管理",
+      "fieldName": "材料类型"
+    },
+    {
+      "name": "木腿",
+      "category": "材料管理",
+      "fieldName": "材料类型"
+    },
+    {
+      "name": "配件",
+      "category": "材料管理",
+      "fieldName": "材料类型"
+    },
+    {
+      "name": "布料",
+      "category": "材料管理",
+      "fieldName": "材料类型"
+    },
+    {
+      "name": "颜色",
+      "category": "材料管理",
+      "fieldName": "材料类型"
+    },
+    {
+      "name": "扶手",
+      "category": "材料管理",
+      "fieldName": "材料类型"
+    },
+    {
+      "name": "填充物",
+      "category": "材料管理",
+      "fieldName": "材料类型"
+    },
+    {
+      "name": "坐垫",
+      "category": "材料管理",
+      "fieldName": "材料类型"
+    },
+    {
+      "name": "靠背",
+      "category": "材料管理",
+      "fieldName": "材料类型"
+    },
+    {
+      "name": "框架",
+      "category": "材料管理",
+      "fieldName": "材料类型"
+    }
+  ],
+  "messages": [],
+  "stdout": "name\tcategory\tfieldName\n皮革\t材料管理\t材料类型\n木腿\t材料管理\t材料类型\n配件\t材料管理\t材料类型\n布料\t材料管理\t材料类型\n颜色\t材料管理\t材料类型\n扶手\t材料管理\t材料类型\n填充物\t材料管理\t材料类型\n坐垫\t材料管理\t材料类型\n靠背\t材料管理\t材料类型\n框架\t材料管理\t材料类型\n",
+  "stderr": "",
+  "execution_time_ms": 1570
+}

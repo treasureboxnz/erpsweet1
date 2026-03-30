@@ -1,0 +1,8 @@
+{
+  "query": "SELECT pb.id, pb.variantId, pb.boxNumber, pb.length, pb.width, pb.height, pb.cbm, pb.packagingType, pb.piecesPerBox FROM package_boxes pb JOIN product_variants pv ON pb.variantId = pv.id WHERE pv.variantNumber = 'VAR0011' LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT pb.id, pb.variantId, pb.boxNumber, pb.length, pb.width, pb.height, pb.cbm, pb.packagingType, pb.piecesPerBox FROM package_boxes pb JOIN product_variants pv ON pb.variantId = pv.id WHERE pv.variantNumber = 'VAR0011' LIMIT 10;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'pv.variantnumber' in 'where clause'"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "query": "-- 首先查询批次ID和客户ID\nSELECT pv.id as variantId, c.id as customerId\nFROM product_variants pv\nCROSS JOIN companies c\nWHERE pv.variantCode = 'DC-001-GRY-V001'\nAND c.companyName = 'ABC Furniture';\n\n-- 插入客户关联记录\nINSERT INTO variant_customer_links (variantId, customerId, createdAt)\nSELECT pv.id, c.id, NOW()\nFROM product_variants pv\nCROSS JOIN companies c\nWHERE pv.variantCode = 'DC-001-GRY-V001'\nAND c.companyName = 'ABC Furniture'\nAND NOT EXISTS (\n  SELECT 1 FROM variant_customer_links vcl\n  WHERE vcl.variantId = pv.id AND vcl.customerId = c.id\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute -- 首先查询批次ID和客户ID\nSELECT pv.id as variantId, c.id as customerId\nFROM product_variants pv\nCROSS JOIN companies c\nWHERE pv.variantCode = 'DC-001-GRY-V001'\nAND c.companyName = 'ABC Furniture';\n\n-- 插入客户关联记录\nINSERT INTO variant_customer_links (variantId, customerId, createdAt)\nSELECT pv.id, c.id, NOW()\nFROM product_variants pv\nCROSS JOIN companies c\nWHERE pv.variantCode = 'DC-001-GRY-V001'\nAND c.companyName = 'ABC Furniture'\nAND NOT EXISTS (\n  SELECT 1 FROM variant_customer_links vcl\n  WHERE vcl.variantId = pv.id AND vcl.customerId = c.id\n);",
+  "rows": [
+    {
+      "variantId": "120082",
+      "customerId": "30007"
+    }
+  ],
+  "messages": [],
+  "stdout": "variantId\tcustomerId\n120082\t30007\n",
+  "stderr": "",
+  "execution_time_ms": 1873
+}

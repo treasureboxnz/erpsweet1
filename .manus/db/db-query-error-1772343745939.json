@@ -1,0 +1,8 @@
+{
+  "query": "SELECT o.id, o.orderNumber, p.name as productName, p.imageUrl, pv.id as variantId, pv.supplierId, s.name as supplierName\nFROM orders o\nJOIN order_items oi ON oi.orderId = o.id\nJOIN products p ON p.id = oi.productId\nLEFT JOIN product_variants pv ON pv.id = oi.variantId\nLEFT JOIN suppliers s ON s.id = pv.supplierId\nWHERE p.imageUrl IS NOT NULL AND p.imageUrl != ''\nORDER BY o.id DESC\nLIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT o.id, o.orderNumber, p.name as productName, p.imageUrl, pv.id as variantId, pv.supplierId, s.name as supplierName\nFROM orders o\nJOIN order_items oi ON oi.orderId = o.id\nJOIN products p ON p.id = oi.productId\nLEFT JOIN product_variants pv ON pv.id = oi.variantId\nLEFT JOIN suppliers s ON s.id = pv.supplierId\nWHERE p.imageUrl IS NOT NULL AND p.imageUrl != ''\nORDER BY o.id DESC\nLIMIT 20;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 's.name' in 'field list'"
+  ]
+}

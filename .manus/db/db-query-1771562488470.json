@@ -1,0 +1,20 @@
+{
+  "query": "\nSELECT \n  pv.id as variantId,\n  pv.variantCode,\n  pv.variantName,\n  vm.id as materialId,\n  vm.sortOrder,\n  vm.materialType,\n  mc.colorCode,\n  mc.colorName\nFROM product_variants pv\nLEFT JOIN variant_materials vm ON pv.id = vm.variantId\nLEFT JOIN material_colors mc ON vm.materialColorId = mc.id\nWHERE pv.variantCode = 'DC-001-GRY-V019'\nORDER BY vm.sortOrder;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  pv.id as variantId,\n  pv.variantCode,\n  pv.variantName,\n  vm.id as materialId,\n  vm.sortOrder,\n  vm.materialType,\n  mc.colorCode,\n  mc.colorName\nFROM product_variants pv\nLEFT JOIN variant_materials vm ON pv.id = vm.variantId\nLEFT JOIN material_colors mc ON vm.materialColorId = mc.id\nWHERE pv.variantCode = 'DC-001-GRY-V019'\nORDER BY vm.sortOrder;\n",
+  "rows": [
+    {
+      "variantId": "300003",
+      "variantCode": "DC-001-GRY-V019",
+      "variantName": "测试默认颜色V2",
+      "materialId": "51",
+      "sortOrder": "0",
+      "materialType": "fabric",
+      "colorCode": "ORIGINAL-ORIG-01",
+      "colorName": "Original"
+    }
+  ],
+  "messages": [],
+  "stdout": "variantId\tvariantCode\tvariantName\tmaterialId\tsortOrder\tmaterialType\tcolorCode\tcolorName\n300003\tDC-001-GRY-V019\t测试默认颜色V2\t51\t0\tfabric\tORIGINAL-ORIG-01\tOriginal\n",
+  "stderr": "",
+  "execution_time_ms": 1541
+}

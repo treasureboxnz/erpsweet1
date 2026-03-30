@@ -1,0 +1,872 @@
+import { useState, useEffect, useMemo, useRef } from "react";
+import { Link, useLocation, useParams } from "wouter";
+import { trpc } from "@/lib/trpc";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+} from "@/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { toast } from "sonner";
+import { ArrowLeft, Plus, Trash2, Check, ChevronsUpDown, ChevronDown, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+interface BatchItem {
+  variantId: number | null;
+  variantCode: string;
+  variantName: string;
+  quantity: number;
+  unitPrice: string;
+  subtotal: string;
+}
+
+interface ProductGroup {
+  productId: number | null;
+  productName: string;
+  sku: string;
+  batches: BatchItem[];
+  isExpanded: boolean;
+  fobQuantity?: number;
+  fobUnitPrice?: string;
+  fobSubtotal?: string;
+  fobNotes?: string;
+}
+
+export default function QuotationEdit() {
+  const params = useParams();
+  const quotationId = parseInt(params.id as string);
+  const [, navigate] = useLocation();
+  
+  const [quotationNumber, setQuotationNumber] = useState("");
+  const [customerId, setCustomerId] = useState<number | null>(null);
+  const [currency, setCurrency] = useState("USD");
+  const [quotationMode, setQuotationMode] = useState<'fob_only' | 'batch_selection'>('batch_selection');
+  const [validUntil, setValidUntil] = useState("");
+  const [notes, setNotes] = useState("");
+  const [productGroups, setProductGroups] = useState<ProductGroup[]>([]);
+  const [customerSearchOpen, setCustomerSearchOpen] = useState(false);
+  const [productSearchOpen, setProductSearchOpen] = useState<number | null>(null);
+  const [variantSearchOpen, setVariantSearchOpen] = useState<{ groupIndex: number; batchIndex: number } | null>(null);
+  const loadedProductsRef = useRef<Set<string>>(new Set());
+
+  const { data: quotation, isLoading: loadingQuotation } = trpc.quotations.getById.useQuery({ id: quotationId });
+  const { data: customers = [] } = trpc.customers.list.useQuery();
+  const { data: products = [] } = trpc.products.list.useQuery();
+  
+  const getVariantsForProduct = (productId: number) => {
+    return trpc.productVariants.getAll.useQuery(
+      { productId },
+      { enabled: !!productId }
+    );
+  };
+
+  // Load quotation data
+  useEffect(() => {
+    if (quotation) {
+      setQuotationNumber(quotation.quotationNumber);
+      setCustomerId(quotation.customerId);
+      setCurrency(quotation.currency);
+      // Map database quotationMode to UI quotationMode
+      if (quotation.quotationMode === 'fob' || quotation.quotationMode === 'fob_only') {
+        setQuotationMode('fob_only');
+      } else if (quotation.quotationMode === 'order_mode' || quotation.quotationMode === 'order') {
+        setQuotationMode('fob_only'); // Order mode uses fob_only in UI
+      } else {
+        setQuotationMode('batch_selection');
+      }
+      setValidUntil(quotation.validUntil ? new Date(quotation.validUntil).toISOString().slice(0, 10) : "");
+      setNotes(quotation.notes || "");
+      
+      // Group items by product
+      const groupedItems: { [key: number]: any[] } = {};
+      quotation.items.forEach((item: any) => {
+        if (!groupedItems[item.productId]) {
+          groupedItems[item.productId] = [];
+        }
+        groupedItems[item.productId].push(item);
+      });
+
+      // Convert to ProductGroup format
+      const groups: ProductGroup[] = Object.entries(groupedItems).map(([productId, items]) => {
+        const firstItem = items[0];
+        const product = products.find((p: any) => p.id === parseInt(productId));
+        
+        // Use productName and productSku from quotation items (redundant fields)
+        // Ensure we have valid product name and SKU
+        const productName = firstItem.productName || ((product as any)?.product?.name) || ((product as any)?.name) || "";
+        const sku = firstItem.productSku || ((product as any)?.product?.sku) || ((product as any)?.sku) || "";
+        
+        if (quotation.quotationMode === 'fob' || quotation.quotationMode === 'fob_only') {
+          // FOB mode
+          return {
+            productId: parseInt(productId),
+            productName,
+            sku,
+            batches: [],
+            isExpanded: true,
+            fobQuantity: firstItem.quantity,
+            fobUnitPrice: firstItem.unitPrice?.toString() || "0",
+            fobSubtotal: (firstItem.quantity * parseFloat(firstItem.unitPrice || "0")).toFixed(2),
+            fobNotes: firstItem.notes || "",
+          };
+        } else {
+          // Batch mode - get batches from quotation items
+          const batches = firstItem.batches?.map((batch: any) => ({
+            variantId: batch.variantId,
+            variantCode: batch.variantCode || "",
+            variantName: batch.variantName || "",
+            quantity: batch.quantity,
+            unitPrice: batch.unitPrice?.toString() || "0",
+            subtotal: (batch.quantity * parseFloat(batch.unitPrice || "0")).toFixed(2),
+          })) || [];
+          
+          return {
+            productId: parseInt(productId),
+            productName,
+            sku,
+            batches,
+            isExpanded: true,
+          };
+        }
+      });
+
+      setProductGroups(groups);
+    }
+  }, [quotation, products]);
+
+  const updateQuotation = trpc.quotations.update.useMutation({
+    onSuccess: () => {
+      toast.success("报价单更新成功");
+      navigate("/quotations");
+    },
+    onError: (error) => {
+      toast.error(`更新报价单失败: ${error.message}`);
+    },
+  });
+
+  const selectedCustomer = customers.find((c: any) => c.id === customerId);
+
+  const totalAmount = useMemo(() => {
+    let total = 0;
+    if (quotationMode === "fob_only") {
+      productGroups.forEach(group => {
+        total += parseFloat(group.fobSubtotal || "0");
+      });
+    } else {
+      productGroups.forEach(group => {
+        group.batches.forEach(batch => {
+          total += parseFloat(batch.subtotal || "0");
+        });
+      });
+    }
+    return total.toFixed(2);
+  }, [productGroups, quotationMode]);
+
+  const handleAddProductGroup = () => {
+    const newGroup: ProductGroup = {
+      productId: null,
+      productName: "",
+      sku: "",
+      batches: quotationMode === "batch_selection" ? [{
+        variantId: null,
+        variantCode: "",
+        variantName: "",
+        quantity: 1,
+        unitPrice: "0",
+        subtotal: "0",
+      }] : [],
+      isExpanded: true,
+    };
+    setProductGroups([...productGroups, newGroup]);
+  };
+
+  const handleRemoveProductGroup = (groupIndex: number) => {
+    setProductGroups(productGroups.filter((_, i) => i !== groupIndex));
+  };
+
+  const handleSelectProduct = (groupIndex: number, product: any) => {
+    const newGroups = [...productGroups];
+    newGroups[groupIndex] = {
+      ...newGroups[groupIndex],
+      productId: product.id,
+      productName: product.name,
+      sku: product.sku,
+      batches: newGroups[groupIndex].batches,
+      isExpanded: true,
+    };
+    setProductGroups(newGroups);
+    setProductSearchOpen(null);
+  };
+
+  const handleAddBatch = (groupIndex: number) => {
+    const newGroups = [...productGroups];
+    newGroups[groupIndex].batches.push({
+      variantId: null,
+      variantCode: "",
+      variantName: "",
+      quantity: 1,
+      unitPrice: "0.00",
+      subtotal: "0.00",
+    });
+    setProductGroups(newGroups);
+  };
+
+  const handleRemoveBatch = (groupIndex: number, batchIndex: number) => {
+    const newGroups = [...productGroups];
+    newGroups[groupIndex].batches = newGroups[groupIndex].batches.filter((_, i) => i !== batchIndex);
+    setProductGroups(newGroups);
+  };
+
+  const handleSelectVariant = (groupIndex: number, batchIndex: number, variant: any, pricing: any) => {
+    const newGroups = [...productGroups];
+    const batch = newGroups[groupIndex].batches[batchIndex];
+    
+    let unitPrice = "0.00";
+    if (currency === "USD") {
+      if (variant.sellingPriceFOB) {
+        unitPrice = variant.sellingPriceFOB.toString();
+      } else if (pricing?.sellingPriceFobL1) {
+        unitPrice = pricing.sellingPriceFobL1;
+      }
+    } else if (currency === "CNY") {
+      if (variant.sellingPriceRMB) {
+        unitPrice = variant.sellingPriceRMB.toString();
+      } else if (pricing?.sellingPriceRmbIncTax) {
+        unitPrice = pricing.sellingPriceRmbIncTax;
+      }
+    }
+    
+    batch.variantId = variant.id;
+    batch.variantCode = variant.variantCode;
+    batch.variantName = variant.variantName || "";
+    batch.unitPrice = unitPrice;
+    batch.subtotal = (batch.quantity * parseFloat(unitPrice)).toFixed(2);
+    
+    setProductGroups(newGroups);
+    setVariantSearchOpen(null);
+  };
+
+  const handleBatchChange = (groupIndex: number, batchIndex: number, field: string, value: any) => {
+    const newGroups = [...productGroups];
+    const batch = newGroups[groupIndex].batches[batchIndex];
+    batch[field as keyof BatchItem] = value as never;
+    
+    if (field === "quantity") {
+      batch.subtotal = (value * parseFloat(batch.unitPrice || "0")).toFixed(2);
+    }
+    
+    setProductGroups(newGroups);
+  };
+
+  const toggleGroupExpand = (groupIndex: number) => {
+    const newGroups = [...productGroups];
+    newGroups[groupIndex].isExpanded = !newGroups[groupIndex].isExpanded;
+    setProductGroups(newGroups);
+  };
+
+  const handleSubmit = () => {
+    if (!customerId) {
+      toast.error("请选择客户");
+      return;
+    }
+
+    if (productGroups.length === 0) {
+      toast.error("请至少添加一个产品");
+      return;
+    }
+
+    const hasInvalidGroup = productGroups.some(group => !group.productId);
+    if (hasInvalidGroup) {
+      toast.error("请为所有产品组选择产品");
+      return;
+    }
+
+    const items = productGroups.map(group => {
+      if (quotationMode === "fob_only") {
+        return {
+          productId: group.productId!,
+          batches: [{
+            variantId: null,
+            quantity: group.fobQuantity || 0,
+            unitPrice: parseFloat(group.fobUnitPrice || "0"),
+            notes: group.fobNotes || ""
+          }]
+        };
+      } else {
+        return {
+          productId: group.productId!,
+          batches: group.batches.map(batch => ({
+            variantId: batch.variantId,
+            quantity: batch.quantity,
+            unitPrice: parseFloat(batch.unitPrice),
+            notes: ""
+          }))
+        };
+      }
+    });
+
+    updateQuotation.mutate({
+      id: quotationId,
+      customerId,
+      currency,
+      quotationMode,
+      validUntil: validUntil ? new Date(validUntil).toISOString() : undefined,
+      notes,
+      items,
+    });
+  };
+
+  if (loadingQuotation) {
+    return (
+      <div className="container mx-auto py-6">
+        <div className="text-center">加载中...</div>
+      </div>
+    );
+  }
+
+  if (!quotation) {
+    return (
+      <div className="container mx-auto py-6">
+        <div className="text-center">报价单不存在</div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="container mx-auto py-6 space-y-6">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <Link href="/quotations">
+            <Button variant="ghost" size="icon">
+              <ArrowLeft className="h-4 w-4" />
+            </Button>
+          </Link>
+          <div>
+            <h1 className="text-3xl font-bold">编辑报价单</h1>
+            <p className="text-muted-foreground">修改报价记录</p>
+          </div>
+        </div>
+        <div className="flex gap-2">
+          <Link href="/quotations">
+            <Button variant="outline">取消</Button>
+          </Link>
+          <Button onClick={handleSubmit} disabled={updateQuotation.isPending}>
+            {updateQuotation.isPending ? "保存中..." : "保存报价单"}
+          </Button>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>客户信息</CardTitle>
+              <CardDescription>从客户管理中选择客户</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>报价单号</Label>
+                  <Input value={quotationNumber} disabled />
+                </div>
+                <div className="space-y-2">
+                  <Label>客户 *</Label>
+                  <Popover open={customerSearchOpen} onOpenChange={setCustomerSearchOpen}>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        role="combobox"
+                        className="w-full justify-between"
+                      >
+                        {customerId
+                          ? customers.find((customer: any) => customer.id === customerId)?.companyName
+                          : "选择客户..."}
+                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-[400px] p-0">
+                      <Command>
+                        <CommandInput placeholder="搜索客户名称..." />
+                        <CommandEmpty>未找到客户</CommandEmpty>
+                        <CommandGroup className="max-h-[300px] overflow-auto">
+                          {customers.map((customer: any) => (
+                            <CommandItem
+                              key={customer.id}
+                              value={customer.companyName}
+                              onSelect={() => {
+                                setCustomerId(customer.id);
+                                setCustomerSearchOpen(false);
+                              }}
+                            >
+                              <Check
+                                className={cn(
+                                  "mr-2 h-4 w-4",
+                                  customerId === customer.id ? "opacity-100" : "opacity-0"
+                                )}
+                              />
+                              {customer.companyName}
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </Command>
+                    </PopoverContent>
+                  </Popover>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>货币</Label>
+                  <Select value={currency} onValueChange={setCurrency}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="USD">USD (美元)</SelectItem>
+                      <SelectItem value="CNY">CNY (人民币)</SelectItem>
+                      <SelectItem value="EUR">EUR (欧元)</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label>有效期</Label>
+                  <Input
+                    type="date"
+                    value={validUntil}
+                    onChange={(e) => setValidUntil(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label>报价模式</Label>
+                <Select value={quotationMode} onValueChange={(value: 'fob_only' | 'batch_selection') => setQuotationMode(value)}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="fob_only">订单模式（使用默认批次）</SelectItem>
+                    <SelectItem value="batch_selection">批次模式（选择特定批次）</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label>备注</Label>
+                <Textarea
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  placeholder="输入备注信息..."
+                  rows={3}
+                />
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle>产品明细</CardTitle>
+                  <CardDescription>添加报价产品和批次</CardDescription>
+                </div>
+                <Button onClick={handleAddProductGroup} size="sm">
+                  <Plus className="h-4 w-4 mr-2" />
+                  添加产品
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {productGroups.map((group, groupIndex) => (
+                <ProductGroupComponent
+                  key={groupIndex}
+                  group={group}
+                  groupIndex={groupIndex}
+                  products={products}
+                  productSearchOpen={productSearchOpen}
+                  setProductSearchOpen={setProductSearchOpen}
+                  onSelectProduct={handleSelectProduct}
+                  onRemoveGroup={handleRemoveProductGroup}
+                  onToggleExpand={toggleGroupExpand}
+                  onAddBatch={handleAddBatch}
+                  onRemoveBatch={handleRemoveBatch}
+                  variantSearchOpen={variantSearchOpen}
+                  setVariantSearchOpen={setVariantSearchOpen}
+                  onSelectVariant={handleSelectVariant}
+                  onBatchChange={handleBatchChange}
+                  getVariantsForProduct={getVariantsForProduct}
+                  onUpdateGroup={(groupIndex: number, updates: any) => {
+                    const newGroups = [...productGroups];
+                    newGroups[groupIndex] = {
+                      ...newGroups[groupIndex],
+                      ...updates,
+                    };
+                    setProductGroups(newGroups);
+                  }}
+                  quotationMode={quotationMode}
+                />
+              ))}
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>报价汇总</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">客户</span>
+                  <span className="font-medium">{selectedCustomer?.companyName || "-"}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">货币</span>
+                  <span className="font-medium">{currency}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">产品数量</span>
+                  <span className="font-medium">{productGroups.length}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">有效期</span>
+                  <span className="font-medium">{validUntil || "-"}</span>
+                </div>
+              </div>
+              <div className="border-t pt-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-lg font-semibold">总金额</span>
+                  <span className="text-2xl font-bold text-primary">
+                    {currency} {totalAmount}
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ProductGroupComponent - same as in QuotationCreate
+function ProductGroupComponent({
+  group,
+  groupIndex,
+  products,
+  productSearchOpen,
+  setProductSearchOpen,
+  onSelectProduct,
+  onRemoveGroup,
+  onToggleExpand,
+  onAddBatch,
+  onRemoveBatch,
+  variantSearchOpen,
+  setVariantSearchOpen,
+  onSelectVariant,
+  onBatchChange,
+  getVariantsForProduct,
+  onUpdateGroup,
+  quotationMode,
+}: any) {
+  const { data: variantsData } = group.productId ? getVariantsForProduct(group.productId) : { data: null };
+  const variants = variantsData?.variants || [];
+
+  return (
+    <div className="border rounded-lg p-4 space-y-4">
+      <div className="flex items-start justify-between">
+        <div className="flex-1 space-y-4">
+          <div className="flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => onToggleExpand(groupIndex)}
+            >
+              {group.isExpanded ? (
+                <ChevronDown className="h-4 w-4" />
+              ) : (
+                <ChevronRight className="h-4 w-4" />
+              )}
+            </Button>
+            <div className="flex-1">
+              <Label>产品 *</Label>
+              <Popover
+                open={productSearchOpen === groupIndex}
+                onOpenChange={(open) => setProductSearchOpen(open ? groupIndex : null)}
+              >
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    role="combobox"
+                    className="w-full justify-between mt-2"
+                  >
+                    {group.productId && group.productName
+                      ? `${group.productName} (${group.sku})`
+                      : group.productId
+                      ? `产品 ID: ${group.productId}`
+                      : "选择产品..."}
+                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-[400px] p-0">
+                  <Command>
+                    <CommandInput placeholder="搜索产品名称或SKU..." />
+                    <CommandEmpty>未找到产品</CommandEmpty>
+                    <CommandGroup className="max-h-[300px] overflow-auto">
+                      {products.map((item: any) => {
+                        const product = item.product || item;
+                        const productName = product.name || "";
+                        const productSku = product.sku || "";
+                        return (
+                          <CommandItem
+                            key={item.id || product.id}
+                            value={`${productName} ${productSku}`}
+                            onSelect={() => onSelectProduct(groupIndex, { ...product, id: item.id || product.id })}
+                          >
+                            <Check
+                              className={cn(
+                                "mr-2 h-4 w-4",
+                                group.productId === (item.id || product.id) ? "opacity-100" : "opacity-0"
+                              )}
+                            />
+                            {productName} ({productSku})
+                          </CommandItem>
+                        );
+                      })}
+                    </CommandGroup>
+                  </Command>
+                </PopoverContent>
+              </Popover>
+            </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => onRemoveGroup(groupIndex)}
+            >
+              <Trash2 className="h-4 w-4 text-destructive" />
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Batch List - Only show in batch pricing mode */}
+      {group.productId && quotationMode === "batch_selection" && group.isExpanded && (
+        <div className="space-y-2 mt-4">
+          <div className="flex items-center justify-between">
+            <Label className="text-sm font-medium">批次明细</Label>
+            <Button onClick={() => onAddBatch(groupIndex)} size="sm" variant="outline">
+              <Plus className="h-3 w-3 mr-1" />
+              添加批次
+            </Button>
+          </div>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>批次</TableHead>
+                <TableHead>数量</TableHead>
+                <TableHead>单价</TableHead>
+                <TableHead>小计</TableHead>
+                <TableHead className="w-[50px]"></TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {group.batches.map((batch: any, batchIndex: number) => (
+                <TableRow key={batchIndex}>
+                  <TableCell>
+                    <Popover
+                      open={variantSearchOpen?.groupIndex === groupIndex && variantSearchOpen?.batchIndex === batchIndex}
+                      onOpenChange={(open) => setVariantSearchOpen(open ? { groupIndex, batchIndex } : null)}
+                    >
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          role="combobox"
+                          className="w-full justify-between"
+    
+                        >
+                          {batch.variantId
+                            ? `${batch.variantCode}${batch.variantName ? ' - ' + batch.variantName : ''}`
+                            : "选择批次..."}
+                          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-[300px] p-0">
+                        <Command>
+                          <CommandInput placeholder="搜索批次..." />
+                          <CommandEmpty>未找到批次</CommandEmpty>
+                          <CommandGroup className="max-h-[200px] overflow-auto">
+                            {variants.map((item: any) => (
+                              <CommandItem
+                                key={item.variant.id}
+                                value={item.variant.variantCode}
+                                onSelect={() => onSelectVariant(groupIndex, batchIndex, item.variant, item.pricing)}
+                              >
+                                <Check
+                                  className={cn(
+                                    "mr-2 h-4 w-4",
+                                    batch.variantId === item.variant.id ? "opacity-100" : "opacity-0"
+                                  )}
+                                />
+                                <div>
+                                  <div className="font-medium">{item.variant.variantCode}</div>
+                                  {item.variant.variantName && (
+                                    <div className="text-sm text-muted-foreground">{item.variant.variantName}</div>
+                                  )}
+                                </div>
+                              </CommandItem>
+                            ))}
+                          </CommandGroup>
+                        </Command>
+                      </PopoverContent>
+                    </Popover>
+                  </TableCell>
+                  <TableCell>
+                    <Input
+                      type="text"
+                      inputMode="numeric"
+                      pattern="[0-9]*"
+                      value={batch.quantity}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        if (val === '' || /^\d+$/.test(val)) {
+                          onBatchChange(groupIndex, batchIndex, "quantity", val === '' ? 0 : Number(val));
+                        }
+                      }}
+                      className="w-20"
+
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <Input
+                      type="text"
+                      inputMode="decimal"
+                      value={batch.unitPrice}
+                      onChange={(e) => {
+                        const newPrice = e.target.value;
+                        onBatchChange(groupIndex, batchIndex, "unitPrice", newPrice);
+                        const subtotal = (batch.quantity * parseFloat(newPrice || "0")).toFixed(2);
+                        onBatchChange(groupIndex, batchIndex, "subtotal", subtotal);
+                      }}
+                      className="w-24"
+
+                    />
+                  </TableCell>
+                  <TableCell className="font-medium">{batch.subtotal}</TableCell>
+                  <TableCell>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => onRemoveBatch(groupIndex, batchIndex)}
+                    >
+                      <Trash2 className="h-4 w-4 text-destructive" />
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      )}
+
+      {/* FOB模式：显示数量和可编辑单价 */}
+      {group.productId && quotationMode === "fob_only" && group.isExpanded && (
+        <div className="space-y-2 mt-4">
+          <Label className="text-sm font-medium">订单明细</Label>
+          <div className="grid grid-cols-3 gap-3">
+            <div className="space-y-2">
+              <Label className="text-xs">数量</Label>
+              <Input
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                value={group.fobQuantity || 0}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  if (val === '' || /^\d+$/.test(val)) {
+                    const quantity = val === '' ? 0 : Number(val);
+                    const unitPrice = parseFloat(group.fobUnitPrice || "0");
+                    onUpdateGroup(groupIndex, {
+                      fobQuantity: quantity,
+                      fobSubtotal: (quantity * unitPrice).toFixed(2),
+                    });
+                  }
+                }}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label className="text-xs">单价</Label>
+              <Input
+                type="text"
+                inputMode="decimal"
+                value={group.fobUnitPrice || "0"}
+                onChange={(e) => {
+                  const unitPrice = parseFloat(e.target.value) || 0;
+                  const quantity = group.fobQuantity || 0;
+                  onUpdateGroup(groupIndex, {
+                    fobUnitPrice: e.target.value,
+                    fobSubtotal: (quantity * unitPrice).toFixed(2),
+                  });
+                }}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label className="text-xs">小计</Label>
+              <Input
+                value={group.fobSubtotal || "0"}
+                disabled
+                className="bg-muted"
+              />
+            </div>
+          </div>
+          <div className="space-y-2">
+            <Label className="text-xs">备注</Label>
+            <Textarea
+              value={group.fobNotes || ""}
+              onChange={(e) => onUpdateGroup(groupIndex, { fobNotes: e.target.value })}
+              placeholder="输入备注..."
+              rows={2}
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

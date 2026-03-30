@@ -1,0 +1,16 @@
+{
+  "query": "SELECT id, name, sku, deletedAt FROM products WHERE sku = 'DC-005-OAK';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, name, sku, deletedAt FROM products WHERE sku = 'DC-005-OAK';",
+  "rows": [
+    {
+      "id": "60020",
+      "name": "Windsor-Style Dining Chair - Oak",
+      "sku": "DC-005-OAK",
+      "deletedAt": "2026-02-23 22:31:08"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tsku\tdeletedAt\n60020\tWindsor-Style Dining Chair - Oak\tDC-005-OAK\t2026-02-23 22:31:08\n",
+  "stderr": "",
+  "execution_time_ms": 1535
+}

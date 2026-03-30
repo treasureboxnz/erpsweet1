@@ -1,0 +1,45 @@
+{
+  "query": "SELECT id, name, fieldName, category, erpCompanyId FROM attributes WHERE fieldName IN ('order_status', 'inspection_method');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, name, fieldName, category, erpCompanyId FROM attributes WHERE fieldName IN ('order_status', 'inspection_method');",
+  "rows": [
+    {
+      "id": "150013",
+      "name": "三方",
+      "fieldName": "inspection_method",
+      "category": "inspection_method",
+      "erpCompanyId": "NULL"
+    },
+    {
+      "id": "150014",
+      "name": "自己质检",
+      "fieldName": "inspection_method",
+      "category": "inspection_method",
+      "erpCompanyId": "NULL"
+    },
+    {
+      "id": "150015",
+      "name": "工厂质检",
+      "fieldName": "inspection_method",
+      "category": "inspection_method",
+      "erpCompanyId": "NULL"
+    },
+    {
+      "id": "150016",
+      "name": "跟单中",
+      "fieldName": "order_status",
+      "category": "order_status",
+      "erpCompanyId": "NULL"
+    },
+    {
+      "id": "150017",
+      "name": "订单完结",
+      "fieldName": "order_status",
+      "category": "order_status",
+      "erpCompanyId": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tfieldName\tcategory\terpCompanyId\n150013\t三方\tinspection_method\tinspection_method\tNULL\n150014\t自己质检\tinspection_method\tinspection_method\tNULL\n150015\t工厂质检\tinspection_method\tinspection_method\tNULL\n150016\t跟单中\torder_status\torder_status\tNULL\n150017\t订单完结\torder_status\torder_status\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1492
+}

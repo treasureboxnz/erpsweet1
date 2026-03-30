@@ -1,0 +1,18 @@
+{
+  "query": "\nSELECT \n  oi.id as orderItemId,\n  oi.variantId,\n  oi.quantity,\n  oi.unitPrice,\n  pv.variantName,\n  pv.variantCode\nFROM order_items oi\nLEFT JOIN product_variants pv ON oi.variantId = pv.id\nWHERE oi.orderId = 300001;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  oi.id as orderItemId,\n  oi.variantId,\n  oi.quantity,\n  oi.unitPrice,\n  pv.variantName,\n  pv.variantCode\nFROM order_items oi\nLEFT JOIN product_variants pv ON oi.variantId = pv.id\nWHERE oi.orderId = 300001;\n",
+  "rows": [
+    {
+      "orderItemId": "330001",
+      "variantId": "390002",
+      "quantity": "110",
+      "unitPrice": "0.00",
+      "variantName": "UI测试批次-双材料",
+      "variantCode": "CHAIR-GREY-V002"
+    }
+  ],
+  "messages": [],
+  "stdout": "orderItemId\tvariantId\tquantity\tunitPrice\tvariantName\tvariantCode\n330001\t390002\t110\t0.00\tUI测试批次-双材料\tCHAIR-GREY-V002\n",
+  "stderr": "",
+  "execution_time_ms": 1548
+}

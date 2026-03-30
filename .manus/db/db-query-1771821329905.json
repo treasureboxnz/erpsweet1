@@ -1,0 +1,120 @@
+{
+  "query": "SELECT id, variantCode, variantName, customerSku, supplierSku, customerId, variantType, erpCompanyId, createdAt\nFROM product_variants \nWHERE erpCompanyId = 1\nORDER BY id DESC\nLIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, variantCode, variantName, customerSku, supplierSku, customerId, variantType, erpCompanyId, createdAt\nFROM product_variants \nWHERE erpCompanyId = 1\nORDER BY id DESC\nLIMIT 10;",
+  "rows": [
+    {
+      "id": "270004",
+      "variantCode": "DC-001-GRY-V016",
+      "variantName": "14块布料",
+      "customerSku": "NULL",
+      "supplierSku": "NULL",
+      "customerId": "30007",
+      "variantType": "universal",
+      "erpCompanyId": "1",
+      "createdAt": "2026-02-19 05:40:34"
+    },
+    {
+      "id": "270003",
+      "variantCode": "DC-001-GRY-V015",
+      "variantName": "10块麻布",
+      "customerSku": "NULL",
+      "supplierSku": "NULL",
+      "customerId": "30007",
+      "variantType": "universal",
+      "erpCompanyId": "1",
+      "createdAt": "2026-02-19 05:17:13"
+    },
+    {
+      "id": "270002",
+      "variantCode": "DC-001-GRY-V014",
+      "variantName": "15块布料",
+      "customerSku": "NULL",
+      "supplierSku": "NULL",
+      "customerId": "30007",
+      "variantType": "universal",
+      "erpCompanyId": "1",
+      "createdAt": "2026-02-19 04:20:15"
+    },
+    {
+      "id": "270001",
+      "variantCode": "DC-001-GRY-V013",
+      "variantName": "黑色绒布款",
+      "customerSku": "NULL",
+      "supplierSku": "NULL",
+      "customerId": "30007",
+      "variantType": "universal",
+      "erpCompanyId": "1",
+      "createdAt": "2026-02-19 00:58:39"
+    },
+    {
+      "id": "240001",
+      "variantCode": "DC-001-GRY-V012",
+      "variantName": "奶油白",
+      "customerSku": "NULL",
+      "supplierSku": "NULL",
+      "customerId": "24",
+      "variantType": "universal",
+      "erpCompanyId": "1",
+      "createdAt": "2026-02-18 11:34:37"
+    },
+    {
+      "id": "210003",
+      "variantCode": "DC-001-GRY-V011",
+      "variantName": "高背版本-测试",
+      "customerSku": "NULL",
+      "supplierSku": "NULL",
+      "customerId": "43",
+      "variantType": "universal",
+      "erpCompanyId": "1",
+      "createdAt": "2026-02-18 01:09:36"
+    },
+    {
+      "id": "210002",
+      "variantCode": "DC-001-GRY-V010",
+      "variantName": "高背版本-特殊定制",
+      "customerSku": "NULL",
+      "supplierSku": "NULL",
+      "customerId": "10",
+      "variantType": "universal",
+      "erpCompanyId": "1",
+      "createdAt": "2026-02-18 01:04:21"
+    },
+    {
+      "id": "210001",
+      "variantCode": "DC-001-GRY-V009",
+      "variantName": "高背版本 (2)",
+      "customerSku": "NULL",
+      "supplierSku": "NULL",
+      "customerId": "53",
+      "variantType": "universal",
+      "erpCompanyId": "1",
+      "createdAt": "2026-02-18 01:03:13"
+    },
+    {
+      "id": "180005",
+      "variantCode": "DT-002-MRB-V001",
+      "variantName": "DT-002-MRB-V001",
+      "customerSku": "NULL",
+      "supplierSku": "NULL",
+      "customerId": "33",
+      "variantType": "universal",
+      "erpCompanyId": "1",
+      "createdAt": "2026-02-17 12:07:59"
+    },
+    {
+      "id": "180004",
+      "variantCode": "DT-001-OAK-V001",
+      "variantName": "DT-001-OAK-V001",
+      "customerSku": "NULL",
+      "supplierSku": "NULL",
+      "customerId": "9",
+      "variantType": "universal",
+      "erpCompanyId": "1",
+      "createdAt": "2026-02-17 12:07:59"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantName\tcustomerSku\tsupplierSku\tcustomerId\tvariantType\terpCompanyId\tcreatedAt\n270004\tDC-001-GRY-V016\t14块布料\tNULL\tNULL\t30007\tuniversal\t1\t2026-02-19 05:40:34\n270003\tDC-001-GRY-V015\t10块麻布\tNULL\tNULL\t30007\tuniversal\t1\t2026-02-19 05:17:13\n270002\tDC-001-GRY-V014\t15块布料\tNULL\tNULL\t30007\tuniversal\t1\t2026-02-19 04:20:15\n270001\tDC-001-GRY-V013\t黑色绒布款\tNULL\tNULL\t30007\tuniversal\t1\t2026-02-19 00:58:39\n240001\tDC-001-GRY-V012\t奶油白\tNULL\tNULL\t24\tuniversal\t1\t2026-02-18 11:34:37\n210003\tDC-001-GRY-V011\t高背版本-测试\tNULL\tNULL\t43\tuniversal\t1\t2026-02-18 01:09:36\n210002\tDC-001-GRY-V010\t高背版本-特殊定制\tNULL\tNULL\t10\tuniversal\t1\t2026-02-18 01:04:21\n210001\tDC-001-GRY-V009\t高背版本 (2)\tNULL\tNULL\t53\tuniversal\t1\t2026-02-18 01:03:13\n180005\tDT-002-MRB-V001\tDT-002-MRB-V001\tNULL\tNULL\t33\tuniversal\t1\t2026-02-17 12:07:59\n180004\tDT-001-OAK-V001\tDT-001-OAK-V001\tNULL\tNULL\t9\tuniversal\t1\t2026-02-17 12:07:59\n",
+  "stderr": "",
+  "execution_time_ms": 1492
+}

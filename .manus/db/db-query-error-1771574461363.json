@@ -1,0 +1,20 @@
+{
+  "query": "-- 读取并执行迁移文件\nSOURCE /home/ubuntu/foreign-trade-erp/drizzle/0073_polite_lethal_legion.sql;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute -- 读取并执行迁移文件\nSOURCE /home/ubuntu/foreign-trade-erp/drizzle/0073_polite_lethal_legion.sql;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1064 (42000) at line 18 in file: '/home/ubuntu/foreign-trade-erp/drizzle/0073_polite_lethal_legion.sql': You have an error in your SQL syntax; check the manual that corresponds to your TiDB version for the right syntax to use line 1 column 1 near \"--> statement-breakpoint",
+    "CREATE TABLE `company_settings` (",
+    "\t`id` int AUTO_INCREMENT NOT NULL,",
+    "\t`erpCompanyId` int NOT NULL,",
+    "\t`companyName` varchar(255) NOT NULL,",
+    "\t`companyLogo` text,",
+    "\t`contactPhone` varchar(50),",
+    "\t`contactEmail` varchar(255),",
+    "\t`companyAddress` text,",
+    "\t`postalCode` varchar(20),",
+    "\t`invoiceCompanyName` varchar(255),",
+    "\t`taxNumber` varchar(100),",
+    "\t`brandName`"
+  ]
+}

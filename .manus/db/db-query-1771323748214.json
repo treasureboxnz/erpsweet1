@@ -1,0 +1,9 @@
+{
+  "query": "-- 先将产品27的所有批次的isDefault设置为false\nUPDATE product_variants SET isDefault = 0 WHERE productId = 27;\n\n-- 然后将最早创建的批次设置为默认\nUPDATE product_variants \nSET isDefault = 1 \nWHERE id = (\n  SELECT id FROM (\n    SELECT id FROM product_variants \n    WHERE productId = 27 \n    ORDER BY createdAt ASC \n    LIMIT 1\n  ) AS temp\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute -- 先将产品27的所有批次的isDefault设置为false\nUPDATE product_variants SET isDefault = 0 WHERE productId = 27;\n\n-- 然后将最早创建的批次设置为默认\nUPDATE product_variants \nSET isDefault = 1 \nWHERE id = (\n  SELECT id FROM (\n    SELECT id FROM product_variants \n    WHERE productId = 27 \n    ORDER BY createdAt ASC \n    LIMIT 1\n  ) AS temp\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1801
+}

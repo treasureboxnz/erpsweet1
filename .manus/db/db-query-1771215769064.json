@@ -1,0 +1,46 @@
+{
+  "query": "\n-- Get variant IDs and check pricing\nSELECT \n  v.id,\n  v.variantCode,\n  v.variantName,\n  vp.sellingPriceFobL1,\n  vp.sellingPriceFobL2,\n  vp.sellingPriceFobL3,\n  vp.sellingPriceRmbIncTax\nFROM product_variants v\nLEFT JOIN variant_pricing vp ON v.id = vp.variantId\nWHERE v.variantCode IN ('DC-001-B004', 'DC-001-B003', 'DC-001-B002', 'DC-001-B001')\nORDER BY v.variantCode DESC;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \n-- Get variant IDs and check pricing\nSELECT \n  v.id,\n  v.variantCode,\n  v.variantName,\n  vp.sellingPriceFobL1,\n  vp.sellingPriceFobL2,\n  vp.sellingPriceFobL3,\n  vp.sellingPriceRmbIncTax\nFROM product_variants v\nLEFT JOIN variant_pricing vp ON v.id = vp.variantId\nWHERE v.variantCode IN ('DC-001-B004', 'DC-001-B003', 'DC-001-B002', 'DC-001-B001')\nORDER BY v.variantCode DESC;\n",
+  "rows": [
+    {
+      "id": "120009",
+      "variantCode": "DC-001-B004",
+      "variantName": "Premium fabric stain-resistant",
+      "sellingPriceFobL1": "78.00",
+      "sellingPriceFobL2": "74.00",
+      "sellingPriceFobL3": "70.00",
+      "sellingPriceRmbIncTax": "600.00"
+    },
+    {
+      "id": "120008",
+      "variantCode": "DC-001-B003",
+      "variantName": "Bulk order 100+ units",
+      "sellingPriceFobL1": "58.00",
+      "sellingPriceFobL2": "55.00",
+      "sellingPriceFobL3": "52.00",
+      "sellingPriceRmbIncTax": "480.00"
+    },
+    {
+      "id": "120007",
+      "variantCode": "DC-001-B002",
+      "variantName": "Custom backrest height 90cm",
+      "sellingPriceFobL1": "75.00",
+      "sellingPriceFobL2": "71.00",
+      "sellingPriceFobL3": "68.00",
+      "sellingPriceRmbIncTax": "590.00"
+    },
+    {
+      "id": "120006",
+      "variantCode": "DC-001-B001",
+      "variantName": "Gray upholstery darker shade",
+      "sellingPriceFobL1": "72.00",
+      "sellingPriceFobL2": "68.00",
+      "sellingPriceFobL3": "65.00",
+      "sellingPriceRmbIncTax": "580.00"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tvariantName\tsellingPriceFobL1\tsellingPriceFobL2\tsellingPriceFobL3\tsellingPriceRmbIncTax\n120009\tDC-001-B004\tPremium fabric stain-resistant\t78.00\t74.00\t70.00\t600.00\n120008\tDC-001-B003\tBulk order 100+ units\t58.00\t55.00\t52.00\t480.00\n120007\tDC-001-B002\tCustom backrest height 90cm\t75.00\t71.00\t68.00\t590.00\n120006\tDC-001-B001\tGray upholstery darker shade\t72.00\t68.00\t65.00\t580.00\n",
+  "stderr": "",
+  "execution_time_ms": 1556
+}

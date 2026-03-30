@@ -1,0 +1,16 @@
+{
+  "query": "\nSELECT id, erpCompanyId, name, code FROM material_suppliers WHERE code = 'SYS';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT id, erpCompanyId, name, code FROM material_suppliers WHERE code = 'SYS';\n",
+  "rows": [
+    {
+      "id": "30002",
+      "erpCompanyId": "1",
+      "name": "系统默认",
+      "code": "SYS"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\terpCompanyId\tname\tcode\n30002\t1\t系统默认\tSYS\n",
+  "stderr": "",
+  "execution_time_ms": 1495
+}

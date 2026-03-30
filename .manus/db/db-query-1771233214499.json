@@ -1,0 +1,19 @@
+{
+  "query": "SELECT oi.id, oi.orderId, oi.productId, oi.variantId, oi.quantity, oi.unitPrice, oi.subtotal FROM order_items oi JOIN orders o ON oi.orderId = o.id WHERE o.orderNumber = 'ORD-20260216-YZ0';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT oi.id, oi.orderId, oi.productId, oi.variantId, oi.quantity, oi.unitPrice, oi.subtotal FROM order_items oi JOIN orders o ON oi.orderId = o.id WHERE o.orderNumber = 'ORD-20260216-YZ0';",
+  "rows": [
+    {
+      "id": "60006",
+      "orderId": "60004",
+      "productId": "60016",
+      "variantId": "120084",
+      "quantity": "150",
+      "unitPrice": "0.00",
+      "subtotal": "0.00"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\torderId\tproductId\tvariantId\tquantity\tunitPrice\tsubtotal\n60006\t60004\t60016\t120084\t150\t0.00\t0.00\n",
+  "stderr": "",
+  "execution_time_ms": 1547
+}

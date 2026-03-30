@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO material_suppliers (name, code, contactPerson, contactPhone, contactEmail, address, notes, status) \nVALUES ('测试供应商A', 'TEST-SUP-001', '张三', '13800138000', 'test@example.com', '测试地址123号', '这是一个测试供应商', 'active');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute INSERT INTO material_suppliers (name, code, contactPerson, contactPhone, contactEmail, address, notes, status) \nVALUES ('测试供应商A', 'TEST-SUP-001', '张三', '13800138000', 'test@example.com', '测试地址123号', '这是一个测试供应商', 'active');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1559
+}

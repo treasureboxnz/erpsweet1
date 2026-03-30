@@ -1,0 +1,70 @@
+{
+  "query": "SELECT id, sku, addedDate, createdAt FROM products WHERE deletedAt IS NULL ORDER BY id LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, sku, addedDate, createdAt FROM products WHERE deletedAt IS NULL ORDER BY id LIMIT 10;",
+  "rows": [
+    {
+      "id": "60001",
+      "sku": "SB-001-GRY",
+      "addedDate": "NULL",
+      "createdAt": "2026-02-16 03:25:16"
+    },
+    {
+      "id": "60002",
+      "sku": "SB-002-NVY",
+      "addedDate": "NULL",
+      "createdAt": "2026-02-16 03:25:16"
+    },
+    {
+      "id": "60003",
+      "sku": "SB-003-BGE",
+      "addedDate": "NULL",
+      "createdAt": "2026-02-16 03:25:16"
+    },
+    {
+      "id": "60004",
+      "sku": "SB-004-CHR",
+      "addedDate": "NULL",
+      "createdAt": "2026-02-16 03:25:16"
+    },
+    {
+      "id": "60005",
+      "sku": "SB-005-TEA",
+      "addedDate": "NULL",
+      "createdAt": "2026-02-16 03:25:16"
+    },
+    {
+      "id": "60006",
+      "sku": "AC-001-CHR",
+      "addedDate": "NULL",
+      "createdAt": "2026-02-16 03:25:29"
+    },
+    {
+      "id": "60007",
+      "sku": "AC-002-YEL",
+      "addedDate": "NULL",
+      "createdAt": "2026-02-16 03:25:29"
+    },
+    {
+      "id": "60008",
+      "sku": "AC-003-CRM",
+      "addedDate": "NULL",
+      "createdAt": "2026-02-16 03:25:29"
+    },
+    {
+      "id": "60009",
+      "sku": "AC-004-OAK",
+      "addedDate": "NULL",
+      "createdAt": "2026-02-16 03:25:29"
+    },
+    {
+      "id": "60010",
+      "sku": "AC-005-EMR",
+      "addedDate": "NULL",
+      "createdAt": "2026-02-16 03:25:29"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tsku\taddedDate\tcreatedAt\n60001\tSB-001-GRY\tNULL\t2026-02-16 03:25:16\n60002\tSB-002-NVY\tNULL\t2026-02-16 03:25:16\n60003\tSB-003-BGE\tNULL\t2026-02-16 03:25:16\n60004\tSB-004-CHR\tNULL\t2026-02-16 03:25:16\n60005\tSB-005-TEA\tNULL\t2026-02-16 03:25:16\n60006\tAC-001-CHR\tNULL\t2026-02-16 03:25:29\n60007\tAC-002-YEL\tNULL\t2026-02-16 03:25:29\n60008\tAC-003-CRM\tNULL\t2026-02-16 03:25:29\n60009\tAC-004-OAK\tNULL\t2026-02-16 03:25:29\n60010\tAC-005-EMR\tNULL\t2026-02-16 03:25:29\n",
+  "stderr": "",
+  "execution_time_ms": 1602
+}

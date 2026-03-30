@@ -1,0 +1,110 @@
+{
+  "query": "SELECT id, companyName, customerNature FROM companies ORDER BY id LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, companyName, customerNature FROM companies ORDER BY id LIMIT 20;",
+  "rows": [
+    {
+      "id": "1",
+      "companyName": "Test Company Ltd",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "2",
+      "companyName": "Follow-up Test Company",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "3",
+      "companyName": "test01",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "6",
+      "companyName": "Test Company",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "7",
+      "companyName": "Partial Company",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "8",
+      "companyName": "Update Test Company",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "9",
+      "companyName": "Follow-up Test Company",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "10",
+      "companyName": "Test Company",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "11",
+      "companyName": "Partial Company",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "12",
+      "companyName": "Update Test Company",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "13",
+      "companyName": "Follow-up Test Company",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "15",
+      "companyName": "Casa Viva Furniture Australia",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "16",
+      "companyName": "TechVision Solutions",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "17",
+      "companyName": "Global Trade Partners",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "18",
+      "companyName": "Pacific Imports Ltd",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "19",
+      "companyName": "Euro Commerce GmbH",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "20",
+      "companyName": "Asia Pacific Trading",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "21",
+      "companyName": "Nordic Supplies AB",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "22",
+      "companyName": "Mediterranean Exports",
+      "customerNature": "NULL"
+    },
+    {
+      "id": "23",
+      "companyName": "Canadian Wholesale Co",
+      "customerNature": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcompanyName\tcustomerNature\n1\tTest Company Ltd\tNULL\n2\tFollow-up Test Company\tNULL\n3\ttest01\tNULL\n6\tTest Company\tNULL\n7\tPartial Company\tNULL\n8\tUpdate Test Company\tNULL\n9\tFollow-up Test Company\tNULL\n10\tTest Company\tNULL\n11\tPartial Company\tNULL\n12\tUpdate Test Company\tNULL\n13\tFollow-up Test Company\tNULL\n15\tCasa Viva Furniture Australia\tNULL\n16\tTechVision Solutions\tNULL\n17\tGlobal Trade Partners\tNULL\n18\tPacific Imports Ltd\tNULL\n19\tEuro Commerce GmbH\tNULL\n20\tAsia Pacific Trading\tNULL\n21\tNordic Supplies AB\tNULL\n22\tMediterranean Exports\tNULL\n23\tCanadian Wholesale Co\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1517
+}

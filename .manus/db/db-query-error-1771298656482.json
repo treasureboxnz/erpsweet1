@@ -1,0 +1,8 @@
+{
+  "query": "SELECT pv.id as variant_id, p.name as product_name, p.sku, vp.batch_number, vp.quantity, vp.unit_price \nFROM product_variants pv\nLEFT JOIN products p ON pv.productId = p.id\nLEFT JOIN variant_pricing vp ON pv.id = vp.variantId\nWHERE p.sku = 'DT-001-OAK'\nLIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT pv.id as variant_id, p.name as product_name, p.sku, vp.batch_number, vp.quantity, vp.unit_price \nFROM product_variants pv\nLEFT JOIN products p ON pv.productId = p.id\nLEFT JOIN variant_pricing vp ON pv.id = vp.variantId\nWHERE p.sku = 'DT-001-OAK'\nLIMIT 20;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'vp.batch_number' in 'field list'"
+  ]
+}

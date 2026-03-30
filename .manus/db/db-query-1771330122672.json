@@ -1,0 +1,20 @@
+{
+  "query": "SELECT \n  p.sku,\n  p.name,\n  pv.id as variant_id,\n  pv.variantCode,\n  pv.isDefault,\n  vp.sellingPriceFobL1,\n  vp.sellingPriceFobL2,\n  vp.sellingPriceFobL3\nFROM products p\nINNER JOIN product_variants pv ON p.id = pv.productId\nINNER JOIN variant_pricing vp ON pv.id = vp.variantId AND vp.isCurrent = 1\nWHERE p.sku = 'DT-001-OAK';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT \n  p.sku,\n  p.name,\n  pv.id as variant_id,\n  pv.variantCode,\n  pv.isDefault,\n  vp.sellingPriceFobL1,\n  vp.sellingPriceFobL2,\n  vp.sellingPriceFobL3\nFROM products p\nINNER JOIN product_variants pv ON p.id = pv.productId\nINNER JOIN variant_pricing vp ON pv.id = vp.variantId AND vp.isCurrent = 1\nWHERE p.sku = 'DT-001-OAK';",
+  "rows": [
+    {
+      "sku": "DT-001-OAK",
+      "name": "Solid Oak Rectangular Dining Table",
+      "variant_id": "180004",
+      "variantCode": "DT-001-OAK-V001",
+      "isDefault": "1",
+      "sellingPriceFobL1": "150.00",
+      "sellingPriceFobL2": "145.00",
+      "sellingPriceFobL3": "140.00"
+    }
+  ],
+  "messages": [],
+  "stdout": "sku\tname\tvariant_id\tvariantCode\tisDefault\tsellingPriceFobL1\tsellingPriceFobL2\tsellingPriceFobL3\nDT-001-OAK\tSolid Oak Rectangular Dining Table\t180004\tDT-001-OAK-V001\t1\t150.00\t145.00\t140.00\n",
+  "stderr": "",
+  "execution_time_ms": 1647
+}

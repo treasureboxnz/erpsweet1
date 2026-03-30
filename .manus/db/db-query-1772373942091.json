@@ -1,0 +1,9 @@
+{
+  "query": "\nUPDATE quotations SET convertedToOrderId = NULL WHERE convertedToOrderId IS NOT NULL;\nDELETE FROM inspection_files;\nDELETE FROM inspections;\nDELETE FROM order_tracking;\nDELETE FROM order_finance;\nDELETE FROM order_items;\nDELETE FROM orders;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nUPDATE quotations SET convertedToOrderId = NULL WHERE convertedToOrderId IS NOT NULL;\nDELETE FROM inspection_files;\nDELETE FROM inspections;\nDELETE FROM order_tracking;\nDELETE FROM order_finance;\nDELETE FROM order_items;\nDELETE FROM orders;\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 2976
+}

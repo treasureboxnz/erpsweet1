@@ -1,0 +1,21 @@
+{
+  "query": "\nSELECT p.id, p.name, p.sku \nFROM products p \nWHERE p.sku = 'DC-005-OAK';\n\nSELECT pv.id, pv.productId, pv.variantCode, pv.variantName, p.sku as productSku\nFROM product_variants pv\nJOIN products p ON pv.productId = p.id\nWHERE p.sku = 'DC-005-OAK';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT p.id, p.name, p.sku \nFROM products p \nWHERE p.sku = 'DC-005-OAK';\n\nSELECT pv.id, pv.productId, pv.variantCode, pv.variantName, p.sku as productSku\nFROM product_variants pv\nJOIN products p ON pv.productId = p.id\nWHERE p.sku = 'DC-005-OAK';\n",
+  "rows": [
+    {
+      "id": "60020",
+      "name": "Windsor-Style Dining Chair - Oak",
+      "sku": "DC-005-OAK"
+    }
+  ],
+  "messages": [
+    "id\tproductId\tvariantCode\tvariantName\tproductSku",
+    "120022\t60020\tSB-004-GRN-B001\tCustom fabric upgrade\tDC-005-OAK",
+    "120023\t60020\tSB-004-GRN-B002\tExtended dimensions 220cm\tDC-005-OAK",
+    "120024\t60020\tSB-004-GRN-B003\tBulk order 20+ units\tDC-005-OAK",
+    "120025\t60020\tSB-004-GRN-B004\tPremium memory foam\tDC-005-OAK"
+  ],
+  "stdout": "id\tname\tsku\n60020\tWindsor-Style Dining Chair - Oak\tDC-005-OAK\nid\tproductId\tvariantCode\tvariantName\tproductSku\n120022\t60020\tSB-004-GRN-B001\tCustom fabric upgrade\tDC-005-OAK\n120023\t60020\tSB-004-GRN-B002\tExtended dimensions 220cm\tDC-005-OAK\n120024\t60020\tSB-004-GRN-B003\tBulk order 20+ units\tDC-005-OAK\n120025\t60020\tSB-004-GRN-B004\tPremium memory foam\tDC-005-OAK\n",
+  "stderr": "",
+  "execution_time_ms": 1736
+}

@@ -1,0 +1,40 @@
+{
+  "query": "SELECT u.email, u.name, e.companyCode, e.companyName \nFROM users u \nJOIN erp_companies e ON u.erpCompanyId = e.id \nORDER BY e.companyCode;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT u.email, u.name, e.companyCode, e.companyName \nFROM users u \nJOIN erp_companies e ON u.erpCompanyId = e.id \nORDER BY e.companyCode;",
+  "rows": [
+    {
+      "email": "test3@test.com",
+      "name": "测试用户3",
+      "companyCode": "TEST",
+      "companyName": "测试公司"
+    },
+    {
+      "email": "admin@test.com",
+      "name": "管理员",
+      "companyCode": "TEST",
+      "companyName": "测试公司"
+    },
+    {
+      "email": "15222650319@163.com",
+      "name": "15222650319",
+      "companyCode": "TEST",
+      "companyName": "测试公司"
+    },
+    {
+      "email": "nzchunzhou1@gmail.com",
+      "name": "Eric zhou",
+      "companyCode": "TEST",
+      "companyName": "测试公司"
+    },
+    {
+      "email": "admin2@test.com",
+      "name": "管理员2",
+      "companyCode": "TEST2",
+      "companyName": "测试公司2"
+    }
+  ],
+  "messages": [],
+  "stdout": "email\tname\tcompanyCode\tcompanyName\ntest3@test.com\t测试用户3\tTEST\t测试公司\nadmin@test.com\t管理员\tTEST\t测试公司\n15222650319@163.com\t15222650319\tTEST\t测试公司\nnzchunzhou1@gmail.com\tEric zhou\tTEST\t测试公司\nadmin2@test.com\t管理员2\tTEST2\t测试公司2\n",
+  "stderr": "",
+  "execution_time_ms": 1517
+}

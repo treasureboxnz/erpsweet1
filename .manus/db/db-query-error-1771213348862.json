@@ -1,0 +1,8 @@
+{
+  "query": "INSERT INTO product_variants (\n  productId, \n  variantCode, \n  variantName, \n  productionStatus, \n  variantType, \n  customerId, \n  createdBy, \n  createdAt, \n  updatedAt\n)\nSELECT \n  productId,\n  batchCode as variantCode,\n  customRequirements as variantName,\n  productionStatus,\n  'exclusive' as variantType,\n  customerId,\n  1 as createdBy,\n  createdAt,\n  updatedAt\nFROM product_batches\nLIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute INSERT INTO product_variants (\n  productId, \n  variantCode, \n  variantName, \n  productionStatus, \n  variantType, \n  customerId, \n  createdBy, \n  createdAt, \n  updatedAt\n)\nSELECT \n  productId,\n  batchCode as variantCode,\n  customRequirements as variantName,\n  productionStatus,\n  'exclusive' as variantType,\n  customerId,\n  1 as createdBy,\n  createdAt,\n  updatedAt\nFROM product_batches\nLIMIT 20;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1265 (01000) at line 1: Data truncated for column '%s' at row %d"
+  ]
+}

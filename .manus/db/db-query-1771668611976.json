@@ -1,0 +1,124 @@
+{
+  "query": "SELECT id, name, icon, deletedAt FROM material_types WHERE deletedAt IS NULL ORDER BY sortOrder, id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, name, icon, deletedAt FROM material_types WHERE deletedAt IS NULL ORDER BY sortOrder, id;",
+  "rows": [
+    {
+      "id": "1",
+      "name": "布料",
+      "icon": "🧵",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "10",
+      "name": "布料",
+      "icon": "🧵",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "2",
+      "name": "木腿",
+      "icon": "🪑",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "11",
+      "name": "木腿",
+      "icon": "🪑",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "3",
+      "name": "扶手",
+      "icon": "🛋️",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "12",
+      "name": "扶手",
+      "icon": "🛋️",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "4",
+      "name": "填充物",
+      "icon": "🧶",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "13",
+      "name": "填充物",
+      "icon": "🧶",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "5",
+      "name": "坐垫",
+      "icon": "💺",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "14",
+      "name": "坐垫",
+      "icon": "💺",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "6",
+      "name": "靠背",
+      "icon": "🪑",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "15",
+      "name": "靠背",
+      "icon": "🪑",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "7",
+      "name": "框架",
+      "icon": "🔲",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "16",
+      "name": "框架",
+      "icon": "🔲",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "9",
+      "name": "其他",
+      "icon": "📦",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "17",
+      "name": "配件",
+      "icon": "🔧",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "18",
+      "name": "其他",
+      "icon": "📦",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "20",
+      "name": "测试材料",
+      "icon": "🎨",
+      "deletedAt": "NULL"
+    },
+    {
+      "id": "8",
+      "name": "配件",
+      "icon": "🔧",
+      "deletedAt": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\ticon\tdeletedAt\n1\t布料\t🧵\tNULL\n10\t布料\t🧵\tNULL\n2\t木腿\t🪑\tNULL\n11\t木腿\t🪑\tNULL\n3\t扶手\t🛋️\tNULL\n12\t扶手\t🛋️\tNULL\n4\t填充物\t🧶\tNULL\n13\t填充物\t🧶\tNULL\n5\t坐垫\t💺\tNULL\n14\t坐垫\t💺\tNULL\n6\t靠背\t🪑\tNULL\n15\t靠背\t🪑\tNULL\n7\t框架\t🔲\tNULL\n16\t框架\t🔲\tNULL\n9\t其他\t📦\tNULL\n17\t配件\t🔧\tNULL\n18\t其他\t📦\tNULL\n20\t测试材料\t🎨\tNULL\n8\t配件\t🔧\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1556
+}

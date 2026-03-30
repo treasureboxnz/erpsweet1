@@ -1,0 +1,15 @@
+{
+  "query": "SELECT id, companyName, customerCategory FROM companies WHERE companyName = '多分类测试客户' LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, companyName, customerCategory FROM companies WHERE companyName = '多分类测试客户' LIMIT 1;",
+  "rows": [
+    {
+      "id": "30005",
+      "companyName": "多分类测试客户",
+      "customerCategory": "[\"合作客户\", \"意向客户\", \"开发客户\"]"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcompanyName\tcustomerCategory\n30005\t多分类测试客户\t[\"合作客户\", \"意向客户\", \"开发客户\"]\n",
+  "stderr": "",
+  "execution_time_ms": 1532
+}

@@ -1,0 +1,26 @@
+{
+  "query": "SELECT id, variantCode, customerSku, erpCompanyId, customerId, variantType FROM product_variants WHERE customerSku LIKE '%CLIENT-SKU-ABC%' ORDER BY id DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, variantCode, customerSku, erpCompanyId, customerId, variantType FROM product_variants WHERE customerSku LIKE '%CLIENT-SKU-ABC%' ORDER BY id DESC LIMIT 5;",
+  "rows": [
+    {
+      "id": "630005",
+      "variantCode": "DC-001-GRY-V045",
+      "customerSku": "CLIENT-SKU-ABC-001",
+      "erpCompanyId": "NULL",
+      "customerId": "30007",
+      "variantType": "universal"
+    },
+    {
+      "id": "480001",
+      "variantCode": "DC-001-GRY-V033",
+      "customerSku": "CLIENT-SKU-ABC123",
+      "erpCompanyId": "NULL",
+      "customerId": "NULL",
+      "variantType": "universal"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tvariantCode\tcustomerSku\terpCompanyId\tcustomerId\tvariantType\n630005\tDC-001-GRY-V045\tCLIENT-SKU-ABC-001\tNULL\t30007\tuniversal\n480001\tDC-001-GRY-V033\tCLIENT-SKU-ABC123\tNULL\tNULL\tuniversal\n",
+  "stderr": "",
+  "execution_time_ms": 1498
+}

@@ -1,0 +1,150 @@
+{
+  "query": "\nSELECT \n  p.id as productId,\n  p.sku as productSku,\n  p.name as productName,\n  pv.id as variantId,\n  pv.variantCode\nFROM products p\nJOIN product_variants pv ON p.id = pv.productId\nWHERE p.sku != SUBSTRING(pv.variantCode, 1, LOCATE('-V', pv.variantCode) - 1)\nORDER BY p.id, pv.id;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  p.id as productId,\n  p.sku as productSku,\n  p.name as productName,\n  pv.id as variantId,\n  pv.variantCode\nFROM products p\nJOIN product_variants pv ON p.id = pv.productId\nWHERE p.sku != SUBSTRING(pv.variantCode, 1, LOCATE('-V', pv.variantCode) - 1)\nORDER BY p.id, pv.id;\n",
+  "rows": [
+    {
+      "productId": "60001",
+      "productSku": "SB-001-GRY",
+      "productName": "Modern Convertible Sofa Bed - Gray",
+      "variantId": "120002",
+      "variantCode": "SB-001-B001"
+    },
+    {
+      "productId": "60001",
+      "productSku": "SB-001-GRY",
+      "productName": "Modern Convertible Sofa Bed - Gray",
+      "variantId": "120003",
+      "variantCode": "SB-001-B004"
+    },
+    {
+      "productId": "60001",
+      "productSku": "SB-001-GRY",
+      "productName": "Modern Convertible Sofa Bed - Gray",
+      "variantId": "120004",
+      "variantCode": "SB-001-B003"
+    },
+    {
+      "productId": "60001",
+      "productSku": "SB-001-GRY",
+      "productName": "Modern Convertible Sofa Bed - Gray",
+      "variantId": "120005",
+      "variantCode": "SB-001-B002"
+    },
+    {
+      "productId": "60016",
+      "productSku": "DC-001-GRY",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "variantId": "120006",
+      "variantCode": "DC-001-B001"
+    },
+    {
+      "productId": "60016",
+      "productSku": "DC-001-GRY",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "variantId": "120007",
+      "variantCode": "DC-001-B002"
+    },
+    {
+      "productId": "60016",
+      "productSku": "DC-001-GRY",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "variantId": "120008",
+      "variantCode": "DC-001-B003"
+    },
+    {
+      "productId": "60016",
+      "productSku": "DC-001-GRY",
+      "productName": "Modern Upholstered Dining Chair - Gray",
+      "variantId": "120009",
+      "variantCode": "DC-001-B004"
+    },
+    {
+      "productId": "60017",
+      "productSku": "DC-002-WAL",
+      "productName": "Mid-Century Rope Seat Dining Chair - Walnut",
+      "variantId": "120010",
+      "variantCode": "SB-001-GRY-B001"
+    },
+    {
+      "productId": "60017",
+      "productSku": "DC-002-WAL",
+      "productName": "Mid-Century Rope Seat Dining Chair - Walnut",
+      "variantId": "120011",
+      "variantCode": "SB-001-GRY-B002"
+    },
+    {
+      "productId": "60017",
+      "productSku": "DC-002-WAL",
+      "productName": "Mid-Century Rope Seat Dining Chair - Walnut",
+      "variantId": "120012",
+      "variantCode": "SB-001-GRY-B003"
+    },
+    {
+      "productId": "60017",
+      "productSku": "DC-002-WAL",
+      "productName": "Mid-Century Rope Seat Dining Chair - Walnut",
+      "variantId": "120013",
+      "variantCode": "SB-001-GRY-B004"
+    },
+    {
+      "productId": "60018",
+      "productSku": "DC-003-WHT",
+      "productName": "Eames-Inspired Molded Chair - White",
+      "variantId": "120014",
+      "variantCode": "SB-002-BLU-B001"
+    },
+    {
+      "productId": "60018",
+      "productSku": "DC-003-WHT",
+      "productName": "Eames-Inspired Molded Chair - White",
+      "variantId": "120015",
+      "variantCode": "SB-002-BLU-B002"
+    },
+    {
+      "productId": "60018",
+      "productSku": "DC-003-WHT",
+      "productName": "Eames-Inspired Molded Chair - White",
+      "variantId": "120016",
+      "variantCode": "SB-002-BLU-B003"
+    },
+    {
+      "productId": "60018",
+      "productSku": "DC-003-WHT",
+      "productName": "Eames-Inspired Molded Chair - White",
+      "variantId": "120017",
+      "variantCode": "SB-002-BLU-B004"
+    },
+    {
+      "productId": "60019",
+      "productSku": "DC-004-NVY",
+      "productName": "Tufted Velvet Dining Chair - Navy Blue",
+      "variantId": "120018",
+      "variantCode": "SB-003-BEI-B001"
+    },
+    {
+      "productId": "60019",
+      "productSku": "DC-004-NVY",
+      "productName": "Tufted Velvet Dining Chair - Navy Blue",
+      "variantId": "120019",
+      "variantCode": "SB-003-BEI-B002"
+    },
+    {
+      "productId": "60019",
+      "productSku": "DC-004-NVY",
+      "productName": "Tufted Velvet Dining Chair - Navy Blue",
+      "variantId": "120020",
+      "variantCode": "SB-003-BEI-B003"
+    },
+    {
+      "productId": "60019",
+      "productSku": "DC-004-NVY",
+      "productName": "Tufted Velvet Dining Chair - Navy Blue",
+      "variantId": "120021",
+      "variantCode": "SB-003-BEI-B004"
+    }
+  ],
+  "messages": [],
+  "stdout": "productId\tproductSku\tproductName\tvariantId\tvariantCode\n60001\tSB-001-GRY\tModern Convertible Sofa Bed - Gray\t120002\tSB-001-B001\n60001\tSB-001-GRY\tModern Convertible Sofa Bed - Gray\t120003\tSB-001-B004\n60001\tSB-001-GRY\tModern Convertible Sofa Bed - Gray\t120004\tSB-001-B003\n60001\tSB-001-GRY\tModern Convertible Sofa Bed - Gray\t120005\tSB-001-B002\n60016\tDC-001-GRY\tModern Upholstered Dining Chair - Gray\t120006\tDC-001-B001\n60016\tDC-001-GRY\tModern Upholstered Dining Chair - Gray\t120007\tDC-001-B002\n60016\tDC-001-GRY\tModern Upholstered Dining Chair - Gray\t120008\tDC-001-B003\n60016\tDC-001-GRY\tModern Upholstered Dining Chair - Gray\t120009\tDC-001-B004\n60017\tDC-002-WAL\tMid-Century Rope Seat Dining Chair - Walnut\t120010\tSB-001-GRY-B001\n60017\tDC-002-WAL\tMid-Century Rope Seat Dining Chair - Walnut\t120011\tSB-001-GRY-B002\n60017\tDC-002-WAL\tMid-Century Rope Seat Dining Chair - Walnut\t120012\tSB-001-GRY-B003\n60017\tDC-002-WAL\tMid-Century Rope Seat Dining Chair - Walnut\t120013\tSB-001-GRY-B004\n60018\tDC-003-WHT\tEames-Inspired Molded Chair - White\t120014\tSB-002-BLU-B001\n60018\tDC-003-WHT\tEames-Inspired Molded Chair - White\t120015\tSB-002-BLU-B002\n60018\tDC-003-WHT\tEames-Inspired Molded Chair - White\t120016\tSB-002-BLU-B003\n60018\tDC-003-WHT\tEames-Inspired Molded Chair - White\t120017\tSB-002-BLU-B004\n60019\tDC-004-NVY\tTufted Velvet Dining Chair - Navy Blue\t120018\tSB-003-BEI-B001\n60019\tDC-004-NVY\tTufted Velvet Dining Chair - Navy Blue\t120019\tSB-003-BEI-B002\n60019\tDC-004-NVY\tTufted Velvet Dining Chair - Navy Blue\t120020\tSB-003-BEI-B003\n60019\tDC-004-NVY\tTufted Velvet Dining Chair - Navy Blue\t120021\tSB-003-BEI-B004\n",
+  "stderr": "",
+  "execution_time_ms": 1617
+}

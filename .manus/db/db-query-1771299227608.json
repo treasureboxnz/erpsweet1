@@ -1,0 +1,15 @@
+{
+  "query": "SELECT id, quotationNumber, quotationMode FROM quotations WHERE quotationNumber = 'QUO-20260216-002';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT id, quotationNumber, quotationMode FROM quotations WHERE quotationNumber = 'QUO-20260216-002';",
+  "rows": [
+    {
+      "id": "2",
+      "quotationNumber": "QUO-20260216-002",
+      "quotationMode": "fob_only"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tquotationNumber\tquotationMode\n2\tQUO-20260216-002\tfob_only\n",
+  "stderr": "",
+  "execution_time_ms": 1519
+}

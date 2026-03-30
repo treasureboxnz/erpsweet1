@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS `company_assignees` (\n  `id` int AUTO_INCREMENT PRIMARY KEY,\n  `companyId` int NOT NULL,\n  `userId` int NOT NULL,\n  `isPrimary` boolean NOT NULL DEFAULT false,\n  `assignedBy` int,\n  `assignedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (`companyId`) REFERENCES `companies`(`id`) ON DELETE CASCADE,\n  FOREIGN KEY (`userId`) REFERENCES `users`(`id`) ON DELETE CASCADE,\n  FOREIGN KEY (`assignedBy`) REFERENCES `users`(`id`) ON DELETE SET NULL,\n  INDEX `companyId_idx` (`companyId`),\n  INDEX `userId_idx` (`userId`)\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute CREATE TABLE IF NOT EXISTS `company_assignees` (\n  `id` int AUTO_INCREMENT PRIMARY KEY,\n  `companyId` int NOT NULL,\n  `userId` int NOT NULL,\n  `isPrimary` boolean NOT NULL DEFAULT false,\n  `assignedBy` int,\n  `assignedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (`companyId`) REFERENCES `companies`(`id`) ON DELETE CASCADE,\n  FOREIGN KEY (`userId`) REFERENCES `users`(`id`) ON DELETE CASCADE,\n  FOREIGN KEY (`assignedBy`) REFERENCES `users`(`id`) ON DELETE SET NULL,\n  INDEX `companyId_idx` (`companyId`),\n  INDEX `userId_idx` (`userId`)\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 2060
+}

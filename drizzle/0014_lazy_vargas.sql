@@ -1,0 +1,1 @@
+ALTER TABLE `customer_follow_ups` ADD `images` text;

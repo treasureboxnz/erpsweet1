@@ -1,0 +1,17 @@
+{
+  "query": "SELECT \n  COUNT(*) as total_variants,\n  COUNT(materialColorId) as variants_with_color,\n  COUNT(supplierId) as variants_with_supplier,\n  COUNT(customerId) as variants_with_customer,\n  SUM(CASE WHEN materialColorId IS NOT NULL AND supplierId IS NOT NULL AND customerId IS NOT NULL THEN 1 ELSE 0 END) as fully_configured\nFROM product_variants;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute SELECT \n  COUNT(*) as total_variants,\n  COUNT(materialColorId) as variants_with_color,\n  COUNT(supplierId) as variants_with_supplier,\n  COUNT(customerId) as variants_with_customer,\n  SUM(CASE WHEN materialColorId IS NOT NULL AND supplierId IS NOT NULL AND customerId IS NOT NULL THEN 1 ELSE 0 END) as fully_configured\nFROM product_variants;",
+  "rows": [
+    {
+      "total_variants": "35",
+      "variants_with_color": "35",
+      "variants_with_supplier": "35",
+      "variants_with_customer": "35",
+      "fully_configured": "35"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_variants\tvariants_with_color\tvariants_with_supplier\tvariants_with_customer\tfully_configured\n35\t35\t35\t35\t35\n",
+  "stderr": "",
+  "execution_time_ms": 1578
+}

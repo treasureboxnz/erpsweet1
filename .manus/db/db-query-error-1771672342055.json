@@ -1,0 +1,8 @@
+{
+  "query": "ALTER TABLE package_boxes \nADD COLUMN packagingType ENUM('single', 'multiple', 'bulk') NOT NULL DEFAULT 'single' AFTER netWeight,\nADD COLUMN piecesPerBox INT NOT NULL DEFAULT 1 AFTER packagingType;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute ALTER TABLE package_boxes \nADD COLUMN packagingType ENUM('single', 'multiple', 'bulk') NOT NULL DEFAULT 'single' AFTER netWeight,\nADD COLUMN piecesPerBox INT NOT NULL DEFAULT 1 AFTER packagingType;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'packagingtype' in 'package_boxes'"
+  ]
+}

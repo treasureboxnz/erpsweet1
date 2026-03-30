@@ -1,0 +1,45 @@
+{
+  "query": "\nSELECT p.id as product_id, p.name, p.imageUrl, oi.id as order_item_id, oi.orderId\nFROM products p\nJOIN product_variants pv ON pv.productId = p.id\nJOIN order_items oi ON oi.variantId = pv.id\nWHERE p.imageUrl IS NOT NULL\nLIMIT 5;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT p.id as product_id, p.name, p.imageUrl, oi.id as order_item_id, oi.orderId\nFROM products p\nJOIN product_variants pv ON pv.productId = p.id\nJOIN order_items oi ON oi.variantId = pv.id\nWHERE p.imageUrl IS NOT NULL\nLIMIT 5;\n",
+  "rows": [
+    {
+      "product_id": "60016",
+      "name": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-001-GRY/primary.png",
+      "order_item_id": "60010",
+      "orderId": "60008"
+    },
+    {
+      "product_id": "60016",
+      "name": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-001-GRY/primary.png",
+      "order_item_id": "90001",
+      "orderId": "90001"
+    },
+    {
+      "product_id": "60016",
+      "name": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-001-GRY/primary.png",
+      "order_item_id": "60004",
+      "orderId": "60002"
+    },
+    {
+      "product_id": "60016",
+      "name": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-001-GRY/primary.png",
+      "order_item_id": "240008",
+      "orderId": "240003"
+    },
+    {
+      "product_id": "60016",
+      "name": "Modern Upholstered Dining Chair - Gray",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-001-GRY/primary.png",
+      "order_item_id": "180016",
+      "orderId": "180001"
+    }
+  ],
+  "messages": [],
+  "stdout": "product_id\tname\timageUrl\torder_item_id\torderId\n60016\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-001-GRY/primary.png\t60010\t60008\n60016\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-001-GRY/primary.png\t90001\t90001\n60016\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-001-GRY/primary.png\t60004\t60002\n60016\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-001-GRY/primary.png\t240008\t240003\n60016\tModern Upholstered Dining Chair - Gray\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663334223494/5QtmwQJEy7EFv8QJHVh9i8/product-media/DC-001-GRY/primary.png\t180016\t180001\n",
+  "stderr": "",
+  "execution_time_ms": 1525
+}

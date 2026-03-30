@@ -1,0 +1,46 @@
+{
+  "query": "-- 为现有供应商自动分配材料类型（根据名称判断）\n-- 布料供应商（包含\"布\"、\"纺织\"、\"面料\"等关键词）\nUPDATE material_suppliers ms\nJOIN material_types mt ON mt.name = '布料' AND mt.erpCompanyId = ms.erpCompanyId\nSET ms.materialTypeId = mt.id\nWHERE ms.name LIKE '%布%' OR ms.name LIKE '%纺织%' OR ms.name LIKE '%面料%' OR ms.code LIKE 'DF%' OR ms.code LIKE 'JX%' OR ms.code LIKE 'HM%';\n\n-- 查询更新结果\nSELECT ms.id, ms.name, ms.code, mt.name AS materialType\nFROM material_suppliers ms\nLEFT JOIN material_types mt ON ms.materialTypeId = mt.id\nWHERE ms.erpCompanyId = 1\nLIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute -- 为现有供应商自动分配材料类型（根据名称判断）\n-- 布料供应商（包含\"布\"、\"纺织\"、\"面料\"等关键词）\nUPDATE material_suppliers ms\nJOIN material_types mt ON mt.name = '布料' AND mt.erpCompanyId = ms.erpCompanyId\nSET ms.materialTypeId = mt.id\nWHERE ms.name LIKE '%布%' OR ms.name LIKE '%纺织%' OR ms.name LIKE '%面料%' OR ms.code LIKE 'DF%' OR ms.code LIKE 'JX%' OR ms.code LIKE 'HM%';\n\n-- 查询更新结果\nSELECT ms.id, ms.name, ms.code, mt.name AS materialType\nFROM material_suppliers ms\nLEFT JOIN material_types mt ON ms.materialTypeId = mt.id\nWHERE ms.erpCompanyId = 1\nLIMIT 10;",
+  "rows": [
+    {
+      "id": "5",
+      "name": "华美纺织",
+      "code": "HM",
+      "materialType": "布料"
+    },
+    {
+      "id": "6",
+      "name": "锦绣布业",
+      "code": "JX",
+      "materialType": "布料"
+    },
+    {
+      "id": "7",
+      "name": "东方纺织",
+      "code": "DF",
+      "materialType": "布料"
+    },
+    {
+      "id": "8",
+      "name": "测试供应商",
+      "code": "TEST",
+      "materialType": "NULL"
+    },
+    {
+      "id": "30001",
+      "name": "测试供应商A",
+      "code": "TEST-SUP-001",
+      "materialType": "NULL"
+    },
+    {
+      "id": "30002",
+      "name": "系统默认",
+      "code": "SYS-DEFAULT",
+      "materialType": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tcode\tmaterialType\n5\t华美纺织\tHM\t布料\n6\t锦绣布业\tJX\t布料\n7\t东方纺织\tDF\t布料\n8\t测试供应商\tTEST\tNULL\n30001\t测试供应商A\tTEST-SUP-001\tNULL\n30002\t系统默认\tSYS-DEFAULT\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1738
+}

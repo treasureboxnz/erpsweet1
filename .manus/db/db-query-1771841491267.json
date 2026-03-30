@@ -1,0 +1,16 @@
+{
+  "query": "\nSELECT \n  (SELECT COUNT(*) FROM customers WHERE erpCompanyId = 1) as customers,\n  (SELECT COUNT(*) FROM products WHERE erpCompanyId = 1) as products,\n  (SELECT COUNT(*) FROM orders WHERE erpCompanyId = 1) as orders,\n  (SELECT COUNT(*) FROM quotations WHERE erpCompanyId = 1) as quotations;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wfg8FxM46VuY92.2046134b715b --database 5QtmwQJEy7EFv8QJHVh9i8 --execute \nSELECT \n  (SELECT COUNT(*) FROM customers WHERE erpCompanyId = 1) as customers,\n  (SELECT COUNT(*) FROM products WHERE erpCompanyId = 1) as products,\n  (SELECT COUNT(*) FROM orders WHERE erpCompanyId = 1) as orders,\n  (SELECT COUNT(*) FROM quotations WHERE erpCompanyId = 1) as quotations;\n",
+  "rows": [
+    {
+      "customers": "0",
+      "products": "20",
+      "orders": "47",
+      "quotations": "16"
+    }
+  ],
+  "messages": [],
+  "stdout": "customers\tproducts\torders\tquotations\n0\t20\t47\t16\n",
+  "stderr": "",
+  "execution_time_ms": 1534
+}
